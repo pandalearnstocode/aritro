@@ -7,14 +7,10 @@ widget: experience
 headless: true
 
 # Order that this section appears on the page.
-weight: 40
+weight: 30
 
 title: Experience
 subtitle:
-design:
-  background:
-    color: 'white'
-    text_color_light: false
 
 # Date format for experience
 #   Refer to https://wowchemy.com/docs/customization/#date-format

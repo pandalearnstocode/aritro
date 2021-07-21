@@ -11,10 +11,6 @@ weight: 40
 
 title: Skills
 subtitle:
-design:
-  background:
-    color: 'white'
-    text_color_light: false
 # Showcase personal skills or business features.
 # - Add/remove as many `feature` blocks below as you like.
 # - For available icons, see: https://wowchemy.com/docs/page-builder/#icons

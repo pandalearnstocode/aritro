@@ -25,7 +25,7 @@ experience:
   - title: Data Scientist
     company: AB InBev
     company_url: 'https://www.ab-inbev.com/'
-    company_logo: org-gc
+    company_logo: abi
     location: Bangalore, India
     date_start: '2020-04-11'
     date_end: ''
@@ -38,7 +38,7 @@ experience:
   - title: Data Scientist
     company: The Nielsen Company
     company_url: 'https://www.nielsen.com/us/en/'
-    company_logo: org-x
+    company_logo: nielsen
     location: Bangalore, India
     date_start: '2017-05-26'
     date_end: '2020-04-08'

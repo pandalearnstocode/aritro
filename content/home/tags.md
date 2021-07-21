@@ -11,7 +11,10 @@ weight: 120
 
 title: Popular Topics
 subtitle: ''
-
+design:
+  background:
+    color: 'white'
+    text_color_light: false
 content:
 # Choose the taxonomy from `config.toml` to display (e.g. tags, categories)
   taxonomy: tags

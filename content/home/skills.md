@@ -34,7 +34,7 @@ feature:
 - description:
   icon: tf
   icon_pack: custom
-  name: TF
+  name: Tensorflow
 - description:
   icon: db
   icon_pack: custom

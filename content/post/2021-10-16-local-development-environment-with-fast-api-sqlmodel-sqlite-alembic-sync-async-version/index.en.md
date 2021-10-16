@@ -302,23 +302,18 @@ curl -X POST http://127.0.0.1:8000/task/ -H 'accept: application/json' -H 'Conte
 ```
 * after making the post call validate the db records are being updated using `DB browser for SQLite`
 
-
 ### Conclusion:
 
 This workflow is quite good when in come to rapid prototyping. One can use this inside a docker container as well but make sure that the volume mounting is in place to keep the standalone database file and the other related alembic migration scripts.
 
 ### Reference:
 
-* https://testdriven.io/blog/fastapi-sqlmodel/
-* https://fastapi.tiangolo.com/advanced/async-sql-databases/
-* https://github.com/encode/databases
-* https://github.com/testdrivenio/fastapi-sqlmodel-alembic
-* https://github.com/Lance0404/asiayo-rest-sql
-* https://fastapi.tiangolo.com/tutorial/sql-databases/
-* https://github.cdnweb.icu/smartgic/shortgic
-* https://testdriven.io/blog/fastapi-sqlmodel/
-* https://python.plainenglish.io/building-a-phone-directory-with-mysql-fastapi-and-angular-cd48673904f4
-* https://alembic.sqlalchemy.org/en/latest/autogenerate.html
-* https://towardsdatascience.com/build-an-async-python-service-with-fastapi-sqlalchemy-196d8792fa08
-* https://hackernoon.com/how-to-set-up-fastapi-ormar-and-alembic
-* https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker
+* [FastAPI with Async SQLAlchemy, SQLModel, and Alembic](https://testdriven.io/blog/fastapi-sqlmodel/)
+* [Async SQL (Relational) Databases](https://fastapi.tiangolo.com/advanced/async-sql-databases/)
+* [FastAPI + SQLModel + Alembic](https://github.com/testdrivenio/fastapi-sqlmodel-alembic)
+* [SQL (Relational) Databases](https://fastapi.tiangolo.com/tutorial/sql-databases/)
+* [Building a Phone Directory with Python, MySQL, FastAPI, and Angular](https://python.plainenglish.io/building-a-phone-directory-with-mysql-fastapi-and-angular-cd48673904f4)
+* [Alembic: Auto Generating Migrations](https://alembic.sqlalchemy.org/en/latest/autogenerate.html)
+* [Build an async python service with FastAPI & SQLAlchemy](https://towardsdatascience.com/build-an-async-python-service-with-fastapi-sqlalchemy-196d8792fa08)
+* [How to set up FastAPI, Ormar, and Alembic](https://hackernoon.com/how-to-set-up-fastapi-ormar-and-alembic)
+* [tiangolo/uvicorn-gunicorn-fastapi-docker](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker)

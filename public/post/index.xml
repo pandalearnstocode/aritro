@@ -240,19 +240,15 @@ curl -X POST http://127.0.0.1:8000/task/ -H &#39;accept: application/json&#39; -
 &lt;p&gt;This workflow is quite good when in come to rapid prototyping. One can use this inside a docker container as well but make sure that the volume mounting is in place to keep the standalone database file and the other related alembic migration scripts.&lt;/p&gt;
 &lt;h3 id=&#34;reference&#34;&gt;Reference:&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://testdriven.io/blog/fastapi-sqlmodel/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://testdriven.io/blog/fastapi-sqlmodel/&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://fastapi.tiangolo.com/advanced/async-sql-databases/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://fastapi.tiangolo.com/advanced/async-sql-databases/&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/encode/databases&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/encode/databases&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/testdrivenio/fastapi-sqlmodel-alembic&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/testdrivenio/fastapi-sqlmodel-alembic&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/Lance0404/asiayo-rest-sql&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/Lance0404/asiayo-rest-sql&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://fastapi.tiangolo.com/tutorial/sql-databases/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://fastapi.tiangolo.com/tutorial/sql-databases/&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.cdnweb.icu/smartgic/shortgic&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.cdnweb.icu/smartgic/shortgic&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://testdriven.io/blog/fastapi-sqlmodel/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://testdriven.io/blog/fastapi-sqlmodel/&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://python.plainenglish.io/building-a-phone-directory-with-mysql-fastapi-and-angular-cd48673904f4&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://python.plainenglish.io/building-a-phone-directory-with-mysql-fastapi-and-angular-cd48673904f4&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://alembic.sqlalchemy.org/en/latest/autogenerate.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://alembic.sqlalchemy.org/en/latest/autogenerate.html&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://towardsdatascience.com/build-an-async-python-service-with-fastapi-sqlalchemy-196d8792fa08&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://towardsdatascience.com/build-an-async-python-service-with-fastapi-sqlalchemy-196d8792fa08&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://hackernoon.com/how-to-set-up-fastapi-ormar-and-alembic&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://hackernoon.com/how-to-set-up-fastapi-ormar-and-alembic&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://testdriven.io/blog/fastapi-sqlmodel/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;FastAPI with Async SQLAlchemy, SQLModel, and Alembic&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://fastapi.tiangolo.com/advanced/async-sql-databases/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Async SQL (Relational) Databases&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/testdrivenio/fastapi-sqlmodel-alembic&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;FastAPI + SQLModel + Alembic&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://fastapi.tiangolo.com/tutorial/sql-databases/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;SQL (Relational) Databases&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://python.plainenglish.io/building-a-phone-directory-with-mysql-fastapi-and-angular-cd48673904f4&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Building a Phone Directory with Python, MySQL, FastAPI, and Angular&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://alembic.sqlalchemy.org/en/latest/autogenerate.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Alembic: Auto Generating Migrations&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://towardsdatascience.com/build-an-async-python-service-with-fastapi-sqlalchemy-196d8792fa08&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Build an async python service with FastAPI &amp;amp; SQLAlchemy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://hackernoon.com/how-to-set-up-fastapi-ormar-and-alembic&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;How to set up FastAPI, Ormar, and Alembic&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;tiangolo/uvicorn-gunicorn-fastapi-docker&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
@@ -413,7 +409,7 @@ data.head()
 &lt;p&gt;Demo:&lt;/p&gt;
 
 
-&lt;div id=&#34;chart-736521849&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
+&lt;div id=&#34;chart-293786514&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
 &lt;script&gt;
   (function() {
     let a = setInterval( function() {
@@ -423,7 +419,7 @@ data.head()
       clearInterval( a );
 
       Plotly.d3.json(&#34;./line-chart.json&#34;, function(chart) {
-        Plotly.plot(&#39;chart-736521849&#39;, chart.data, chart.layout, {responsive: true});
+        Plotly.plot(&#39;chart-293786514&#39;, chart.data, chart.layout, {responsive: true});
       });
     }, 500 );
   })();

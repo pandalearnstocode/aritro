@@ -2,6 +2,7 @@
 title: Local development environment with Fast API + SQLModel + SQLite + Alembic
 author: Aritra Biswas
 date: '2021-10-16'
+highlight: true
 slug: local-development-environment-with-fast-api-sqlmodel-sqlite-alembic-sync-async-version
 categories: []
 tags: []

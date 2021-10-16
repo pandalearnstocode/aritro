@@ -1,0 +1,1465 @@
+<!DOCTYPE html><html lang="en-us" >
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  
+  
+    <meta name="generator" content="Wowchemy 5.3.0 for Hugo" />
+  
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Aritra Biswas" />
+
+  
+  
+  
+    
+  
+  <meta name="description" content="This is important to have a working local development environment for quick prototyping and developing CRUD application using Fast API. Here in this post we are going to explore how we can quickly spin up and a local development environment." />
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://academic-demo.netlify.app/post/local-development-environment-with-fast-api-sqlmodel-sqlite-alembic-sync-async-version/" />
+
+  
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  
+
+  
+  
+  
+    <meta name="theme-color" content="#1565c0" />
+  
+
+  
+  
+
+  
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha256-FMvZuGapsJLjouA6k7Eo2lusoAX9i0ShlWFG6qt7SLc=" crossorigin="anonymous" media="print" onload="this.media='all'">
+
+    
+    
+    
+    
+      
+      
+    
+    
+    
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/github.min.css" crossorigin="anonymous" title="hl-light" media="print" onload="this.media='all'">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" media="print" onload="this.media='all'" disabled>
+        
+      
+    
+
+    
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.css" integrity="sha512-1xoFisiGdy9nvho8EgXuXvnpR5GAMSjFwp40gSRE3NwdUdIMIKuPa7bqoUhLD0O/5tPNhteAsE5XyyMi5reQVA==" crossorigin="anonymous" media="print" onload="this.media='all'">
+    
+
+    
+
+    
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+        
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+  
+
+  
+  
+  
+    
+      
+      <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap" media="print" onload="this.media='all'">
+    
+  
+
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/wowchemy.f0cf03b20998d63e314819fa4a90c13f.css" />
+
+  
+
+
+
+  
+
+  
+
+  
+
+
+
+
+  
+  
+  
+
+  
+
+  
+    <link rel="manifest" href="/manifest.webmanifest" />
+  
+
+  <link rel="icon" type="image/png" href="/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_32x32_fill_lanczos_center_3.png" />
+  <link rel="apple-touch-icon" type="image/png" href="/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_180x180_fill_lanczos_center_3.png" />
+
+  <link rel="canonical" href="https://academic-demo.netlify.app/post/local-development-environment-with-fast-api-sqlmodel-sqlite-alembic-sync-async-version/" />
+
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+  
+  
+  <meta property="twitter:card" content="summary" />
+  
+  <meta property="og:site_name" content="Aritra Biswas" />
+  <meta property="og:url" content="https://academic-demo.netlify.app/post/local-development-environment-with-fast-api-sqlmodel-sqlite-alembic-sync-async-version/" />
+  <meta property="og:title" content="Local development environment with Fast API &#43; SQLModel &#43; SQLite &#43; Alembic | Aritra Biswas" />
+  <meta property="og:description" content="This is important to have a working local development environment for quick prototyping and developing CRUD application using Fast API. Here in this post we are going to explore how we can quickly spin up and a local development environment." /><meta property="og:image" content="https://academic-demo.netlify.app/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png" />
+    <meta property="twitter:image" content="https://academic-demo.netlify.app/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_512x512_fill_lanczos_center_3.png" /><meta property="og:locale" content="en-us" />
+  
+    
+      <meta
+        property="article:published_time"
+        content="2021-10-16T00:00:00&#43;00:00"
+      />
+    
+    <meta property="article:modified_time" content="2021-10-16T07:04:33&#43;05:30">
+  
+
+  
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://academic-demo.netlify.app/post/local-development-environment-with-fast-api-sqlmodel-sqlite-alembic-sync-async-version/"
+  },
+  "headline": "Local development environment with Fast API + SQLModel + SQLite + Alembic",
+  
+  "datePublished": "2021-10-16T00:00:00Z",
+  "dateModified": "2021-10-16T07:04:33+05:30",
+  
+  "author": {
+    "@type": "Person",
+    "name": "Aritra Biswas"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Aritra Biswas",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://academic-demo.netlify.app/media/icon_hua2ec155b4296a9c9791d015323e16eb5_11927_192x192_fill_lanczos_center_3.png"
+    }
+  },
+  "description": "This is important to have a working local development environment for quick prototyping and developing CRUD application using Fast API. Here in this post we are going to explore how we can quickly spin up and a local development environment."
+}
+</script>
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+  <title>Local development environment with Fast API &#43; SQLModel &#43; SQLite &#43; Alembic | Aritra Biswas</title>
+</head>
+
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper   " data-wc-page-id="e81c776cd8e2fb3a98f0abd907f6811f" >
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script src="/js/wowchemy-init.min.8988fb2a4bba758785868cfcb5244555.js"></script>
+
+  
+
+
+<aside class="search-modal" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#" aria-label="Close"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control"
+        aria-label="Search...">
+        
+      </div>
+
+      
+      
+
+      
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+
+  <div class="page-header">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container-xl">
+
+    
+    <div class="d-none d-lg-inline-flex">
+      <a class="navbar-brand" href="/">Aritra Biswas</a>
+    </div>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/">Aritra Biswas</a>
+    </div>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#about"><span>About me</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#projects"><span>Projects</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+
+      
+      
+        
+          
+          <li class="nav-item d-none d-lg-inline-flex">
+            <a class="nav-link" href="https://twitter.com/pdlearnstocode" data-toggle="tooltip" data-placement="bottom" title="Follow me on Twitter" target="_blank" rel="noopener" aria-label="Follow me on Twitter">
+              <i class="fab fa-twitter" aria-hidden="true"></i>
+            </a>
+          </li>
+        
+      
+
+      
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      
+      <li class="nav-item dropdown theme-dropdown">
+        <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-label="Display preferences">
+          <i class="fas fa-moon" aria-hidden="true"></i>
+        </a>
+        <div class="dropdown-menu">
+          <a href="#" class="dropdown-item js-set-theme-light">
+            <span>Light</span>
+          </a>
+          <a href="#" class="dropdown-item js-set-theme-dark">
+            <span>Dark</span>
+          </a>
+          <a href="#" class="dropdown-item js-set-theme-auto">
+            <span>Automatic</span>
+          </a>
+        </div>
+      </li>
+      
+
+      
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+  </div>
+
+  <div class="page-body">
+    <article class="article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1>Local development environment with Fast API &#43; SQLModel &#43; SQLite &#43; Alembic</h1>
+
+  
+
+  
+    
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+          Last updated on
+      
+    
+    Oct 16, 2021
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    6 min read
+  </span>
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+  
+
+</div>
+
+    
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      <p>This is important to have a working local development environment for quick prototyping and developing CRUD application using Fast API. Here in this post we are going to explore how we can quickly spin up and a local development environment. Here we are going to use the following tools to develop the REST API endpoints,</p>
+<ul>
+<li><a href="https://fastapi.tiangolo.com/" target="_blank" rel="noopener">Fast API</a></li>
+<li><a href="https://sqlmodel.tiangolo.com/" target="_blank" rel="noopener">SQLModel</a></li>
+<li><a href="https://www.sqlite.org/index.html" target="_blank" rel="noopener">SQLite</a></li>
+<li><a href="https://alembic.sqlalchemy.org/en/latest/" target="_blank" rel="noopener">Alembic</a></li>
+</ul>
+<h3 id="prerequisite">Prerequisite:</h3>
+<ul>
+<li><a href="https://www.anaconda.com/" target="_blank" rel="noopener">Anaconda</a></li>
+<li><a href="https://sqlitebrowser.org/" target="_blank" rel="noopener">DB browser for SQLite</a></li>
+<li>curl</li>
+</ul>
+<h3 id="code-repository">Code repository:</h3>
+<ul>
+<li><a href="https://github.com/pandalearnstocode/fastapi_sqlmodel_sqlite_alembic_sync_template" target="_blank" rel="noopener">Fast API + SQLite + SQLModel + Alembic (Sync version)</a></li>
+<li><a href="https://github.com/pandalearnstocode/fastapi_sqlmodel_sqlite_alembic_async_template" target="_blank" rel="noopener">Fast API + SQLite + SQLModel + Alembic (Async version)</a></li>
+</ul>
+<h3 id="sample-api-workflow">Sample API workflow:</h3>
+<h4 id="workflow">Workflow:</h4>
+<ul>
+<li>Write database models</li>
+<li>Write database settings</li>
+<li>Write REST API endpoints</li>
+<li>Test APIs</li>
+<li>Setup alembic</li>
+<li>Change database models</li>
+<li>Update APIs</li>
+<li>Run alembic migration</li>
+<li>Test APIs</li>
+</ul>
+<h4 id="project-structure">Project structure:</h4>
+<pre><code>.
+├── app
+│   ├── db.py : All the settings related to DB will be here.
+│   ├── __init__.py
+│   ├── main.py : All endpoints will be defined here.
+│   └── models.py : All the data models will be defined here.
+└── database.db : This SQLite DB will be created and data will be stored here.
+</code></pre>
+<h3 id="step-1-setup-development-environment">Step 1: Setup development environment</h3>
+<p>Create a local development conda environment to run the application from local. Here we are going to use python 3.8. After creating the environment install the required dependencies.</p>
+<pre><code class="language-bash">conda create --name fastapi_sqlmodel python=3.8
+conda activate fastapi_sqlmodel
+pip install fastapi[all] sqlmodel alembic aiosqlite
+</code></pre>
+<h3 id="step-2-create-database-models-in-modelspy">Step 2: Create database models in <code>models.py</code></h3>
+<p>Here we are going to define a database model to store information related to <code>task name</code>. Task table is the table which will be updated later with the <code>task description</code> information and we will perform a migration to see how the changes are going to be maintained and reflected in the database.</p>
+<pre><code class="language-python">from sqlmodel import SQLModel, Field
+
+class TaskBase(SQLModel):
+    task_name: str
+
+class Task(TaskBase, table=True):
+    id: int = Field(default=None, primary_key=True)
+
+class TaskCreate(TaskBase):
+    pass
+</code></pre>
+<h3 id="step-3-create-settings-related-to-db-in-dbpy">Step 3: Create settings related to DB in <code>db.py</code></h3>
+<p>Here for rapid prototype we are going to use sqlite local db. Which is kind of a standalone file. To view the record in the file we can we use the <a href="https://sqlitebrowser.org/" target="_blank" rel="noopener">DB browser for SQLite</a>. After we run the application a a file called <code>database.db</code> will be created in the root directory of the project.</p>
+<h4 id="sync-version">Sync version:</h4>
+<p>Here are going to create two functions which will create all the required tables when the FastAPI application starts and will generate a session using which I/O operations will be performed in a DB.</p>
+<pre><code class="language-python">from sqlmodel import Session, SQLModel, create_engine
+sqlite_file_name = &quot;database.db&quot;
+sqlite_url = f&quot;sqlite:///{sqlite_file_name}&quot;
+
+connect_args = {&quot;check_same_thread&quot;: False}
+engine = create_engine(sqlite_url, echo=True, connect_args=connect_args)
+
+def create_db_and_tables():
+    SQLModel.metadata.create_all(engine)
+
+def get_session():
+    with Session(engine) as session:
+        yield session
+</code></pre>
+<h4 id="async-version">Async version:</h4>
+<p>Asyn version of the above defined functions which will be used in <code>main.py</code>.</p>
+<pre><code class="language-python">from sqlmodel import SQLModel
+from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
+from sqlalchemy.orm import sessionmaker
+
+sqlite_file_name = &quot;database.db&quot;
+sqlite_url = f&quot;sqlite+aiosqlite:///{sqlite_file_name}&quot;
+engine = create_async_engine(sqlite_url, echo=True, future=True)
+
+async def init_db():
+    async with engine.begin() as conn:
+        await conn.run_sync(SQLModel.metadata.create_all)
+
+async def get_session() -&gt; AsyncSession:
+    async_session = sessionmaker(
+        engine, class_=AsyncSession, expire_on_commit=False
+    )
+    async with async_session() as session:
+        yield session
+</code></pre>
+<h3 id="step-4-define-api-endpoints-in-mainpy">Step 4: Define API endpoints in <code>main.py</code></h3>
+<p>Here we are going to define a POST endpoint using which we can write some task related information in the database. As of now, the request model for this endpoint is <code>TaskCreate</code> and in the response this endpoint will return an object of type <code>Task</code>.</p>
+<h4 id="sync-version-1">Sync version:</h4>
+<pre><code class="language-python">from fastapi import FastAPI, Depends
+from sqlmodel import Session
+from app.db import create_db_and_tables, get_session
+from app.models import Task, TaskCreate
+
+app = FastAPI()
+
+@app.on_event(&quot;startup&quot;)
+def on_startup():
+    create_db_and_tables()
+
+@app.get(&quot;/ping&quot;)
+def pong():
+    return {&quot;ping&quot;: &quot;pong!&quot;}
+
+@app.post(&quot;/task/&quot;, response_model=Task)
+def create_task(task: TaskCreate, session: Session = Depends(get_session)):
+    db_task = Task.from_orm(task)
+    session.add(db_task)
+    session.commit()
+    session.refresh(db_task)
+    return db_task
+</code></pre>
+<h4 id="async-version-1">Async version:</h4>
+<pre><code class="language-python">from fastapi import FastAPI, Depends
+from sqlmodel import Session
+from app.db import create_db_and_tables, get_session
+from app.models import Task, TaskCreate
+
+app = FastAPI()
+
+@app.on_event(&quot;startup&quot;)
+def on_startup():
+    create_db_and_tables()
+
+@app.get(&quot;/ping&quot;)
+def pong():
+    return {&quot;ping&quot;: &quot;pong!&quot;}
+
+@app.post(&quot;/task/&quot;, response_model=Task)
+def create_task(task: TaskCreate, session: Session = Depends(get_session)):
+    db_task = Task.from_orm(task)
+    session.add(db_task)
+    session.commit()
+    session.refresh(db_task)
+    return db_task
+</code></pre>
+<h3 id="step-5-test-api-endpoints">Step 5: Test API endpoints</h3>
+<p>Here we are going to test the API endpoints are working fine or not. If we get the expected result from the CURL and can validate the records are being updated in the DB we can expect that the APIs are working fine.</p>
+<pre><code class="language-bash">uvicorn app.main:app --reload
+curl -X POST http://127.0.0.1:8000/task/ -H 'accept: application/json' -H 'Content-Type: application/json' -d '{&quot;task_name&quot;: &quot;just added task&quot;}'
+</code></pre>
+<p><strong>Note:</strong></p>
+<ul>
+<li>a <code>database.db</code> file will be create in project root directory.</li>
+<li>after making the post call validate the db records are being updated using <code>DB browser for SQLite</code></li>
+</ul>
+<h3 id="step-6-setup-alembic">Step 6: Setup alembic</h3>
+<h4 id="step-6a-generate-alembic-settings">Step 6a: Generate alembic settings</h4>
+<p>In this step we are going generate all the settings for alembic migration. This will generate some files and folders in the project root directory.</p>
+<h5 id="sync-version-2">Sync version:</h5>
+<pre><code class="language-bash">alembic init alembic
+</code></pre>
+<h5 id="async-version-2">Async version:</h5>
+<pre><code class="language-bash">alembic init -t async alembic
+</code></pre>
+<h4 id="step-6b-update-alembic-settings">Step 6b: Update alembic settings</h4>
+<p>After these files are generated, change the DB url in <code>alembic.ini</code>.</p>
+<h5 id="sync-version-3">Sync version:</h5>
+<ul>
+<li>replace <code>sqlalchemy.url = driver://user:pass@localhost/dbname</code> in <code>alembic.ini</code> with <code>sqlite:///database.db</code>.</li>
+</ul>
+<h5 id="async-version-3">Async version:</h5>
+<ul>
+<li>replace <code>sqlalchemy.url = driver://user:pass@localhost/dbname</code> in <code>alembic.ini</code> with <code>sqlite+aiosqlite:///database.db</code>.</li>
+</ul>
+<h5 id="common-changes-for-sync--async-version">Common changes for Sync &amp; Async version:</h5>
+<ul>
+<li>in <code>alembic/env.py</code> file add <code>from sqlmodel import SQLModel</code> in the import section.</li>
+<li>in <code>alembic/env.py</code> file add the following line in import section, <code>from app.models import Task</code>.</li>
+<li>in <code>alembic/env.py</code> change <code>target_metadata = None</code> to <code>target_metadata = SQLModel.metadata</code>.</li>
+<li>in <code>alembic/script.py.mako</code> add <code>import sqlmodel</code> in the import section.</li>
+</ul>
+<h4 id="step-6c-generate-alembic-migration-settings">Step 6c: Generate alembic migration settings</h4>
+<p>After making all the changes, make first migration.</p>
+<pre><code class="language-bash">alembic revision --autogenerate -m &quot;init&quot;
+alembic upgrade head
+</code></pre>
+<h3 id="step-7-update-data-models-in-modelspy">Step 7: Update data models in <code>models.py</code></h3>
+<p>Now, lets say there is some changes we need to add to our data model. In this case we are just going to add <code>task_description</code>. <code>task_description</code> will be a optional string column in the <code>Task</code> table. After we make the required changes in the <code>app/models.py</code> and <code>app/main.py</code>, we need to run the migration to add the newly added columns in the DB.</p>
+<pre><code class="language-python">from sqlmodel import SQLModel, Field
+from typing import Optional # This is a new add line
+
+class TaskBase(SQLModel):
+    task_name: str
+    task_description: Optional[str] = None # This is a new add line
+
+class Task(TaskBase, table=True):
+    id: int = Field(default=None, primary_key=True)
+
+class TaskCreate(TaskBase):
+    pass
+</code></pre>
+<h3 id="step-8-update-api-endpoints-in-mainpy">Step 8: Update API endpoints in <code>main.py</code></h3>
+<p>In this case, endpoints remains unchanged but in a realistic scenario endpoints has to be changed to take the new information into account.</p>
+<h3 id="step-9-run-db-migration">Step 9: Run DB migration</h3>
+<p>Run the following line to update the database tables.</p>
+<pre><code class="language-bash">alembic revision --autogenerate -m &quot;add description&quot;
+alembic upgrade head
+</code></pre>
+<h3 id="step-10-test-updated-api-endpoints">Step 10: Test updated API endpoints</h3>
+<p>As last step, make a call to the API endpoints which will be using the updated table and check if everything is working fine or not.</p>
+<pre><code class="language-bash">uvicorn app.main:app --reload
+curl -X POST http://127.0.0.1:8000/task/ -H 'accept: application/json' -H 'Content-Type: application/json' -d '{&quot;task_name&quot;: &quot;just added task&quot;,&quot;task_description&quot;:&quot;a newly created task&quot;}'
+</code></pre>
+<ul>
+<li>after making the post call validate the db records are being updated using <code>DB browser for SQLite</code></li>
+</ul>
+<h3 id="conclusion">Conclusion:</h3>
+<p>This workflow is quite good when in come to rapid prototyping. One can use this inside a docker container as well but make sure that the volume mounting is in place to keep the standalone database file and the other related alembic migration scripts.</p>
+<h3 id="reference">Reference:</h3>
+<ul>
+<li><a href="https://testdriven.io/blog/fastapi-sqlmodel/" target="_blank" rel="noopener">https://testdriven.io/blog/fastapi-sqlmodel/</a></li>
+<li><a href="https://fastapi.tiangolo.com/advanced/async-sql-databases/" target="_blank" rel="noopener">https://fastapi.tiangolo.com/advanced/async-sql-databases/</a></li>
+<li><a href="https://github.com/encode/databases" target="_blank" rel="noopener">https://github.com/encode/databases</a></li>
+<li><a href="https://github.com/testdrivenio/fastapi-sqlmodel-alembic" target="_blank" rel="noopener">https://github.com/testdrivenio/fastapi-sqlmodel-alembic</a></li>
+<li><a href="https://github.com/Lance0404/asiayo-rest-sql" target="_blank" rel="noopener">https://github.com/Lance0404/asiayo-rest-sql</a></li>
+<li><a href="https://fastapi.tiangolo.com/tutorial/sql-databases/" target="_blank" rel="noopener">https://fastapi.tiangolo.com/tutorial/sql-databases/</a></li>
+<li><a href="https://github.cdnweb.icu/smartgic/shortgic" target="_blank" rel="noopener">https://github.cdnweb.icu/smartgic/shortgic</a></li>
+<li><a href="https://testdriven.io/blog/fastapi-sqlmodel/" target="_blank" rel="noopener">https://testdriven.io/blog/fastapi-sqlmodel/</a></li>
+<li><a href="https://python.plainenglish.io/building-a-phone-directory-with-mysql-fastapi-and-angular-cd48673904f4" target="_blank" rel="noopener">https://python.plainenglish.io/building-a-phone-directory-with-mysql-fastapi-and-angular-cd48673904f4</a></li>
+<li><a href="https://alembic.sqlalchemy.org/en/latest/autogenerate.html" target="_blank" rel="noopener">https://alembic.sqlalchemy.org/en/latest/autogenerate.html</a></li>
+<li><a href="https://towardsdatascience.com/build-an-async-python-service-with-fastapi-sqlalchemy-196d8792fa08" target="_blank" rel="noopener">https://towardsdatascience.com/build-an-async-python-service-with-fastapi-sqlalchemy-196d8792fa08</a></li>
+<li><a href="https://hackernoon.com/how-to-set-up-fastapi-ormar-and-alembic" target="_blank" rel="noopener">https://hackernoon.com/how-to-set-up-fastapi-ormar-and-alembic</a></li>
+<li><a href="https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker" target="_blank" rel="noopener">https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker</a></li>
+</ul>
+
+    </div>
+
+    
+
+
+
+
+
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=https://academic-demo.netlify.app/post/local-development-environment-with-fast-api-sqlmodel-sqlite-alembic-sync-async-version/&amp;text=Local%20development%20environment%20with%20Fast%20API%20&#43;%20SQLModel%20&#43;%20SQLite%20&#43;%20Alembic" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=https://academic-demo.netlify.app/post/local-development-environment-with-fast-api-sqlmodel-sqlite-alembic-sync-async-version/&amp;t=Local%20development%20environment%20with%20Fast%20API%20&#43;%20SQLModel%20&#43;%20SQLite%20&#43;%20Alembic" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=Local%20development%20environment%20with%20Fast%20API%20&#43;%20SQLModel%20&#43;%20SQLite%20&#43;%20Alembic&amp;body=https://academic-demo.netlify.app/post/local-development-environment-with-fast-api-sqlmodel-sqlite-alembic-sync-async-version/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=https://academic-demo.netlify.app/post/local-development-environment-with-fast-api-sqlmodel-sqlite-alembic-sync-async-version/&amp;title=Local%20development%20environment%20with%20Fast%20API%20&#43;%20SQLModel%20&#43;%20SQLite%20&#43;%20Alembic" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="whatsapp://send?text=Local%20development%20environment%20with%20Fast%20API%20&#43;%20SQLModel%20&#43;%20SQLite%20&#43;%20Alembic%20https://academic-demo.netlify.app/post/local-development-environment-with-fast-api-sqlmodel-sqlite-alembic-sync-async-version/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=https://academic-demo.netlify.app/post/local-development-environment-with-fast-api-sqlmodel-sqlite-alembic-sync-async-version/&amp;title=Local%20development%20environment%20with%20Fast%20API%20&#43;%20SQLModel%20&#43;%20SQLite%20&#43;%20Alembic" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+  
+  
+    
+  
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      
+      <a href="https://academic-demo.netlify.app/"><img class="avatar mr-3 avatar-circle" src="/author/aritra-biswas/avatar_hu4e01a9f8d247b168109398e4caeda13b_130739_270x270_fill_q75_lanczos_center.jpeg" alt="Aritra Biswas"></a>
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="https://academic-demo.netlify.app/">Aritra Biswas</a></h5>
+      <h6 class="card-subtitle">Data Scientist</h6>
+      <p class="card-text">My research interests include computational statistics, causal inference , simulation and mathematical optimization.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://twitter.com/pdlearnstocode" target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://www.youtube.com/channel/UCd3o4IJUJSmOFr6kHv6Y3vw" target="_blank" rel="noopener">
+        <i class="fab fa-youtube"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/pandalearnstocode" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://www.linkedin.com/in/pandalearnstocode/" target="_blank" rel="noopener">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://medium.com/@pandalearnstocode" target="_blank" rel="noopener">
+        <i class="fab fa-medium"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://www.instagram.com/pdlearns2code" target="_blank" rel="noopener">
+        <i class="fab fa-instagram"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://stackoverflow.com/users/9984132/pandalearnstocode" target="_blank" rel="noopener">
+        <i class="fab fa-stack-overflow"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  </div>
+</article>
+  </div>
+
+  <div class="page-footer">
+    
+    
+    <div class="container">
+      <footer class="site-footer">
+
+  
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+
+
+
+
+
+  <p class="powered-by">
+    
+    
+    
+      
+      
+      
+      
+      
+      
+      Published with <a href="https://wowchemy.com/?utm_campaign=poweredby" target="_blank" rel="noopener">Wowchemy</a> — the free, <a href="https://github.com/wowchemy/wowchemy-hugo-modules" target="_blank" rel="noopener">open source</a> website builder that empowers creators.
+    
+  </p>
+</footer>
+
+    </div>
+    
+  </div>
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/instant.page/5.1.0/instantpage.min.js" integrity="sha512-1+qUtKoh9XZW7j+6LhRMAyOrgSQKenQ4mluTR+cvxXjP1Z54RxZuzstR/H9kgPXQsVB8IW7DMDFUJpzLjvhGSQ==" crossorigin="anonymous"></script>
+
+      
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      
+
+      
+      
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js" integrity="sha512-TDKKr+IvoqZnPzc3l35hdjpHD0m+b2EC2SrLEgKDRWpxf2rFCxemkgvJ5kfU48ip+Y+m2XVKyOCD85ybtlZDmw==" crossorigin="anonymous"></script>
+        
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/r.min.js" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/python.min.js" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/latex.min.js" crossorigin="anonymous"></script>
+        
+      
+
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.js" integrity="sha512-SeiQaaDh73yrb56sTW/RgVdi/mMqNeM2oBwubFHagc5BkixSpP1fvqF47mKzPGWYSSy4RwbBunrJBQ4Co8fRWA==" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+      
+      <script id="search-hit-fuse-template" type="text/x-template">
+        <div class="search-hit" id="summary-{{key}}">
+          <div class="search-hit-content">
+            <div class="search-hit-name">
+              <a href="{{relpermalink}}">{{title}}</a>
+              <div class="article-metadata search-hit-type">{{type}}</div>
+              <p class="search-hit-description">{{snippet}}</p>
+            </div>
+          </div>
+        </div>
+      </script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+      
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    <script src="/js/bootstrap.bundle.min.6aed84840afc03ab4d5750157f69c120.js"></script>
+
+    
+    
+      
+      
+      
+      
+      
+      
+      
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+      
+      
+    
+    
+    <script src="/en/js/wowchemy.min.d68ecd57c0ec1f1f61d65fd568f1c3a0.js"></script>
+
+    
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+
+
+
+</body>
+</html>

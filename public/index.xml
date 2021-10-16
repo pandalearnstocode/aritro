@@ -128,6 +128,251 @@ The variance of the distribution is $\sigma^{2}$.
     </item>
     
     <item>
+      <title>Local development environment with Fast API &#43; SQLModel &#43; SQLite &#43; Alembic</title>
+      <link>https://academic-demo.netlify.app/post/local-development-environment-with-fast-api-sqlmodel-sqlite-alembic-sync-async-version/</link>
+      <pubDate>Sat, 16 Oct 2021 00:00:00 +0000</pubDate>
+      <guid>https://academic-demo.netlify.app/post/local-development-environment-with-fast-api-sqlmodel-sqlite-alembic-sync-async-version/</guid>
+      <description>&lt;p&gt;This is important to have a working local development environment for quick prototyping and developing CRUD application using Fast API. Here in this post we are going to explore how we can quickly spin up and a local development environment. Here we are going to use the following tools to develop the REST API endpoints,&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://fastapi.tiangolo.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Fast API&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://sqlmodel.tiangolo.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;SQLModel&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.sqlite.org/index.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;SQLite&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://alembic.sqlalchemy.org/en/latest/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Alembic&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;prerequisite&#34;&gt;Prerequisite:&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.anaconda.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Anaconda&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://sqlitebrowser.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;DB browser for SQLite&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;curl&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;code-repository&#34;&gt;Code repository:&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/pandalearnstocode/fastapi_sqlmodel_sqlite_alembic_sync_template&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Fast API + SQLite + SQLModel + Alembic (Sync version)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/pandalearnstocode/fastapi_sqlmodel_sqlite_alembic_async_template&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Fast API + SQLite + SQLModel + Alembic (Async version)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;sample-api-workflow&#34;&gt;Sample API workflow:&lt;/h3&gt;
+&lt;h4 id=&#34;workflow&#34;&gt;Workflow:&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Write database models&lt;/li&gt;
+&lt;li&gt;Write database settings&lt;/li&gt;
+&lt;li&gt;Write REST API endpoints&lt;/li&gt;
+&lt;li&gt;Test APIs&lt;/li&gt;
+&lt;li&gt;Setup alembic&lt;/li&gt;
+&lt;li&gt;Change database models&lt;/li&gt;
+&lt;li&gt;Update APIs&lt;/li&gt;
+&lt;li&gt;Run alembic migration&lt;/li&gt;
+&lt;li&gt;Test APIs&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;project-structure&#34;&gt;Project structure:&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;.
+├── app
+│   ├── db.py : All the settings related to DB will be here.
+│   ├── __init__.py
+│   ├── main.py : All endpoints will be defined here.
+│   └── models.py : All the data models will be defined here.
+└── database.db : This SQLite DB will be created and data will be stored here.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;step-1-setup-development-environment&#34;&gt;Step 1: Setup development environment&lt;/h3&gt;
+&lt;p&gt;Create a local development conda environment to run the application from local. Here we are going to use python 3.8. After creating the environment install the required dependencies.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;conda create --name fastapi_sqlmodel python=3.8
+conda activate fastapi_sqlmodel
+pip install fastapi[all] sqlmodel alembic aiosqlite
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;step-2-create-database-models-in-modelspy&#34;&gt;Step 2: Create database models in &lt;code&gt;models.py&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;Here we are going to define a database model to store information related to &lt;code&gt;task name&lt;/code&gt;. Task table is the table which will be updated later with the &lt;code&gt;task description&lt;/code&gt; information and we will perform a migration to see how the changes are going to be maintained and reflected in the database.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from sqlmodel import SQLModel, Field
+
+class TaskBase(SQLModel):
+    task_name: str
+
+class Task(TaskBase, table=True):
+    id: int = Field(default=None, primary_key=True)
+
+class TaskCreate(TaskBase):
+    pass
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;step-3-create-settings-related-to-db-in-dbpy&#34;&gt;Step 3: Create settings related to DB in &lt;code&gt;db.py&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;Here for rapid prototype we are going to use sqlite local db. Which is kind of a standalone file. To view the record in the file we can we use the &lt;a href=&#34;https://sqlitebrowser.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;DB browser for SQLite&lt;/a&gt;. After we run the application a a file called &lt;code&gt;database.db&lt;/code&gt; will be created in the root directory of the project.&lt;/p&gt;
+&lt;h4 id=&#34;sync-version&#34;&gt;Sync version:&lt;/h4&gt;
+&lt;p&gt;Here are going to create two functions which will create all the required tables when the FastAPI application starts and will generate a session using which I/O operations will be performed in a DB.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from sqlmodel import Session, SQLModel, create_engine
+sqlite_file_name = &amp;quot;database.db&amp;quot;
+sqlite_url = f&amp;quot;sqlite:///{sqlite_file_name}&amp;quot;
+
+connect_args = {&amp;quot;check_same_thread&amp;quot;: False}
+engine = create_engine(sqlite_url, echo=True, connect_args=connect_args)
+
+def create_db_and_tables():
+    SQLModel.metadata.create_all(engine)
+
+def get_session():
+    with Session(engine) as session:
+        yield session
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;async-version&#34;&gt;Async version:&lt;/h4&gt;
+&lt;p&gt;Asyn version of the above defined functions which will be used in &lt;code&gt;main.py&lt;/code&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from sqlmodel import SQLModel
+from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
+from sqlalchemy.orm import sessionmaker
+
+sqlite_file_name = &amp;quot;database.db&amp;quot;
+sqlite_url = f&amp;quot;sqlite+aiosqlite:///{sqlite_file_name}&amp;quot;
+engine = create_async_engine(sqlite_url, echo=True, future=True)
+
+async def init_db():
+    async with engine.begin() as conn:
+        await conn.run_sync(SQLModel.metadata.create_all)
+
+async def get_session() -&amp;gt; AsyncSession:
+    async_session = sessionmaker(
+        engine, class_=AsyncSession, expire_on_commit=False
+    )
+    async with async_session() as session:
+        yield session
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;step-4-define-api-endpoints-in-mainpy&#34;&gt;Step 4: Define API endpoints in &lt;code&gt;main.py&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;Here we are going to define a POST endpoint using which we can write some task related information in the database. As of now, the request model for this endpoint is &lt;code&gt;TaskCreate&lt;/code&gt; and in the response this endpoint will return an object of type &lt;code&gt;Task&lt;/code&gt;.&lt;/p&gt;
+&lt;h4 id=&#34;sync-version-1&#34;&gt;Sync version:&lt;/h4&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from fastapi import FastAPI, Depends
+from sqlmodel import Session
+from app.db import create_db_and_tables, get_session
+from app.models import Task, TaskCreate
+
+app = FastAPI()
+
+@app.on_event(&amp;quot;startup&amp;quot;)
+def on_startup():
+    create_db_and_tables()
+
+@app.get(&amp;quot;/ping&amp;quot;)
+def pong():
+    return {&amp;quot;ping&amp;quot;: &amp;quot;pong!&amp;quot;}
+
+@app.post(&amp;quot;/task/&amp;quot;, response_model=Task)
+def create_task(task: TaskCreate, session: Session = Depends(get_session)):
+    db_task = Task.from_orm(task)
+    session.add(db_task)
+    session.commit()
+    session.refresh(db_task)
+    return db_task
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;async-version-1&#34;&gt;Async version:&lt;/h4&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from fastapi import FastAPI, Depends
+from sqlmodel import Session
+from app.db import create_db_and_tables, get_session
+from app.models import Task, TaskCreate
+
+app = FastAPI()
+
+@app.on_event(&amp;quot;startup&amp;quot;)
+def on_startup():
+    create_db_and_tables()
+
+@app.get(&amp;quot;/ping&amp;quot;)
+def pong():
+    return {&amp;quot;ping&amp;quot;: &amp;quot;pong!&amp;quot;}
+
+@app.post(&amp;quot;/task/&amp;quot;, response_model=Task)
+def create_task(task: TaskCreate, session: Session = Depends(get_session)):
+    db_task = Task.from_orm(task)
+    session.add(db_task)
+    session.commit()
+    session.refresh(db_task)
+    return db_task
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;step-5-test-api-endpoints&#34;&gt;Step 5: Test API endpoints&lt;/h3&gt;
+&lt;p&gt;Here we are going to test the API endpoints are working fine or not. If we get the expected result from the CURL and can validate the records are being updated in the DB we can expect that the APIs are working fine.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;uvicorn app.main:app --reload
+curl -X POST http://127.0.0.1:8000/task/ -H &#39;accept: application/json&#39; -H &#39;Content-Type: application/json&#39; -d &#39;{&amp;quot;task_name&amp;quot;: &amp;quot;just added task&amp;quot;}&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;a &lt;code&gt;database.db&lt;/code&gt; file will be create in project root directory.&lt;/li&gt;
+&lt;li&gt;after making the post call validate the db records are being updated using &lt;code&gt;DB browser for SQLite&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;step-6-setup-alembic&#34;&gt;Step 6: Setup alembic&lt;/h3&gt;
+&lt;h4 id=&#34;step-6a-generate-alembic-settings&#34;&gt;Step 6a: Generate alembic settings&lt;/h4&gt;
+&lt;p&gt;In this step we are going generate all the settings for alembic migration. This will generate some files and folders in the project root directory.&lt;/p&gt;
+&lt;h5 id=&#34;sync-version-2&#34;&gt;Sync version:&lt;/h5&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;alembic init alembic
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id=&#34;async-version-2&#34;&gt;Async version:&lt;/h5&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;alembic init -t async alembic
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;step-6b-update-alembic-settings&#34;&gt;Step 6b: Update alembic settings&lt;/h4&gt;
+&lt;p&gt;After these files are generated, change the DB url in &lt;code&gt;alembic.ini&lt;/code&gt;.&lt;/p&gt;
+&lt;h5 id=&#34;sync-version-3&#34;&gt;Sync version:&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;replace &lt;code&gt;sqlalchemy.url = driver://user:pass@localhost/dbname&lt;/code&gt; in &lt;code&gt;alembic.ini&lt;/code&gt; with &lt;code&gt;sqlite:///database.db&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&#34;async-version-3&#34;&gt;Async version:&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;replace &lt;code&gt;sqlalchemy.url = driver://user:pass@localhost/dbname&lt;/code&gt; in &lt;code&gt;alembic.ini&lt;/code&gt; with &lt;code&gt;sqlite+aiosqlite:///database.db&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&#34;common-changes-for-sync--async-version&#34;&gt;Common changes for Sync &amp;amp; Async version:&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;in &lt;code&gt;alembic/env.py&lt;/code&gt; file add &lt;code&gt;from sqlmodel import SQLModel&lt;/code&gt; in the import section.&lt;/li&gt;
+&lt;li&gt;in &lt;code&gt;alembic/env.py&lt;/code&gt; file add the following line in import section, &lt;code&gt;from app.models import Task&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;in &lt;code&gt;alembic/env.py&lt;/code&gt; change &lt;code&gt;target_metadata = None&lt;/code&gt; to &lt;code&gt;target_metadata = SQLModel.metadata&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;in &lt;code&gt;alembic/script.py.mako&lt;/code&gt; add &lt;code&gt;import sqlmodel&lt;/code&gt; in the import section.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;step-6c-generate-alembic-migration-settings&#34;&gt;Step 6c: Generate alembic migration settings&lt;/h4&gt;
+&lt;p&gt;After making all the changes, make first migration.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;alembic revision --autogenerate -m &amp;quot;init&amp;quot;
+alembic upgrade head
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;step-7-update-data-models-in-modelspy&#34;&gt;Step 7: Update data models in &lt;code&gt;models.py&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;Now, lets say there is some changes we need to add to our data model. In this case we are just going to add &lt;code&gt;task_description&lt;/code&gt;. &lt;code&gt;task_description&lt;/code&gt; will be a optional string column in the &lt;code&gt;Task&lt;/code&gt; table. After we make the required changes in the &lt;code&gt;app/models.py&lt;/code&gt; and &lt;code&gt;app/main.py&lt;/code&gt;, we need to run the migration to add the newly added columns in the DB.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from sqlmodel import SQLModel, Field
+from typing import Optional # This is a new add line
+
+class TaskBase(SQLModel):
+    task_name: str
+    task_description: Optional[str] = None # This is a new add line
+
+class Task(TaskBase, table=True):
+    id: int = Field(default=None, primary_key=True)
+
+class TaskCreate(TaskBase):
+    pass
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;step-8-update-api-endpoints-in-mainpy&#34;&gt;Step 8: Update API endpoints in &lt;code&gt;main.py&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;In this case, endpoints remains unchanged but in a realistic scenario endpoints has to be changed to take the new information into account.&lt;/p&gt;
+&lt;h3 id=&#34;step-9-run-db-migration&#34;&gt;Step 9: Run DB migration&lt;/h3&gt;
+&lt;p&gt;Run the following line to update the database tables.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;alembic revision --autogenerate -m &amp;quot;add description&amp;quot;
+alembic upgrade head
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;step-10-test-updated-api-endpoints&#34;&gt;Step 10: Test updated API endpoints&lt;/h3&gt;
+&lt;p&gt;As last step, make a call to the API endpoints which will be using the updated table and check if everything is working fine or not.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;uvicorn app.main:app --reload
+curl -X POST http://127.0.0.1:8000/task/ -H &#39;accept: application/json&#39; -H &#39;Content-Type: application/json&#39; -d &#39;{&amp;quot;task_name&amp;quot;: &amp;quot;just added task&amp;quot;,&amp;quot;task_description&amp;quot;:&amp;quot;a newly created task&amp;quot;}&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;after making the post call validate the db records are being updated using &lt;code&gt;DB browser for SQLite&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;conclusion&#34;&gt;Conclusion:&lt;/h3&gt;
+&lt;p&gt;This workflow is quite good when in come to rapid prototyping. One can use this inside a docker container as well but make sure that the volume mounting is in place to keep the standalone database file and the other related alembic migration scripts.&lt;/p&gt;
+&lt;h3 id=&#34;reference&#34;&gt;Reference:&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://testdriven.io/blog/fastapi-sqlmodel/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://testdriven.io/blog/fastapi-sqlmodel/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://fastapi.tiangolo.com/advanced/async-sql-databases/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://fastapi.tiangolo.com/advanced/async-sql-databases/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/encode/databases&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/encode/databases&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/testdrivenio/fastapi-sqlmodel-alembic&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/testdrivenio/fastapi-sqlmodel-alembic&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/Lance0404/asiayo-rest-sql&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/Lance0404/asiayo-rest-sql&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://fastapi.tiangolo.com/tutorial/sql-databases/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://fastapi.tiangolo.com/tutorial/sql-databases/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.cdnweb.icu/smartgic/shortgic&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.cdnweb.icu/smartgic/shortgic&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://testdriven.io/blog/fastapi-sqlmodel/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://testdriven.io/blog/fastapi-sqlmodel/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://python.plainenglish.io/building-a-phone-directory-with-mysql-fastapi-and-angular-cd48673904f4&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://python.plainenglish.io/building-a-phone-directory-with-mysql-fastapi-and-angular-cd48673904f4&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://alembic.sqlalchemy.org/en/latest/autogenerate.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://alembic.sqlalchemy.org/en/latest/autogenerate.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://towardsdatascience.com/build-an-async-python-service-with-fastapi-sqlalchemy-196d8792fa08&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://towardsdatascience.com/build-an-async-python-service-with-fastapi-sqlalchemy-196d8792fa08&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://hackernoon.com/how-to-set-up-fastapi-ormar-and-alembic&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://hackernoon.com/how-to-set-up-fastapi-ormar-and-alembic&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Welcome to Wowchemy, the website builder for Hugo</title>
       <link>https://academic-demo.netlify.app/post/getting-started/</link>
       <pubDate>Sun, 13 Dec 2020 00:00:00 +0000</pubDate>
@@ -283,7 +528,7 @@ data.head()
 &lt;p&gt;Demo:&lt;/p&gt;
 
 
-&lt;div id=&#34;chart-128367945&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
+&lt;div id=&#34;chart-736521849&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
 &lt;script&gt;
   (function() {
     let a = setInterval( function() {
@@ -293,7 +538,7 @@ data.head()
       clearInterval( a );
 
       Plotly.d3.json(&#34;./line-chart.json&#34;, function(chart) {
-        Plotly.plot(&#39;chart-128367945&#39;, chart.data, chart.layout, {responsive: true});
+        Plotly.plot(&#39;chart-736521849&#39;, chart.data, chart.layout, {responsive: true});
       });
     }, 500 );
   })();

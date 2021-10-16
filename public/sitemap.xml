@@ -20,6 +20,12 @@
     <loc>https://academic-demo.netlify.app/event/</loc>
     <lastmod>2030-06-01T13:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://academic-demo.netlify.app/post/local-development-environment-with-fast-api-sqlmodel-sqlite-alembic-sync-async-version/</loc>
+    <lastmod>2021-10-16T07:04:33+05:30</lastmod>
+  </url><url>
+    <loc>https://academic-demo.netlify.app/post/</loc>
+    <lastmod>2021-10-16T07:04:33+05:30</lastmod>
+  </url><url>
     <loc>https://academic-demo.netlify.app/courses/</loc>
     <lastmod>2021-01-24T00:00:00+00:00</lastmod>
   </url><url>
@@ -39,9 +45,6 @@
     <lastmod>2020-12-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://academic-demo.netlify.app/category/demo/</loc>
-    <lastmod>2020-12-13T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://academic-demo.netlify.app/post/</loc>
     <lastmod>2020-12-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://academic-demo.netlify.app/tags/</loc>

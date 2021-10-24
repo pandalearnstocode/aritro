@@ -5,12 +5,177 @@
     <link>https://academic-demo.netlify.app/post/</link>
       <atom:link href="https://academic-demo.netlify.app/post/index.xml" rel="self" type="application/rss+xml" />
     <description>Posts</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sat, 16 Oct 2021 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sun, 24 Oct 2021 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://academic-demo.netlify.app/media/icon_hu52c76baf5d1231d4145a3e91a90778a9_25217_512x512_fill_lanczos_center_3.png</url>
       <title>Posts</title>
       <link>https://academic-demo.netlify.app/post/</link>
     </image>
+    
+    <item>
+      <title>Python library version management with GitHub action &#43; commitizen &#43; pre-commit hook</title>
+      <link>https://academic-demo.netlify.app/post/manage-python-library-versioning-using-commitizen-pre-commit-hook/</link>
+      <pubDate>Sun, 24 Oct 2021 00:00:00 +0000</pubDate>
+      <guid>https://academic-demo.netlify.app/post/manage-python-library-versioning-using-commitizen-pre-commit-hook/</guid>
+      <description>&lt;h2 id=&#34;__list-of-tools-used-in-this-post__&#34;&gt;&lt;strong&gt;List of tools used in this post&lt;/strong&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://commitizen-tools.github.io/commitizen/#:~:text=Commitizen%20is%20a%20tool%20designed,and%20enforces%20writing%20descriptive%20commits.&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;commitizen&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.conventionalcommits.org/en/v1.0.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;conventionalcommits&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Git Hooks&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://pre-commit.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Pre-commit hook&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/features/actions&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub Action&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://semver.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Semantic Versioning&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Here is a &lt;a href=&#34;https://github.com/pandalearnstocode/minimal_library_workflow&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;sample repository&lt;/a&gt; which show the implementation below.&lt;/p&gt;
+&lt;h2 id=&#34;__context--overview__&#34;&gt;&lt;strong&gt;Context &amp;amp; overview&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;Lets assume that we are going to build a python library. Lets call it &lt;code&gt;minipackage&lt;/code&gt;. We need to manage the version of the library &amp;amp; need to generate the &lt;code&gt;CHANGELOGS.md&lt;/code&gt; whenever we release a version of the library. There are multiple ways to solve this problem. Here in the post we are going see how we can use semantic versioning to solve this problem.&lt;/p&gt;
+&lt;h2 id=&#34;__project-directory-structure__&#34;&gt;&lt;strong&gt;Project directory structure&lt;/strong&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;minipackage&lt;/code&gt;: All the source code for the python library will live here.
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;__init.py__&lt;/code&gt;: Library version, other meta data will be here. Also, we need to register any external methods we want to expose as API in the library.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;main.py&lt;/code&gt;: main module is kind of representation of any module and sub-module which will be part of the python library.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;pyproject.toml&lt;/code&gt;: This file will have all the meta-data related to the tools which we will be using this project. In the example, &lt;code&gt;tool.commitizen&lt;/code&gt; example is present but there can be many more settings registered in this file related to the other tools being used in the project.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;README.md&lt;/code&gt;: self explanatory.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;requirements.txt&lt;/code&gt;: All the python dependencies required for the library.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;.pre-commit-config.yaml&lt;/code&gt;: git pre-commit hooks. Here in this example we have just shown the &lt;code&gt;commitizen&lt;/code&gt; pre-commit hook example. But there can be many other as well.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;setup.py&lt;/code&gt;: all the library building related information will be here.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If you want to refresh some basics of python library building process checkout this &lt;a href=&#34;https://www.youtube.com/watch?v=P3dY3uDmnkU&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;link&lt;/a&gt;. Regarding &lt;a href=&#34;https://www.youtube.com/watch?v=Wmw-VGSjSNg&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;pre-commit&lt;/a&gt; checkout this link.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;.
+├── minipackage
+│   ├── __init__.py
+│   ├── main.py
+├── pyproject.toml
+├── README.md
+├── requirements.txt
+├── .pre-commit-config.yaml
+└── setup.py
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;__pyprojecttoml-project-tools-and-metadata-related-to-tools-used-in-project__&#34;&gt;&lt;strong&gt;&lt;code&gt;pyproject.toml&lt;/code&gt;: project tools and metadata related to tools used in project&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;version&lt;/code&gt; and &lt;code&gt;version_files&lt;/code&gt; these are the two import field which has a major impact in this workflow. make sure that &lt;code&gt;version_files&lt;/code&gt; field points to the file which is the single source of version. We also need to ensure that we will be using the same file and variable all across the project. While start a project &lt;code&gt;__version__&lt;/code&gt; in &lt;code&gt;__init__.py&lt;/code&gt; and &lt;code&gt;version&lt;/code&gt; variable in &lt;code&gt;pyproject.toml&lt;/code&gt; file should match.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-toml&#34;&gt;[tool.commitizen]
+name = &amp;quot;cz_conventional_commits&amp;quot;
+version = &amp;quot;0.0.1&amp;quot;
+version_files = [
+    &amp;quot;minipackage/__init__.py&amp;quot;,
+    &amp;quot;pyproject.toml:version&amp;quot;
+]
+tag_format = &amp;quot;v$version&amp;quot;
+bump_message = &amp;quot;bump: $current_version → $new_version [skip-ci]&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Note, here in our example here we using the variable &lt;code&gt;__version__&lt;/code&gt; in all place in the project to manage the version and the same file is mentioned in the pyproject file. Now, when we using &lt;code&gt;commitizen&lt;/code&gt; to bump version of the library it will change value of this variable depending on the commit message tags. Also, this will generate a &lt;code&gt;changelog.md&lt;/code&gt; file in the project root directory and create a release tag.&lt;/p&gt;
+&lt;h3 id=&#34;__setuppy-library-build-related-information__&#34;&gt;&lt;strong&gt;&lt;code&gt;setup.py&lt;/code&gt;: library build related information&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;In this section, notice that we using &lt;code&gt;__version__&lt;/code&gt; variable from &lt;code&gt;minipackage&lt;/code&gt; module here. We are passing this &lt;code&gt;__version__&lt;/code&gt; variable to in &lt;code&gt;version&lt;/code&gt; argument in setup function. This will ensure whenever we are building a library, the library gets tagged with this version.&lt;/p&gt;
+&lt;p&gt;Note, that whatever is being defined or imported in &lt;code&gt;minipackage/__init__py&lt;/code&gt; file will be present in in &lt;code&gt;minipackage&lt;/code&gt; module.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from setuptools import find_packages, setup
+from minipackage import __version__
+
+setup(
+    author=&amp;quot;Aritra Biswas&amp;quot;,
+    author_email=&amp;quot;pandalearnstocode@gmail.com&amp;quot;,
+    python_requires=&amp;quot;&amp;gt;=3.8&amp;quot;,
+    install_requires=requirements,
+    include_package_data=True,
+    keywords=&amp;quot;minipackage&amp;quot;,
+    name=&amp;quot;minipackage&amp;quot;,
+    packages=find_packages(include=[&amp;quot;minipackage&amp;quot;, &amp;quot;minipackage.*&amp;quot;]),
+    version=__version__,
+)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;__source__init__py-main-place-where-the-version-variable-is-being-used__&#34;&gt;&lt;strong&gt;&lt;code&gt;source/__init__.py&lt;/code&gt;: main place where the version variable is being used&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;This will be the initial state of the init file. Later when we bump library version in the CI pipeline, this &lt;code&gt;__version__&lt;/code&gt; variable will change depending upon commit message tags.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;__version__ = &amp;quot;0.0.1&amp;quot;
+from minipackage.main import hello_world, hello_mcu, hello_dc, 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;./cc.png&#34; alt=&#34;Example CZ commits&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;__pre-commit-configyaml--ensuring-commit-message-format-is-being-followed__&#34;&gt;&lt;strong&gt;&lt;code&gt;.pre-commit-config.yaml&lt;/code&gt; : ensuring commit message format is being followed&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;This is not a mandatory thing but kind of a fail safe mechanism to implement conventional commit messages in our day to day workflow.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;repos:
+- repo: https://github.com/commitizen-tools/commitizen
+  rev: v2.19.0
+  hooks:
+    - id: commitizen
+      stages: [commit-msg]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;One this pre-commit hook is install to a repository, whenever we are going to make commit this will check the commit tags are present in the commit message or not. To know more about this in depth go through this &lt;a href=&#34;https://www.conventionalcommits.org/en/v1.0.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;site&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;./featured.png&#34; alt=&#34;SemVer&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;__githubworkflowsbumpversionyaml--github-action-to-update-the-version-value-in-the-respective-file__&#34;&gt;&lt;strong&gt;&lt;code&gt;.github/workflows/bumpversion.yaml&lt;/code&gt; : GitHub action to update the version value in the respective file&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;For a commit message like &lt;code&gt;bump: update library version.&lt;/code&gt; to the configured branch, this will update the library version, generate changelog and push it to the feature branch. Post that when we trigger a build, a library with the same version tag will be generated and sent to the python library repository.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;name: NEW Bump version
+on:
+  push:
+    branches:
+      - develop
+jobs:
+  bump_version:
+    if: &amp;quot;!startsWith(github.event.head_commit.message, &#39;bump:&#39;)&amp;quot;
+    runs-on: ubuntu-latest
+    name: &amp;quot;Bump version and create changelog with commitizen&amp;quot;
+    steps:
+      - name: Check out
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          token: &amp;quot;${{ secrets.GITHUB_TOKEN }}&amp;quot;
+      - id: cz
+        name: Create bump and changelog
+        uses: commitizen-tools/commitizen-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: develop
+      - name: Print Version
+        run: echo &amp;quot;Bumped to version ${{ steps.cz.outputs.version }}&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; This workflow may change depending upon how you want to update the library version. Here action is driven by push to develop branch but it is possible to setup this process with pull request trigger or any other trigger as well.&lt;/p&gt;
+&lt;h3 id=&#34;__reference__&#34;&gt;&lt;strong&gt;Reference:&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://en.linkapi.solutions/blog/conventional-commits-pattern&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Conventional Commits Pattern&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
     <item>
       <title>Local development environment with Fast API &#43; SQLModel &#43; SQLite &#43; Alembic</title>
@@ -409,7 +574,7 @@ data.head()
 &lt;p&gt;Demo:&lt;/p&gt;
 
 
-&lt;div id=&#34;chart-962534781&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
+&lt;div id=&#34;chart-789563421&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
 &lt;script&gt;
   (function() {
     let a = setInterval( function() {
@@ -419,7 +584,7 @@ data.head()
       clearInterval( a );
 
       Plotly.d3.json(&#34;./line-chart.json&#34;, function(chart) {
-        Plotly.plot(&#39;chart-962534781&#39;, chart.data, chart.layout, {responsive: true});
+        Plotly.plot(&#39;chart-789563421&#39;, chart.data, chart.layout, {responsive: true});
       });
     }, 500 );
   })();

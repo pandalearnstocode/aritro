@@ -17,7 +17,7 @@ interests:
 organizations:
 - name: AB InBev
   url: https://www.ab-inbev.com/
-role: Data Scientist
+role: Senior Data Scientist
 social:
 - display:
     header: true

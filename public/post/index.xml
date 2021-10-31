@@ -13,6 +13,96 @@
     </image>
     
     <item>
+      <title>SCM conventions &amp; ways of working</title>
+      <link>https://academic-demo.netlify.app/post/scm-conventions-ways-of-working/</link>
+      <pubDate>Sun, 31 Oct 2021 00:00:00 +0000</pubDate>
+      <guid>https://academic-demo.netlify.app/post/scm-conventions-ways-of-working/</guid>
+      <description>&lt;p&gt;When we are working in an collaborative work environment, this is important to share a common set of convention which makes collaboration easier. Here are some of the common gitops best practice which has helped to collaborate better,&lt;/p&gt;
+&lt;h2 id=&#34;__repository-naming-convention__&#34;&gt;&lt;strong&gt;Repository naming convention&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;{short product name}_{component}_{type of repository}&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;__short-product-name__&#34;&gt;&lt;strong&gt;Short product name:&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;modeller:&lt;/strong&gt; modelling engine&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;optimizer:&lt;/strong&gt; optimization engine&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;__component__&#34;&gt;&lt;strong&gt;Component:&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;ui:&lt;/strong&gt; any code related to the user interface&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ml:&lt;/strong&gt; anything to do with machine learning code base&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;de:&lt;/strong&gt; anything to do with data engineering code base&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;be:&lt;/strong&gt; anything to do with REST API endpoints for ml, de or in general application.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;__type-of-repository__&#34;&gt;&lt;strong&gt;Type of repository:&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;app:&lt;/strong&gt; mostly used for ui and cli standalone application.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;lib:&lt;/strong&gt; library code base of ml and de engines.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;job:&lt;/strong&gt; cli or script based jobs which will be executed in a batch process.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;api:&lt;/strong&gt; code base related to apis.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;__example__&#34;&gt;&lt;strong&gt;Example:&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;modeller_ml_lib&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;modeller_de_lib&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;modeller_ml_job&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;modeller_be_api&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;modeller_ui_app&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;__branch-naming-convention__&#34;&gt;&lt;strong&gt;Branch naming convention:&lt;/strong&gt;&lt;/h2&gt;
+&lt;h3 id=&#34;__code-flow-branches-restricted-commit-branch__&#34;&gt;&lt;strong&gt;Code Flow Branches (restricted commit branch):&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;develop:&lt;/strong&gt; developers can merge their branches here.
+&lt;strong&gt;staging:&lt;/strong&gt; any final tagging or testing has to happen here.
+&lt;strong&gt;master:&lt;/strong&gt; production branch, if all the validation is working in staging and tested code needs to be merged here.
+&lt;strong&gt;test:&lt;/strong&gt; other than unit testing regression, integration and end to end testing has to happen here.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Flow of code:&lt;/strong&gt; &lt;code&gt;develop &amp;gt; test &amp;gt; staging &amp;gt; production&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;__temporary-branches__&#34;&gt;&lt;strong&gt;Temporary Branches:&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;feature:&lt;/strong&gt; anything which is a feature has to be developed in a feature branch and the branch name should be like : &lt;code&gt;feature/{name of the feature}&lt;/code&gt; [example: &lt;code&gt;feature/integrate-swagger&lt;/code&gt;]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;bug fix:&lt;/strong&gt; any bug fix has to be done in a bud fix branch. the structure remains as feature branch. structure of the branch name will be like &lt;code&gt;bugfix/{bug which is being fixed}&lt;/code&gt; [example: &lt;code&gt;bugfix/more-gray-shades-in-loader&lt;/code&gt;]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;hot fix:&lt;/strong&gt; any hotfix from master has to be made in this branch. also, note that these fixes has to be merged in other common branches that the master branch. [example: &lt;code&gt;hotfix/disable-endpoint-zero-day-exploit&lt;/code&gt;]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;experimental:&lt;/strong&gt; any experimental work has to be tagged this way while creating a branch. [example: &lt;code&gt;experimental/dark-theme-support&lt;/code&gt;]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;build:&lt;/strong&gt; any build branch should start with the build pre-fix. [example: &lt;code&gt;build/jacoco-metric&lt;/code&gt;]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;release:&lt;/strong&gt; any release branch has to be tagged by a release prefix. [example: &lt;code&gt;release/myapp-1.01.123&lt;/code&gt;]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;merging:&lt;/strong&gt; any intermediate merge branch has to be tagged with merge prefix. [example: &lt;code&gt;merge/dev_lombok-refactoring&lt;/code&gt;]&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;__commit-convention__&#34;&gt;&lt;strong&gt;Commit convention:&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;We are adding some keyword to the commit messages based on which a semantic versioning tag can be generated. A version tag will look like, &lt;code&gt;v{MAJOR}.{MINOR}.{PATCH}&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Here, this is how commit tags are getting translated to semantic versioning numbers, &lt;code&gt;fix --&amp;gt; patch&lt;/code&gt;, &lt;code&gt;feat --&amp;gt; minor&lt;/code&gt; and &lt;code&gt;BREAKING CHANGE --&amp;gt; major&lt;/code&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;__area-of-work__&#34;&gt;&lt;strong&gt;Area of work:&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;fix:&lt;/strong&gt; if there is a small change which does not break any of the high level APIs and does not change overall behaviors of a feature that will be consider as fix. this corresponds to the &lt;code&gt;patch&lt;/code&gt; in the semantic versioning.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;feat:&lt;/strong&gt; if there is a feature level change then the commit should have feat tagged along with in. in terms of the semantic versioning this corresponds to the minor version change.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;BREAKING CHANGE:&lt;/strong&gt; this is a change where multiple modules and high level APIs are getting changed.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;build:&lt;/strong&gt; These are not linked with semver. any build level changes has to be tagged as build. for example, if we are changing some configuration in &lt;code&gt;setup.py&lt;/code&gt; that should be tagged as build commit.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;chore:&lt;/strong&gt; updating grunt tasks etc; no production code change&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ci:&lt;/strong&gt; change in any of the github workflow or azure pipeline level changes has to be tagged as ci commit.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;docs:&lt;/strong&gt; any changes in wiki documentation or library docstring level changes has to be tagged as &lt;code&gt;docs&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;style:&lt;/strong&gt; if there is any changes in code due to formatting or linting those can be tagged as style change.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;refactor:&lt;/strong&gt; if some code is being refactored that has to be tagged as refactored commit.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;perf:&lt;/strong&gt; for profiling a code base use pref tag.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;test:&lt;/strong&gt; for any commit related to tests can be tagged as &lt;code&gt;test&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;__commit-structure__&#34;&gt;&lt;strong&gt;Commit structure:&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;{area_of_work}: {ticket_id} {One line description of commit}&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;[optional] Detailed description of the commit&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;__in-general-things-related-to-scm__&#34;&gt;&lt;strong&gt;In general things related to SCM:&lt;/strong&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Do not push large files in git.&lt;/li&gt;
+&lt;li&gt;Do not pass secrets in git.&lt;/li&gt;
+&lt;li&gt;Do not directly commit in no commit branches.&lt;/li&gt;
+&lt;li&gt;Generate .gitignore file from &lt;code&gt;gitignore.io&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;__reference__&#34;&gt;&lt;strong&gt;Reference:&lt;/strong&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://en.linkapi.solutions/blog/conventional-commits-pattern&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Conventional Commits Pattern&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.aritro.in/post/manage-python-library-versioning-using-commitizen-pre-commit-hook/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Python library version management with GitHub action + commitizen + pre-commit hook&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.conventionalcommits.org/en/v1.0.0-beta.2/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Conventional commits&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Useful tools for docker container management</title>
       <link>https://academic-demo.netlify.app/post/useful-tools-for-docker-container-management/</link>
       <pubDate>Sun, 31 Oct 2021 00:00:00 +0000</pubDate>
@@ -690,7 +780,7 @@ data.head()
 &lt;p&gt;Demo:&lt;/p&gt;
 
 
-&lt;div id=&#34;chart-541327896&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
+&lt;div id=&#34;chart-725849361&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
 &lt;script&gt;
   (function() {
     let a = setInterval( function() {
@@ -700,7 +790,7 @@ data.head()
       clearInterval( a );
 
       Plotly.d3.json(&#34;./line-chart.json&#34;, function(chart) {
-        Plotly.plot(&#39;chart-541327896&#39;, chart.data, chart.layout, {responsive: true});
+        Plotly.plot(&#39;chart-725849361&#39;, chart.data, chart.layout, {responsive: true});
       });
     }, 500 );
   })();

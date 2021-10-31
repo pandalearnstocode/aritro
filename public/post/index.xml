@@ -17,7 +17,7 @@
       <link>https://academic-demo.netlify.app/post/useful-tools-for-docker-container-management/</link>
       <pubDate>Sun, 31 Oct 2021 00:00:00 +0000</pubDate>
       <guid>https://academic-demo.netlify.app/post/useful-tools-for-docker-container-management/</guid>
-      <description>&lt;p&gt;In this post I&amp;rsquo;m going to discuss two docker tools which I find really useful in my day to day workflow. These tools are,&lt;/p&gt;
+      <description>&lt;p&gt;In this post I&amp;rsquo;m going to discuss three docker tools which I find really useful in my day to day workflow. These tools are,&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/wagoodman/dive&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Dive&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://portainer.io/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Portainer&lt;/a&gt;&lt;/li&gt;
@@ -690,7 +690,7 @@ data.head()
 &lt;p&gt;Demo:&lt;/p&gt;
 
 
-&lt;div id=&#34;chart-924316785&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
+&lt;div id=&#34;chart-541327896&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
 &lt;script&gt;
   (function() {
     let a = setInterval( function() {
@@ -700,7 +700,7 @@ data.head()
       clearInterval( a );
 
       Plotly.d3.json(&#34;./line-chart.json&#34;, function(chart) {
-        Plotly.plot(&#39;chart-924316785&#39;, chart.data, chart.layout, {responsive: true});
+        Plotly.plot(&#39;chart-541327896&#39;, chart.data, chart.layout, {responsive: true});
       });
     }, 500 );
   })();

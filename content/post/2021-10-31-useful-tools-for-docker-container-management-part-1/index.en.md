@@ -16,7 +16,7 @@ image:
   preview_only: no
 projects: []
 ---
-In this post I'm going to discuss two docker tools which I find really useful in my day to day workflow. These tools are,
+In this post I'm going to discuss three docker tools which I find really useful in my day to day workflow. These tools are,
 
 * [Dive](https://github.com/wagoodman/dive)
 * [Portainer](https://portainer.io/)

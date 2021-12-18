@@ -20,9 +20,9 @@ projects: []
 ---
 
 
-# Exploring `poetry` for depedendency management in python
+# __Exploring `poetry` for dependency management in python__
 
-## Useful commands
+## __Some useful `poetry` commands__
 
 ```bash
 # Download poetry in Ubuntu
@@ -44,9 +44,9 @@ poetry publish # Publish library to PyPI
 poetry export - requirements.txt --output requirements.txt # Generate requirements.txt
 poetry use python3.8 # Use specific version of python in the project
 ```
-## Some important information
+## __Some important information__
 
-### Important files
+### __Important files__
 
 * `pyproject.toml` is the single file for all project related metadata.
 * `poetry.lock` file is the granular metadata.
@@ -54,7 +54,7 @@ poetry use python3.8 # Use specific version of python in the project
 * `config.toml` & `auth.toml` is used for setting up the artifact repository.
 * export `POETRY_PYPI_TOKEN_PYPI`, export `POETRY_HTTP_BAISC_PYPI_USERNAME` and export `POETRY_HTTP_BAISC_PYPI_PASSWORD` can be used for this.
 
-### Publishing library as artifact to artifact store
+### __Publishing library as artifact to artifact store__
 
 ```toml
 # config.toml : ~/.config/pypoetry/config.toml
@@ -85,6 +85,6 @@ run: |
 run: dotnet nuget push --api-key AzureArtifacts bin/Release/*.nupkg
 ```
 
-## Reference:
+## __Reference:__
 
 * [PyBites Python Poetry Training](https://www.youtube.com/watch?v=G-OAVLBFxbw)

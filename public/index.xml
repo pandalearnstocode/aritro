@@ -132,8 +132,8 @@ The variance of the distribution is $\sigma^{2}$.
       <link>https://academic-demo.netlify.app/post/avoid-relative-path-import-hell-in-python/</link>
       <pubDate>Sat, 18 Dec 2021 00:00:00 +0000</pubDate>
       <guid>https://academic-demo.netlify.app/post/avoid-relative-path-import-hell-in-python/</guid>
-      <description>&lt;h1 id=&#34;exploring-poetry-for-depedendency-management-in-python&#34;&gt;Exploring &lt;code&gt;poetry&lt;/code&gt; for depedendency management in python&lt;/h1&gt;
-&lt;h2 id=&#34;useful-commands&#34;&gt;Useful commands&lt;/h2&gt;
+      <description>&lt;h1 id=&#34;__exploring-poetry-for-dependency-management-in-python__&#34;&gt;&lt;strong&gt;Exploring &lt;code&gt;poetry&lt;/code&gt; for dependency management in python&lt;/strong&gt;&lt;/h1&gt;
+&lt;h2 id=&#34;__some-useful-poetry-commands__&#34;&gt;&lt;strong&gt;Some useful &lt;code&gt;poetry&lt;/code&gt; commands&lt;/strong&gt;&lt;/h2&gt;
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;# Download poetry in Ubuntu
 curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
 source $HOME/.poetry/env # Add to PATH
@@ -153,8 +153,8 @@ poetry publish # Publish library to PyPI
 poetry export - requirements.txt --output requirements.txt # Generate requirements.txt
 poetry use python3.8 # Use specific version of python in the project
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;some-important-information&#34;&gt;Some important information&lt;/h2&gt;
-&lt;h3 id=&#34;important-files&#34;&gt;Important files&lt;/h3&gt;
+&lt;h2 id=&#34;__some-important-information__&#34;&gt;&lt;strong&gt;Some important information&lt;/strong&gt;&lt;/h2&gt;
+&lt;h3 id=&#34;__important-files__&#34;&gt;&lt;strong&gt;Important files&lt;/strong&gt;&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;pyproject.toml&lt;/code&gt; is the single file for all project related metadata.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;poetry.lock&lt;/code&gt; file is the granular metadata.&lt;/li&gt;
@@ -162,7 +162,7 @@ poetry use python3.8 # Use specific version of python in the project
 &lt;li&gt;&lt;code&gt;config.toml&lt;/code&gt; &amp;amp; &lt;code&gt;auth.toml&lt;/code&gt; is used for setting up the artifact repository.&lt;/li&gt;
 &lt;li&gt;export &lt;code&gt;POETRY_PYPI_TOKEN_PYPI&lt;/code&gt;, export &lt;code&gt;POETRY_HTTP_BAISC_PYPI_USERNAME&lt;/code&gt; and export &lt;code&gt;POETRY_HTTP_BAISC_PYPI_PASSWORD&lt;/code&gt; can be used for this.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;publishing-library-as-artifact-to-artifact-store&#34;&gt;Publishing library as artifact to artifact store&lt;/h3&gt;
+&lt;h3 id=&#34;__publishing-library-as-artifact-to-artifact-store__&#34;&gt;&lt;strong&gt;Publishing library as artifact to artifact store&lt;/strong&gt;&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&#34;language-toml&#34;&gt;# config.toml : ~/.config/pypoetry/config.toml
 [repositories]
 pypi = {url = &amp;quot;https://upload.pypi.org/legacy/&amp;quot;}
@@ -185,7 +185,7 @@ run: |
 - name: &#39;dotnet publish&#39;
 run: dotnet nuget push --api-key AzureArtifacts bin/Release/*.nupkg
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;reference&#34;&gt;Reference:&lt;/h2&gt;
+&lt;h2 id=&#34;__reference__&#34;&gt;&lt;strong&gt;Reference:&lt;/strong&gt;&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=G-OAVLBFxbw&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PyBites Python Poetry Training&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -960,7 +960,7 @@ data.head()
 &lt;p&gt;Demo:&lt;/p&gt;
 
 
-&lt;div id=&#34;chart-418637295&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
+&lt;div id=&#34;chart-531798246&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
 &lt;script&gt;
   (function() {
     let a = setInterval( function() {
@@ -970,7 +970,7 @@ data.head()
       clearInterval( a );
 
       Plotly.d3.json(&#34;./line-chart.json&#34;, function(chart) {
-        Plotly.plot(&#39;chart-418637295&#39;, chart.data, chart.layout, {responsive: true});
+        Plotly.plot(&#39;chart-531798246&#39;, chart.data, chart.layout, {responsive: true});
       });
     }, 500 );
   })();

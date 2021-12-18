@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>programming | Aritra Biswas</title>
+    <link>https://academic-demo.netlify.app/category/programming/</link>
+      <atom:link href="https://academic-demo.netlify.app/category/programming/index.xml" rel="self" type="application/rss+xml" />
+    <description>programming</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sat, 18 Dec 2021 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://academic-demo.netlify.app/media/icon_hu52c76baf5d1231d4145a3e91a90778a9_25217_512x512_fill_lanczos_center_3.png</url>
+      <title>programming</title>
+      <link>https://academic-demo.netlify.app/category/programming/</link>
+    </image>
+    
+    <item>
+      <title>Avoid relative path import hell in python</title>
+      <link>https://academic-demo.netlify.app/post/avoid-relative-path-import-hell-in-python/</link>
+      <pubDate>Sat, 18 Dec 2021 00:00:00 +0000</pubDate>
+      <guid>https://academic-demo.netlify.app/post/avoid-relative-path-import-hell-in-python/</guid>
+      <description>&lt;h1 id=&#34;exploring-poetry-for-depedendency-management-in-python&#34;&gt;Exploring &lt;code&gt;poetry&lt;/code&gt; for depedendency management in python&lt;/h1&gt;
+&lt;h2 id=&#34;useful-commands&#34;&gt;Useful commands&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;# Download poetry in Ubuntu
+curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
+source $HOME/.poetry/env # Add to PATH
+poetry --version # Check version of poetry
+poetry self update # Update version
+poetry new project1 # Create a new project
+cd project1
+tree . 
+poetry run pytest # Run pytest for the project
+poetry add pandas # Add a package as dependency of a project
+poetry remove pandas # Delete a project from the file
+poetry add --dev pytest # Add a package as dev dependency in a poetry project
+poetry add -D coverage[toml] pytest-cov # --dev &amp;amp; -D same
+poetry install # Install all the dependencies for a project
+poetry build # Build a python library using poetry
+poetry publish # Publish library to PyPI
+poetry export - requirements.txt --output requirements.txt # Generate requirements.txt
+poetry use python3.8 # Use specific version of python in the project
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;some-important-information&#34;&gt;Some important information&lt;/h2&gt;
+&lt;h3 id=&#34;important-files&#34;&gt;Important files&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;pyproject.toml&lt;/code&gt; is the single file for all project related metadata.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;poetry.lock&lt;/code&gt; file is the granular metadata.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;.pypirc&lt;/code&gt; will not work with poetry.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;config.toml&lt;/code&gt; &amp;amp; &lt;code&gt;auth.toml&lt;/code&gt; is used for setting up the artifact repository.&lt;/li&gt;
+&lt;li&gt;export &lt;code&gt;POETRY_PYPI_TOKEN_PYPI&lt;/code&gt;, export &lt;code&gt;POETRY_HTTP_BAISC_PYPI_USERNAME&lt;/code&gt; and export &lt;code&gt;POETRY_HTTP_BAISC_PYPI_PASSWORD&lt;/code&gt; can be used for this.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;publishing-library-as-artifact-to-artifact-store&#34;&gt;Publishing library as artifact to artifact store&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-toml&#34;&gt;# config.toml : ~/.config/pypoetry/config.toml
+[repositories]
+pypi = {url = &amp;quot;https://upload.pypi.org/legacy/&amp;quot;}
+testpypi = {url = &amp;quot;https://test.pypi.org/legacy/&amp;quot;}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-toml&#34;&gt;# auth.toml: ~/.config/pypoetry/auth.toml
+[http-basic]
+pypi = {username = &amp;quot;myuser&amp;quot;, password = &amp;quot;topsecret&amp;quot;}
+testpypi = {username = &amp;quot;myuser&amp;quot;, password = &amp;quot;topsecret&amp;quot;}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Check GitHub issue related to this &lt;a href=&#34;https://github.com/python-poetry/poetry/issues/111&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# Run dotnet build and package
+- name: dotnet build and publish
+run: |
+    dotnet restore
+    dotnet build --configuration &#39;${{ env.BUILD_CONFIGURATION }}&#39;
+    dotnet pack -c &#39;${{ env.BUILD_CONFIGURATION }}&#39; --version-suffix $GITHUB_RUN_ID
+
+# Publish the package to Azure Artifacts
+- name: &#39;dotnet publish&#39;
+run: dotnet nuget push --api-key AzureArtifacts bin/Release/*.nupkg
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;reference&#34;&gt;Reference:&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=G-OAVLBFxbw&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PyBites Python Poetry Training&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

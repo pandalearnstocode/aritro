@@ -30,7 +30,7 @@
   
     
   
-  <meta name="description" content="Exploring poetry for dependency management in python Some useful poetry commands # Download poetry in Ubuntu curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python - source $HOME/.poetry/env # Add to PATH poetry --version # Check version of poetry poetry self update # Update version poetry new project1 # Create a new project cd project1 tree ." />
+  <meta name="description" content="Exploring poetry for dependency management in python In general pip &amp; venv is a good combination of tool when you don&rsquo;t have to manage multiple dependencies for your project. But imaging that in a project you need to management multiple dependency files to deploy code into multiple envs." />
 
   
   <link rel="alternate" hreflang="en-us" href="https://academic-demo.netlify.app/post/avoid-relative-path-import-hell-in-python/" />
@@ -308,7 +308,7 @@
   <meta property="og:site_name" content="Aritra Biswas" />
   <meta property="og:url" content="https://academic-demo.netlify.app/post/avoid-relative-path-import-hell-in-python/" />
   <meta property="og:title" content="Avoid relative path import hell in python | Aritra Biswas" />
-  <meta property="og:description" content="Exploring poetry for dependency management in python Some useful poetry commands # Download poetry in Ubuntu curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python - source $HOME/.poetry/env # Add to PATH poetry --version # Check version of poetry poetry self update # Update version poetry new project1 # Create a new project cd project1 tree ." /><meta property="og:image" content="https://academic-demo.netlify.app/post/avoid-relative-path-import-hell-in-python/featured.png" />
+  <meta property="og:description" content="Exploring poetry for dependency management in python In general pip &amp; venv is a good combination of tool when you don&rsquo;t have to manage multiple dependencies for your project. But imaging that in a project you need to management multiple dependency files to deploy code into multiple envs." /><meta property="og:image" content="https://academic-demo.netlify.app/post/avoid-relative-path-import-hell-in-python/featured.png" />
     <meta property="twitter:image" content="https://academic-demo.netlify.app/post/avoid-relative-path-import-hell-in-python/featured.png" /><meta property="og:locale" content="en-us" />
   
     
@@ -365,7 +365,7 @@
       "url": "https://academic-demo.netlify.app/media/icon_hu52c76baf5d1231d4145a3e91a90778a9_25217_192x192_fill_lanczos_center_3.png"
     }
   },
-  "description": "Exploring poetry for dependency management in python Some useful poetry commands # Download poetry in Ubuntu curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python - source $HOME/.poetry/env # Add to PATH poetry --version # Check version of poetry poetry self update # Update version poetry new project1 # Create a new project cd project1 tree ."
+  "description": "Exploring poetry for dependency management in python In general pip \u0026amp; venv is a good combination of tool when you don\u0026rsquo;t have to manage multiple dependencies for your project. But imaging that in a project you need to management multiple dependency files to deploy code into multiple envs."
 }
 </script>
 
@@ -792,6 +792,7 @@
 
     <div class="article-style">
       <h1 id="__exploring-poetry-for-dependency-management-in-python__"><strong>Exploring <code>poetry</code> for dependency management in python</strong></h1>
+<p>In general <code>pip</code> &amp; <code>venv</code> is a good combination of tool when you don&rsquo;t have to manage multiple dependencies for your project. But imaging that in a project you need to management multiple dependency files to deploy code into multiple envs. It is possible to do this with <code>pip</code>, but in that case you need to manage multiple requirements files. To solve this project I have checked a few alternative like  <code>pyenv</code>, <code>pipx</code>, <code>pipenv</code>, <code>poetry</code> etc. According to my experience, poetry is the simplest and most efficient one. I was checking some of the useful tutorials about this and here I am just taking a note of some of the useful points regarding this tool.</p>
 <h2 id="__some-useful-poetry-commands__"><strong>Some useful <code>poetry</code> commands</strong></h2>
 <pre><code class="language-bash"># Download poetry in Ubuntu
 curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
@@ -833,17 +834,6 @@ pypi = {username = &quot;myuser&quot;, password = &quot;topsecret&quot;}
 testpypi = {username = &quot;myuser&quot;, password = &quot;topsecret&quot;}
 </code></pre>
 <p>Check GitHub issue related to this <a href="https://github.com/python-poetry/poetry/issues/111" target="_blank" rel="noopener">here</a>.</p>
-<pre><code># Run dotnet build and package
-- name: dotnet build and publish
-run: |
-    dotnet restore
-    dotnet build --configuration '${{ env.BUILD_CONFIGURATION }}'
-    dotnet pack -c '${{ env.BUILD_CONFIGURATION }}' --version-suffix $GITHUB_RUN_ID
-
-# Publish the package to Azure Artifacts
-- name: 'dotnet publish'
-run: dotnet nuget push --api-key AzureArtifacts bin/Release/*.nupkg
-</code></pre>
 <h2 id="__reference__"><strong>Reference:</strong></h2>
 <ul>
 <li><a href="https://www.youtube.com/watch?v=G-OAVLBFxbw" target="_blank" rel="noopener">PyBites Python Poetry Training</a></li>

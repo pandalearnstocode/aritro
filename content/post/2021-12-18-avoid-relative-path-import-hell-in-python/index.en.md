@@ -22,6 +22,8 @@ projects: []
 
 # __Exploring `poetry` for dependency management in python__
 
+In general `pip` & `venv` is a good combination of tool when you don't have to manage multiple dependencies for your project. But imaging that in a project you need to management multiple dependency files to deploy code into multiple envs. It is possible to do this with `pip`, but in that case you need to manage multiple requirements files. To solve this project I have checked a few alternative like  `pyenv`, `pipx`, `pipenv`, `poetry` etc. According to my experience, poetry is the simplest and most efficient one. I was checking some of the useful tutorials about this and here I am just taking a note of some of the useful points regarding this tool.
+
 ## __Some useful `poetry` commands__
 
 ```bash
@@ -71,19 +73,6 @@ testpypi = {username = "myuser", password = "topsecret"}
 ```
 
 Check GitHub issue related to this [here](https://github.com/python-poetry/poetry/issues/111).
-
-```
-# Run dotnet build and package
-- name: dotnet build and publish
-run: |
-    dotnet restore
-    dotnet build --configuration '${{ env.BUILD_CONFIGURATION }}'
-    dotnet pack -c '${{ env.BUILD_CONFIGURATION }}' --version-suffix $GITHUB_RUN_ID
-
-# Publish the package to Azure Artifacts
-- name: 'dotnet publish'
-run: dotnet nuget push --api-key AzureArtifacts bin/Release/*.nupkg
-```
 
 ## __Reference:__
 

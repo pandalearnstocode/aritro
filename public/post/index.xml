@@ -18,6 +18,7 @@
       <pubDate>Sat, 18 Dec 2021 00:00:00 +0000</pubDate>
       <guid>https://academic-demo.netlify.app/post/avoid-relative-path-import-hell-in-python/</guid>
       <description>&lt;h1 id=&#34;__exploring-poetry-for-dependency-management-in-python__&#34;&gt;&lt;strong&gt;Exploring &lt;code&gt;poetry&lt;/code&gt; for dependency management in python&lt;/strong&gt;&lt;/h1&gt;
+&lt;p&gt;In general &lt;code&gt;pip&lt;/code&gt; &amp;amp; &lt;code&gt;venv&lt;/code&gt; is a good combination of tool when you don&amp;rsquo;t have to manage multiple dependencies for your project. But imaging that in a project you need to management multiple dependency files to deploy code into multiple envs. It is possible to do this with &lt;code&gt;pip&lt;/code&gt;, but in that case you need to manage multiple requirements files. To solve this project I have checked a few alternative like  &lt;code&gt;pyenv&lt;/code&gt;, &lt;code&gt;pipx&lt;/code&gt;, &lt;code&gt;pipenv&lt;/code&gt;, &lt;code&gt;poetry&lt;/code&gt; etc. According to my experience, poetry is the simplest and most efficient one. I was checking some of the useful tutorials about this and here I am just taking a note of some of the useful points regarding this tool.&lt;/p&gt;
 &lt;h2 id=&#34;__some-useful-poetry-commands__&#34;&gt;&lt;strong&gt;Some useful &lt;code&gt;poetry&lt;/code&gt; commands&lt;/strong&gt;&lt;/h2&gt;
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;# Download poetry in Ubuntu
 curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
@@ -59,17 +60,6 @@ pypi = {username = &amp;quot;myuser&amp;quot;, password = &amp;quot;topsecret&am
 testpypi = {username = &amp;quot;myuser&amp;quot;, password = &amp;quot;topsecret&amp;quot;}
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Check GitHub issue related to this &lt;a href=&#34;https://github.com/python-poetry/poetry/issues/111&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;# Run dotnet build and package
-- name: dotnet build and publish
-run: |
-    dotnet restore
-    dotnet build --configuration &#39;${{ env.BUILD_CONFIGURATION }}&#39;
-    dotnet pack -c &#39;${{ env.BUILD_CONFIGURATION }}&#39; --version-suffix $GITHUB_RUN_ID
-
-# Publish the package to Azure Artifacts
-- name: &#39;dotnet publish&#39;
-run: dotnet nuget push --api-key AzureArtifacts bin/Release/*.nupkg
-&lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;__reference__&#34;&gt;&lt;strong&gt;Reference:&lt;/strong&gt;&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=G-OAVLBFxbw&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PyBites Python Poetry Training&lt;/a&gt;&lt;/li&gt;
@@ -845,7 +835,7 @@ data.head()
 &lt;p&gt;Demo:&lt;/p&gt;
 
 
-&lt;div id=&#34;chart-531798246&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
+&lt;div id=&#34;chart-215739648&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
 &lt;script&gt;
   (function() {
     let a = setInterval( function() {
@@ -855,7 +845,7 @@ data.head()
       clearInterval( a );
 
       Plotly.d3.json(&#34;./line-chart.json&#34;, function(chart) {
-        Plotly.plot(&#39;chart-531798246&#39;, chart.data, chart.layout, {responsive: true});
+        Plotly.plot(&#39;chart-215739648&#39;, chart.data, chart.layout, {responsive: true});
       });
     }, 500 );
   })();

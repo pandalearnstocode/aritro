@@ -128,6 +128,37 @@ The variance of the distribution is $\sigma^{2}$.
     </item>
     
     <item>
+      <title>RecSys for B2B platform</title>
+      <link>https://academic-demo.netlify.app/project/internal-project/</link>
+      <pubDate>Sun, 18 Dec 2022 00:00:00 +0000</pubDate>
+      <guid>https://academic-demo.netlify.app/project/internal-project/</guid>
+      <description>&lt;p&gt;Currently, I am on &lt;code&gt;RecSys&lt;/code&gt; to generate product recommendations for ABI&amp;rsquo;s B2B platform &lt;code&gt;BEEs&lt;/code&gt;. Some of the challenges involved in the project include building &lt;code&gt;AutoML&lt;/code&gt; for best hyper-parameter selection, distributed model training. feature store integration, building a python library for curated ML models with default configs, deployment of models in cloud native compute and many more. Super excited to work in this work steam with an amazing team.&lt;/p&gt;
+&lt;h3 id=&#34;__algorithm-related-challenges__&#34;&gt;&lt;strong&gt;Algorithm related challenges:&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Cross validation:&lt;/strong&gt; How to perform cross validation for RecSys. How to link statistical metrics with business KPIs. Determining weighage between model goodness of fit and business KPIs. How to create a scoring function which can compare between different models during cross validation. Managing splitting strategy to ensure that models are comparable.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Model selection:&lt;/strong&gt; Single model or market-based model or hybrid model - combined of two or more models? Time/Sequence based models(&lt;code&gt;LSTM&lt;/code&gt;/&lt;code&gt;GRU&lt;/code&gt;)?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Hyper parameter tuning:&lt;/strong&gt; What can be the preferable hyper-parameter tuning framework, which can support &lt;code&gt;GPU&lt;/code&gt; (Wide and Deep), Spark (&lt;code&gt;ALS&lt;/code&gt;) and CPU (&lt;code&gt;SAR&lt;/code&gt; etc.).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;KPIs:&lt;/strong&gt; Evaluate existing KPIs such as &lt;code&gt;Map@K&lt;/code&gt;, &lt;code&gt;NDCG@K&lt;/code&gt; and improve if possible.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Hybrid model or mixture of model:&lt;/strong&gt; Also, what type of hybrid - sequential, parallel or weighted? As of now, two use case (conceptually)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Auto ML:&lt;/strong&gt; Example of AutoML for multi-country setup (including hybrid model, hyper-parameter tuning) with recommended tech stack.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Model drift, data drift, retraining and model monitoring:&lt;/strong&gt; How to build a framework which can be integrated with the python library to detect model drift, data drift, retraining requirements and monitor generated results in online and offline models.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Others:&lt;/strong&gt; backtesting, AB testing, linking online and offline evaluation.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;__programming--infra-related-challenges__&#34;&gt;&lt;strong&gt;Programming &amp;amp; Infra related challenges:&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Code spaces:&lt;/strong&gt; How a developer can use code space for CPU based workflow for day-to-day development. Managing multiple envs base of &lt;code&gt;Spark/GPU/CPU&lt;/code&gt; dependencies using &lt;code&gt;devcontainer&lt;/code&gt;. Can the same image be used in &lt;code&gt;AML/ADB&lt;/code&gt;?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;AML&lt;/code&gt; + VS Code/Code Space Integration:&lt;/strong&gt; Attaching &lt;code&gt;AML&lt;/code&gt; compute to VS Code as terminal and &lt;code&gt;jupyter&lt;/code&gt; kernel. Run experiments in AML without leaving &lt;code&gt;VS Code/Code spaces&lt;/code&gt;. Triggering multiple concurrent jobs (not always same as distributed model training. Some of our models are classical models which we are running multiple times as embarrassingly parallel workload) in &lt;code&gt;AML&lt;/code&gt; from &lt;code&gt;VS Code&lt;/code&gt; which can scale in multiple nodes to run different models and return results in a fan out fan in pattern to a cloud storage. (One additional information here is we want to leverage all the cores within a node using &lt;code&gt;joblib&lt;/code&gt;, hence the auto scaling we are expecting is at node level for a given threshold) &lt;code&gt;mlflow&lt;/code&gt; integration with VS Code and AML.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;ADB&lt;/code&gt; + VS Code/Code Space Integration:&lt;/strong&gt; Run experiment in ADB without leaving VS Code/Code spaces.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Debugging:&lt;/strong&gt; Using VS Code visual debugger in a distributed workflow in &lt;code&gt;AML&lt;/code&gt; &amp;amp; &lt;code&gt;ADB&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Observability:&lt;/strong&gt; Monitoring aggregated logs from different nodes in &lt;code&gt;VS Code&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Testing:&lt;/strong&gt; How to run property based testing for ML models in distributed compute environments.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Library:&lt;/strong&gt; Managing multiple dependencies such as &lt;code&gt;pyspark&lt;/code&gt;, &lt;code&gt;GPU&lt;/code&gt; and &lt;code&gt;CPU&lt;/code&gt; level system dependencies. Usage of &lt;code&gt;JIT&lt;/code&gt; within and across models taking execution infra into account. Making library infra agnostic.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If you are interested in a similar work stream feel free to reach out to me.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Avoid relative path import hell in python</title>
       <link>https://academic-demo.netlify.app/post/avoid-relative-path-import-hell-in-python/</link>
       <pubDate>Sat, 18 Dec 2021 00:00:00 +0000</pubDate>
@@ -950,7 +981,7 @@ data.head()
 &lt;p&gt;Demo:&lt;/p&gt;
 
 
-&lt;div id=&#34;chart-215739648&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
+&lt;div id=&#34;chart-713985264&#34; class=&#34;chart&#34;&gt;&lt;/div&gt;
 &lt;script&gt;
   (function() {
     let a = setInterval( function() {
@@ -960,7 +991,7 @@ data.head()
       clearInterval( a );
 
       Plotly.d3.json(&#34;./line-chart.json&#34;, function(chart) {
-        Plotly.plot(&#39;chart-215739648&#39;, chart.data, chart.layout, {responsive: true});
+        Plotly.plot(&#39;chart-713985264&#39;, chart.data, chart.layout, {responsive: true});
       });
     }, 500 );
   })();
@@ -1399,19 +1430,6 @@ Three
       <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
       <guid>https://academic-demo.netlify.app/project/external-project/</guid>
       <description></description>
-    </item>
-    
-    <item>
-      <title>Internal Project</title>
-      <link>https://academic-demo.netlify.app/project/internal-project/</link>
-      <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
-      <guid>https://academic-demo.netlify.app/project/internal-project/</guid>
-      <description>&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum. Sed ac faucibus dolor, scelerisque sollicitudin nisi. Cras purus urna, suscipit quis sapien eu, pulvinar tempor diam. Quisque risus orci, mollis id ante sit amet, gravida egestas nisl. Sed ac tempus magna. Proin in dui enim. Donec condimentum, sem id dapibus fringilla, tellus enim condimentum arcu, nec volutpat est felis vel metus. Vestibulum sit amet erat at nulla eleifend gravida.&lt;/p&gt;
-&lt;p&gt;Nullam vel molestie justo. Curabitur vitae efficitur leo. In hac habitasse platea dictumst. Sed pulvinar mauris dui, eget varius purus congue ac. Nulla euismod, lorem vel elementum dapibus, nunc justo porta mi, sed tempus est est vel tellus. Nam et enim eleifend, laoreet sem sit amet, elementum sem. Morbi ut leo congue, maximus velit ut, finibus arcu. In et libero cursus, rutrum risus non, molestie leo. Nullam congue quam et volutpat malesuada. Sed risus tortor, pulvinar et dictum nec, sodales non mi. Phasellus lacinia commodo laoreet. Nam mollis, erat in feugiat consectetur, purus eros egestas tellus, in auctor urna odio at nibh. Mauris imperdiet nisi ac magna convallis, at rhoncus ligula cursus.&lt;/p&gt;
-&lt;p&gt;Cras aliquam rhoncus ipsum, in hendrerit nunc mattis vitae. Duis vitae efficitur metus, ac tempus leo. Cras nec fringilla lacus. Quisque sit amet risus at ipsum pharetra commodo. Sed aliquam mauris at consequat eleifend. Praesent porta, augue sed viverra bibendum, neque ante euismod ante, in vehicula justo lorem ac eros. Suspendisse augue libero, venenatis eget tincidunt ut, malesuada at lorem. Donec vitae bibendum arcu. Aenean maximus nulla non pretium iaculis. Quisque imperdiet, nulla in pulvinar aliquet, velit quam ultrices quam, sit amet fringilla leo sem vel nunc. Mauris in lacinia lacus.&lt;/p&gt;
-&lt;p&gt;Suspendisse a tincidunt lacus. Curabitur at urna sagittis, dictum ante sit amet, euismod magna. Sed rutrum massa id tortor commodo, vitae elementum turpis tempus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean purus turpis, venenatis a ullamcorper nec, tincidunt et massa. Integer posuere quam rutrum arcu vehicula imperdiet. Mauris ullamcorper quam vitae purus congue, quis euismod magna eleifend. Vestibulum semper vel augue eget tincidunt. Fusce eget justo sodales, dapibus odio eu, ultrices lorem. Duis condimentum lorem id eros commodo, in facilisis mauris scelerisque. Morbi sed auctor leo. Nullam volutpat a lacus quis pharetra. Nulla congue rutrum magna a ornare.&lt;/p&gt;
-&lt;p&gt;Aliquam in turpis accumsan, malesuada nibh ut, hendrerit justo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Quisque sed erat nec justo posuere suscipit. Donec ut efficitur arcu, in malesuada neque. Nunc dignissim nisl massa, id vulputate nunc pretium nec. Quisque eget urna in risus suscipit ultricies. Pellentesque odio odio, tincidunt in eleifend sed, posuere a diam. Nam gravida nisl convallis semper elementum. Morbi vitae felis faucibus, vulputate orci placerat, aliquet nisi. Aliquam erat volutpat. Maecenas sagittis pulvinar purus, sed porta quam laoreet at.&lt;/p&gt;
-</description>
     </item>
     
     <item>

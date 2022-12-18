@@ -17,7 +17,7 @@ interests:
 organizations:
 - name: AB InBev
   url: https://www.ab-inbev.com/
-role: Senior Data Scientist
+role: Senior ML Engineer
 social:
 - display:
     header: true
@@ -47,7 +47,7 @@ superuser: true
 title: Aritra Biswas
 ---
 
-Hi! I'm Aritra Biswas, Data Scientist at AB InBev, and independent ML researcher. I love building products which makes analytics easier & accessible. I’m from Calcutta but I currently live in Bangalore.  Outside of work, I love reading, traveling and blogging. 
+Hi! I'm Aritra Biswas, ML Engineer at AB InBev, and independent ML researcher. I love building products which makes analytics easier & accessible. I’m from Calcutta but I currently live in Bangalore.  Outside of work, I love reading, traveling and blogging. 
 
 
 {{< icon name="download" pack="fas" >}} Download my {{< staticref "uploads/aritrabiswas_resume.pdf" "newtab" >}}resumé{{< /staticref >}}.

@@ -22,7 +22,7 @@ date_format: Jan 2006
 #   Leave `date_end` empty if it's your current employer.
 #   Begin multi-line descriptions with YAML's `|2-` multi-line prefix.
 experience:
-  - title: Data Scientist
+  - title: Senior ML Engineer
     company: AB InBev
     company_url: 'https://www.ab-inbev.com/'
     company_logo: abi
@@ -31,10 +31,9 @@ experience:
     date_end: ''
     description: |2-
         Responsibilities include:
-        * MLOps Engineering
-        * ML Researcher
+        * Managing MLOps work streams
+        * Building ML products
         * Product Development
-        
   - title: Data Scientist
     company: The Nielsen Company
     company_url: 'https://www.nielsen.com/us/en/'

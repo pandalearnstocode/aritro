@@ -31,9 +31,9 @@ content:
   filter_button:
   - name: All
     tag: '*'
-  - name: Deep Learning
-    tag: Deep Learning
-  - name: Other
+  - name: Current project
+    tag: ML
+  - name: Pet projects
     tag: Demo
 
 design:

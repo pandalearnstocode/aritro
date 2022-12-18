@@ -20,6 +20,27 @@
     <loc>https://academic-demo.netlify.app/event/</loc>
     <lastmod>2030-06-01T13:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://academic-demo.netlify.app/tag/automl/</loc>
+    <lastmod>2022-12-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://academic-demo.netlify.app/tag/ml/</loc>
+    <lastmod>2022-12-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://academic-demo.netlify.app/project/</loc>
+    <lastmod>2022-12-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://academic-demo.netlify.app/tag/python/</loc>
+    <lastmod>2022-12-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://academic-demo.netlify.app/tag/recsys/</loc>
+    <lastmod>2022-12-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://academic-demo.netlify.app/project/internal-project/</loc>
+    <lastmod>2022-12-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://academic-demo.netlify.app/tags/</loc>
+    <lastmod>2022-12-18T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://academic-demo.netlify.app/post/avoid-relative-path-import-hell-in-python/</loc>
     <lastmod>2021-12-18T13:42:42+05:30</lastmod>
   </url><url>
@@ -30,12 +51,6 @@
     <lastmod>2021-12-18T13:42:42+05:30</lastmod>
   </url><url>
     <loc>https://academic-demo.netlify.app/category/programming/</loc>
-    <lastmod>2021-12-18T13:42:42+05:30</lastmod>
-  </url><url>
-    <loc>https://academic-demo.netlify.app/tag/python/</loc>
-    <lastmod>2021-12-18T13:42:42+05:30</lastmod>
-  </url><url>
-    <loc>https://academic-demo.netlify.app/tags/</loc>
     <lastmod>2021-12-18T13:42:42+05:30</lastmod>
   </url><url>
     <loc>https://academic-demo.netlify.app/post/scm-conventions-ways-of-working/</loc>
@@ -122,19 +137,10 @@
     <loc>https://academic-demo.netlify.app/slides/example/</loc>
     <lastmod>2019-02-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://academic-demo.netlify.app/tag/deep-learning/</loc>
-    <lastmod>2016-04-27T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://academic-demo.netlify.app/tag/demo/</loc>
     <lastmod>2016-04-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://academic-demo.netlify.app/project/external-project/</loc>
-    <lastmod>2016-04-27T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://academic-demo.netlify.app/project/internal-project/</loc>
-    <lastmod>2016-04-27T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://academic-demo.netlify.app/project/</loc>
     <lastmod>2016-04-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://academic-demo.netlify.app/publication-type/2/</loc>

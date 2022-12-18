@@ -1,11 +1,11 @@
 ---
-bio: My research interests include computational statistics, causal inference , simulation and mathematical optimization.
+bio: My research interests include computational statistics, causal inference, simulation and mathematical optimization.
 education:
   courses:
   - course: M.Sc. in Statistics
     institution: University of Delhi
     year: 2017
-  - course: BSc in Statistics
+  - course: B.Sc. in Statistics
     institution: Presidency College
     year: 2015
 email: pandalearnstocode@gmail.com
@@ -47,7 +47,7 @@ superuser: true
 title: Aritra Biswas
 ---
 
-Hi! I'm Aritra Biswas, ML Engineer at AB InBev, and independent ML researcher. I love building products which makes analytics easier & accessible. I’m from Calcutta but I currently live in Bangalore.  Outside of work, I love reading, traveling and blogging. 
+Hi! I'm Aritra Biswas, ML Engineer at AB InBev, and independent ML researcher. I love building products which makes analytics easier & accessible. I’m from Calcutta but I currently live in Bangalore.  Outside of work, I love reading, traveling and blogging.
 
 
 {{< icon name="download" pack="fas" >}} Download my {{< staticref "uploads/aritrabiswas_resume.pdf" "newtab" >}}resumé{{< /staticref >}}.

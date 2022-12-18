@@ -11,7 +11,7 @@ links:
   name: Follow
   url: https://twitter.com/pdlearnstocode
 slides: example
-summary: An example of using the in-built project page.
+summary: RecSys with AutoML.
 tags:
 - RecSys
 - Python
@@ -29,7 +29,7 @@ Currently, I am on `RecSys` to generate product recommendations for ABI's B2B pl
 
 ### __Algorithm related challenges:__
 
-* __Cross validation:__ How to perform cross validation for RecSys. How to link statistical metrics with business KPIs. Determining weighage between model goodness of fit and business KPIs. How to create a scoring function which can compare between different models during cross validation. Managing splitting strategy to ensure that models are comparable.
+* __Cross validation:__ How to perform cross validation for `RecSys`. How to link statistical metrics with business KPIs. Determining weighage between model goodness of fit and business KPIs. How to create a scoring function which can compare between different models during cross validation. Managing splitting strategy to ensure that models are comparable.
 * __Model selection:__ Single model or market-based model or hybrid model - combined of two or more models? Time/Sequence based models(`LSTM`/`GRU`)?
 * __Hyper parameter tuning:__ What can be the preferable hyper-parameter tuning framework, which can support `GPU` (Wide and Deep), Spark (`ALS`) and CPU (`SAR` etc.).
 * __KPIs:__ Evaluate existing KPIs such as `Map@K`, `NDCG@K` and improve if possible.
@@ -48,7 +48,6 @@ Currently, I am on `RecSys` to generate product recommendations for ABI's B2B pl
 * __Observability:__ Monitoring aggregated logs from different nodes in `VS Code`.
 * __Testing:__ How to run property based testing for ML models in distributed compute environments.
 * __Library:__ Managing multiple dependencies such as `pyspark`, `GPU` and `CPU` level system dependencies. Usage of `JIT` within and across models taking execution infra into account. Making library infra agnostic.
-
 
 
 If you are interested in a similar work stream feel free to reach out to me.

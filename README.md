@@ -1,5 +1,10 @@
 # aritro
 
+## TODOs:
+
+* Update transparent svg logos.
+* Update resume.
+
 ## Reference:
 
 

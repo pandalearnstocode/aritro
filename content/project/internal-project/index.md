@@ -24,7 +24,7 @@ url_slides: ""
 url_video: ""
 ---
 
-Currently, I am on `RecSys` to generate product recommendations for ABI's B2B platform `BEEs`. Some of the challenges involved in the project include building `AutoML` for best hyper-parameter selection, distributed model training. feature store integration, building a python library for curated ML models with default configs, deployment of models in cloud native compute and many more. Super excited to work in this work steam with an amazing team.
+I am working on `RecSys` to generate product recommendations for ABI's B2B platform `BEEs`. Some of the challenges involved in the project include building `AutoML` for best hyper-parameter selection, distributed model training. feature store integration, building a python library for curated ML models with default configs, deployment of models in cloud native compute and many more. Super excited to work in this work stream with an amazing team.
 
 
 ### __Algorithm related challenges:__
@@ -34,9 +34,9 @@ Currently, I am on `RecSys` to generate product recommendations for ABI's B2B pl
 * __Hyper parameter tuning:__ What can be the preferable hyper-parameter tuning framework, which can support `GPU` (Wide and Deep), Spark (`ALS`) and CPU (`SAR` etc.).
 * __KPIs:__ Evaluate existing KPIs such as `Map@K`, `NDCG@K` and improve if possible.
 * __Hybrid model or mixture of model:__ Also, what type of hybrid - sequential, parallel or weighted? As of now, two use case (conceptually)
-* __Auto ML:__ Example of AutoML for multi-country setup (including hybrid model, hyper-parameter tuning) with recommended tech stack.
+* __AutoML:__ Example of AutoML for multi-country setup (including hybrid model, hyper-parameter tuning) with recommended tech stack.
 * __Model drift, data drift, retraining and model monitoring:__ How to build a framework which can be integrated with the python library to detect model drift, data drift, retraining requirements and monitor generated results in online and offline models.
-* __Others:__ backtesting, AB testing, linking online and offline evaluation.
+* __Others:__ Backtesting, AB testing, linking online and offline evaluation.
 
 
 ### __Programming & Infra related challenges:__
@@ -50,4 +50,4 @@ Currently, I am on `RecSys` to generate product recommendations for ABI's B2B pl
 * __Library:__ Managing multiple dependencies such as `pyspark`, `GPU` and `CPU` level system dependencies. Usage of `JIT` within and across models taking execution infra into account. Making library infra agnostic.
 
 
-If you are interested in a similar work stream feel free to reach out to me.
+If you are excited about solving above mentioned challenges feel free to reach out to me. 

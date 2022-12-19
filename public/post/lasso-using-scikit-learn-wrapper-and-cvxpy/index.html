@@ -262,7 +262,7 @@
   
   
   
-  <link rel="stylesheet" href="/css/wowchemy.f0cf03b20998d63e314819fa4a90c13f.css" />
+  <link rel="stylesheet" href="/css/wowchemy.79d58eefec4dfa2f737e4c1edd64a511.css" />
 
   
 
@@ -716,8 +716,6 @@
 
   
   
-    
-  
 
 
 <div class="article-container pt-3">
@@ -750,7 +748,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    6 min read
+    7 min read
   </span>
   
 
@@ -779,9 +777,9 @@
 </div>
 
 
-<div class="article-header article-container featured-image-wrapper mt-4 mb-4" style="max-width: 720px; max-height: 302px;">
+<div class="article-header article-container featured-image-wrapper mt-4 mb-4" style="max-width: 320px; max-height: 172px;">
   <div style="position: relative">
-    <img src="/post/lasso-using-scikit-learn-wrapper-and-cvxpy/featured_huc2b58d854775a9036f8ffc931c8610c7_35084_720x0_resize_lanczos_3.png" alt="" class="featured-image">
+    <img src="/post/lasso-using-scikit-learn-wrapper-and-cvxpy/featured.png" alt="" class="featured-image">
     
   </div>
 </div>
@@ -866,24 +864,25 @@ model.score(X, y)
 <li>If you have <code>_</code> prefix before any method in the model class, it will not be exposed. It will be considered as internal method and can be accessed with the class.</li>
 <li>If we inherit from <code>BaseEstimator</code> &amp; <code>RegressorMixin</code> there will be a default score function but it can be overwritten.</li>
 <li>To change score function in hyper-parameter tuning you can use <code>make_scorer</code> and <code>greater_is_better</code> in it.</li>
+<li>Dynamic parsing of <code>args</code> is possible in <code>__init__</code> method using <code>inspect</code> module,</li>
 </ul>
-<p>Dynamic parsing of <code>args</code> is possible in <code>__init__</code> method using <code>inspect</code> module,</p>
 <pre><code class="language-python">import inspect
+
 def __init__(self, arg1, arg2, arg3, ..., argN):
     args, _, _, values = inspect.getargvalues(inspect.currentframe())
     values.pop(&quot;self&quot;)
     for arg, val in values.items():
         setattr(self, arg, val)
 </code></pre>
-<p>In this example, we are overwriting case <code>score</code> function using <code>mean_absolute_percentage_error</code>. Lets assume that for some reason we want to use <code>MAPE</code> instate as default scoring method it can be useful. Other using <code>make_scorer</code> can be used for any other custom score function or other sklearn score functions.</p>
+<ul>
+<li>In this example, we are overwriting case <code>score</code> function using <code>mean_absolute_percentage_error</code>. Lets assume that for some reason we want to use <code>MAPE</code> instate as default scoring method it can be useful. Other using <code>make_scorer</code> can be used for any other custom score function or other sklearn score functions.</li>
+</ul>
 <pre><code class="language-python">from sklearn.base import BaseEstimator, RegressorMixin
 from sklearn.utils.validation import check_X_y, check_array, check_is_fitted
 import cvxpy as cp
 import numpy as np
 import pandas as pd
 from sklearn.metrics import mean_absolute_percentage_error
-
-
 
 class CVXSkLearnWrapper(BaseEstimator, RegressorMixin):
     def __init__(self, alpha=1.0):
@@ -921,6 +920,10 @@ class CVXSkLearnWrapper(BaseEstimator, RegressorMixin):
         y_hat = self.predict(X)
         return mean_absolute_percentage_error(y, y_hat)
 </code></pre>
+<ul>
+<li>All the hyper-parameters (not derived from data) has to be initialized in <code>__init__</code> method. Any model parameters (derived from data) must be initialized in <code>fit</code>. Variable names in init should be always same as arg name and variables in fit should always have a suffix <code>_</code>.</li>
+<li><code>fit</code> and <code>predict</code> are mandatory methods in <code>BaseEstimator</code> class.</li>
+</ul>
 <p><strong>Reference:</strong></p>
 <ul>
 <li><a href="https://www.cvxpy.org/examples/machine_learning/lasso_regression.html" target="_blank" rel="noopener">LASSO regression using CVXPY</a></li>

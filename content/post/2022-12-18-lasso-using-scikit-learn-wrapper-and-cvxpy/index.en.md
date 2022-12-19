@@ -176,7 +176,7 @@ class CVXSkLearnWrapper(BaseEstimator, RegressorMixin):
         y_hat = self.predict(X)
         return mean_absolute_percentage_error(y, y_hat)
 ```
-* All the hyper-parameters (not derived from data) has to be initialized in `__init__` method. Any model parameters (derived from data) must be initialized in `fit`. Variable names in init should be always same as arg name and variables in fit should always have a suffix "_".
+* All the hyper-parameters (not derived from data) has to be initialized in `__init__` method. Any model parameters (derived from data) must be initialized in `fit`. Variable names in init should be always same as arg name and variables in fit should always have a suffix `_`.
 * `fit` and `predict` are mandatory methods in `BaseEstimator` class.
 
 

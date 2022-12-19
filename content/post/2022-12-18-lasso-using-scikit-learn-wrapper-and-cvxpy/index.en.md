@@ -172,7 +172,8 @@ class CVXSkLearnWrapper(BaseEstimator, RegressorMixin):
         check_is_fitted(self)
         X = check_array(X)
         return X @ self.coeff_
-    def score(X, y):
+
+    def score(self, X, y):
         y_hat = self.predict(X)
         return mean_absolute_percentage_error(y, y_hat)
 ```

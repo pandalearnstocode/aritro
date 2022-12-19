@@ -1,2 +1,6 @@
 # aritro
-Personal website of Aritra Biswas
+
+## Reference:
+
+
+* https://isabella-b.com/blog/hugo-academic-customization/

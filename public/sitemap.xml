@@ -20,38 +20,41 @@
     <loc>https://academic-demo.netlify.app/event/</loc>
     <lastmod>2030-06-01T13:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://academic-demo.netlify.app/categories/</loc>
+    <lastmod>2022-12-20T10:13:59+05:30</lastmod>
+  </url><url>
+    <loc>https://academic-demo.netlify.app/post/exponential-smoothing-using-scikit-learn-wrapper-statsmodels/</loc>
+    <lastmod>2022-12-20T10:13:59+05:30</lastmod>
+  </url><url>
+    <loc>https://academic-demo.netlify.app/tag/ml/</loc>
+    <lastmod>2022-12-20T10:13:59+05:30</lastmod>
+  </url><url>
+    <loc>https://academic-demo.netlify.app/post/</loc>
+    <lastmod>2022-12-20T10:13:59+05:30</lastmod>
+  </url><url>
+    <loc>https://academic-demo.netlify.app/category/programming/</loc>
+    <lastmod>2022-12-20T10:13:59+05:30</lastmod>
+  </url><url>
+    <loc>https://academic-demo.netlify.app/tag/python/</loc>
+    <lastmod>2022-12-20T10:13:59+05:30</lastmod>
+  </url><url>
+    <loc>https://academic-demo.netlify.app/tags/</loc>
+    <lastmod>2022-12-20T10:13:59+05:30</lastmod>
+  </url><url>
     <loc>https://academic-demo.netlify.app/tag/automl/</loc>
     <lastmod>2022-12-18T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://academic-demo.netlify.app/categories/</loc>
-    <lastmod>2022-12-18T23:18:20+05:30</lastmod>
   </url><url>
     <loc>https://academic-demo.netlify.app/post/lasso-using-scikit-learn-wrapper-and-cvxpy/</loc>
     <lastmod>2022-12-18T23:18:20+05:30</lastmod>
   </url><url>
-    <loc>https://academic-demo.netlify.app/tag/ml/</loc>
-    <lastmod>2022-12-18T23:18:20+05:30</lastmod>
-  </url><url>
-    <loc>https://academic-demo.netlify.app/post/</loc>
-    <lastmod>2022-12-18T23:18:20+05:30</lastmod>
-  </url><url>
-    <loc>https://academic-demo.netlify.app/category/programming/</loc>
-    <lastmod>2022-12-18T23:18:20+05:30</lastmod>
-  </url><url>
     <loc>https://academic-demo.netlify.app/project/</loc>
     <lastmod>2022-12-18T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://academic-demo.netlify.app/tag/python/</loc>
-    <lastmod>2022-12-18T23:18:20+05:30</lastmod>
   </url><url>
     <loc>https://academic-demo.netlify.app/tag/recsys/</loc>
     <lastmod>2022-12-18T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://academic-demo.netlify.app/project/internal-project/</loc>
     <lastmod>2022-12-18T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://academic-demo.netlify.app/tags/</loc>
-    <lastmod>2022-12-18T23:18:20+05:30</lastmod>
   </url><url>
     <loc>https://academic-demo.netlify.app/post/avoid-relative-path-import-hell-in-python/</loc>
     <lastmod>2021-12-18T13:42:42+05:30</lastmod>

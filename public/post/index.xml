@@ -5,12 +5,113 @@
     <link>https://academic-demo.netlify.app/post/</link>
       <atom:link href="https://academic-demo.netlify.app/post/index.xml" rel="self" type="application/rss+xml" />
     <description>Posts</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sun, 18 Dec 2022 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Tue, 20 Dec 2022 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://academic-demo.netlify.app/media/icon_hu52c76baf5d1231d4145a3e91a90778a9_25217_512x512_fill_lanczos_center_3.png</url>
       <title>Posts</title>
       <link>https://academic-demo.netlify.app/post/</link>
     </image>
+    
+    <item>
+      <title>Exponential Smoothing using Scikit-Learn wrapper &amp; statsmodels</title>
+      <link>https://academic-demo.netlify.app/post/exponential-smoothing-using-scikit-learn-wrapper-statsmodels/</link>
+      <pubDate>Tue, 20 Dec 2022 00:00:00 +0000</pubDate>
+      <guid>https://academic-demo.netlify.app/post/exponential-smoothing-using-scikit-learn-wrapper-statsmodels/</guid>
+      <description>&lt;p&gt;As we discussed in previous post, in this series we will be working on different type of regression problem and will try to parse them as sklearn model objects. Here are we will be working with &lt;code&gt;ExponentialSmoothing&lt;/code&gt; from &lt;code&gt;statsmodels&lt;/code&gt; library. This is one of the most common time series model used in general. &lt;code&gt;statsmodels&lt;/code&gt; is heavily influence by R and its convention. If you take a deep dive into it&amp;rsquo;s functionality of or formula based approach in case of GLM, it is quite evident including the summary function.&lt;/p&gt;
+&lt;p&gt;Here in this post our objective will be to take this &lt;code&gt;ExponentialSmoothing&lt;/code&gt; from &lt;code&gt;statsmodels&lt;/code&gt; and build a model class which looks like sklearn model and the method signatures are same in nature so there is less learning curve involved when there is a context switch or in this case a user is trying to build different models.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from statsmodels.tsa.holtwinters import ExponentialSmoothing
+from sklearn.base import BaseEstimator, RegressorMixin
+from sklearn.utils.validation import check_X_y, check_array, check_is_fitted
+from sklearn.metrics import mean_absolute_percentage_error
+import numpy as np
+import pandas as pd
+import inspect
+
+class HWTimeSeriesSkLearnWrapper(BaseEstimator, RegressorMixin):
+    def __init__(
+        self,
+        trend=None,
+        damped_trend=False,
+        seasonal=None,
+        seasonal_periods=None,
+        use_boxcox=False,
+        optimized=True,
+        remove_bias=False,
+        initialization_method = None,
+        model=ExponentialSmoothing,
+    ):
+        args, _, _, values = inspect.getargvalues(inspect.currentframe())
+        values.pop(&amp;quot;self&amp;quot;)
+        for arg, val in values.items():
+            setattr(self, arg, val)
+
+    def fit(self, X, y = None):
+        if not X.empty:
+            self.X = X
+        self.model_ = self.model(
+            self.X,
+            trend=self.trend,
+            seasonal=self.seasonal,
+            seasonal_periods=self.seasonal_periods,
+            damped_trend=self.damped_trend,
+            use_boxcox=self.use_boxcox,
+        )
+        self.result_ = self.model_.fit(
+            optimized=self.optimized, remove_bias=self.remove_bias
+        )
+        self.level = self.result_.level
+        self.trend = self.result_.trend
+        self.season = self.result_.season
+        self.fitted_values = self.result_.fittedvalues
+        return self
+
+    def predict(self, X, y = None):
+        check_is_fitted(self, &amp;quot;result_&amp;quot;)
+        self.df = self.result_.forecast(X.index.size).to_frame()
+        self.df.columns = [f&amp;quot;predicted_{name}&amp;quot; for name in X.columns]
+        self.df.index.name = X.index.name
+        return self.df
+
+    def score(self, X, y):
+        y_true = X.to_numpy().flatten()
+        y_hat = self.predict(X).to_numpy().flatten()
+        return mean_absolute_percentage_error(y_true= y_true, y_pred=y_hat)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;As you can see in the above block, I have come up with this structure which can take all the args of &lt;code&gt;__init__&lt;/code&gt; and &lt;code&gt;fit&lt;/code&gt; of &lt;code&gt;ExponentialSmoothing&lt;/code&gt; while initializing the wrapper class &lt;code&gt;HWTimeSeriesSkLearnWrapper&lt;/code&gt;. Note, these are not all the exhaustive set of parameter. You can take a look into the source code of the model class from &lt;code&gt;statsmodels&lt;/code&gt; and figure out what are the other parameters which can be helpful for your context.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;args, _, _, values = inspect.getargvalues(inspect.currentframe())
+values.pop(&amp;quot;self&amp;quot;)
+for arg, val in values.items():
+    setattr(self, arg, val)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The above chunk of the code will help to initialize arbitrary number of parameters for your model and in subsequent methods such as initialization or fit you can pass the parameter values from self. In the next block, I am downloading the data and creating a train test split. Note, in case of time series we need to remember two things,&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Train test split can not be random&lt;/li&gt;
+&lt;li&gt;There is no such concept of train and test data. Index is kind of your core feature along with meta features which can be derived from target.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The catch here is we need to create train and test in a way it can look like sklearn model but under the hood it should be able to use the same datasets for building times series model using statsmodels or any other library you may use.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def get_and_split_airline_data(test_size = 0.2, date_col = &amp;quot;month&amp;quot;, date_format = &amp;quot;%Y-%m&amp;quot;, date_freq = &amp;quot;MS&amp;quot;):
+    df = pd.read_csv(&amp;quot;https://raw.githubusercontent.com/jbrownlee/Datasets/master/airline-passengers.csv&amp;quot;)
+    df.columns = df.columns.str.lower()
+    if date_col in df.columns:
+        df[date_col] = pd.to_datetime(df[date_col], format = date_format)
+        df = df.sort_values(date_col).set_index(date_col)
+        df.index.freq = date_freq
+    train_size = int(df.shape[0] * (1 - test_size))
+    X_train = df.iloc[:train_size]
+    X_test = df.iloc[train_size:]
+    y_train = X_train.copy()
+    y_test = X_test.copy()
+    return X_train,X_test,y_train, y_test
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Finally, once we have the data we can use &lt;code&gt;fit&lt;/code&gt;, &lt;code&gt;predict&lt;/code&gt; and &lt;code&gt;score&lt;/code&gt; to calculate the required values.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;X_train,X_test,y_train, y_test = get_and_split_airline_data()
+model = HWTimeSeriesSkLearnWrapper(trend = &amp;quot;add&amp;quot;, damped_trend = True, seasonal = &amp;quot;add&amp;quot;, seasonal_periods = 12)
+model.fit(X_train, y_train)
+model.predict(X_test)
+model.score(X_test, y_test)
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>LASSO using Scikit-Learn wrapper &amp; CVXPY</title>
@@ -144,7 +245,8 @@ class CVXSkLearnWrapper(BaseEstimator, RegressorMixin):
         check_is_fitted(self)
         X = check_array(X)
         return X @ self.coeff_
-    def score(X, y):
+
+    def score(self, X, y):
         y_hat = self.predict(X)
         return mean_absolute_percentage_error(y, y_hat)
 &lt;/code&gt;&lt;/pre&gt;

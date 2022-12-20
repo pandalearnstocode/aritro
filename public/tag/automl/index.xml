@@ -17,7 +17,7 @@
       <link>https://academic-demo.netlify.app/project/internal-project/</link>
       <pubDate>Sun, 18 Dec 2022 00:00:00 +0000</pubDate>
       <guid>https://academic-demo.netlify.app/project/internal-project/</guid>
-      <description>&lt;p&gt;Currently, I am on &lt;code&gt;RecSys&lt;/code&gt; to generate product recommendations for ABI&amp;rsquo;s B2B platform &lt;code&gt;BEEs&lt;/code&gt;. Some of the challenges involved in the project include building &lt;code&gt;AutoML&lt;/code&gt; for best hyper-parameter selection, distributed model training. feature store integration, building a python library for curated ML models with default configs, deployment of models in cloud native compute and many more. Super excited to work in this work steam with an amazing team.&lt;/p&gt;
+      <description>&lt;p&gt;I am working on &lt;code&gt;RecSys&lt;/code&gt; to generate product recommendations for ABI&amp;rsquo;s B2B platform &lt;code&gt;BEEs&lt;/code&gt;. Some of the challenges involved in the project include building &lt;code&gt;AutoML&lt;/code&gt; for best hyper-parameter selection, distributed model training. feature store integration, building a python library for curated ML models with default configs, deployment of models in cloud native compute and many more. Super excited to work in this work stream with an amazing team.&lt;/p&gt;
 &lt;h3 id=&#34;__algorithm-related-challenges__&#34;&gt;&lt;strong&gt;Algorithm related challenges:&lt;/strong&gt;&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Cross validation:&lt;/strong&gt; How to perform cross validation for &lt;code&gt;RecSys&lt;/code&gt;. How to link statistical metrics with business KPIs. Determining weighage between model goodness of fit and business KPIs. How to create a scoring function which can compare between different models during cross validation. Managing splitting strategy to ensure that models are comparable.&lt;/li&gt;
@@ -25,9 +25,9 @@
 &lt;li&gt;&lt;strong&gt;Hyper parameter tuning:&lt;/strong&gt; What can be the preferable hyper-parameter tuning framework, which can support &lt;code&gt;GPU&lt;/code&gt; (Wide and Deep), Spark (&lt;code&gt;ALS&lt;/code&gt;) and CPU (&lt;code&gt;SAR&lt;/code&gt; etc.).&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;KPIs:&lt;/strong&gt; Evaluate existing KPIs such as &lt;code&gt;Map@K&lt;/code&gt;, &lt;code&gt;NDCG@K&lt;/code&gt; and improve if possible.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Hybrid model or mixture of model:&lt;/strong&gt; Also, what type of hybrid - sequential, parallel or weighted? As of now, two use case (conceptually)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Auto ML:&lt;/strong&gt; Example of AutoML for multi-country setup (including hybrid model, hyper-parameter tuning) with recommended tech stack.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AutoML:&lt;/strong&gt; Example of AutoML for multi-country setup (including hybrid model, hyper-parameter tuning) with recommended tech stack.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Model drift, data drift, retraining and model monitoring:&lt;/strong&gt; How to build a framework which can be integrated with the python library to detect model drift, data drift, retraining requirements and monitor generated results in online and offline models.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Others:&lt;/strong&gt; backtesting, AB testing, linking online and offline evaluation.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Others:&lt;/strong&gt; Backtesting, AB testing, linking online and offline evaluation.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;__programming--infra-related-challenges__&#34;&gt;&lt;strong&gt;Programming &amp;amp; Infra related challenges:&lt;/strong&gt;&lt;/h3&gt;
 &lt;ul&gt;
@@ -39,7 +39,7 @@
 &lt;li&gt;&lt;strong&gt;Testing:&lt;/strong&gt; How to run property based testing for ML models in distributed compute environments.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Library:&lt;/strong&gt; Managing multiple dependencies such as &lt;code&gt;pyspark&lt;/code&gt;, &lt;code&gt;GPU&lt;/code&gt; and &lt;code&gt;CPU&lt;/code&gt; level system dependencies. Usage of &lt;code&gt;JIT&lt;/code&gt; within and across models taking execution infra into account. Making library infra agnostic.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;If you are interested in a similar work stream feel free to reach out to me.&lt;/p&gt;
+&lt;p&gt;If you are excited about solving above mentioned challenges feel free to reach out to me.&lt;/p&gt;
 </description>
     </item>
     

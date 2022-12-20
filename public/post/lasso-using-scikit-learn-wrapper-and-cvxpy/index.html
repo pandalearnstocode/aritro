@@ -916,7 +916,8 @@ class CVXSkLearnWrapper(BaseEstimator, RegressorMixin):
         check_is_fitted(self)
         X = check_array(X)
         return X @ self.coeff_
-    def score(X, y):
+
+    def score(self, X, y):
         y_hat = self.predict(X)
         return mean_absolute_percentage_error(y, y_hat)
 </code></pre>
@@ -1214,6 +1215,8 @@ class CVXSkLearnWrapper(BaseEstimator, RegressorMixin):
   <div class="article-widget content-widget-hr">
     <h3>Related</h3>
     <ul>
+      
+      <li><a href="/post/exponential-smoothing-using-scikit-learn-wrapper-statsmodels/">Exponential Smoothing using Scikit-Learn wrapper &amp; statsmodels</a></li>
       
       <li><a href="/project/internal-project/">RecSys for B2B platform</a></li>
       

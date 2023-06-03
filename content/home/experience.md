@@ -30,10 +30,10 @@ experience:
     date_start: '2020-04-11'
     date_end: ''
     description: |2-
-        Responsibilities include:
-        * Managing MLOps work streams
-        * Building ML products
-        * Product Development
+        * Generative AI products
+        * RecSys ML Library
+        * ML platform
+        * MROI products
   - title: Data Scientist
     company: The Nielsen Company
     company_url: 'https://www.nielsen.com/us/en/'
@@ -41,7 +41,10 @@ experience:
     location: Bangalore, India
     date_start: '2017-05-26'
     date_end: '2020-04-08'
-    description: Building marketing analytics applications.
+    description: |2-
+        * Marketing Mix Model
+        * Marketing Optimizer
+        * Lift solution
 
 design:
   columns: '2'

@@ -9,11 +9,12 @@ education:
     institution: Presidency College
     year: 2015
 email: pandalearnstocode@gmail.com
-highlight_name: false
+highlight_name: true
 interests:
 - ML Engineering
+- ML Architecture
+- MLOps & DevOps
 - Product Development
-- Cloud Architecture
 organizations:
 - name: AB InBev
   url: https://www.ab-inbev.com/
@@ -47,7 +48,7 @@ superuser: true
 title: Aritra Biswas
 ---
 
-Hi! I'm Aritra Biswas, ML Engineer at AB InBev, and independent ML researcher. I love building products which makes analytics easier & accessible. I’m from Calcutta but I currently live in Bangalore.  Outside of work, I love reading, traveling and blogging.
+Hello there! I'm Aritra Biswas, an ML Engineer at AB InBev and an independent ML researcher. I have a passion for developing products that make analytics more accessible and user-friendly. Originally from Calcutta, I currently reside in Bangalore. When I'm not immersed in my work, you can find me indulging in my hobbies of reading, traveling, and blogging. Join me on this exciting journey of exploring the world of technology and data through my blog!
 
 
 {{< icon name="download" pack="fas" >}} Download my {{< staticref "uploads/aritrabiswas_resume.pdf" "newtab" >}}resumé{{< /staticref >}}.

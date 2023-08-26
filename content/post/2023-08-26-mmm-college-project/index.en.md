@@ -19,7 +19,7 @@ image:
 projects: []
 ---
 
-Here are some toy data set with respect to media investment, sales and trade. Build a marketing mix model using the relivant features. Also, evaludate model performance based on MAPE.
+Here are some toy data set with respect to media investment, sales and trade. Build a marketing mix model using the relevant features. Also, evaluate model performance based on MAPE.
 
 * {{< staticref "uploads/media_spend.csv" "newtab" >}}Media spends{{< /staticref >}}
 * {{< staticref "uploads/sales.csv" "newtab" >}}Sales{{< /staticref >}}

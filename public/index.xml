@@ -2,29 +2,32 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Aritra Biswas</title>
-    <link>https://academic-demo.netlify.app/</link>
-      <atom:link href="https://academic-demo.netlify.app/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:4321/</link>
+      <atom:link href="http://localhost:4321/index.xml" rel="self" type="application/rss+xml" />
     <description>Aritra Biswas</description>
     <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sat, 01 Jun 2030 13:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://academic-demo.netlify.app/media/icon_hu52c76baf5d1231d4145a3e91a90778a9_25217_512x512_fill_lanczos_center_3.png</url>
+      <url>http://localhost:4321/media/icon_hu966111359855668688.png</url>
       <title>Aritra Biswas</title>
-      <link>https://academic-demo.netlify.app/</link>
+      <link>http://localhost:4321/</link>
     </image>
     
     <item>
       <title>Python basics</title>
-      <link>https://academic-demo.netlify.app/courses/example/python/</link>
+      <link>http://localhost:4321/courses/example/python/</link>
       <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>https://academic-demo.netlify.app/courses/example/python/</guid>
+      <guid>http://localhost:4321/courses/example/python/</guid>
       <description>&lt;p&gt;Build a foundation in Python.&lt;/p&gt;
 &lt;p&gt;
   &lt;i class=&#34;fas fa-clock  pr-1 fa-fw&#34;&gt;&lt;/i&gt; 1-2 hours per week, for 8 weeks&lt;/p&gt;
 &lt;h2 id=&#34;learn&#34;&gt;Learn&lt;/h2&gt;
 
-&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
-  &lt;iframe src=&#34;https://www.youtube.com/embed/rfscVS0vtbw&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
-&lt;/div&gt;
+
+    
+    &lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#34; allowfullscreen=&#34;allowfullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/rfscVS0vtbw?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;
+      &gt;&lt;/iframe&gt;
+    &lt;/div&gt;
 
 &lt;h2 id=&#34;quiz&#34;&gt;Quiz&lt;/h2&gt;
 &lt;details class=&#34;spoiler &#34;  id=&#34;spoiler-2&#34;&gt;
@@ -51,17 +54,20 @@
     
     <item>
       <title>Visualization</title>
-      <link>https://academic-demo.netlify.app/courses/example/visualization/</link>
+      <link>http://localhost:4321/courses/example/visualization/</link>
       <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>https://academic-demo.netlify.app/courses/example/visualization/</guid>
+      <guid>http://localhost:4321/courses/example/visualization/</guid>
       <description>&lt;p&gt;Learn how to visualize data with Plotly.&lt;/p&gt;
 &lt;p&gt;
   &lt;i class=&#34;fas fa-clock  pr-1 fa-fw&#34;&gt;&lt;/i&gt; 1-2 hours per week, for 8 weeks&lt;/p&gt;
 &lt;h2 id=&#34;learn&#34;&gt;Learn&lt;/h2&gt;
 
-&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
-  &lt;iframe src=&#34;https://www.youtube.com/embed/hSPmj7mK6ng&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
-&lt;/div&gt;
+
+    
+    &lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#34; allowfullscreen=&#34;allowfullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/hSPmj7mK6ng?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;
+      &gt;&lt;/iframe&gt;
+    &lt;/div&gt;
 
 &lt;h2 id=&#34;quiz&#34;&gt;Quiz&lt;/h2&gt;
 &lt;details class=&#34;spoiler &#34;  id=&#34;spoiler-2&#34;&gt;
@@ -81,9 +87,9 @@ fig.show()
     
     <item>
       <title>Statistics</title>
-      <link>https://academic-demo.netlify.app/courses/example/stats/</link>
+      <link>http://localhost:4321/courses/example/stats/</link>
       <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>https://academic-demo.netlify.app/courses/example/stats/</guid>
+      <guid>http://localhost:4321/courses/example/stats/</guid>
       <description>&lt;p&gt;Introduction to statistics for data science.&lt;/p&gt;
 &lt;p&gt;
   &lt;i class=&#34;fas fa-clock  pr-1 fa-fw&#34;&gt;&lt;/i&gt; 1-2 hours per week, for 8 weeks&lt;/p&gt;
@@ -109,9 +115,9 @@ The variance of the distribution is $\sigma^{2}$.
     
     <item>
       <title>Example Talk</title>
-      <link>https://academic-demo.netlify.app/talk/example-talk/</link>
+      <link>http://localhost:4321/talk/example-talk/</link>
       <pubDate>Sat, 01 Jun 2030 13:00:00 +0000</pubDate>
-      <guid>https://academic-demo.netlify.app/talk/example-talk/</guid>
+      <guid>http://localhost:4321/talk/example-talk/</guid>
       <description>&lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
     Click on the &lt;strong&gt;Slides&lt;/strong&gt; button above to view the built-in slides feature.
@@ -128,24 +134,44 @@ The variance of the distribution is $\sigma^{2}$.
     </item>
     
     <item>
+      <title>About Me</title>
+      <link>http://localhost:4321/about/</link>
+      <pubDate>Thu, 31 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:4321/about/</guid>
+      <description>&lt;h1 id=&#34;about-aritra-biswas&#34;&gt;About Aritra Biswas&lt;/h1&gt;
+&lt;p&gt;This is a brief biography about Aritra Biswas.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Aritra Biswas</title>
+      <link>http://localhost:4321/author/aritra-biswas/</link>
+      <pubDate>Thu, 31 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:4321/author/aritra-biswas/</guid>
+      <description>&lt;h1 id=&#34;about-aritra-biswas&#34;&gt;About Aritra Biswas&lt;/h1&gt;
+&lt;p&gt;This is the biography of Aritra Biswas.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>MMM College project</title>
-      <link>https://academic-demo.netlify.app/post/mmm-college-project/</link>
+      <link>http://localhost:4321/post/mmm-college-project/</link>
       <pubDate>Sat, 26 Aug 2023 00:00:00 +0000</pubDate>
-      <guid>https://academic-demo.netlify.app/post/mmm-college-project/</guid>
+      <guid>http://localhost:4321/post/mmm-college-project/</guid>
       <description>&lt;p&gt;Here are some sample data set with respect to media investment, sales and trade. Build a marketing mix model using the relevant features. Also, evaluate model performance based on MAPE.&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://academic-demo.netlify.app/uploads/media_spend.csv&#34; target=&#34;_blank&#34;&gt;Media spends&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://academic-demo.netlify.app/uploads/sales.csv&#34; target=&#34;_blank&#34;&gt;Sales&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://academic-demo.netlify.app/uploads/trade.csv&#34; target=&#34;_blank&#34;&gt;Trade&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:4321/uploads/media_spend.csv&#34; target=&#34;_blank&#34;&gt;Media spends&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:4321/uploads/sales.csv&#34; target=&#34;_blank&#34;&gt;Sales&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:4321/uploads/trade.csv&#34; target=&#34;_blank&#34;&gt;Trade&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
     
     <item>
       <title>Exponential Smoothing using Scikit-Learn wrapper &amp; statsmodels</title>
-      <link>https://academic-demo.netlify.app/post/exponential-smoothing-using-scikit-learn-wrapper-statsmodels/</link>
+      <link>http://localhost:4321/post/exponential-smoothing-using-scikit-learn-wrapper-statsmodels/</link>
       <pubDate>Tue, 20 Dec 2022 00:00:00 +0000</pubDate>
-      <guid>https://academic-demo.netlify.app/post/exponential-smoothing-using-scikit-learn-wrapper-statsmodels/</guid>
+      <guid>http://localhost:4321/post/exponential-smoothing-using-scikit-learn-wrapper-statsmodels/</guid>
       <description>&lt;p&gt;As we discussed in previous post, in this series we will be working on different type of regression problem and will try to parse them as sklearn model objects. Here are we will be working with &lt;code&gt;ExponentialSmoothing&lt;/code&gt; from &lt;code&gt;statsmodels&lt;/code&gt; library. This is one of the most common time series model used in general. &lt;code&gt;statsmodels&lt;/code&gt; is heavily influence by R and its convention. If you take a deep dive into it&amp;rsquo;s functionality of or formula based approach in case of GLM, it is quite evident including the summary function.&lt;/p&gt;
 &lt;p&gt;Here in this post our objective will be to take this &lt;code&gt;ExponentialSmoothing&lt;/code&gt; from &lt;code&gt;statsmodels&lt;/code&gt; and build a model class which looks like sklearn model and the method signatures are same in nature so there is less learning curve involved when there is a context switch or in this case a user is trying to build different models.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from statsmodels.tsa.holtwinters import ExponentialSmoothing
@@ -244,9 +270,9 @@ model.score(X_test, y_test)
     
     <item>
       <title>LASSO using Scikit-Learn wrapper &amp; CVXPY</title>
-      <link>https://academic-demo.netlify.app/post/lasso-using-scikit-learn-wrapper-and-cvxpy/</link>
+      <link>http://localhost:4321/post/lasso-using-scikit-learn-wrapper-and-cvxpy/</link>
       <pubDate>Sun, 18 Dec 2022 00:00:00 +0000</pubDate>
-      <guid>https://academic-demo.netlify.app/post/lasso-using-scikit-learn-wrapper-and-cvxpy/</guid>
+      <guid>http://localhost:4321/post/lasso-using-scikit-learn-wrapper-and-cvxpy/</guid>
       <description>&lt;p&gt;Those who are working in ML space of sometime must be aware that there are multiple python libraries out there which support different algorithms/models. When you are trying to implement best model it is not possible to use just a single library or even a single language and compute infra. Also, note all the libraries are do not have the same method, signature and input and output. Hence if you are working on a library which is collection of multiple models from different library one good starting point can be to standardize you class, methods, signature and input and output. It helps us to avoid confusion, make things consistent and as result, when you are onboarding a new user, it takes them less time to learn things.&lt;/p&gt;
 &lt;p&gt;At high level, it may sound easy to create common API structure for all the models but it is not. Many models take input in form of &lt;code&gt;np.ndarray&lt;/code&gt;, &lt;code&gt;pd.Series&lt;/code&gt;, &lt;code&gt;pd.DataFrame&lt;/code&gt;, &lt;code&gt;xarray&lt;/code&gt; objects and some libraries implement their own data object. To handle this project my current go to approach is to parse the inner working of a model in a sklearn wrapper with common methods, signature and input and output. In this example, we will see how we can do this using &lt;code&gt;cvxpy&lt;/code&gt; as optimizer and &lt;code&gt;sklearn&lt;/code&gt; wrapper to generate a &lt;code&gt;sklearn&lt;/code&gt; model object. Same thing can be done for &lt;code&gt;statsmodels&lt;/code&gt;, &lt;code&gt;pytorch&lt;/code&gt;, &lt;code&gt;tensorflow&lt;/code&gt; or any other custom logic.&lt;/p&gt;
 &lt;p&gt;To start with we can create a &lt;code&gt;conda&lt;/code&gt; virtual env (assuming &lt;code&gt;conda&lt;/code&gt; is already installed. Otherwise install &lt;code&gt;conda&lt;/code&gt; python 3.8 first and then revisit this.). Run the following block to create a virtual env in &lt;code&gt;conda&lt;/code&gt; and install the required libraries,&lt;/p&gt;
@@ -396,9 +422,9 @@ class CVXSkLearnWrapper(BaseEstimator, RegressorMixin):
     
     <item>
       <title>RecSys for B2B platform</title>
-      <link>https://academic-demo.netlify.app/project/internal-project/</link>
+      <link>http://localhost:4321/project/internal-project/</link>
       <pubDate>Sun, 18 Dec 2022 00:00:00 +0000</pubDate>
-      <guid>https://academic-demo.netlify.app/project/internal-project/</guid>
+      <guid>http://localhost:4321/project/internal-project/</guid>
       <description>&lt;p&gt;I am working on &lt;code&gt;RecSys&lt;/code&gt; to generate product recommendations for ABI&amp;rsquo;s B2B platform &lt;code&gt;BEEs&lt;/code&gt;. Some of the challenges involved in the project include building &lt;code&gt;AutoML&lt;/code&gt; for best hyper-parameter selection, distributed model training. feature store integration, building a python library for curated ML models with default configs, deployment of models in cloud native compute and many more. Super excited to work in this work stream with an amazing team.&lt;/p&gt;
 &lt;h3 id=&#34;__algorithm-related-challenges__&#34;&gt;&lt;strong&gt;Algorithm related challenges:&lt;/strong&gt;&lt;/h3&gt;
 &lt;ul&gt;
@@ -427,9 +453,9 @@ class CVXSkLearnWrapper(BaseEstimator, RegressorMixin):
     
     <item>
       <title>Avoid relative path import hell in python</title>
-      <link>https://academic-demo.netlify.app/post/avoid-relative-path-import-hell-in-python/</link>
+      <link>http://localhost:4321/post/avoid-relative-path-import-hell-in-python/</link>
       <pubDate>Sat, 18 Dec 2021 00:00:00 +0000</pubDate>
-      <guid>https://academic-demo.netlify.app/post/avoid-relative-path-import-hell-in-python/</guid>
+      <guid>http://localhost:4321/post/avoid-relative-path-import-hell-in-python/</guid>
       <description>&lt;h1 id=&#34;__exploring-poetry-for-dependency-management-in-python__&#34;&gt;&lt;strong&gt;Exploring &lt;code&gt;poetry&lt;/code&gt; for dependency management in python&lt;/strong&gt;&lt;/h1&gt;
 &lt;p&gt;In general &lt;code&gt;pip&lt;/code&gt; &amp;amp; &lt;code&gt;venv&lt;/code&gt; is a good combination of tool when you don&amp;rsquo;t have to manage multiple dependencies for your project. But imaging that in a project you need to management multiple dependency files to deploy code into multiple envs. It is possible to do this with &lt;code&gt;pip&lt;/code&gt;, but in that case you need to manage multiple requirements files. To solve this project I have checked a few alternative like  &lt;code&gt;pyenv&lt;/code&gt;, &lt;code&gt;pipx&lt;/code&gt;, &lt;code&gt;pipenv&lt;/code&gt;, &lt;code&gt;poetry&lt;/code&gt; etc. According to my experience, poetry is the simplest and most efficient one. I was checking some of the useful tutorials about this and here I am just taking a note of some of the useful points regarding this tool.&lt;/p&gt;
 &lt;h2 id=&#34;__some-useful-poetry-commands__&#34;&gt;&lt;strong&gt;Some useful &lt;code&gt;poetry&lt;/code&gt; commands&lt;/strong&gt;&lt;/h2&gt;
@@ -482,9 +508,9 @@ testpypi = {username = &amp;quot;myuser&amp;quot;, password = &amp;quot;topsecre
     
     <item>
       <title>SCM conventions &amp; ways of working</title>
-      <link>https://academic-demo.netlify.app/post/scm-conventions-ways-of-working/</link>
+      <link>http://localhost:4321/post/scm-conventions-ways-of-working/</link>
       <pubDate>Sun, 31 Oct 2021 00:00:00 +0000</pubDate>
-      <guid>https://academic-demo.netlify.app/post/scm-conventions-ways-of-working/</guid>
+      <guid>http://localhost:4321/post/scm-conventions-ways-of-working/</guid>
       <description>&lt;p&gt;When we are working in an collaborative work environment, this is important to share a common set of convention which makes collaboration easier. Here are some of the common gitops best practice which has helped to collaborate better,&lt;/p&gt;
 &lt;h2 id=&#34;__repository-naming-convention__&#34;&gt;&lt;strong&gt;Repository naming convention&lt;/strong&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;{short product name}_{component}_{type of repository}&lt;/code&gt;&lt;/p&gt;
@@ -572,9 +598,9 @@ testpypi = {username = &amp;quot;myuser&amp;quot;, password = &amp;quot;topsecre
     
     <item>
       <title>Useful tools for docker container management</title>
-      <link>https://academic-demo.netlify.app/post/useful-tools-for-docker-container-management/</link>
+      <link>http://localhost:4321/post/useful-tools-for-docker-container-management/</link>
       <pubDate>Sun, 31 Oct 2021 00:00:00 +0000</pubDate>
-      <guid>https://academic-demo.netlify.app/post/useful-tools-for-docker-container-management/</guid>
+      <guid>http://localhost:4321/post/useful-tools-for-docker-container-management/</guid>
       <description>&lt;p&gt;In this post I&amp;rsquo;m going to discuss three docker tools which I find really useful in my day to day workflow. These tools are,&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/wagoodman/dive&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Dive&lt;/a&gt;&lt;/li&gt;
@@ -688,9 +714,9 @@ sudo apt install ./dive_0.9.2_linux_amd64.deb
     
     <item>
       <title>Python library version management with GitHub action &#43; commitizen &#43; pre-commit hook</title>
-      <link>https://academic-demo.netlify.app/post/manage-python-library-versioning-using-commitizen-pre-commit-hook/</link>
+      <link>http://localhost:4321/post/manage-python-library-versioning-using-commitizen-pre-commit-hook/</link>
       <pubDate>Sun, 24 Oct 2021 00:00:00 +0000</pubDate>
-      <guid>https://academic-demo.netlify.app/post/manage-python-library-versioning-using-commitizen-pre-commit-hook/</guid>
+      <guid>http://localhost:4321/post/manage-python-library-versioning-using-commitizen-pre-commit-hook/</guid>
       <description>&lt;h2 id=&#34;__list-of-tools-used-in-this-post__&#34;&gt;&lt;strong&gt;List of tools used in this post&lt;/strong&gt;&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://commitizen-tools.github.io/commitizen/#:~:text=Commitizen%20is%20a%20tool%20designed,and%20enforces%20writing%20descriptive%20commits.&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;commitizen&lt;/a&gt;&lt;/li&gt;
@@ -853,9 +879,9 @@ jobs:
     
     <item>
       <title>Local development environment with Fast API &#43; SQLModel &#43; SQLite &#43; Alembic</title>
-      <link>https://academic-demo.netlify.app/post/local-development-environment-with-fast-api-sqlmodel-sqlite-alembic-sync-async-version/</link>
+      <link>http://localhost:4321/post/local-development-environment-with-fast-api-sqlmodel-sqlite-alembic-sync-async-version/</link>
       <pubDate>Sat, 16 Oct 2021 00:00:00 +0000</pubDate>
-      <guid>https://academic-demo.netlify.app/post/local-development-environment-with-fast-api-sqlmodel-sqlite-alembic-sync-async-version/</guid>
+      <guid>http://localhost:4321/post/local-development-environment-with-fast-api-sqlmodel-sqlite-alembic-sync-async-version/</guid>
       <description>&lt;p&gt;This is important to have a working local development environment for quick prototyping and developing CRUD application using Fast API. Here in this post we are going to explore how we can quickly spin up and a local development environment. Here we are going to use the following tools to develop the REST API endpoints,&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://fastapi.tiangolo.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Fast API&lt;/a&gt;&lt;/li&gt;
@@ -1094,9 +1120,9 @@ curl -X POST http://127.0.0.1:8000/task/ -H &#39;accept: application/json&#39; -
     
     <item>
       <title>An example preprint / working paper</title>
-      <link>https://academic-demo.netlify.app/publication/preprint/</link>
+      <link>http://localhost:4321/publication/preprint/</link>
       <pubDate>Sun, 07 Apr 2019 00:00:00 +0000</pubDate>
-      <guid>https://academic-demo.netlify.app/publication/preprint/</guid>
+      <guid>http://localhost:4321/publication/preprint/</guid>
       <description>&lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
     Create your slides in Markdown - click the &lt;em&gt;Slides&lt;/em&gt; button to check out the example.
@@ -1108,9 +1134,9 @@ curl -X POST http://127.0.0.1:8000/task/ -H &#39;accept: application/json&#39; -
     
     <item>
       <title>Slides</title>
-      <link>https://academic-demo.netlify.app/slides/example/</link>
+      <link>http://localhost:4321/slides/example/</link>
       <pubDate>Tue, 05 Feb 2019 00:00:00 +0000</pubDate>
-      <guid>https://academic-demo.netlify.app/slides/example/</guid>
+      <guid>http://localhost:4321/slides/example/</guid>
       <description>&lt;h1 id=&#34;create-slides-in-markdown-with-wowchemy&#34;&gt;Create slides in Markdown with Wowchemy&lt;/h1&gt;
 &lt;p&gt;&lt;a href=&#34;https://wowchemy.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Wowchemy&lt;/a&gt; | &lt;a href=&#34;https://owchemy.com/docs/managing-content/#create-slides&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Documentation&lt;/a&gt;&lt;/p&gt;
 &lt;hr&gt;
@@ -1157,15 +1183,15 @@ $$&lt;/p&gt;
 {{% fragment %}} Three {{% /fragment %}}
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Press &lt;code&gt;Space&lt;/code&gt; to play!&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;fragment &#34; &gt;
-One 
+&lt;span class=&#34;fragment &#34; &gt;
+   One 
 &lt;/span&gt;
 &lt;span class=&#34;fragment &#34; &gt;
-&lt;strong&gt;Two&lt;/strong&gt; 
+   **Two** 
 &lt;/span&gt;
 &lt;span class=&#34;fragment &#34; &gt;
-Three 
-&lt;/span&gt;&lt;/p&gt;
+   Three 
+&lt;/span&gt;
 &lt;hr&gt;
 &lt;p&gt;A fragment can accept two optional parameters:&lt;/p&gt;
 &lt;ul&gt;
@@ -1236,18 +1262,36 @@ Three
     </item>
     
     <item>
+      <title>Privacy Policy</title>
+      <link>http://localhost:4321/privacy/</link>
+      <pubDate>Thu, 28 Jun 2018 00:00:00 +0100</pubDate>
+      <guid>http://localhost:4321/privacy/</guid>
+      <description>&lt;p&gt;&amp;hellip;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Terms</title>
+      <link>http://localhost:4321/terms/</link>
+      <pubDate>Thu, 28 Jun 2018 00:00:00 +0100</pubDate>
+      <guid>http://localhost:4321/terms/</guid>
+      <description>&lt;p&gt;&amp;hellip;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>External Project</title>
-      <link>https://academic-demo.netlify.app/project/external-project/</link>
+      <link>http://localhost:4321/project/external-project/</link>
       <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
-      <guid>https://academic-demo.netlify.app/project/external-project/</guid>
+      <guid>http://localhost:4321/project/external-project/</guid>
       <description></description>
     </item>
     
     <item>
       <title>An example journal article</title>
-      <link>https://academic-demo.netlify.app/publication/journal-article/</link>
+      <link>http://localhost:4321/publication/journal-article/</link>
       <pubDate>Tue, 01 Sep 2015 00:00:00 +0000</pubDate>
-      <guid>https://academic-demo.netlify.app/publication/journal-article/</guid>
+      <guid>http://localhost:4321/publication/journal-article/</guid>
       <description>&lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
     Click the &lt;em&gt;Cite&lt;/em&gt; button above to demo the feature to enable visitors to import publication metadata into their reference management software.
@@ -1264,9 +1308,9 @@ Three
     
     <item>
       <title>An example conference paper</title>
-      <link>https://academic-demo.netlify.app/publication/conference-paper/</link>
+      <link>http://localhost:4321/publication/conference-paper/</link>
       <pubDate>Mon, 01 Jul 2013 00:00:00 +0000</pubDate>
-      <guid>https://academic-demo.netlify.app/publication/conference-paper/</guid>
+      <guid>http://localhost:4321/publication/conference-paper/</guid>
       <description>&lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
     Click the &lt;em&gt;Cite&lt;/em&gt; button above to demo the feature to enable visitors to import publication metadata into their reference management software.
@@ -1283,9 +1327,9 @@ Three
     
     <item>
       <title></title>
-      <link>https://academic-demo.netlify.app/admin/config.yml</link>
+      <link>http://localhost:4321/admin/config.yml</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://academic-demo.netlify.app/admin/config.yml</guid>
+      <guid>http://localhost:4321/admin/config.yml</guid>
       <description></description>
     </item>
     

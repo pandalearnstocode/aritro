@@ -2,132 +2,146 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://academic-demo.netlify.app/courses/example/python/</loc>
+    <loc>http://localhost:4321/courses/example/python/</loc>
     <lastmod>2021-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://academic-demo.netlify.app/courses/example/visualization/</loc>
+    <loc>http://localhost:4321/courses/example/visualization/</loc>
     <lastmod>2021-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://academic-demo.netlify.app/courses/example/stats/</loc>
+    <loc>http://localhost:4321/courses/example/stats/</loc>
     <lastmod>2021-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://academic-demo.netlify.app/</loc>
+    <loc>http://localhost:4321/</loc>
     <lastmod>2030-06-01T13:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://academic-demo.netlify.app/talk/example-talk/</loc>
+    <loc>http://localhost:4321/talk/example-talk/</loc>
     <lastmod>2030-06-01T13:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://academic-demo.netlify.app/event/</loc>
+    <loc>http://localhost:4321/event/</loc>
     <lastmod>2030-06-01T13:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://academic-demo.netlify.app/categories/</loc>
+    <loc>http://localhost:4321/about/</loc>
+    <lastmod>2024-10-31T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:4321/author/aritra-biswas/</loc>
+    <lastmod>2024-10-31T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:4321/authors/</loc>
+    <lastmod>2024-10-31T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:4321/categories/</loc>
     <lastmod>2023-08-26T05:51:55+05:30</lastmod>
   </url><url>
-    <loc>https://academic-demo.netlify.app/post/mmm-college-project/</loc>
+    <loc>http://localhost:4321/post/mmm-college-project/</loc>
     <lastmod>2023-08-26T05:51:55+05:30</lastmod>
   </url><url>
-    <loc>https://academic-demo.netlify.app/post/</loc>
+    <loc>http://localhost:4321/post/</loc>
     <lastmod>2023-08-26T05:51:55+05:30</lastmod>
   </url><url>
-    <loc>https://academic-demo.netlify.app/category/programming/</loc>
+    <loc>http://localhost:4321/category/programming/</loc>
     <lastmod>2023-08-26T05:51:55+05:30</lastmod>
   </url><url>
-    <loc>https://academic-demo.netlify.app/tag/python/</loc>
+    <loc>http://localhost:4321/tag/python/</loc>
     <lastmod>2023-08-26T05:51:55+05:30</lastmod>
   </url><url>
-    <loc>https://academic-demo.netlify.app/tags/</loc>
+    <loc>http://localhost:4321/tags/</loc>
     <lastmod>2023-08-26T05:51:55+05:30</lastmod>
   </url><url>
-    <loc>https://academic-demo.netlify.app/post/exponential-smoothing-using-scikit-learn-wrapper-statsmodels/</loc>
+    <loc>http://localhost:4321/post/exponential-smoothing-using-scikit-learn-wrapper-statsmodels/</loc>
     <lastmod>2022-12-20T10:13:59+05:30</lastmod>
   </url><url>
-    <loc>https://academic-demo.netlify.app/tag/ml/</loc>
+    <loc>http://localhost:4321/tag/ml/</loc>
     <lastmod>2022-12-20T10:13:59+05:30</lastmod>
   </url><url>
-    <loc>https://academic-demo.netlify.app/tag/automl/</loc>
+    <loc>http://localhost:4321/tag/automl/</loc>
     <lastmod>2022-12-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://academic-demo.netlify.app/post/lasso-using-scikit-learn-wrapper-and-cvxpy/</loc>
+    <loc>http://localhost:4321/post/lasso-using-scikit-learn-wrapper-and-cvxpy/</loc>
     <lastmod>2022-12-18T23:18:20+05:30</lastmod>
   </url><url>
-    <loc>https://academic-demo.netlify.app/project/</loc>
+    <loc>http://localhost:4321/project/</loc>
     <lastmod>2022-12-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://academic-demo.netlify.app/tag/recsys/</loc>
+    <loc>http://localhost:4321/tag/recsys/</loc>
     <lastmod>2022-12-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://academic-demo.netlify.app/project/internal-project/</loc>
+    <loc>http://localhost:4321/project/internal-project/</loc>
     <lastmod>2022-12-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://academic-demo.netlify.app/post/avoid-relative-path-import-hell-in-python/</loc>
+    <loc>http://localhost:4321/post/avoid-relative-path-import-hell-in-python/</loc>
     <lastmod>2021-12-18T13:42:42+05:30</lastmod>
   </url><url>
-    <loc>https://academic-demo.netlify.app/post/scm-conventions-ways-of-working/</loc>
+    <loc>http://localhost:4321/post/scm-conventions-ways-of-working/</loc>
     <lastmod>2021-10-31T17:03:08+05:30</lastmod>
   </url><url>
-    <loc>https://academic-demo.netlify.app/post/useful-tools-for-docker-container-management/</loc>
+    <loc>http://localhost:4321/post/useful-tools-for-docker-container-management/</loc>
     <lastmod>2021-10-31T13:52:58+05:30</lastmod>
   </url><url>
-    <loc>https://academic-demo.netlify.app/post/manage-python-library-versioning-using-commitizen-pre-commit-hook/</loc>
+    <loc>http://localhost:4321/post/manage-python-library-versioning-using-commitizen-pre-commit-hook/</loc>
     <lastmod>2021-10-24T11:22:32+05:30</lastmod>
   </url><url>
-    <loc>https://academic-demo.netlify.app/post/local-development-environment-with-fast-api-sqlmodel-sqlite-alembic-sync-async-version/</loc>
+    <loc>http://localhost:4321/post/local-development-environment-with-fast-api-sqlmodel-sqlite-alembic-sync-async-version/</loc>
     <lastmod>2021-10-16T07:04:33+05:30</lastmod>
   </url><url>
-    <loc>https://academic-demo.netlify.app/courses/</loc>
+    <loc>http://localhost:4321/courses/</loc>
     <lastmod>2021-01-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://academic-demo.netlify.app/courses/example/</loc>
+    <loc>http://localhost:4321/courses/example/</loc>
     <lastmod>2021-01-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://academic-demo.netlify.app/publication-type/3/</loc>
+    <loc>http://localhost:4321/publication-type/3/</loc>
     <lastmod>2019-04-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://academic-demo.netlify.app/publication/preprint/</loc>
+    <loc>http://localhost:4321/publication/preprint/</loc>
     <lastmod>2019-04-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://academic-demo.netlify.app/author/aritra-biswas/</loc>
+    <loc>http://localhost:4321/author/aritra-biswas/</loc>
     <lastmod>2019-04-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://academic-demo.netlify.app/authors/</loc>
+    <loc>http://localhost:4321/publication_types/</loc>
     <lastmod>2019-04-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://academic-demo.netlify.app/publication_types/</loc>
+    <loc>http://localhost:4321/publication/</loc>
     <lastmod>2019-04-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://academic-demo.netlify.app/publication/</loc>
+    <loc>http://localhost:4321/tag/source-themes/</loc>
     <lastmod>2019-04-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://academic-demo.netlify.app/tag/source-themes/</loc>
-    <lastmod>2019-04-07T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://academic-demo.netlify.app/slides/</loc>
+    <loc>http://localhost:4321/slides/</loc>
     <lastmod>2019-02-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://academic-demo.netlify.app/slides/example/</loc>
+    <loc>http://localhost:4321/slides/example/</loc>
     <lastmod>2019-02-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://academic-demo.netlify.app/tag/demo/</loc>
+    <loc>http://localhost:4321/privacy/</loc>
+    <lastmod>2018-06-28T00:00:00+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:4321/terms/</loc>
+    <lastmod>2018-06-28T00:00:00+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:4321/tag/demo/</loc>
     <lastmod>2016-04-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://academic-demo.netlify.app/project/external-project/</loc>
+    <loc>http://localhost:4321/project/external-project/</loc>
     <lastmod>2016-04-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://academic-demo.netlify.app/publication-type/2/</loc>
+    <loc>http://localhost:4321/publication-type/2/</loc>
     <lastmod>2015-09-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://academic-demo.netlify.app/publication/journal-article/</loc>
+    <loc>http://localhost:4321/publication/journal-article/</loc>
     <lastmod>2015-09-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://academic-demo.netlify.app/author/robert-ford/</loc>
+    <loc>http://localhost:4321/author/robert-ford/</loc>
     <lastmod>2015-09-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://academic-demo.netlify.app/publication-type/1/</loc>
+    <loc>http://localhost:4321/publication-type/1/</loc>
     <lastmod>2013-07-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://academic-demo.netlify.app/publication/conference-paper/</loc>
+    <loc>http://localhost:4321/publication/conference-paper/</loc>
     <lastmod>2013-07-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://academic-demo.netlify.app/admin/</loc>
+    <loc>http://localhost:4321/admin/</loc>
+  </url><url>
+    <loc>http://localhost:4321/author/</loc>
   </url>
 </urlset>

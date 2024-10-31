@@ -3,23 +3,30 @@
 {{ partial "page_header.html" . }}
 
 <div class="universal-wrapper">
+  {{/* Display the main content of the page */}}
   {{ with .Content }}
     <div class="article-style">{{ . }}</div>
   {{ end }}
 
+  {{/* Setup pagination for the pages */}}
   {{ $paginator := .Paginate .Pages }}
-  {{ range $paginator.Pages }}
-    {{ if eq $.Params.view 1 }}
-      {{ partial "li_list" . }}
-    {{ else if eq $.Params.view 3 }}
-      {{ partial "li_card" . }}
-    {{ else if eq $.Params.view 4 }}
-      {{ partial "li_citation" . }}
-    {{ else }}
-      {{ partial "li_compact" . }}
+  {{ if $paginator.Pages }}
+    {{ range $paginator.Pages }}
+      {{/* Determine which partial to use based on the view parameter */}}
+      {{ $view := $.Params.view }}
+      {{ if eq $view 1 }}
+        {{ partial "li_list" . }}
+      {{ else if eq $view 3 }}
+        {{ partial "li_card" . }}
+      {{ else if eq $view 4 }}
+        {{ partial "li_citation" . }}
+      {{ else }}
+        {{ partial "li_compact" . }}
+      {{ end }}
     {{ end }}
   {{ end }}
 
+  {{/* Include pagination controls */}}
   {{ partial "pagination" . }}
 </div>
 

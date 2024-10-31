@@ -20,6 +20,7 @@
     {{ if in (slice "fab" "fas" "far" "fal") $pack }}
       {{ $pack_prefix = "fa" }}
     {{ end }}
+    
     {{ with .Params.icon }}
       {{- if eq $pack "emoji" -}}
         {{- . | emojify -}}
@@ -35,49 +36,56 @@
 
     {{ if $first }}
       <ul class="nav docs-sidenav">
-        <li class="{{ if and .File $current_node.File | and (eq .File.UniqueID $current_node.File.UniqueID) }}active{{ end }}"><a href="{{ .RelPermalink }}">{{ safeHTML $icon }}{{ .LinkTitle | default .Title }}</a></li>
-    {{else}}
+        <li class="{{ if and .File $current_node.File (eq .File.UniqueID $current_node.File.UniqueID) }}active{{ end }}">
+          <a href="{{ .RelPermalink }}">{{ safeHTML $icon }}{{ .LinkTitle | default .Title }}</a>
+        </li>
+    {{ else }}
       <div class="docs-toc-item">
-        <a class="docs-toc-link {{ if and .File $current_node.File | and (eq .File.UniqueID $current_node.File.UniqueID) }} active{{ end }}" href="{{ .RelPermalink }}">{{ safeHTML $icon }}{{ .LinkTitle | default .Title }}</a>
-    {{end}}
+        <a class="docs-toc-link {{ if and .File $current_node.File (eq .File.UniqueID $current_node.File.UniqueID) }}active{{ end }}" href="{{ .RelPermalink }}">{{ safeHTML $icon }}{{ .LinkTitle | default .Title }}</a>
+    {{ end }}
 
     {{- $page_count := (add (len .Pages) (len .Sections)) -}}
     {{ if ne $page_count 0 }}
       {{ if not $first }}
         <ul class="nav docs-sidenav">
-      {{end}}
+      {{ end }}
+      
       {{- .Scratch.Set "pages" .Pages -}}
       {{- if .Sections -}}
         {{- .Scratch.Set "pages" (.Pages | union .Sections) -}}
       {{- end -}}
+      
       {{- $pages := (.Scratch.Get "pages") -}}
-      {{- if eq $order_by "title" -}}
+      {{ if eq $order_by "title" -}}
         {{- range $pages.ByTitle -}}
-          {{ template "book-menu" dict "sect" . "current_node" $current_node "order_by" $order_by }}
+          {{ template "book-menu" (dict "sect" . "current_node" $current_node "order_by" $order_by) }}
         {{- end -}}
-      {{- else if eq $order_by "title_desc" -}}
+      {{ else if eq $order_by "title_desc" -}}
         {{- range $pages.ByTitle.Reverse -}}
-          {{ template "book-menu" dict "sect" . "current_node" $current_node "order_by" $order_by }}
+          {{ template "book-menu" (dict "sect" . "current_node" $current_node "order_by" $order_by) }}
         {{- end -}}
-      {{- else -}}
+      {{ else -}}
         {{- range $pages.ByWeight -}}
-          {{ template "book-menu" dict "sect" . "current_node" $current_node "order_by" $order_by }}
+          {{ template "book-menu" (dict "sect" . "current_node" $current_node "order_by" $order_by) }}
         {{- end -}}
-      {{- end}}
+      {{ end }}
+      
       {{ if not $first }}
         </ul>
-      {{end}}
-    {{end}}
+      {{ end }}
+    {{ end }}
 
     {{ if not $first }}
       </div>
-    {{else}}
+    {{ else }}
       </ul>
-    {{end}}
+    {{ end }}
 
   {{- else -}}
     {{- if not .Params.Hidden -}}
-      <li class="{{ if and .File $current_node.File | and (eq .File.UniqueID $current_node.File.UniqueID) }}active{{ end }}"><a href="{{ .RelPermalink }}">{{ safeHTML $icon }}{{ .LinkTitle | default .Title }}</a></li>
+      <li class="{{ if and .File $current_node.File (eq .File.UniqueID $current_node.File.UniqueID) }}active{{ end }}">
+        <a href="{{ .RelPermalink }}">{{ safeHTML $icon }}{{ .LinkTitle | default .Title }}</a>
+      </li>
     {{- end -}}
   {{ end -}}
 {{- end -}}

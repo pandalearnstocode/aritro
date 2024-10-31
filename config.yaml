@@ -1,17 +1,9 @@
-theme: "starter-hugo-academic"
-# Configuration of Hugo
-# Guide: https://wowchemy.com/docs/getting-started/
-# Hugo Documentation: https://gohugo.io/getting-started/configuration/#all-configuration-settings
-# This file is formatted using YAML syntax - learn more at https://learnxinyminutes.com/docs/yaml/
-
 title: Aritra Biswas # Website name
 baseurl: 'https://academic-demo.netlify.app/' # Website URL
 copyright: '' # Footer text, e.g. '© {year} Me'
-
 ############################
 ## LANGUAGE
 ############################
-
 
 defaultContentLanguage: en
 hasCJKLanguage: false
@@ -33,7 +25,8 @@ module:
 
 enableGitInfo: false
 summaryLength: 30
-paginate: 10
+pagination:
+  pagerSize: 10  # Updated key for pagination size
 enableEmoji: true
 enableRobotsTXT: true
 footnotereturnlinkcontents: <sup>^</sup>
@@ -69,3 +62,12 @@ related:
       weight: 100
     - name: categories
       weight: 70
+
+# Security settings to allow access to specific environment variables
+security:
+  enableInlineShortcodes: false
+  funcs:
+    getenv:
+      - "^WC_POST_CSS$"
+      - "^HUGO_"
+      - "^CI$"

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>RecSys | Aritra Biswas</title>
-    <link>https://academic-demo.netlify.app/tag/recsys/</link>
-      <atom:link href="https://academic-demo.netlify.app/tag/recsys/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:4321/tag/recsys/</link>
+      <atom:link href="http://localhost:4321/tag/recsys/index.xml" rel="self" type="application/rss+xml" />
     <description>RecSys</description>
     <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sun, 18 Dec 2022 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://academic-demo.netlify.app/media/icon_hu966111359855668688.png</url>
+      <url>http://localhost:4321/media/icon_hu966111359855668688.png</url>
       <title>RecSys</title>
-      <link>https://academic-demo.netlify.app/tag/recsys/</link>
+      <link>http://localhost:4321/tag/recsys/</link>
     </image>
     
     <item>
       <title>RecSys for B2B platform</title>
-      <link>https://academic-demo.netlify.app/project/internal-project/</link>
+      <link>http://localhost:4321/project/internal-project/</link>
       <pubDate>Sun, 18 Dec 2022 00:00:00 +0000</pubDate>
-      <guid>https://academic-demo.netlify.app/project/internal-project/</guid>
+      <guid>http://localhost:4321/project/internal-project/</guid>
       <description>&lt;p&gt;I am working on &lt;code&gt;RecSys&lt;/code&gt; to generate product recommendations for ABI&amp;rsquo;s B2B platform &lt;code&gt;BEEs&lt;/code&gt;. Some of the challenges involved in the project include building &lt;code&gt;AutoML&lt;/code&gt; for best hyper-parameter selection, distributed model training. feature store integration, building a python library for curated ML models with default configs, deployment of models in cloud native compute and many more. Super excited to work in this work stream with an amazing team.&lt;/p&gt;
 &lt;h3 id=&#34;__algorithm-related-challenges__&#34;&gt;&lt;strong&gt;Algorithm related challenges:&lt;/strong&gt;&lt;/h3&gt;
 &lt;ul&gt;

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Programming | Aritra Biswas</title>
-    <link>https://academic-demo.netlify.app/category/programming/</link>
-      <atom:link href="https://academic-demo.netlify.app/category/programming/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:4321/category/programming/</link>
+      <atom:link href="http://localhost:4321/category/programming/index.xml" rel="self" type="application/rss+xml" />
     <description>Programming</description>
     <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Tue, 20 Dec 2022 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://academic-demo.netlify.app/media/icon_hu966111359855668688.png</url>
+      <url>http://localhost:4321/media/icon_hu966111359855668688.png</url>
       <title>Programming</title>
-      <link>https://academic-demo.netlify.app/category/programming/</link>
+      <link>http://localhost:4321/category/programming/</link>
     </image>
     
     <item>
       <title>Exponential Smoothing using Scikit-Learn wrapper &amp; statsmodels</title>
-      <link>https://academic-demo.netlify.app/post/exponential-smoothing-using-scikit-learn-wrapper-statsmodels/</link>
+      <link>http://localhost:4321/post/exponential-smoothing-using-scikit-learn-wrapper-statsmodels/</link>
       <pubDate>Tue, 20 Dec 2022 00:00:00 +0000</pubDate>
-      <guid>https://academic-demo.netlify.app/post/exponential-smoothing-using-scikit-learn-wrapper-statsmodels/</guid>
+      <guid>http://localhost:4321/post/exponential-smoothing-using-scikit-learn-wrapper-statsmodels/</guid>
       <description>&lt;p&gt;As we discussed in previous post, in this series we will be working on different type of regression problem and will try to parse them as sklearn model objects. Here are we will be working with &lt;code&gt;ExponentialSmoothing&lt;/code&gt; from &lt;code&gt;statsmodels&lt;/code&gt; library. This is one of the most common time series model used in general. &lt;code&gt;statsmodels&lt;/code&gt; is heavily influence by R and its convention. If you take a deep dive into it&amp;rsquo;s functionality of or formula based approach in case of GLM, it is quite evident including the summary function.&lt;/p&gt;
 &lt;p&gt;Here in this post our objective will be to take this &lt;code&gt;ExponentialSmoothing&lt;/code&gt; from &lt;code&gt;statsmodels&lt;/code&gt; and build a model class which looks like sklearn model and the method signatures are same in nature so there is less learning curve involved when there is a context switch or in this case a user is trying to build different models.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from statsmodels.tsa.holtwinters import ExponentialSmoothing
@@ -115,9 +115,9 @@ model.score(X_test, y_test)
     
     <item>
       <title>LASSO using Scikit-Learn wrapper &amp; CVXPY</title>
-      <link>https://academic-demo.netlify.app/post/lasso-using-scikit-learn-wrapper-and-cvxpy/</link>
+      <link>http://localhost:4321/post/lasso-using-scikit-learn-wrapper-and-cvxpy/</link>
       <pubDate>Sun, 18 Dec 2022 00:00:00 +0000</pubDate>
-      <guid>https://academic-demo.netlify.app/post/lasso-using-scikit-learn-wrapper-and-cvxpy/</guid>
+      <guid>http://localhost:4321/post/lasso-using-scikit-learn-wrapper-and-cvxpy/</guid>
       <description>&lt;p&gt;Those who are working in ML space of sometime must be aware that there are multiple python libraries out there which support different algorithms/models. When you are trying to implement best model it is not possible to use just a single library or even a single language and compute infra. Also, note all the libraries are do not have the same method, signature and input and output. Hence if you are working on a library which is collection of multiple models from different library one good starting point can be to standardize you class, methods, signature and input and output. It helps us to avoid confusion, make things consistent and as result, when you are onboarding a new user, it takes them less time to learn things.&lt;/p&gt;
 &lt;p&gt;At high level, it may sound easy to create common API structure for all the models but it is not. Many models take input in form of &lt;code&gt;np.ndarray&lt;/code&gt;, &lt;code&gt;pd.Series&lt;/code&gt;, &lt;code&gt;pd.DataFrame&lt;/code&gt;, &lt;code&gt;xarray&lt;/code&gt; objects and some libraries implement their own data object. To handle this project my current go to approach is to parse the inner working of a model in a sklearn wrapper with common methods, signature and input and output. In this example, we will see how we can do this using &lt;code&gt;cvxpy&lt;/code&gt; as optimizer and &lt;code&gt;sklearn&lt;/code&gt; wrapper to generate a &lt;code&gt;sklearn&lt;/code&gt; model object. Same thing can be done for &lt;code&gt;statsmodels&lt;/code&gt;, &lt;code&gt;pytorch&lt;/code&gt;, &lt;code&gt;tensorflow&lt;/code&gt; or any other custom logic.&lt;/p&gt;
 &lt;p&gt;To start with we can create a &lt;code&gt;conda&lt;/code&gt; virtual env (assuming &lt;code&gt;conda&lt;/code&gt; is already installed. Otherwise install &lt;code&gt;conda&lt;/code&gt; python 3.8 first and then revisit this.). Run the following block to create a virtual env in &lt;code&gt;conda&lt;/code&gt; and install the required libraries,&lt;/p&gt;
@@ -267,9 +267,9 @@ class CVXSkLearnWrapper(BaseEstimator, RegressorMixin):
     
     <item>
       <title>Avoid relative path import hell in python</title>
-      <link>https://academic-demo.netlify.app/post/avoid-relative-path-import-hell-in-python/</link>
+      <link>http://localhost:4321/post/avoid-relative-path-import-hell-in-python/</link>
       <pubDate>Sat, 18 Dec 2021 00:00:00 +0000</pubDate>
-      <guid>https://academic-demo.netlify.app/post/avoid-relative-path-import-hell-in-python/</guid>
+      <guid>http://localhost:4321/post/avoid-relative-path-import-hell-in-python/</guid>
       <description>&lt;h1 id=&#34;__exploring-poetry-for-dependency-management-in-python__&#34;&gt;&lt;strong&gt;Exploring &lt;code&gt;poetry&lt;/code&gt; for dependency management in python&lt;/strong&gt;&lt;/h1&gt;
 &lt;p&gt;In general &lt;code&gt;pip&lt;/code&gt; &amp;amp; &lt;code&gt;venv&lt;/code&gt; is a good combination of tool when you don&amp;rsquo;t have to manage multiple dependencies for your project. But imaging that in a project you need to management multiple dependency files to deploy code into multiple envs. It is possible to do this with &lt;code&gt;pip&lt;/code&gt;, but in that case you need to manage multiple requirements files. To solve this project I have checked a few alternative like  &lt;code&gt;pyenv&lt;/code&gt;, &lt;code&gt;pipx&lt;/code&gt;, &lt;code&gt;pipenv&lt;/code&gt;, &lt;code&gt;poetry&lt;/code&gt; etc. According to my experience, poetry is the simplest and most efficient one. I was checking some of the useful tutorials about this and here I am just taking a note of some of the useful points regarding this tool.&lt;/p&gt;
 &lt;h2 id=&#34;__some-useful-poetry-commands__&#34;&gt;&lt;strong&gt;Some useful &lt;code&gt;poetry&lt;/code&gt; commands&lt;/strong&gt;&lt;/h2&gt;

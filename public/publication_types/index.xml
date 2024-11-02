@@ -2,14 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Publication_types | Aritra Biswas</title>
-    <link>http://localhost:4321/publication_types/</link>
-      <atom:link href="http://localhost:4321/publication_types/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://academic-demo.netlify.app/publication_types/</link>
+      <atom:link href="https://academic-demo.netlify.app/publication_types/index.xml" rel="self" type="application/rss+xml" />
     <description>Publication_types</description>
     <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sun, 07 Apr 2019 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:4321/media/icon_hu966111359855668688.png</url>
+      <url>https://academic-demo.netlify.app/media/icon_hu966111359855668688.png</url>
       <title>Publication_types</title>
-      <link>http://localhost:4321/publication_types/</link>
+      <link>https://academic-demo.netlify.app/publication_types/</link>
     </image>
     
   </channel>

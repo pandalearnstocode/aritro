@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en-us" >
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=4321&amp;path=livereload" data-no-instant defer></script>
+<head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -33,7 +33,7 @@
   <meta name="description" content="Senior ML Engineer" />
 
   
-  <link rel="alternate" hreflang="en-us" href="http://localhost:4321/publication_types/" />
+  <link rel="alternate" hreflang="en-us" href="https://academic-demo.netlify.app/publication_types/" />
 
   
 
@@ -262,10 +262,49 @@
   
   
   
-  <link rel="stylesheet" href="/css/wowchemy.css" />
+  <link rel="stylesheet" href="/css/wowchemy.79d58eefec4dfa2f737e4c1edd64a511.css" />
 
   
 
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=%7b%7d"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+      dataLayer.push(arguments);
+  }
+
+  function trackOutboundLink(url, target) {
+    gtag('event', 'click', {
+         'event_category': 'outbound',
+         'event_label': url,
+         'transport_type': 'beacon',
+         'event_callback': function () {
+           if (target !== '_blank') {
+             document.location = url;
+           }
+         }
+    });
+    console.debug("Outbound link clicked: " + url);
+  }
+
+  function onClickCallback(event) {
+    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
+      return;
+    }
+    trackOutboundLink(event.target, event.target.getAttribute('target'));  
+  }
+
+  gtag('js', new Date());
+  gtag('config', '{}', {});
+  gtag('set', {'cookie_flags': 'SameSite=None;Secure'});
+
+  
+  document.addEventListener('click', onClickCallback, false);
+</script>
 
 
   
@@ -292,7 +331,7 @@
   <link rel="icon" type="image/png" href="/media/icon_hu821431810458836357.png" />
   <link rel="apple-touch-icon" type="image/png" href="/media/icon_hu8367074011273711489.png" />
 
-  <link rel="canonical" href="http://localhost:4321/publication_types/" />
+  <link rel="canonical" href="https://academic-demo.netlify.app/publication_types/" />
 
   
   
@@ -309,10 +348,10 @@
   <meta property="twitter:card" content="summary" />
   
   <meta property="og:site_name" content="Aritra Biswas" />
-  <meta property="og:url" content="http://localhost:4321/publication_types/" />
+  <meta property="og:url" content="https://academic-demo.netlify.app/publication_types/" />
   <meta property="og:title" content="Publication_types | Aritra Biswas" />
-  <meta property="og:description" content="Senior ML Engineer" /><meta property="og:image" content="http://localhost:4321/media/icon_hu966111359855668688.png" />
-    <meta property="twitter:image" content="http://localhost:4321/media/icon_hu966111359855668688.png" /><meta property="og:locale" content="en-us" />
+  <meta property="og:description" content="Senior ML Engineer" /><meta property="og:image" content="https://academic-demo.netlify.app/media/icon_hu966111359855668688.png" />
+    <meta property="twitter:image" content="https://academic-demo.netlify.app/media/icon_hu966111359855668688.png" /><meta property="og:locale" content="en-us" />
   
     
       <meta property="og:updated_time" content="2019-04-07T00:00:00&#43;00:00" />
@@ -351,7 +390,7 @@
   
   
   
-  <script src="/js/wowchemy-init.min.js"></script>
+  <script src="/js/wowchemy-init.min.1d309c6b3f55725f8869af2651084961.js"></script>
 
   
 
@@ -596,6 +635,15 @@
     <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
 
       
+      
+        
+          
+          <li class="nav-item d-none d-lg-inline-flex">
+            <a class="nav-link" href="https://twitter.com/pdlearnstocode" data-toggle="tooltip" data-placement="bottom" title="Follow me on Twitter" target="_blank" rel="noopener" aria-label="Follow me on Twitter">
+              <i class="fab fa-twitter" aria-hidden="true"></i>
+            </a>
+          </li>
+        
       
         
           
@@ -945,16 +993,6 @@
   
 
   
-  <p class="powered-by">
-    
-      <a href="/privacy/">Privacy Policy</a>
-    
-    
-       &middot; 
-      <a href="/terms/">Terms</a>
-    
-  </p>
-  
 
   
 
@@ -1084,7 +1122,7 @@
     
 
     
-    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.6aed84840afc03ab4d5750157f69c120.js"></script>
 
     
     
@@ -1109,9 +1147,11 @@
       
     
     
-    <script src="/en/js/wowchemy.min.js"></script>
+    <script src="/en/js/wowchemy.min.103887d9f49007bd7c0512b04f985660.js"></script>
 
     
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
 
 
 

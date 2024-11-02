@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en-us" >
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=4321&amp;path=livereload" data-no-instant defer></script>
+<head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -60,7 +60,7 @@ Dive: quick check of docker images
 " />
 
   
-  <link rel="alternate" hreflang="en-us" href="http://localhost:4321/post/useful-tools-for-docker-container-management/" />
+  <link rel="alternate" hreflang="en-us" href="https://academic-demo.netlify.app/post/useful-tools-for-docker-container-management/" />
 
   
 
@@ -289,10 +289,49 @@ Dive: quick check of docker images
   
   
   
-  <link rel="stylesheet" href="/css/wowchemy.css" />
+  <link rel="stylesheet" href="/css/wowchemy.79d58eefec4dfa2f737e4c1edd64a511.css" />
 
   
 
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=%7b%7d"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+      dataLayer.push(arguments);
+  }
+
+  function trackOutboundLink(url, target) {
+    gtag('event', 'click', {
+         'event_category': 'outbound',
+         'event_label': url,
+         'transport_type': 'beacon',
+         'event_callback': function () {
+           if (target !== '_blank') {
+             document.location = url;
+           }
+         }
+    });
+    console.debug("Outbound link clicked: " + url);
+  }
+
+  function onClickCallback(event) {
+    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
+      return;
+    }
+    trackOutboundLink(event.target, event.target.getAttribute('target'));  
+  }
+
+  gtag('js', new Date());
+  gtag('config', '{}', {});
+  gtag('set', {'cookie_flags': 'SameSite=None;Secure'});
+
+  
+  document.addEventListener('click', onClickCallback, false);
+</script>
 
 
   
@@ -317,7 +356,7 @@ Dive: quick check of docker images
   <link rel="icon" type="image/png" href="/media/icon_hu821431810458836357.png" />
   <link rel="apple-touch-icon" type="image/png" href="/media/icon_hu8367074011273711489.png" />
 
-  <link rel="canonical" href="http://localhost:4321/post/useful-tools-for-docker-container-management/" />
+  <link rel="canonical" href="https://academic-demo.netlify.app/post/useful-tools-for-docker-container-management/" />
 
   
   
@@ -333,7 +372,7 @@ Dive: quick check of docker images
   <meta property="twitter:card" content="summary_large_image" />
   
   <meta property="og:site_name" content="Aritra Biswas" />
-  <meta property="og:url" content="http://localhost:4321/post/useful-tools-for-docker-container-management/" />
+  <meta property="og:url" content="https://academic-demo.netlify.app/post/useful-tools-for-docker-container-management/" />
   <meta property="og:title" content="Useful tools for docker container management | Aritra Biswas" />
   <meta property="og:description" content="In this post I&rsquo;m going to discuss three docker tools which I find really useful in my day to day workflow. These tools are,
 
@@ -362,8 +401,8 @@ Dive: quick check of docker images
   
     
   
-" /><meta property="og:image" content="http://localhost:4321/post/useful-tools-for-docker-container-management/featured.png" />
-    <meta property="twitter:image" content="http://localhost:4321/post/useful-tools-for-docker-container-management/featured.png" /><meta property="og:locale" content="en-us" />
+" /><meta property="og:image" content="https://academic-demo.netlify.app/post/useful-tools-for-docker-container-management/featured.png" />
+    <meta property="twitter:image" content="https://academic-demo.netlify.app/post/useful-tools-for-docker-container-management/featured.png" /><meta property="og:locale" content="en-us" />
   
     
       <meta
@@ -395,23 +434,28 @@ Dive: quick check of docker images
   "@type": "BlogPosting",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "http://localhost:4321/post/useful-tools-for-docker-container-management/"
+    "@id": "https://academic-demo.netlify.app/post/useful-tools-for-docker-container-management/"
   },
   "headline": "Useful tools for docker container management",
   
   "image": [
-    "http://localhost:4321/post/useful-tools-for-docker-container-management/featured.png"
+    "https://academic-demo.netlify.app/post/useful-tools-for-docker-container-management/featured.png"
   ],
   
   "datePublished": "2021-10-31T00:00:00Z",
   "dateModified": "2021-10-31T13:52:58+05:30",
+  
+  "author": {
+    "@type": "Person",
+    "name": "Aritra Biswas"
+  },
   
   "publisher": {
     "@type": "Organization",
     "name": "Aritra Biswas",
     "logo": {
       "@type": "ImageObject",
-      "url": "http://localhost:4321/media/icon_hu8032722295507511326.png"
+      "url": "https://academic-demo.netlify.app/media/icon_hu8032722295507511326.png"
     }
   },
   "description": "\u003cp\u003eIn this post I\u0026rsquo;m going to discuss three docker tools which I find really useful in my day to day workflow. These tools are,\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/wagoodman/dive\" target=\"_blank\" rel=\"noopener\"\u003eDive\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://portainer.io/\" target=\"_blank\" rel=\"noopener\"\u003ePortainer\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://dozzle.dev/\" target=\"_blank\" rel=\"noopener\"\u003edozzle\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2 id=\"dive-quick-check-of-docker-images\"\u003eDive: quick check of docker images\u003c/h2\u003e\n\u003cp\u003e\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\u003cfigure  \u003e\n  \u003cdiv class=\"d-flex justify-content-center\"\u003e\n    \u003cdiv class=\"w-100\" \u003e\u003cimg src=\"./dive.gif\" alt=\"Dive\" loading=\"lazy\" data-zoomable /\u003e\u003c/div\u003e\n  \u003c/div\u003e\u003c/figure\u003e\n\u003c/p\u003e"
@@ -450,7 +494,7 @@ Dive: quick check of docker images
   
   
   
-  <script src="/js/wowchemy-init.min.js"></script>
+  <script src="/js/wowchemy-init.min.1d309c6b3f55725f8869af2651084961.js"></script>
 
   
 
@@ -695,6 +739,15 @@ Dive: quick check of docker images
     <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
 
       
+      
+        
+          
+          <li class="nav-item d-none d-lg-inline-flex">
+            <a class="nav-link" href="https://twitter.com/pdlearnstocode" data-toggle="tooltip" data-placement="bottom" title="Follow me on Twitter" target="_blank" rel="noopener" aria-label="Follow me on Twitter">
+              <i class="fab fa-twitter" aria-hidden="true"></i>
+            </a>
+          </li>
+        
       
         
           
@@ -970,7 +1023,7 @@ sudo apt install ./dive_0.9.2_linux_amd64.deb
       
       
       <li>
-        <a href="https://twitter.com/intent/tweet?url=http://localhost:4321/post/useful-tools-for-docker-container-management/&amp;text=Useful%20tools%20for%20docker%20container%20management" target="_blank" rel="noopener" class="share-btn-twitter">
+        <a href="https://twitter.com/intent/tweet?url=https://academic-demo.netlify.app/post/useful-tools-for-docker-container-management/&amp;text=Useful%20tools%20for%20docker%20container%20management" target="_blank" rel="noopener" class="share-btn-twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
@@ -983,7 +1036,7 @@ sudo apt install ./dive_0.9.2_linux_amd64.deb
       
       
       <li>
-        <a href="https://www.facebook.com/sharer.php?u=http://localhost:4321/post/useful-tools-for-docker-container-management/&amp;t=Useful%20tools%20for%20docker%20container%20management" target="_blank" rel="noopener" class="share-btn-facebook">
+        <a href="https://www.facebook.com/sharer.php?u=https://academic-demo.netlify.app/post/useful-tools-for-docker-container-management/&amp;t=Useful%20tools%20for%20docker%20container%20management" target="_blank" rel="noopener" class="share-btn-facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
@@ -996,7 +1049,7 @@ sudo apt install ./dive_0.9.2_linux_amd64.deb
       
       
       <li>
-        <a href="mailto:?subject=Useful%20tools%20for%20docker%20container%20management&amp;body=http://localhost:4321/post/useful-tools-for-docker-container-management/" target="_blank" rel="noopener" class="share-btn-email">
+        <a href="mailto:?subject=Useful%20tools%20for%20docker%20container%20management&amp;body=https://academic-demo.netlify.app/post/useful-tools-for-docker-container-management/" target="_blank" rel="noopener" class="share-btn-email">
           <i class="fas fa-envelope"></i>
         </a>
       </li>
@@ -1009,7 +1062,7 @@ sudo apt install ./dive_0.9.2_linux_amd64.deb
       
       
       <li>
-        <a href="https://www.linkedin.com/shareArticle?url=http://localhost:4321/post/useful-tools-for-docker-container-management/&amp;title=Useful%20tools%20for%20docker%20container%20management" target="_blank" rel="noopener" class="share-btn-linkedin">
+        <a href="https://www.linkedin.com/shareArticle?url=https://academic-demo.netlify.app/post/useful-tools-for-docker-container-management/&amp;title=Useful%20tools%20for%20docker%20container%20management" target="_blank" rel="noopener" class="share-btn-linkedin">
           <i class="fab fa-linkedin-in"></i>
         </a>
       </li>
@@ -1022,7 +1075,7 @@ sudo apt install ./dive_0.9.2_linux_amd64.deb
       
       
       <li>
-        <a href="whatsapp://send?text=Useful%20tools%20for%20docker%20container%20management%20http://localhost:4321/post/useful-tools-for-docker-container-management/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+        <a href="whatsapp://send?text=Useful%20tools%20for%20docker%20container%20management%20https://academic-demo.netlify.app/post/useful-tools-for-docker-container-management/" target="_blank" rel="noopener" class="share-btn-whatsapp">
           <i class="fab fa-whatsapp"></i>
         </a>
       </li>
@@ -1035,7 +1088,7 @@ sudo apt install ./dive_0.9.2_linux_amd64.deb
       
       
       <li>
-        <a href="https://service.weibo.com/share/share.php?url=http://localhost:4321/post/useful-tools-for-docker-container-management/&amp;title=Useful%20tools%20for%20docker%20container%20management" target="_blank" rel="noopener" class="share-btn-weibo">
+        <a href="https://service.weibo.com/share/share.php?url=https://academic-demo.netlify.app/post/useful-tools-for-docker-container-management/&amp;title=Useful%20tools%20for%20docker%20container%20management" target="_blank" rel="noopener" class="share-btn-weibo">
           <i class="fab fa-weibo"></i>
         </a>
       </li>
@@ -1057,6 +1110,149 @@ sudo apt install ./dive_0.9.2_linux_amd64.deb
   
 
 
+
+  
+  
+  
+    
+  
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      
+      <a href="https://academic-demo.netlify.app/"><img class="avatar mr-3 avatar-circle" src="/author/aritra-biswas/avatar_hu1703490165162408657.jpeg" alt="Aritra Biswas"></a>
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="https://academic-demo.netlify.app/">Aritra Biswas</a></h5>
+      <h6 class="card-subtitle">Senior ML Engineer</h6>
+      <p class="card-text">My research interests include computational statistics, causal inference, simulation and mathematical optimization.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://twitter.com/pdlearnstocode" target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://www.youtube.com/channel/UCd3o4IJUJSmOFr6kHv6Y3vw" target="_blank" rel="noopener">
+        <i class="fab fa-youtube"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/pandalearnstocode" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://www.linkedin.com/in/pandalearnstocode/" target="_blank" rel="noopener">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://medium.com/@pandalearnstocode" target="_blank" rel="noopener">
+        <i class="fab fa-medium"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://www.instagram.com/pdlearns2code" target="_blank" rel="noopener">
+        <i class="fab fa-instagram"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://stackoverflow.com/users/9984132/pandalearnstocode" target="_blank" rel="noopener">
+        <i class="fab fa-stack-overflow"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
 
 
 
@@ -1096,16 +1292,6 @@ sudo apt install ./dive_0.9.2_linux_amd64.deb
 
   
 
-  
-  <p class="powered-by">
-    
-      <a href="/privacy/">Privacy Policy</a>
-    
-    
-       &middot; 
-      <a href="/terms/">Terms</a>
-    
-  </p>
   
 
   
@@ -1236,7 +1422,7 @@ sudo apt install ./dive_0.9.2_linux_amd64.deb
     
 
     
-    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.6aed84840afc03ab4d5750157f69c120.js"></script>
 
     
     
@@ -1261,9 +1447,11 @@ sudo apt install ./dive_0.9.2_linux_amd64.deb
       
     
     
-    <script src="/en/js/wowchemy.min.js"></script>
+    <script src="/en/js/wowchemy.min.103887d9f49007bd7c0512b04f985660.js"></script>
 
     
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
 
 
 

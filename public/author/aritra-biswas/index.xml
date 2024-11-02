@@ -5,11 +5,16 @@
     <link>http://localhost:4321/author/aritra-biswas/</link>
       <atom:link href="http://localhost:4321/author/aritra-biswas/index.xml" rel="self" type="application/rss+xml" />
     <description>Aritra Biswas</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sun, 07 Apr 2019 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language>
     <image>
       <url>http://localhost:4321/author/aritra-biswas/avatar_hu1703490165162408657.jpeg</url>
       <title>Aritra Biswas</title>
       <link>http://localhost:4321/author/aritra-biswas/</link>
+    </image>
+    
+  </channel>
+</rss>
+r/aritra-biswas/</link>
     </image>
     
     <item>

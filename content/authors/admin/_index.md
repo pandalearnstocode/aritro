@@ -11,14 +11,14 @@ education:
 email: pandalearnstocode@gmail.com
 highlight_name: true
 interests:
-- ML Engineering
-- ML Architecture
-- MLOps & DevOps
-- Product Development
+- Machine Learning Engineering
+- Architecture
+- MLOps & Observability
+- Software Development
 organizations:
 - name: AB InBev
   url: https://www.ab-inbev.com/
-role: Senior ML Engineer
+role: Senior Manager Analytics
 social:
 - display:
     header: true

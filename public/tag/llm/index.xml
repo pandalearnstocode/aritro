@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>LLM | Aritra Biswas</title>
+    <link>http://localhost:4321/tag/llm/</link>
+      <atom:link href="http://localhost:4321/tag/llm/index.xml" rel="self" type="application/rss+xml" />
+    <description>LLM</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sun, 09 Mar 2025 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>http://localhost:4321/media/icon_hu966111359855668688.png</url>
+      <title>LLM</title>
+      <link>http://localhost:4321/tag/llm/</link>
+    </image>
+    
+    <item>
+      <title>On LLM reproducibility</title>
+      <link>http://localhost:4321/post/on-llm-reproducibility/</link>
+      <pubDate>Sun, 09 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:4321/post/on-llm-reproducibility/</guid>
+      <description>&lt;p&gt;One of the major issue with LLM output is its consistency and reproducibility. Here is kind of a hacky work around to make output from a LLM consistent (kind of). Also, a few observation regarding the same. Here I am following a MSFT article linked in the reference. Need to use the a GPT 4o model with version &lt;code&gt;2024-05-13&lt;/code&gt; for this. Also note here using AOAI API version &lt;code&gt;2024-10-21&lt;/code&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;setting-up-two-instances-of-llm-with-different-configs&#34;&gt;Setting up two instances of LLM with different configs&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-txt&#34;&gt;Deployment info
+Name: gpt-4o
+Model name: gpt-4o
+Model version: 2024-05-13
+Azure OAI API version: 2024-10-21
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-env&#34;&gt;AZURE_OPENAI_API_KEY=&amp;lt;AZURE_OPENAI_API_KEY&amp;gt;
+AZURE_OPENAI_ENDPOINT=&amp;lt;AZURE_OPENAI_ENDPOINT&amp;gt;
+AZURE_OPENAI_API_VERSION=&amp;quot;2024-10-21&amp;quot;
+AZURE_OPENAI_GPT4O_MODEL_NAME=&amp;quot;gpt-4o&amp;quot;
+AZURE_OPENAI_GPT4O_DEPLOYMENT_NAME=&amp;quot;gpt-4o&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from langchain_openai import AzureChatOpenAI
+import pandas as pd
+from dotenv import load_dotenv
+import time
+load_dotenv()
+consistent_llm = AzureChatOpenAI(
+    api_key=AZURE_OPENAI_API_KEY,
+    azure_endpoint=AZURE_OPENAI_ENDPOINT,
+    azure_deployment=AZURE_OPENAI_GPT4O_DEPLOYMENT_NAME,
+    api_version=AZURE_OPENAI_API_VERSION,
+    temperature=0,
+    seed=42,
+    max_tokens=50
+)
+less_consistent_llm = AzureChatOpenAI(
+    api_key = AZURE_OPENAI_API_KEY,
+    azure_endpoint = AZURE_OPENAI_ENDPOINT,
+    azure_deployment=AZURE_OPENAI_GPT4O_DEPLOYMENT_NAME,
+    api_version=AZURE_OPENAI_API_VERSION,
+)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;generation-without-any-context&#34;&gt;Generation without any context&lt;/h3&gt;
+&lt;p&gt;In this experiment generating 50 samples where the generation is not grounded on context. In way it is more free to choose the next word.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;consistent_arr_res = []
+less_consistent_arr_res = []
+messages = [
+    {&amp;quot;role&amp;quot;: &amp;quot;system&amp;quot;, &amp;quot;content&amp;quot;: &amp;quot;You are a helpful assistant.&amp;quot;},
+    {
+        &amp;quot;role&amp;quot;: &amp;quot;user&amp;quot;,
+        &amp;quot;content&amp;quot;: &amp;quot;Tell me a story about how the universe began? in 15 words&amp;quot;,
+    },
+]
+
+for idx in range(50):
+    print(f&amp;quot;Story Version {idx + 1}\n---&amp;quot;)
+    consistent_res = consistent_llm.invoke(input=messages)
+    less_consistent_res = less_consistent_llm.invoke(input=messages)
+    less_consistent_arr_res.append(less_consistent_res.content)
+    consistent_arr_res.append(consistent_res.content)
+    print(&amp;quot;---\n&amp;quot;)
+    del consistent_res
+    del less_consistent_res
+
+consistent_df = pd.DataFrame(consistent_arr_res, columns = [&#39;res&#39;])
+less_consistent_df = pd.DataFrame(less_consistent_arr_res, columns = [&#39;res&#39;])
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Observation in 50 generation with consistent LLM (with seed 42, max_token 50 and temperature 0) it has generated the below table.&lt;/p&gt;
+&lt;h4 id=&#34;consistent-dataframe-1&#34;&gt;Consistent dataframe 1&lt;/h4&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;print(consistent_df.value_counts().to_frame().to_markdown())
+&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;&lt;/th&gt;
+          &lt;th style=&#34;text-align: right&#34;&gt;count&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;(&amp;lsquo;In a cosmic explosion, the universe expanded, stars formed, and life eventually emerged.&amp;rsquo;,)&lt;/td&gt;
+          &lt;td style=&#34;text-align: right&#34;&gt;19&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;(&amp;ldquo;In a vast void, a singularity exploded, birthing stars, galaxies, and the universe&amp;rsquo;s endless wonders.&amp;rdquo;,)&lt;/td&gt;
+          &lt;td style=&#34;text-align: right&#34;&gt;15&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;(&amp;lsquo;In a cosmic explosion, energy and matter formed stars, galaxies, and life, creating our universe.&amp;rsquo;,)&lt;/td&gt;
+          &lt;td style=&#34;text-align: right&#34;&gt;6&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;(&amp;lsquo;The universe began with a massive explosion, expanding rapidly, forming stars, galaxies, and cosmic wonders.&amp;rsquo;,)&lt;/td&gt;
+          &lt;td style=&#34;text-align: right&#34;&gt;3&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;(&amp;lsquo;The universe began with a massive explosion, expanding rapidly, forming stars, galaxies, and everything else.&amp;rsquo;,)&lt;/td&gt;
+          &lt;td style=&#34;text-align: right&#34;&gt;3&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;(&amp;lsquo;The universe began with a massive explosion, expanding rapidly, forming stars, galaxies, and life.&amp;rsquo;,)&lt;/td&gt;
+          &lt;td style=&#34;text-align: right&#34;&gt;3&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;(&amp;ldquo;In a vast void, a singularity exploded, birthing stars, galaxies, and the universe&amp;rsquo;s wonders.&amp;rdquo;,)&lt;/td&gt;
+          &lt;td style=&#34;text-align: right&#34;&gt;1&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4 id=&#34;less-consistent-dataframe-1&#34;&gt;Less Consistent dataframe 1&lt;/h4&gt;
+&lt;p&gt;Observation in 50 generation with inconsistent LLM it has generated the below table.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;print(less_consistent_df.value_counts().to_frame()/head(5).to_markdown())
+&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;&lt;/th&gt;
+          &lt;th style=&#34;text-align: right&#34;&gt;count&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;(&amp;lsquo;A cosmic explosion birthed stars, planets, and galaxies, igniting the endless dance of creation.&amp;rsquo;,)&lt;/td&gt;
+          &lt;td style=&#34;text-align: right&#34;&gt;1&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;(&amp;lsquo;Stars ignited, galaxies whirled; from cosmic dawn, life sprung, evolving endlessly in infinite wonder.&amp;rsquo;,)&lt;/td&gt;
+          &lt;td style=&#34;text-align: right&#34;&gt;1&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;(&amp;lsquo;In the beginning, a Big Bang created stars, galaxies, and everything we know today.&amp;rsquo;,)&lt;/td&gt;
+          &lt;td style=&#34;text-align: right&#34;&gt;1&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;(&amp;lsquo;In the beginning, a cosmic explosion birthed stars, planets, and galaxies, igniting infinite possibilities.&amp;rsquo;,)&lt;/td&gt;
+          &lt;td style=&#34;text-align: right&#34;&gt;1&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;(&amp;lsquo;In the beginning, a massive explosion unleashed energy, forming stars, planets, and endless possibilities.&amp;rsquo;,)&lt;/td&gt;
+          &lt;td style=&#34;text-align: right&#34;&gt;1&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Here showing just to 5 sample. But all 50 generation are unqiue.&lt;/p&gt;
+&lt;h3 id=&#34;generation-with-context&#34;&gt;Generation with context&lt;/h3&gt;
+&lt;p&gt;Now, we will ground generation using some context. Here is a short summary of short stories from wikipedia.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;text = &amp;quot;&amp;quot;&amp;quot;A short story is a piece of prose fiction. It can typically be read in a single sitting and focuses on a self-contained incident or series of linked incidents, with the intent of evoking a single effect or mood. The short story is one of the oldest types of literature and has existed in the form of legends, mythic tales, folk tales, fairy tales, tall tales, fables, and anecdotes in various ancient communities around the world. The modern short story developed in the early 19th century.[1]
+Definition
+The short story is a crafted form in its own right. Short stories make use of plot, resonance and other dynamic components as in a novel, but typically to a lesser degree. While the short story is largely distinct from the novel or novella/short novel, authors generally draw from a common pool of literary techniques.[citation needed] The short story is sometimes referred to as a genre.[2]
+Determining what exactly defines a short story remains problematic.[3] A classic definition of a short story is that one should be able to read it in one sitting, a point most notably made in Edgar Allan Poe&#39;s essay &amp;quot;The Philosophy of Composition&amp;quot; (1846).[4] H. G. Wells described the purpose of the short story as &amp;quot;The jolly art, of making something very bright and moving; it may be horrible or pathetic or funny or profoundly illuminating, having only this essential, that it should take from fifteen to fifty minutes to read aloud.&amp;quot;[5] According to William Faulkner, a short story is character-driven and a writer&#39;s job is to &amp;quot;...trot along behind him with a paper and pencil trying to keep up long enough to put down what he says and does.&amp;quot;[6]
+Some authors have argued that a short story must have a strict form. Somerset Maugham thought that the short story &amp;quot;must have a definite design, which includes a point of departure, a climax and a point of test; in other words, it must have a plot&amp;quot;.[5] Hugh Walpole had a similar view: &amp;quot;A story should be a story; a record of things happening full of incidents, swift movements, unexpected development, leading through suspense to a climax and a satisfying denouement.&amp;quot;[5]
+This view of the short story as a finished product of art is however opposed by Anton Chekhov, who thought that a story should have neither a beginning nor an end. It should just be a &amp;quot;slice of life&amp;quot;, presented suggestively. In his stories, Chekhov does not round off the end but leaves it to the readers to draw their own conclusions.[5]
+Sukumar Azhikode defined a short story as &amp;quot;a brief prose narrative with an intense episodic or anecdotal effect&amp;quot;.[3] Flannery O&#39;Connor emphasized the need to consider what is exactly meant by the descriptor short.[7] Short story writers may define their works as part of the artistic and personal expression of the form. They may also attempt to resist categorization by genre and fixed formation.[5]
+William Boyd, a British author and short story writer, has said:
+[a short story] seem[s] to answer something very deep in our nature as if, for the duration of its telling, something special has been created, some essence of our experience extrapolated, some temporary sense has been made of our common, turbulent journey towards the grave and oblivion.[8]
+In the 1880s, the term &amp;quot;short story&amp;quot; acquired its modern meaning – having initially referred to children&#39;s tales.[9] During the early to mid-20th century, the short story underwent expansive experimentation which further hindered attempts to comprehensively provide a definition.[3] Longer stories that cannot be called novels are sometimes considered &amp;quot;novellas&amp;quot; or novelettes and, like short stories, may be collected into the more marketable form of &amp;quot;collections&amp;quot;. Around the world, the modern short story is comparable to lyrics, dramas, novels and essays – although examination of it as a major literary form remains diminished.[3][10]&amp;quot;&amp;quot;&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now, asking LLMs to generate a summary using the given context.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;consistent_arr_res_summary = []
+less_consistent_arr_res_summary = []
+messages = [
+    {&amp;quot;role&amp;quot;: &amp;quot;system&amp;quot;, &amp;quot;content&amp;quot;: &amp;quot;You are a helpful assistant.&amp;quot;},
+    {&amp;quot;role&amp;quot;: &amp;quot;user&amp;quot;, &amp;quot;content&amp;quot;: f&amp;quot;summarize this text in 15 words: {text}&amp;quot;},
+]
+for i in range(50):
+    print(f&amp;quot;Story Version {i + 1}\n---&amp;quot;)
+    consistent_res_summary = consistent_llm.invoke(input=messages)
+    less_consistent_res_summary = less_consistent_llm.invoke(input=messages)
+    less_consistent_arr_res_summary.append(less_consistent_res_summary.content)
+    consistent_arr_res_summary.append(consistent_res_summary.content)
+    print(&amp;quot;---\n&amp;quot;)
+    del consistent_res_summary
+    del less_consistent_res_summary
+    time.sleep(1)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;consistent-dataframe-2&#34;&gt;Consistent dataframe 2&lt;/h4&gt;
+&lt;p&gt;Observation in 50 generation with consistent LLM (with seed 42, max_token 50 and temperature 0) it has generated the below table. As you can see it is way more consistent. 46 time it has generated same output and 4 times the output is different but the main different in these two is of a single charecter.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;print(consistent_df_summary.value_counts().to_frame().to_markdown())
+&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;&lt;/th&gt;
+          &lt;th style=&#34;text-align: right&#34;&gt;count&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;(&amp;lsquo;A short story is a brief, self-contained prose fiction, read in one sitting, evoking a mood.&amp;rsquo;,)&lt;/td&gt;
+          &lt;td style=&#34;text-align: right&#34;&gt;46&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;(&amp;lsquo;A short story is a brief, self-contained prose fiction, read in one sitting, evoking mood.&amp;rsquo;,)&lt;/td&gt;
+          &lt;td style=&#34;text-align: right&#34;&gt;4&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4 id=&#34;less-consistent-dataframe-2&#34;&gt;Less Consistent dataframe 2&lt;/h4&gt;
+&lt;p&gt;Observation in 50 generation with inconsistent LLM it has generated the below table.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;print(less_consistent_df_summary.value_counts()head(5).to_frame().to_markdown())
+&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;&lt;/th&gt;
+          &lt;th style=&#34;text-align: right&#34;&gt;count&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;(&amp;lsquo;A short story is a brief piece of prose fiction read in a single sitting.&amp;rsquo;,)&lt;/td&gt;
+          &lt;td style=&#34;text-align: right&#34;&gt;1&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;(&amp;lsquo;A short story is a concise prose narrative, focusing on a single effect or mood.&amp;rsquo;,)&lt;/td&gt;
+          &lt;td style=&#34;text-align: right&#34;&gt;1&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;(&amp;lsquo;A short story is a brief, self-contained prose fiction focusing on a single effect or mood.&amp;rsquo;,)&lt;/td&gt;
+          &lt;td style=&#34;text-align: right&#34;&gt;1&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;(&amp;lsquo;A short story is a brief, self-contained prose fiction focusing on a single incident or mood.&amp;rsquo;,)&lt;/td&gt;
+          &lt;td style=&#34;text-align: right&#34;&gt;1&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;(&amp;lsquo;A short story is a brief, self-contained prose fiction read in one sitting, evoking a single effect.&amp;rsquo;,)&lt;/td&gt;
+          &lt;td style=&#34;text-align: right&#34;&gt;1&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Again this is a sample of head 5. But as you can see that all the 50 generations are unique and different from one another.&lt;/p&gt;
+&lt;h3 id=&#34;reference&#34;&gt;Reference&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/reproducible-output?tabs=pyton&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Learn how to use reproducible output&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Short_story&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Short story&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

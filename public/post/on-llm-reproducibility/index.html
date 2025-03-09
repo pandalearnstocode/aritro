@@ -1,0 +1,1508 @@
+<!DOCTYPE html><html lang="en-us" >
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=4321&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  
+  
+    <meta name="generator" content="Wowchemy 5.3.0 for Hugo" />
+  
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Aritra Biswas" />
+
+  
+  
+  
+    
+  
+  <meta name="description" content="One of the major issue with LLM output is its consistency and reproducibility. Here is kind of a hacky work around to make output from a LLM consistent (kind of). Also, a few observation regarding the same. Here I am following a MSFT article linked in the reference. Need to use the a GPT 4o model with version 2024-05-13 for this. Also note here using AOAI API version 2024-10-21." />
+
+  
+  <link rel="alternate" hreflang="en-us" href="http://localhost:4321/post/on-llm-reproducibility/" />
+
+  
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  
+
+  
+  
+  
+    <meta name="theme-color" content="#1565c0" />
+  
+
+  
+  
+
+  
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha256-FMvZuGapsJLjouA6k7Eo2lusoAX9i0ShlWFG6qt7SLc=" crossorigin="anonymous" media="print" onload="this.media='all'">
+
+    
+    
+    
+    
+      
+      
+    
+    
+    
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/github.min.css" crossorigin="anonymous" title="hl-light" media="print" onload="this.media='all'">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" media="print" onload="this.media='all'" disabled>
+        
+      
+    
+
+    
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.css" integrity="sha512-1xoFisiGdy9nvho8EgXuXvnpR5GAMSjFwp40gSRE3NwdUdIMIKuPa7bqoUhLD0O/5tPNhteAsE5XyyMi5reQVA==" crossorigin="anonymous" media="print" onload="this.media='all'">
+    
+
+    
+
+    
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+        
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+  
+
+  
+  
+  
+    
+      
+      <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap" media="print" onload="this.media='all'">
+    
+  
+
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/wowchemy.css" />
+
+  
+
+
+
+  
+
+  
+
+  
+
+
+
+
+  
+  
+  
+
+  
+
+  
+    <link rel="manifest" href="/manifest.webmanifest" />
+  
+
+  <link rel="icon" type="image/png" href="/media/icon_hu821431810458836357.png" />
+  <link rel="apple-touch-icon" type="image/png" href="/media/icon_hu8367074011273711489.png" />
+
+  <link rel="canonical" href="http://localhost:4321/post/on-llm-reproducibility/" />
+
+  
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+  <meta property="twitter:card" content="summary_large_image" />
+  
+  <meta property="og:site_name" content="Aritra Biswas" />
+  <meta property="og:url" content="http://localhost:4321/post/on-llm-reproducibility/" />
+  <meta property="og:title" content="On LLM reproducibility | Aritra Biswas" />
+  <meta property="og:description" content="One of the major issue with LLM output is its consistency and reproducibility. Here is kind of a hacky work around to make output from a LLM consistent (kind of). Also, a few observation regarding the same. Here I am following a MSFT article linked in the reference. Need to use the a GPT 4o model with version 2024-05-13 for this. Also note here using AOAI API version 2024-10-21." /><meta property="og:image" content="http://localhost:4321/post/on-llm-reproducibility/featured.png" />
+    <meta property="twitter:image" content="http://localhost:4321/post/on-llm-reproducibility/featured.png" /><meta property="og:locale" content="en-us" />
+  
+    
+      <meta
+        property="article:published_time"
+        content="2025-03-09T00:00:00&#43;00:00"
+      />
+    
+    <meta property="article:modified_time" content="2025-03-09T12:46:59&#43;05:30">
+  
+
+  
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:4321/post/on-llm-reproducibility/"
+  },
+  "headline": "On LLM reproducibility",
+  
+  "image": [
+    "http://localhost:4321/post/on-llm-reproducibility/featured.png"
+  ],
+  
+  "datePublished": "2025-03-09T00:00:00Z",
+  "dateModified": "2025-03-09T12:46:59+05:30",
+  
+  "author": {
+    "@type": "Person",
+    "name": "Aritra Biswas"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Aritra Biswas",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:4321/media/icon_hu8032722295507511326.png"
+    }
+  },
+  "description": "\u003cp\u003eOne of the major issue with LLM output is its consistency and reproducibility. Here is kind of a hacky work around to make output from a LLM consistent (kind of). Also, a few observation regarding the same. Here I am following a MSFT article linked in the reference. Need to use the a GPT 4o model with version \u003ccode\u003e2024-05-13\u003c/code\u003e for this. Also note here using AOAI API version \u003ccode\u003e2024-10-21\u003c/code\u003e.\u003c/p\u003e"
+}
+</script>
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+  <title>On LLM reproducibility | Aritra Biswas</title>
+</head>
+
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper   " data-wc-page-id="800273dc7e0b65c195f8b61372bf06b4" >
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script src="/js/wowchemy-init.min.js"></script>
+
+  
+
+
+<aside class="search-modal" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#" aria-label="Close"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control"
+        aria-label="Search...">
+        
+      </div>
+
+      
+      
+
+      
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+
+  <div class="page-header">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container-xl">
+
+    
+    <div class="d-none d-lg-inline-flex">
+      <a class="navbar-brand" href="/">Aritra Biswas</a>
+    </div>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/">Aritra Biswas</a>
+    </div>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#about"><span>About me</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#projects"><span>Projects</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+
+        
+        
+        
+        
+
+        
+          
+            
+            
+          
+          
+            
+            
+            
+              
+            
+            
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+
+      
+      
+        
+          
+          <li class="nav-item d-none d-lg-inline-flex">
+            <a class="nav-link" href="https://twitter.com/pdlearnstocode" data-toggle="tooltip" data-placement="bottom" title="Follow me on Twitter" target="_blank" rel="noopener" aria-label="Follow me on Twitter">
+              <i class="fab fa-twitter" aria-hidden="true"></i>
+            </a>
+          </li>
+        
+      
+        
+          
+          <li class="nav-item d-none d-lg-inline-flex">
+            <a class="nav-link" href="https://twitter.com/pdlearnstocode" data-toggle="tooltip" data-placement="bottom" title="Follow me on Twitter" target="_blank" rel="noopener" aria-label="Follow me on Twitter">
+              <i class="fab fa-twitter" aria-hidden="true"></i>
+            </a>
+          </li>
+        
+      
+
+      
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+      
+      <li class="nav-item dropdown theme-dropdown">
+        <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-label="Display preferences">
+          <i class="fas fa-moon" aria-hidden="true"></i>
+        </a>
+        <div class="dropdown-menu">
+          <a href="#" class="dropdown-item js-set-theme-light">
+            <span>Light</span>
+          </a>
+          <a href="#" class="dropdown-item js-set-theme-dark">
+            <span>Dark</span>
+          </a>
+          <a href="#" class="dropdown-item js-set-theme-auto">
+            <span>Automatic</span>
+          </a>
+        </div>
+      </li>
+      
+
+      
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+  </div>
+
+  <div class="page-body">
+    <article class="article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+<div class="article-container pt-3">
+  <h1>On LLM reproducibility</h1>
+
+  
+
+  
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+          Last updated on
+      
+    
+    Mar 9, 2025
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    7 min read
+  </span>
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fas fa-folder mr-1"></i><a href="/category/programming/">Programming</a></span>
+  
+
+</div>
+
+  
+
+
+
+
+
+</div>
+
+
+<div class="article-header article-container featured-image-wrapper mt-4 mb-4" style="max-width: 670px; max-height: 372px;">
+  <div style="position: relative">
+    <img src="/post/on-llm-reproducibility/featured.png" alt="" class="featured-image">
+    
+  </div>
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      <p>One of the major issue with LLM output is its consistency and reproducibility. Here is kind of a hacky work around to make output from a LLM consistent (kind of). Also, a few observation regarding the same. Here I am following a MSFT article linked in the reference. Need to use the a GPT 4o model with version <code>2024-05-13</code> for this. Also note here using AOAI API version <code>2024-10-21</code>.</p>
+<h3 id="setting-up-two-instances-of-llm-with-different-configs">Setting up two instances of LLM with different configs</h3>
+<pre><code class="language-txt">Deployment info
+Name: gpt-4o
+Model name: gpt-4o
+Model version: 2024-05-13
+Azure OAI API version: 2024-10-21
+</code></pre>
+<pre><code class="language-env">AZURE_OPENAI_API_KEY=&lt;AZURE_OPENAI_API_KEY&gt;
+AZURE_OPENAI_ENDPOINT=&lt;AZURE_OPENAI_ENDPOINT&gt;
+AZURE_OPENAI_API_VERSION=&quot;2024-10-21&quot;
+AZURE_OPENAI_GPT4O_MODEL_NAME=&quot;gpt-4o&quot;
+AZURE_OPENAI_GPT4O_DEPLOYMENT_NAME=&quot;gpt-4o&quot;
+</code></pre>
+<pre><code class="language-python">from langchain_openai import AzureChatOpenAI
+import pandas as pd
+from dotenv import load_dotenv
+import time
+load_dotenv()
+consistent_llm = AzureChatOpenAI(
+    api_key=AZURE_OPENAI_API_KEY,
+    azure_endpoint=AZURE_OPENAI_ENDPOINT,
+    azure_deployment=AZURE_OPENAI_GPT4O_DEPLOYMENT_NAME,
+    api_version=AZURE_OPENAI_API_VERSION,
+    temperature=0,
+    seed=42,
+    max_tokens=50
+)
+less_consistent_llm = AzureChatOpenAI(
+    api_key = AZURE_OPENAI_API_KEY,
+    azure_endpoint = AZURE_OPENAI_ENDPOINT,
+    azure_deployment=AZURE_OPENAI_GPT4O_DEPLOYMENT_NAME,
+    api_version=AZURE_OPENAI_API_VERSION,
+)
+</code></pre>
+<h3 id="generation-without-any-context">Generation without any context</h3>
+<p>In this experiment generating 50 samples where the generation is not grounded on context. In way it is more free to choose the next word.</p>
+<pre><code class="language-python">consistent_arr_res = []
+less_consistent_arr_res = []
+messages = [
+    {&quot;role&quot;: &quot;system&quot;, &quot;content&quot;: &quot;You are a helpful assistant.&quot;},
+    {
+        &quot;role&quot;: &quot;user&quot;,
+        &quot;content&quot;: &quot;Tell me a story about how the universe began? in 15 words&quot;,
+    },
+]
+
+for idx in range(50):
+    print(f&quot;Story Version {idx + 1}\n---&quot;)
+    consistent_res = consistent_llm.invoke(input=messages)
+    less_consistent_res = less_consistent_llm.invoke(input=messages)
+    less_consistent_arr_res.append(less_consistent_res.content)
+    consistent_arr_res.append(consistent_res.content)
+    print(&quot;---\n&quot;)
+    del consistent_res
+    del less_consistent_res
+
+consistent_df = pd.DataFrame(consistent_arr_res, columns = ['res'])
+less_consistent_df = pd.DataFrame(less_consistent_arr_res, columns = ['res'])
+</code></pre>
+<p>Observation in 50 generation with consistent LLM (with seed 42, max_token 50 and temperature 0) it has generated the below table.</p>
+<h4 id="consistent-dataframe-1">Consistent dataframe 1</h4>
+<pre><code class="language-python">print(consistent_df.value_counts().to_frame().to_markdown())
+</code></pre>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left"></th>
+          <th style="text-align: right">count</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">(&lsquo;In a cosmic explosion, the universe expanded, stars formed, and life eventually emerged.&rsquo;,)</td>
+          <td style="text-align: right">19</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">(&ldquo;In a vast void, a singularity exploded, birthing stars, galaxies, and the universe&rsquo;s endless wonders.&rdquo;,)</td>
+          <td style="text-align: right">15</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">(&lsquo;In a cosmic explosion, energy and matter formed stars, galaxies, and life, creating our universe.&rsquo;,)</td>
+          <td style="text-align: right">6</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">(&lsquo;The universe began with a massive explosion, expanding rapidly, forming stars, galaxies, and cosmic wonders.&rsquo;,)</td>
+          <td style="text-align: right">3</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">(&lsquo;The universe began with a massive explosion, expanding rapidly, forming stars, galaxies, and everything else.&rsquo;,)</td>
+          <td style="text-align: right">3</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">(&lsquo;The universe began with a massive explosion, expanding rapidly, forming stars, galaxies, and life.&rsquo;,)</td>
+          <td style="text-align: right">3</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">(&ldquo;In a vast void, a singularity exploded, birthing stars, galaxies, and the universe&rsquo;s wonders.&rdquo;,)</td>
+          <td style="text-align: right">1</td>
+      </tr>
+  </tbody>
+</table>
+<h4 id="less-consistent-dataframe-1">Less Consistent dataframe 1</h4>
+<p>Observation in 50 generation with inconsistent LLM it has generated the below table.</p>
+<pre><code class="language-python">print(less_consistent_df.value_counts().to_frame()/head(5).to_markdown())
+</code></pre>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left"></th>
+          <th style="text-align: right">count</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">(&lsquo;A cosmic explosion birthed stars, planets, and galaxies, igniting the endless dance of creation.&rsquo;,)</td>
+          <td style="text-align: right">1</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">(&lsquo;Stars ignited, galaxies whirled; from cosmic dawn, life sprung, evolving endlessly in infinite wonder.&rsquo;,)</td>
+          <td style="text-align: right">1</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">(&lsquo;In the beginning, a Big Bang created stars, galaxies, and everything we know today.&rsquo;,)</td>
+          <td style="text-align: right">1</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">(&lsquo;In the beginning, a cosmic explosion birthed stars, planets, and galaxies, igniting infinite possibilities.&rsquo;,)</td>
+          <td style="text-align: right">1</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">(&lsquo;In the beginning, a massive explosion unleashed energy, forming stars, planets, and endless possibilities.&rsquo;,)</td>
+          <td style="text-align: right">1</td>
+      </tr>
+  </tbody>
+</table>
+<p>Here showing just to 5 sample. But all 50 generation are unqiue.</p>
+<h3 id="generation-with-context">Generation with context</h3>
+<p>Now, we will ground generation using some context. Here is a short summary of short stories from wikipedia.</p>
+<pre><code class="language-python">text = &quot;&quot;&quot;A short story is a piece of prose fiction. It can typically be read in a single sitting and focuses on a self-contained incident or series of linked incidents, with the intent of evoking a single effect or mood. The short story is one of the oldest types of literature and has existed in the form of legends, mythic tales, folk tales, fairy tales, tall tales, fables, and anecdotes in various ancient communities around the world. The modern short story developed in the early 19th century.[1]
+Definition
+The short story is a crafted form in its own right. Short stories make use of plot, resonance and other dynamic components as in a novel, but typically to a lesser degree. While the short story is largely distinct from the novel or novella/short novel, authors generally draw from a common pool of literary techniques.[citation needed] The short story is sometimes referred to as a genre.[2]
+Determining what exactly defines a short story remains problematic.[3] A classic definition of a short story is that one should be able to read it in one sitting, a point most notably made in Edgar Allan Poe's essay &quot;The Philosophy of Composition&quot; (1846).[4] H. G. Wells described the purpose of the short story as &quot;The jolly art, of making something very bright and moving; it may be horrible or pathetic or funny or profoundly illuminating, having only this essential, that it should take from fifteen to fifty minutes to read aloud.&quot;[5] According to William Faulkner, a short story is character-driven and a writer's job is to &quot;...trot along behind him with a paper and pencil trying to keep up long enough to put down what he says and does.&quot;[6]
+Some authors have argued that a short story must have a strict form. Somerset Maugham thought that the short story &quot;must have a definite design, which includes a point of departure, a climax and a point of test; in other words, it must have a plot&quot;.[5] Hugh Walpole had a similar view: &quot;A story should be a story; a record of things happening full of incidents, swift movements, unexpected development, leading through suspense to a climax and a satisfying denouement.&quot;[5]
+This view of the short story as a finished product of art is however opposed by Anton Chekhov, who thought that a story should have neither a beginning nor an end. It should just be a &quot;slice of life&quot;, presented suggestively. In his stories, Chekhov does not round off the end but leaves it to the readers to draw their own conclusions.[5]
+Sukumar Azhikode defined a short story as &quot;a brief prose narrative with an intense episodic or anecdotal effect&quot;.[3] Flannery O'Connor emphasized the need to consider what is exactly meant by the descriptor short.[7] Short story writers may define their works as part of the artistic and personal expression of the form. They may also attempt to resist categorization by genre and fixed formation.[5]
+William Boyd, a British author and short story writer, has said:
+[a short story] seem[s] to answer something very deep in our nature as if, for the duration of its telling, something special has been created, some essence of our experience extrapolated, some temporary sense has been made of our common, turbulent journey towards the grave and oblivion.[8]
+In the 1880s, the term &quot;short story&quot; acquired its modern meaning – having initially referred to children's tales.[9] During the early to mid-20th century, the short story underwent expansive experimentation which further hindered attempts to comprehensively provide a definition.[3] Longer stories that cannot be called novels are sometimes considered &quot;novellas&quot; or novelettes and, like short stories, may be collected into the more marketable form of &quot;collections&quot;. Around the world, the modern short story is comparable to lyrics, dramas, novels and essays – although examination of it as a major literary form remains diminished.[3][10]&quot;&quot;&quot;
+</code></pre>
+<p>Now, asking LLMs to generate a summary using the given context.</p>
+<pre><code class="language-python">consistent_arr_res_summary = []
+less_consistent_arr_res_summary = []
+messages = [
+    {&quot;role&quot;: &quot;system&quot;, &quot;content&quot;: &quot;You are a helpful assistant.&quot;},
+    {&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: f&quot;summarize this text in 15 words: {text}&quot;},
+]
+for i in range(50):
+    print(f&quot;Story Version {i + 1}\n---&quot;)
+    consistent_res_summary = consistent_llm.invoke(input=messages)
+    less_consistent_res_summary = less_consistent_llm.invoke(input=messages)
+    less_consistent_arr_res_summary.append(less_consistent_res_summary.content)
+    consistent_arr_res_summary.append(consistent_res_summary.content)
+    print(&quot;---\n&quot;)
+    del consistent_res_summary
+    del less_consistent_res_summary
+    time.sleep(1)
+</code></pre>
+<h4 id="consistent-dataframe-2">Consistent dataframe 2</h4>
+<p>Observation in 50 generation with consistent LLM (with seed 42, max_token 50 and temperature 0) it has generated the below table. As you can see it is way more consistent. 46 time it has generated same output and 4 times the output is different but the main different in these two is of a single charecter.</p>
+<pre><code class="language-python">print(consistent_df_summary.value_counts().to_frame().to_markdown())
+</code></pre>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left"></th>
+          <th style="text-align: right">count</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">(&lsquo;A short story is a brief, self-contained prose fiction, read in one sitting, evoking a mood.&rsquo;,)</td>
+          <td style="text-align: right">46</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">(&lsquo;A short story is a brief, self-contained prose fiction, read in one sitting, evoking mood.&rsquo;,)</td>
+          <td style="text-align: right">4</td>
+      </tr>
+  </tbody>
+</table>
+<h4 id="less-consistent-dataframe-2">Less Consistent dataframe 2</h4>
+<p>Observation in 50 generation with inconsistent LLM it has generated the below table.</p>
+<pre><code class="language-python">print(less_consistent_df_summary.value_counts()head(5).to_frame().to_markdown())
+</code></pre>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left"></th>
+          <th style="text-align: right">count</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">(&lsquo;A short story is a brief piece of prose fiction read in a single sitting.&rsquo;,)</td>
+          <td style="text-align: right">1</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">(&lsquo;A short story is a concise prose narrative, focusing on a single effect or mood.&rsquo;,)</td>
+          <td style="text-align: right">1</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">(&lsquo;A short story is a brief, self-contained prose fiction focusing on a single effect or mood.&rsquo;,)</td>
+          <td style="text-align: right">1</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">(&lsquo;A short story is a brief, self-contained prose fiction focusing on a single incident or mood.&rsquo;,)</td>
+          <td style="text-align: right">1</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">(&lsquo;A short story is a brief, self-contained prose fiction read in one sitting, evoking a single effect.&rsquo;,)</td>
+          <td style="text-align: right">1</td>
+      </tr>
+  </tbody>
+</table>
+<p>Again this is a sample of head 5. But as you can see that all the 50 generations are unique and different from one another.</p>
+<h3 id="reference">Reference</h3>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/reproducible-output?tabs=pyton" target="_blank" rel="noopener">Learn how to use reproducible output</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Short_story" target="_blank" rel="noopener">Short story</a></li>
+</ul>
+
+    </div>
+
+    
+
+
+
+
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tag/llm/">LLM</a>
+  
+  <a class="badge badge-light" href="/tag/genai/">GenAI</a>
+  
+</div>
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=http://localhost:4321/post/on-llm-reproducibility/&amp;text=On%20LLM%20reproducibility" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=http://localhost:4321/post/on-llm-reproducibility/&amp;t=On%20LLM%20reproducibility" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=On%20LLM%20reproducibility&amp;body=http://localhost:4321/post/on-llm-reproducibility/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=http://localhost:4321/post/on-llm-reproducibility/&amp;title=On%20LLM%20reproducibility" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="whatsapp://send?text=On%20LLM%20reproducibility%20http://localhost:4321/post/on-llm-reproducibility/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=http://localhost:4321/post/on-llm-reproducibility/&amp;title=On%20LLM%20reproducibility" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+  
+  
+    
+  
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      
+      <a href="http://localhost:4321/"><img class="avatar mr-3 avatar-circle" src="/author/aritra-biswas/avatar_hu1703490165162408657.jpeg" alt="Aritra Biswas"></a>
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="http://localhost:4321/">Aritra Biswas</a></h5>
+      <h6 class="card-subtitle">Senior ML Engineer</h6>
+      <p class="card-text">My research interests include computational statistics, causal inference, simulation and mathematical optimization.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://twitter.com/pdlearnstocode" target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://www.youtube.com/channel/UCd3o4IJUJSmOFr6kHv6Y3vw" target="_blank" rel="noopener">
+        <i class="fab fa-youtube"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/pandalearnstocode" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://www.linkedin.com/in/pandalearnstocode/" target="_blank" rel="noopener">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://medium.com/@pandalearnstocode" target="_blank" rel="noopener">
+        <i class="fab fa-medium"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://www.instagram.com/pdlearns2code" target="_blank" rel="noopener">
+        <i class="fab fa-instagram"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://stackoverflow.com/users/9984132/pandalearnstocode" target="_blank" rel="noopener">
+        <i class="fab fa-stack-overflow"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  </div>
+</article>
+  </div>
+
+  <div class="page-footer">
+    
+    
+      <div class="container">
+        <footer class="site-footer">
+
+  
+
+
+
+  
+
+  
+  <p class="powered-by">
+    
+      <a href="/privacy/">Privacy Policy</a>
+    
+    
+       &middot; 
+      <a href="/terms/">Terms</a>
+    
+  </p>
+  
+
+  
+
+  
+  
+
+
+
+
+
+
+  <p class="powered-by">
+    
+    
+    
+      
+      
+      
+      
+      
+      
+      Published with <a href="https://wowchemy.com/?utm_campaign=poweredby" target="_blank" rel="noopener">Wowchemy</a> — the free, <a href="https://github.com/wowchemy/wowchemy-hugo-modules" target="_blank" rel="noopener">open source</a> website builder that empowers creators.
+    
+  </p>
+</footer>
+
+      </div>
+    
+  </div>
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/instant.page/5.1.0/instantpage.min.js" integrity="sha512-1+qUtKoh9XZW7j+6LhRMAyOrgSQKenQ4mluTR+cvxXjP1Z54RxZuzstR/H9kgPXQsVB8IW7DMDFUJpzLjvhGSQ==" crossorigin="anonymous"></script>
+
+      
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      
+
+      
+      
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/highlight.min.js" integrity="sha512-TDKKr+IvoqZnPzc3l35hdjpHD0m+b2EC2SrLEgKDRWpxf2rFCxemkgvJ5kfU48ip+Y+m2XVKyOCD85ybtlZDmw==" crossorigin="anonymous"></script>
+        
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/r.min.js" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/python.min.js" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/latex.min.js" crossorigin="anonymous"></script>
+        
+      
+
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.js" integrity="sha512-SeiQaaDh73yrb56sTW/RgVdi/mMqNeM2oBwubFHagc5BkixSpP1fvqF47mKzPGWYSSy4RwbBunrJBQ4Co8fRWA==" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+    
+      
+      <script id="search-hit-fuse-template" type="text/x-template">
+        <div class="search-hit" id="summary-{{key}}">
+          <div class="search-hit-content">
+            <div class="search-hit-name">
+              <a href="{{relpermalink}}">{{title}}</a>
+              <div class="article-metadata search-hit-type">{{type}}</div>
+              <p class="search-hit-description">{{snippet}}</p>
+            </div>
+          </div>
+        </div>
+      </script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+      
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    <script src="/js/bootstrap.bundle.min.js"></script>
+
+    
+    
+      
+      
+      
+      
+      
+      
+      
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+      
+      
+    
+    
+    <script src="/en/js/wowchemy.min.js"></script>
+
+    
+
+
+
+</body>
+</html>

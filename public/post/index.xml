@@ -5,12 +5,301 @@
     <link>http://localhost:4321/post/</link>
       <atom:link href="http://localhost:4321/post/index.xml" rel="self" type="application/rss+xml" />
     <description>Posts</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sun, 09 Mar 2025 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Tue, 11 Mar 2025 00:00:00 +0000</lastBuildDate>
     <image>
       <url>http://localhost:4321/media/icon_hu966111359855668688.png</url>
       <title>Posts</title>
       <link>http://localhost:4321/post/</link>
     </image>
+    
+    <item>
+      <title>FastAPI Resiliency: Circuit Breakers, Rate Limiting, and External API Management</title>
+      <link>http://localhost:4321/post/fastapi-resiliency-circuit-breakers-rate-limiting-and-external-api-management/</link>
+      <pubDate>Tue, 11 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:4321/post/fastapi-resiliency-circuit-breakers-rate-limiting-and-external-api-management/</guid>
+      <description>&lt;p&gt;Let&amp;rsquo;s assume that we are building a REST API services which depends on other 3rd party&amp;rsquo;s API services. To make things more realistic let&amp;rsquo;s assume that we are building a RAG using tavily (web search api) and LLMs. In this case our app will depend these two external services. This is a very common scenario where our services depends on some services where we have very little control. When we are building something like this this is important to ensure two major things,&lt;/p&gt;
+&lt;h3 id=&#34;__what-will-be-the-traffic-our-apis-will-support__&#34;&gt;&lt;strong&gt;What will be the traffic our APIs will support:&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;This is essentially depends on the API services we will invoke during the execution. We should have a rate limit which is same or less than the minimum of rate limit of API services we will be using. Note this limit is at an overall level. We need to rate limit at a user level based on number of concurrent users our app will support. This point clearly has to do with rate limiting. What if one or any of the services has encountered 429 and can not serve more request within certain duration. In many cases we have observed for LLM if TPM or RPM has exhausted then we keep getting 429 until it is ready to take more requests. Lets break this point down,&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Lets assume our app will supports 10 concurrent users&lt;/li&gt;
+&lt;li&gt;Let&amp;rsquo;s assume LLM we are using has RPM of 2700 and TPM 450k.&lt;/li&gt;
+&lt;li&gt;Let&amp;rsquo;s assume search API has RPM of 1000.&lt;/li&gt;
+&lt;li&gt;So maximum in a minute we can make 1000 calls to LLM and search API which will work. After this we will start getting 429 from search and after 2700 request we we start getting 429 from LLM.&lt;/li&gt;
+&lt;li&gt;Lets assume that our app can serve 1000 calls per minute.&lt;/li&gt;
+&lt;li&gt;So each user is allowed to make 1000/10 = 100 calls a minute.&lt;/li&gt;
+&lt;li&gt;Here we are assuming 1 user = 1 IP.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;__what-will-happen-when-consecutive-failure-occurs-when-3rd-party-apis-are-failing-consecutively__&#34;&gt;&lt;strong&gt;What will happen when consecutive failure occurs when 3rd party APIs are failing consecutively:&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;Lets assume there is some down time or something has gone wrong in the 3rd party API side and when calling our services we are encountering consecutive error. In a scenario like this it is better to fail gracefully and have a cool down period. Let&amp;rsquo;s take this example, during the call if any of the service is down and throwing 500. Now, may be if we get 1000 or more 500 status from the API within 1 minute clearly something is wrong. In this case, it is better to have a cool down period of lets say 1 min and send a notification to support team that something has gone wrong with the service. This notification can happen from APIM or API gateway as well.&lt;/p&gt;
+&lt;h3 id=&#34;__here-is-a-minimalist-example-showing-this-scenario-with-fastapi--pybreaker--slowapi__&#34;&gt;&lt;strong&gt;Here is a minimalist example showing this scenario with &lt;code&gt;FastAPI&lt;/code&gt; + &lt;code&gt;pybreaker&lt;/code&gt; + &lt;code&gt;slowapi&lt;/code&gt;:&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;A circuit breaker monitors the health of an external dependency, short-circuiting calls when failures exceed a threshold. Use a circuit breaker when you need to detect and isolate failures in external system calls, preventing cascading failures in your application. The circuit breaker is designed to detect and handle failures from external services. It prevents excessive effort on a failing external API by &amp;ldquo;opening&amp;rdquo; the circuit after a defined number of failures, thereby avoiding long wait times or cascading failures. You would use a circuit breaker to manage and handle issues when the third-party APIs start failing or become unreliable.&lt;/li&gt;
+&lt;li&gt;A rate limiter restricts the rate of incoming requests from clients (or service calls) to avoid overload. Use rate limiting when you need to control the volume of incoming requests, protecting your server from overload or abuse. The rate limiter, on the other hand, regulates the rate of incoming requests to your service. It protects your system from abuse or overload by limiting how many requests can be processed in a given time period. You would use a rate limiter to protect your own service from being overwhelmed by too many incoming requests from clients.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;__create-local-conda-env__&#34;&gt;&lt;strong&gt;Create local conda env:&lt;/strong&gt;&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;conda create -n ai_engine_api_env python=3.11 -y
+conda activate ai_engine_api_env
+pip install fastapi uvicorn pybreaker slowapi loguru
+python -m uvicorn main:app --host 0.0.0.0 --port 8000 --reload 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;__minimal-fastapi-example__&#34;&gt;&lt;strong&gt;Minimal FastAPI example:&lt;/strong&gt;&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;
+import random
+from fastapi import FastAPI, HTTPException, Request
+import pybreaker
+from slowapi import Limiter, _rate_limit_exceeded_handler
+from slowapi.errors import RateLimitExceeded
+from slowapi.util import get_remote_address
+import uvicorn
+from loguru import logger
+
+# Configure loguru to add a log file with timestamp.
+logger.add(&amp;quot;api.log&amp;quot;, format=&amp;quot;{time:YYYY-MM-DD HH:mm:ss} | {level} | {message}&amp;quot;, level=&amp;quot;INFO&amp;quot;)
+
+# Create FastAPI app instance.
+app = FastAPI()
+
+# Setup rate limiter: 100 requests per minute per IP.
+limiter = Limiter(key_func=get_remote_address, default_limits=[&amp;quot;100/minute&amp;quot;])
+app.state.limiter = limiter
+app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
+
+# Configure separate circuit breakers for the two external services:
+# Both fail after 2 consecutive errors and open the circuit for 10 seconds.
+circuit_breaker_llm = pybreaker.CircuitBreaker(fail_max=2, reset_timeout=10)
+circuit_breaker_web = pybreaker.CircuitBreaker(fail_max=2, reset_timeout=10)
+
+def simulate_external_service(service_name: str):
+    &amp;quot;&amp;quot;&amp;quot;
+    Simulates a call to a 3rd party API service with the following probabilities:
+      - 80% chance to succeed (HTTP 200).
+      - 5% chance to fail with 500 Internal Server Error.
+      - 5% chance to fail with 502 Bad Gateway.
+      - 5% chance to fail with 503 Service Unavailable.
+      - 5% chance to fail with 429 Too Many Requests.
+    
+    The service_name parameter is used for logging purposes.
+    &amp;quot;&amp;quot;&amp;quot;
+    chance = random.random()
+    if chance &amp;lt; 0.05:
+        logger.error(f&amp;quot;{service_name} API failed with status 500&amp;quot;)
+        raise Exception(&amp;quot;500 Internal Server Error - simulated by &amp;quot; + service_name + &amp;quot; API&amp;quot;)
+    elif chance &amp;lt; 0.10:
+        logger.error(f&amp;quot;{service_name} API failed with status 502&amp;quot;)
+        raise Exception(&amp;quot;502 Bad Gateway - simulated by &amp;quot; + service_name + &amp;quot; API&amp;quot;)
+    elif chance &amp;lt; 0.15:
+        logger.error(f&amp;quot;{service_name} API failed with status 503&amp;quot;)
+        raise Exception(&amp;quot;503 Service Unavailable - simulated by &amp;quot; + service_name + &amp;quot; API&amp;quot;)
+    elif chance &amp;lt; 0.20:
+        logger.error(f&amp;quot;{service_name} API failed with status 429&amp;quot;)
+        raise Exception(&amp;quot;429 Too Many Requests - simulated by &amp;quot; + service_name + &amp;quot; API&amp;quot;)
+    else:
+        return {&amp;quot;data&amp;quot;: f&amp;quot;Successful response from {service_name} API&amp;quot;, &amp;quot;status&amp;quot;: 200}
+
+# Wrap each external service call with its corresponding circuit breaker.
+
+@circuit_breaker_llm
+def fake_llm_call():
+    &amp;quot;&amp;quot;&amp;quot;
+    Simulates a call to an LLM API service.
+    &amp;quot;&amp;quot;&amp;quot;
+    return simulate_external_service(&amp;quot;LLM&amp;quot;)
+
+@circuit_breaker_web
+def fake_web_search():
+    &amp;quot;&amp;quot;&amp;quot;
+    Simulates a call to a web search API service.
+    &amp;quot;&amp;quot;&amp;quot;
+    return simulate_external_service(&amp;quot;Web Search&amp;quot;)
+
+@app.get(&amp;quot;/rag&amp;quot;)
+@limiter.limit(&amp;quot;100/minute&amp;quot;)
+def rag_endpoint(request: Request):
+    &amp;quot;&amp;quot;&amp;quot;
+    RAG endpoint that aggregates responses from two external services:
+      - A fake web search API.
+      - A fake LLM API.
+    
+    Both services are protected with circuit breakers (fail after 2 errors, open for 10 seconds)
+    and the endpoint is rate limited to 100 requests per minute per IP.
+    
+    In case any of the external services fails, the error is logged with a timestamp and an
+    appropriate HTTP status code is returned to the client.
+    &amp;quot;&amp;quot;&amp;quot;
+    responses = {}
+
+    # Attempt to call the Web Search API.
+    try:
+        web_response = fake_web_search()
+        responses[&amp;quot;web_search&amp;quot;] = web_response
+    except pybreaker.CircuitBreakerError:
+        msg = &amp;quot;Web Search API temporarily unavailable due to previous errors (circuit open)&amp;quot;
+        logger.error(msg)
+        raise HTTPException(status_code=503, detail=msg)
+    except Exception as error:
+        logger.error(f&amp;quot;Error calling Web Search API: {error}&amp;quot;)
+        error_msg = str(error)
+        if &amp;quot;500&amp;quot; in error_msg:
+            raise HTTPException(status_code=500, detail=error_msg)
+        elif &amp;quot;502&amp;quot; in error_msg:
+            raise HTTPException(status_code=502, detail=error_msg)
+        elif &amp;quot;503&amp;quot; in error_msg:
+            raise HTTPException(status_code=503, detail=error_msg)
+        elif &amp;quot;429&amp;quot; in error_msg:
+            raise HTTPException(status_code=429, detail=error_msg)
+        else:
+            raise HTTPException(status_code=502, detail=&amp;quot;Bad Gateway: error from Web Search API&amp;quot;)
+
+    # Attempt to call the LLM API.
+    try:
+        llm_response = fake_llm_call()
+        responses[&amp;quot;llm&amp;quot;] = llm_response
+    except pybreaker.CircuitBreakerError:
+        msg = &amp;quot;LLM API temporarily unavailable due to previous errors (circuit open)&amp;quot;
+        logger.error(msg)
+        raise HTTPException(status_code=503, detail=msg)
+    except Exception as error:
+        logger.error(f&amp;quot;Error calling LLM API: {error}&amp;quot;)
+        error_msg = str(error)
+        if &amp;quot;500&amp;quot; in error_msg:
+            raise HTTPException(status_code=500, detail=error_msg)
+        elif &amp;quot;502&amp;quot; in error_msg:
+            raise HTTPException(status_code=502, detail=error_msg)
+        elif &amp;quot;503&amp;quot; in error_msg:
+            raise HTTPException(status_code=503, detail=error_msg)
+        elif &amp;quot;429&amp;quot; in error_msg:
+            raise HTTPException(status_code=429, detail=error_msg)
+        else:
+            raise HTTPException(status_code=502, detail=&amp;quot;Bad Gateway: error from LLM API&amp;quot;)
+
+    return {
+        &amp;quot;status&amp;quot;: 200,
+        &amp;quot;message&amp;quot;: &amp;quot;Aggregated response from external services&amp;quot;,
+        &amp;quot;data&amp;quot;: responses
+    }
+
+if __name__ == &amp;quot;__main__&amp;quot;:
+    uvicorn.run(&amp;quot;main:app&amp;quot;, host=&amp;quot;0.0.0.0&amp;quot;, port=8000, reload=True)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Both techniques can be used together to create a robust service that protects both the server resources (via rate limiting) and the overall system stability (via the circuit breaker). They are not strictly dependent on one another (i.e., one doesn’t inherently require the other to function), but implementing both can significantly enhance the resiliency and stability of your service. Each pattern applies to different parts of your system architecture: circuit breakers handle instability from dependencies, and rate limiters manage load and prevent overload.&lt;/p&gt;
+&lt;h3 id=&#34;__error-handling__&#34;&gt;&lt;strong&gt;Error handling&lt;/strong&gt;&lt;/h3&gt;
+&lt;h4 id=&#34;__common-api-status-codes__&#34;&gt;&lt;strong&gt;Common API Status Codes&lt;/strong&gt;&lt;/h4&gt;
+&lt;p&gt;When building or consuming RESTful APIs, it&amp;rsquo;s important to understand the HTTP status codes that indicate the outcome of a request. Below is a list of common status codes and their typical meanings:&lt;/p&gt;
+&lt;h5 id=&#34;2xx-success&#34;&gt;2xx Success&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;200 OK&lt;/strong&gt;&lt;br&gt;
+Indicates that the request was successful and the server returned the requested data.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;201 Created&lt;/strong&gt;&lt;br&gt;
+Indicates that a new resource has been created as a result of the request. Often used in response to POST requests.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;204 No Content&lt;/strong&gt;&lt;br&gt;
+Indicates that the request was successful, but there is no content to send in the response. Common for DELETE requests.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&#34;3xx-redirection&#34;&gt;3xx Redirection&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;301 Moved Permanently&lt;/strong&gt;&lt;br&gt;
+Indicates that the requested resource has been permanently moved to a new URL.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;302 Found&lt;/strong&gt; (or &lt;strong&gt;Temporary Redirect&lt;/strong&gt;)&lt;br&gt;
+Indicates that the requested resource is temporarily located at a different URL.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&#34;4xx-client-error&#34;&gt;4xx Client Error&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;400 Bad Request&lt;/strong&gt;&lt;br&gt;
+Indicates that the server could not understand the request due to malformed syntax. The client should not repeat the request without modifications.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;401 Unauthorized&lt;/strong&gt;&lt;br&gt;
+Indicates that the request requires user authentication. Often used when authentication credentials are missing or invalid.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;403 Forbidden&lt;/strong&gt;&lt;br&gt;
+Indicates that the server understood the request, but refuses to authorize it. This typically means that the client does not have the necessary permissions.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;404 Not Found&lt;/strong&gt;&lt;br&gt;
+Indicates that the requested resource could not be found on the server.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;409 Conflict&lt;/strong&gt;&lt;br&gt;
+Indicates that the request could not be completed due to a conflict with the current state of the resource.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;429 Too Many Requests&lt;/strong&gt;&lt;br&gt;
+Indicates that the client has sent too many requests in a given amount of time (&amp;ldquo;rate limiting&amp;rdquo;).&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&#34;5xx-server-error&#34;&gt;5xx Server Error&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;500 Internal Server Error&lt;/strong&gt;&lt;br&gt;
+Indicates that the server encountered an unexpected condition that prevented it from fulfilling the request.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;502 Bad Gateway&lt;/strong&gt;&lt;br&gt;
+Indicates that the server, while acting as a gateway or proxy, received an invalid response from an inbound server.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;503 Service Unavailable&lt;/strong&gt;&lt;br&gt;
+Indicates that the server is currently unable to handle the request due to temporary overloading or maintenance. This suggests a temporary condition that may be resolved after some time.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;504 Gateway Timeout&lt;/strong&gt;&lt;br&gt;
+Indicates that the server, while acting as a gateway or proxy, did not receive a timely response from an upstream server.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;explanation-of-handled-status-codes-in-the-app&#34;&gt;Explanation of Handled Status Codes in the App&lt;/h4&gt;
+&lt;p&gt;In the sample FastAPI application, we specifically handle the following HTTP status codes originating from the external services:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;500 Internal Server Error:&lt;/strong&gt;&lt;br&gt;
+This code indicates that something went wrong on the server side of the external service. It is a generic error used when no more specific error message is applicable. By catching this, the app knows there&amp;rsquo;s an issue internally at the dependency.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;502 Bad Gateway:&lt;/strong&gt;&lt;br&gt;
+This status code means that our API, acting as a gateway or proxy to the external service, received an invalid response from the upstream server. It typically indicates a problem with communication between our API and the external service.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;503 Service Unavailable:&lt;/strong&gt;&lt;br&gt;
+This code indicates that the external service is currently overloaded or down for maintenance. By handling this error, we can quickly inform the client that the dependency is not available and avoid indefinite waiting on a response.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;429 Too Many Requests:&lt;/strong&gt;&lt;br&gt;
+This status code is returned when the external service is rate limiting our requests. Handling this response allows our app to identify when the external service is overwhelmed or when our usage exceeds their rate limits, and take action (i.e., provide an appropriate error message).&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;why-only-these-codes&#34;&gt;Why Only These Codes?&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Focused Error Handling:&lt;/strong&gt;&lt;br&gt;
+The sample app aims to simulate realistic scenarios where the external dependency fails due to server-side issues (500 series errors) or rate limiting (429). These errors are critical because they indicate problems beyond simple request formatting or client-side issues.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Simplification:&lt;/strong&gt;&lt;br&gt;
+The example is designed to demonstrate the integration of rate limiting and circuit breakers with minimal complexity. Handling only the most common and informative errors (500, 502, 503, and 429) keeps the code straightforward and focused on the primary issues encountered with unstable external services.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Relevance to Dependencies:&lt;/strong&gt;&lt;br&gt;
+When dealing with external APIs, it’s common to see transient failures (like 500, 502, and 503) or rate-limit-specific failures (like 429). Client errors (e.g., 400 Bad Request or 404 Not Found) typically indicate problems with the API call or resource identification and are less relevant when determining the health of an external dependency.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Fallback Scenario:&lt;/strong&gt;&lt;br&gt;
+For any other unexpected errors or status codes, the application defaults to a 502 Bad Gateway response. This generic error indicates that while the call to the external service failed, the failure doesn&amp;rsquo;t match any of our explicitly handled cases. It signals to the consumer that something went wrong upstream, even if we don&amp;rsquo;t have detailed handling for every possible error code.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;summary&#34;&gt;Summary&lt;/h3&gt;
+&lt;p&gt;By handling only these key status codes (500, 502, 503, and 429), the app remains both focused and efficient in detecting issues with external services. These codes provide clear signals for typical failure modes in a dependent API, ensuring that the circuit breaker can manage failures and that clients receive meaningful error messages regarding the state of external dependencies.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>On LLM reproducibility</title>
@@ -121,7 +410,7 @@ less_consistent_df = pd.DataFrame(less_consistent_arr_res, columns = [&#39;res&#
 &lt;/table&gt;
 &lt;h4 id=&#34;less-consistent-dataframe-1&#34;&gt;Less Consistent dataframe 1&lt;/h4&gt;
 &lt;p&gt;Observation in 50 generation with inconsistent LLM it has generated the below table.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;print(less_consistent_df.value_counts().to_frame()/head(5).to_markdown())
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;print(less_consistent_df.value_counts().to_frame().head(5).to_markdown())
 &lt;/code&gt;&lt;/pre&gt;
 &lt;table&gt;
   &lt;thead&gt;
@@ -209,7 +498,7 @@ for i in range(50):
 &lt;/table&gt;
 &lt;h4 id=&#34;less-consistent-dataframe-2&#34;&gt;Less Consistent dataframe 2&lt;/h4&gt;
 &lt;p&gt;Observation in 50 generation with inconsistent LLM it has generated the below table.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;print(less_consistent_df_summary.value_counts()head(5).to_frame().to_markdown())
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;print(less_consistent_df_summary.value_counts().head(5).to_frame().to_markdown())
 &lt;/code&gt;&lt;/pre&gt;
 &lt;table&gt;
   &lt;thead&gt;

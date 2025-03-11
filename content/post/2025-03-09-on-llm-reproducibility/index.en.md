@@ -115,7 +115,7 @@ print(consistent_df.value_counts().to_frame().to_markdown())
 Observation in 50 generation with inconsistent LLM it has generated the below table.
 
 ```python
-print(less_consistent_df.value_counts().to_frame()/head(5).to_markdown())
+print(less_consistent_df.value_counts().to_frame().head(5).to_markdown())
 ```
 
 |                                                                                                                         |   count |
@@ -184,7 +184,7 @@ print(consistent_df_summary.value_counts().to_frame().to_markdown())
 Observation in 50 generation with inconsistent LLM it has generated the below table.
 
 ```python
-print(less_consistent_df_summary.value_counts()head(5).to_frame().to_markdown())
+print(less_consistent_df_summary.value_counts().head(5).to_frame().to_markdown())
 ```
 
 |                                                                                                                               |   count |

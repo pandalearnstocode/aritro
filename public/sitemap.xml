@@ -21,24 +21,30 @@
     <lastmod>2030-06-01T13:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:4321/categories/</loc>
-    <lastmod>2025-03-09T12:46:59+05:30</lastmod>
+    <lastmod>2025-03-11T08:32:43+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:4321/post/fastapi-resiliency-circuit-breakers-rate-limiting-and-external-api-management/</loc>
+    <lastmod>2025-03-11T08:32:43+05:30</lastmod>
   </url><url>
     <loc>http://localhost:4321/tag/genai/</loc>
-    <lastmod>2025-03-09T12:46:59+05:30</lastmod>
+    <lastmod>2025-03-11T08:32:43+05:30</lastmod>
   </url><url>
     <loc>http://localhost:4321/tag/llm/</loc>
-    <lastmod>2025-03-09T12:46:59+05:30</lastmod>
-  </url><url>
-    <loc>http://localhost:4321/post/on-llm-reproducibility/</loc>
-    <lastmod>2025-03-09T12:46:59+05:30</lastmod>
+    <lastmod>2025-03-11T08:32:43+05:30</lastmod>
   </url><url>
     <loc>http://localhost:4321/post/</loc>
-    <lastmod>2025-03-09T12:46:59+05:30</lastmod>
+    <lastmod>2025-03-11T08:32:43+05:30</lastmod>
   </url><url>
     <loc>http://localhost:4321/category/programming/</loc>
-    <lastmod>2025-03-09T12:46:59+05:30</lastmod>
+    <lastmod>2025-03-11T08:32:43+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:4321/tag/python/</loc>
+    <lastmod>2025-03-11T08:32:43+05:30</lastmod>
   </url><url>
     <loc>http://localhost:4321/tags/</loc>
+    <lastmod>2025-03-11T08:32:43+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:4321/post/on-llm-reproducibility/</loc>
     <lastmod>2025-03-09T12:46:59+05:30</lastmod>
   </url><url>
     <loc>http://localhost:4321/about/</loc>
@@ -48,9 +54,6 @@
     <lastmod>2022-12-20T10:13:59+05:30</lastmod>
   </url><url>
     <loc>http://localhost:4321/tag/ml/</loc>
-    <lastmod>2022-12-20T10:13:59+05:30</lastmod>
-  </url><url>
-    <loc>http://localhost:4321/tag/python/</loc>
     <lastmod>2022-12-20T10:13:59+05:30</lastmod>
   </url><url>
     <loc>http://localhost:4321/tag/automl/</loc>

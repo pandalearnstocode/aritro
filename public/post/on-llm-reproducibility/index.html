@@ -907,7 +907,7 @@ less_consistent_df = pd.DataFrame(less_consistent_arr_res, columns = ['res'])
 </table>
 <h4 id="less-consistent-dataframe-1">Less Consistent dataframe 1</h4>
 <p>Observation in 50 generation with inconsistent LLM it has generated the below table.</p>
-<pre><code class="language-python">print(less_consistent_df.value_counts().to_frame()/head(5).to_markdown())
+<pre><code class="language-python">print(less_consistent_df.value_counts().to_frame().head(5).to_markdown())
 </code></pre>
 <table>
   <thead>
@@ -995,7 +995,7 @@ for i in range(50):
 </table>
 <h4 id="less-consistent-dataframe-2">Less Consistent dataframe 2</h4>
 <p>Observation in 50 generation with inconsistent LLM it has generated the below table.</p>
-<pre><code class="language-python">print(less_consistent_df_summary.value_counts()head(5).to_frame().to_markdown())
+<pre><code class="language-python">print(less_consistent_df_summary.value_counts().head(5).to_frame().to_markdown())
 </code></pre>
 <table>
   <thead>
@@ -1311,6 +1311,15 @@ for i in range(50):
 
 
   
+  
+  <div class="article-widget content-widget-hr">
+    <h3>Related</h3>
+    <ul>
+      
+      <li><a href="/post/fastapi-resiliency-circuit-breakers-rate-limiting-and-external-api-management/">FastAPI Resiliency: Circuit Breakers, Rate Limiting, and External API Management</a></li>
+      
+    </ul>
+  </div>
   
 
 

@@ -34,11 +34,11 @@ feature:
 - description:
   icon: tf
   icon_pack: custom
-  name: Tensorflow
+  name: TensorFlow
 - description:
   icon: db
   icon_pack: custom
-  name: Data Bricks
+  name: Databricks
 - description:
   icon: numba
   icon_pack: custom
@@ -62,7 +62,7 @@ feature:
 - description:
   icon: numpy
   icon_pack: custom
-  name: Numpy
+  name: NumPy
 # Uncomment to use emoji icons.
 #- icon = ":smile:"
 #  icon_pack = "emoji"

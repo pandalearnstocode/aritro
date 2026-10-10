@@ -48,7 +48,7 @@ superuser: true
 title: Aritra Biswas
 ---
 
-Hello and welcome! I am Aritra Biswas, a Machine Learning Engineer at AB InBev and an independent researcher. Originally from the vibrant city of Calcutta, I now reside in the bustling tech hub of Bangalore. My interests span across mathematics, statistics, and computer science, which fuel my drive for innovation in the field of machine learning.
+Hello and welcome! I am Aritra Biswas, a Senior Manager of Analytics at AB InBev and an independent researcher. Originally from the vibrant city of Calcutta, I now reside in the bustling tech hub of Bangalore. My interests span mathematics, statistics, and computer science, which fuel my drive for innovation in machine learning.
 
 As a proud millennial, outside of work, you can find me indulging in my hobbies of reading, cooking and exploring new cuisines. My love for travel has taken me to 🇵🇱, 🇫🇷, 🇹🇭, 🇲🇾, 🇸🇬, 🇳🇱, 🇧🇪, 🇧🇷, 🇦🇪 and 🇻🇳 — where I’ve probably eaten my weight in local delicacies.
 

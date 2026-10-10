@@ -11,7 +11,7 @@ tags:
 subtitle: ''
 summary: ''
 authors: []
-lastmod: '2022-12-18T23:18:20+05:30'
+lastmod: '2022-12-18'
 featured: no
 image:
   caption: ''

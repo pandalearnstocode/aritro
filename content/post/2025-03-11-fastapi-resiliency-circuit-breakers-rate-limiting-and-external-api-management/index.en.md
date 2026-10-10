@@ -12,7 +12,7 @@ tags:
 subtitle: ''
 summary: ''
 authors: []
-lastmod: '2025-03-11T08:32:43+05:30'
+lastmod: '2025-03-11'
 featured: no
 image:
   caption: ''

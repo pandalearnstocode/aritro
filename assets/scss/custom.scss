@@ -4,3 +4,25 @@
   margin: 0 auto 0 auto;
   font-size: 20px;
 }
+
+.featurette-icon img.svg-icon {
+  width: 3rem;
+  height: 3rem;
+  object-fit: contain;
+}
+
+.dark .featurette-icon img.svg-icon {
+  filter: url(#remove-white-background);
+}
+
+.dark #contact .btn-outline-primary {
+  color: #242630;
+  background-color: #fff;
+  border-color: #fff;
+}
+
+.dark #contact .btn-outline-primary:hover,
+.dark #contact .btn-outline-primary:focus-visible {
+  background-color: #e9ecef;
+  border-color: #e9ecef;
+}

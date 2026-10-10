@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ML | Aritra Biswas</title>
-    <link>http://localhost:4321/tag/ml/</link>
-      <atom:link href="http://localhost:4321/tag/ml/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:1313/tag/ml/</link>
+      <atom:link href="http://localhost:1313/tag/ml/index.xml" rel="self" type="application/rss+xml" />
     <description>ML</description>
     <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Tue, 20 Dec 2022 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:4321/media/icon_hu966111359855668688.png</url>
+      <url>http://localhost:1313/media/icon_hu966111359855668688.png</url>
       <title>ML</title>
-      <link>http://localhost:4321/tag/ml/</link>
+      <link>http://localhost:1313/tag/ml/</link>
     </image>
     
     <item>
       <title>Exponential Smoothing using Scikit-Learn wrapper &amp; statsmodels</title>
-      <link>http://localhost:4321/post/exponential-smoothing-using-scikit-learn-wrapper-statsmodels/</link>
+      <link>http://localhost:1313/post/exponential-smoothing-using-scikit-learn-wrapper-statsmodels/</link>
       <pubDate>Tue, 20 Dec 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/post/exponential-smoothing-using-scikit-learn-wrapper-statsmodels/</guid>
+      <guid>http://localhost:1313/post/exponential-smoothing-using-scikit-learn-wrapper-statsmodels/</guid>
       <description>&lt;p&gt;As we discussed in previous post, in this series we will be working on different type of regression problem and will try to parse them as sklearn model objects. Here are we will be working with &lt;code&gt;ExponentialSmoothing&lt;/code&gt; from &lt;code&gt;statsmodels&lt;/code&gt; library. This is one of the most common time series model used in general. &lt;code&gt;statsmodels&lt;/code&gt; is heavily influence by R and its convention. If you take a deep dive into it&amp;rsquo;s functionality of or formula based approach in case of GLM, it is quite evident including the summary function.&lt;/p&gt;
 &lt;p&gt;Here in this post our objective will be to take this &lt;code&gt;ExponentialSmoothing&lt;/code&gt; from &lt;code&gt;statsmodels&lt;/code&gt; and build a model class which looks like sklearn model and the method signatures are same in nature so there is less learning curve involved when there is a context switch or in this case a user is trying to build different models.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from statsmodels.tsa.holtwinters import ExponentialSmoothing
@@ -115,9 +115,9 @@ model.score(X_test, y_test)
     
     <item>
       <title>LASSO using Scikit-Learn wrapper &amp; CVXPY</title>
-      <link>http://localhost:4321/post/lasso-using-scikit-learn-wrapper-and-cvxpy/</link>
+      <link>http://localhost:1313/post/lasso-using-scikit-learn-wrapper-and-cvxpy/</link>
       <pubDate>Sun, 18 Dec 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/post/lasso-using-scikit-learn-wrapper-and-cvxpy/</guid>
+      <guid>http://localhost:1313/post/lasso-using-scikit-learn-wrapper-and-cvxpy/</guid>
       <description>&lt;p&gt;Those who are working in ML space of sometime must be aware that there are multiple python libraries out there which support different algorithms/models. When you are trying to implement best model it is not possible to use just a single library or even a single language and compute infra. Also, note all the libraries are do not have the same method, signature and input and output. Hence if you are working on a library which is collection of multiple models from different library one good starting point can be to standardize you class, methods, signature and input and output. It helps us to avoid confusion, make things consistent and as result, when you are onboarding a new user, it takes them less time to learn things.&lt;/p&gt;
 &lt;p&gt;At high level, it may sound easy to create common API structure for all the models but it is not. Many models take input in form of &lt;code&gt;np.ndarray&lt;/code&gt;, &lt;code&gt;pd.Series&lt;/code&gt;, &lt;code&gt;pd.DataFrame&lt;/code&gt;, &lt;code&gt;xarray&lt;/code&gt; objects and some libraries implement their own data object. To handle this project my current go to approach is to parse the inner working of a model in a sklearn wrapper with common methods, signature and input and output. In this example, we will see how we can do this using &lt;code&gt;cvxpy&lt;/code&gt; as optimizer and &lt;code&gt;sklearn&lt;/code&gt; wrapper to generate a &lt;code&gt;sklearn&lt;/code&gt; model object. Same thing can be done for &lt;code&gt;statsmodels&lt;/code&gt;, &lt;code&gt;pytorch&lt;/code&gt;, &lt;code&gt;tensorflow&lt;/code&gt; or any other custom logic.&lt;/p&gt;
 &lt;p&gt;To start with we can create a &lt;code&gt;conda&lt;/code&gt; virtual env (assuming &lt;code&gt;conda&lt;/code&gt; is already installed. Otherwise install &lt;code&gt;conda&lt;/code&gt; python 3.8 first and then revisit this.). Run the following block to create a virtual env in &lt;code&gt;conda&lt;/code&gt; and install the required libraries,&lt;/p&gt;
@@ -204,7 +204,7 @@ def __init__(self, arg1, arg2, arg3, ..., argN):
         setattr(self, arg, val)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;ul&gt;
-&lt;li&gt;In this example, we are overwriting case &lt;code&gt;score&lt;/code&gt; function using &lt;code&gt;mean_absolute_percentage_error&lt;/code&gt;. Lets assume that for some reason we want to use &lt;code&gt;MAPE&lt;/code&gt; instate as default scoring method it can be useful. Other using &lt;code&gt;make_scorer&lt;/code&gt; can be used for any other custom score function or other sklearn score functions.&lt;/li&gt;
+&lt;li&gt;In this example, we are overriding the &lt;code&gt;score&lt;/code&gt; function to use &lt;code&gt;mean_absolute_percentage_error&lt;/code&gt;. If we want to use &lt;code&gt;MAPE&lt;/code&gt; as the default scoring method, this approach can be useful. Otherwise, &lt;code&gt;make_scorer&lt;/code&gt; can be used with any other custom scoring function or scikit-learn scoring function.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from sklearn.base import BaseEstimator, RegressorMixin
 from sklearn.utils.validation import check_X_y, check_array, check_is_fitted
@@ -267,32 +267,32 @@ class CVXSkLearnWrapper(BaseEstimator, RegressorMixin):
     
     <item>
       <title>RecSys for B2B platform</title>
-      <link>http://localhost:4321/project/internal-project/</link>
+      <link>http://localhost:1313/project/internal-project/</link>
       <pubDate>Sun, 18 Dec 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/project/internal-project/</guid>
-      <description>&lt;p&gt;I am working on &lt;code&gt;RecSys&lt;/code&gt; to generate product recommendations for ABI&amp;rsquo;s B2B platform &lt;code&gt;BEEs&lt;/code&gt;. Some of the challenges involved in the project include building &lt;code&gt;AutoML&lt;/code&gt; for best hyper-parameter selection, distributed model training. feature store integration, building a python library for curated ML models with default configs, deployment of models in cloud native compute and many more. Super excited to work in this work stream with an amazing team.&lt;/p&gt;
+      <guid>http://localhost:1313/project/internal-project/</guid>
+      <description>&lt;p&gt;I am working on &lt;code&gt;RecSys&lt;/code&gt; to generate product recommendations for ABI&amp;rsquo;s B2B platform, &lt;code&gt;BEEs&lt;/code&gt;. Some of the challenges include building &lt;code&gt;AutoML&lt;/code&gt; for hyperparameter selection, distributed model training, feature store integration, a Python library of curated ML models with default configurations, and deploying models in cloud-native compute environments. I am excited to work on this with an amazing team.&lt;/p&gt;
 &lt;h3 id=&#34;__algorithm-related-challenges__&#34;&gt;&lt;strong&gt;Algorithm related challenges:&lt;/strong&gt;&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Cross validation:&lt;/strong&gt; How to perform cross validation for &lt;code&gt;RecSys&lt;/code&gt;. How to link statistical metrics with business KPIs. Determining weighage between model goodness of fit and business KPIs. How to create a scoring function which can compare between different models during cross validation. Managing splitting strategy to ensure that models are comparable.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Model selection:&lt;/strong&gt; Single model or market-based model or hybrid model - combined of two or more models? Time/Sequence based models(&lt;code&gt;LSTM&lt;/code&gt;/&lt;code&gt;GRU&lt;/code&gt;)?&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Hyper parameter tuning:&lt;/strong&gt; What can be the preferable hyper-parameter tuning framework, which can support &lt;code&gt;GPU&lt;/code&gt; (Wide and Deep), Spark (&lt;code&gt;ALS&lt;/code&gt;) and CPU (&lt;code&gt;SAR&lt;/code&gt; etc.).&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;KPIs:&lt;/strong&gt; Evaluate existing KPIs such as &lt;code&gt;Map@K&lt;/code&gt;, &lt;code&gt;NDCG@K&lt;/code&gt; and improve if possible.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Hybrid model or mixture of model:&lt;/strong&gt; Also, what type of hybrid - sequential, parallel or weighted? As of now, two use case (conceptually)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;AutoML:&lt;/strong&gt; Example of AutoML for multi-country setup (including hybrid model, hyper-parameter tuning) with recommended tech stack.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Model drift, data drift, retraining and model monitoring:&lt;/strong&gt; How to build a framework which can be integrated with the python library to detect model drift, data drift, retraining requirements and monitor generated results in online and offline models.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Others:&lt;/strong&gt; Backtesting, AB testing, linking online and offline evaluation.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Cross validation:&lt;/strong&gt; How to perform cross-validation for &lt;code&gt;RecSys&lt;/code&gt;, link statistical metrics with business KPIs, determine the balance between model fit and business KPIs, create a scoring function to compare models, and choose a data-splitting strategy that keeps models comparable.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Model selection:&lt;/strong&gt; Should we use a single model, a market-based model, or a hybrid that combines multiple models? Should we use time- or sequence-based models such as &lt;code&gt;LSTM&lt;/code&gt; or &lt;code&gt;GRU&lt;/code&gt;?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Hyperparameter tuning:&lt;/strong&gt; Which tuning framework can support GPUs (Wide and Deep), Spark (&lt;code&gt;ALS&lt;/code&gt;), and CPUs (&lt;code&gt;SAR&lt;/code&gt;, etc.)?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;KPIs:&lt;/strong&gt; How can we evaluate and improve existing KPIs such as &lt;code&gt;Map@K&lt;/code&gt; and &lt;code&gt;NDCG@K&lt;/code&gt;?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Hybrid model or mixture of models:&lt;/strong&gt; What type of hybrid should we use: sequential, parallel, or weighted? Conceptually, there are two use cases.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AutoML:&lt;/strong&gt; What technology stack should we use for a multi-country setup that includes hybrid models and hyperparameter tuning?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Model and data drift, retraining, and monitoring:&lt;/strong&gt; How can we build a framework that integrates with the Python library to detect model and data drift, identify when retraining is needed, and monitor results for online and offline models?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Other challenges:&lt;/strong&gt; Backtesting, A/B testing, and linking online and offline evaluation.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;__programming--infra-related-challenges__&#34;&gt;&lt;strong&gt;Programming &amp;amp; Infra related challenges:&lt;/strong&gt;&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Code spaces:&lt;/strong&gt; How a developer can use code space for CPU based workflow for day-to-day development. Managing multiple envs base of &lt;code&gt;Spark/GPU/CPU&lt;/code&gt; dependencies using &lt;code&gt;devcontainer&lt;/code&gt;. Can the same image be used in &lt;code&gt;AML/ADB&lt;/code&gt;?&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;code&gt;AML&lt;/code&gt; + VS Code/Code Space Integration:&lt;/strong&gt; Attaching &lt;code&gt;AML&lt;/code&gt; compute to VS Code as terminal and &lt;code&gt;jupyter&lt;/code&gt; kernel. Run experiments in AML without leaving &lt;code&gt;VS Code/Code spaces&lt;/code&gt;. Triggering multiple concurrent jobs (not always same as distributed model training. Some of our models are classical models which we are running multiple times as embarrassingly parallel workload) in &lt;code&gt;AML&lt;/code&gt; from &lt;code&gt;VS Code&lt;/code&gt; which can scale in multiple nodes to run different models and return results in a fan out fan in pattern to a cloud storage. (One additional information here is we want to leverage all the cores within a node using &lt;code&gt;joblib&lt;/code&gt;, hence the auto scaling we are expecting is at node level for a given threshold) &lt;code&gt;mlflow&lt;/code&gt; integration with VS Code and AML.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;code&gt;ADB&lt;/code&gt; + VS Code/Code Space Integration:&lt;/strong&gt; Run experiment in ADB without leaving VS Code/Code spaces.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Debugging:&lt;/strong&gt; Using VS Code visual debugger in a distributed workflow in &lt;code&gt;AML&lt;/code&gt; &amp;amp; &lt;code&gt;ADB&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Observability:&lt;/strong&gt; Monitoring aggregated logs from different nodes in &lt;code&gt;VS Code&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Testing:&lt;/strong&gt; How to run property based testing for ML models in distributed compute environments.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Library:&lt;/strong&gt; Managing multiple dependencies such as &lt;code&gt;pyspark&lt;/code&gt;, &lt;code&gt;GPU&lt;/code&gt; and &lt;code&gt;CPU&lt;/code&gt; level system dependencies. Usage of &lt;code&gt;JIT&lt;/code&gt; within and across models taking execution infra into account. Making library infra agnostic.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Codespaces:&lt;/strong&gt; How can a developer use a Codespace for a CPU-based day-to-day workflow? How can we manage multiple environments with &lt;code&gt;Spark/GPU/CPU&lt;/code&gt; dependencies using a dev container? Can the same image be used in &lt;code&gt;AML/ADB&lt;/code&gt;?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;AML&lt;/code&gt; + VS Code/Code Space Integration:&lt;/strong&gt; Attach &lt;code&gt;AML&lt;/code&gt; compute to VS Code as a terminal and Jupyter kernel. Run experiments in AML without leaving VS Code. Trigger multiple concurrent jobs in AML from VS Code and scale across nodes to run different models. Some of our classical models run multiple times as embarrassingly parallel workloads; results can be returned to cloud storage in a fan-out/fan-in pattern. We also want to use all cores on each node with &lt;code&gt;joblib&lt;/code&gt;, so autoscaling should add nodes when a threshold is reached. Integrate &lt;code&gt;mlflow&lt;/code&gt; with VS Code and AML.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;ADB&lt;/code&gt; + VS Code/Code Space Integration:&lt;/strong&gt; Run experiments in ADB without leaving VS Code.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Debugging:&lt;/strong&gt; How can we use the VS Code visual debugger in distributed workflows in &lt;code&gt;AML&lt;/code&gt; and &lt;code&gt;ADB&lt;/code&gt;?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Observability:&lt;/strong&gt; How can we monitor aggregated logs from different nodes in &lt;code&gt;VS Code&lt;/code&gt;?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Testing:&lt;/strong&gt; How can we run property-based tests for ML models in distributed compute environments?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Library:&lt;/strong&gt; How can we manage dependencies such as &lt;code&gt;pyspark&lt;/code&gt; and system-level GPU and CPU requirements? How can we use &lt;code&gt;JIT&lt;/code&gt; across models while accounting for the execution infrastructure? How can we make the library infrastructure-agnostic?&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;If you are excited about solving above mentioned challenges feel free to reach out to me.&lt;/p&gt;
+&lt;p&gt;If you are excited about solving the challenges mentioned above, feel free to reach out to me.&lt;/p&gt;
 </description>
     </item>
     

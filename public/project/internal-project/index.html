@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en-us" >
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=4321&amp;path=livereload" data-no-instant defer></script>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -33,7 +33,7 @@
   <meta name="description" content="RecSys with AutoML." />
 
   
-  <link rel="alternate" hreflang="en-us" href="http://localhost:4321/project/internal-project/" />
+  <link rel="alternate" hreflang="en-us" href="http://localhost:1313/project/internal-project/" />
 
   
 
@@ -290,7 +290,7 @@
   <link rel="icon" type="image/png" href="/media/icon_hu821431810458836357.png" />
   <link rel="apple-touch-icon" type="image/png" href="/media/icon_hu8367074011273711489.png" />
 
-  <link rel="canonical" href="http://localhost:4321/project/internal-project/" />
+  <link rel="canonical" href="http://localhost:1313/project/internal-project/" />
 
   
   
@@ -306,10 +306,10 @@
   <meta property="twitter:card" content="summary_large_image" />
   
   <meta property="og:site_name" content="Aritra Biswas" />
-  <meta property="og:url" content="http://localhost:4321/project/internal-project/" />
+  <meta property="og:url" content="http://localhost:1313/project/internal-project/" />
   <meta property="og:title" content="RecSys for B2B platform | Aritra Biswas" />
-  <meta property="og:description" content="RecSys with AutoML." /><meta property="og:image" content="http://localhost:4321/project/internal-project/featured.jpg" />
-    <meta property="twitter:image" content="http://localhost:4321/project/internal-project/featured.jpg" /><meta property="og:locale" content="en-us" />
+  <meta property="og:description" content="RecSys with AutoML." /><meta property="og:image" content="http://localhost:1313/project/internal-project/featured.jpg" />
+    <meta property="twitter:image" content="http://localhost:1313/project/internal-project/featured.jpg" /><meta property="og:locale" content="en-us" />
   
     
       <meta
@@ -339,12 +339,12 @@
   "@type": "Article",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "http://localhost:4321/project/internal-project/"
+    "@id": "http://localhost:1313/project/internal-project/"
   },
   "headline": "RecSys for B2B platform",
   
   "image": [
-    "http://localhost:4321/project/internal-project/featured.jpg"
+    "http://localhost:1313/project/internal-project/featured.jpg"
   ],
   
   "datePublished": "2022-12-18T00:00:00Z",
@@ -360,7 +360,7 @@
     "name": "Aritra Biswas",
     "logo": {
       "@type": "ImageObject",
-      "url": "http://localhost:4321/media/icon_hu8032722295507511326.png"
+      "url": "http://localhost:1313/media/icon_hu8032722295507511326.png"
     }
   },
   "description": "RecSys with AutoML."
@@ -592,43 +592,6 @@
         
 
         <li class="nav-item">
-          <a class="nav-link " href="/#projects"><span>Projects</span></a>
-        </li>
-
-        
-        
-
-        
-
-        
-        
-        
-          
-        
-
-        
-
-        
-        
-        
-        
-
-        
-          
-            
-            
-          
-          
-            
-            
-            
-              
-            
-            
-          
-        
-
-        <li class="nav-item">
           <a class="nav-link " href="/#contact"><span>Contact</span></a>
         </li>
 
@@ -654,13 +617,6 @@
           </li>
         
       
-        
-          
-          <li class="nav-item d-none d-lg-inline-flex">
-            <a class="nav-link" href="https://twitter.com/pdlearnstocode" data-toggle="tooltip" data-placement="bottom" title="Follow me on Twitter" target="_blank" rel="noopener" aria-label="Follow me on Twitter">
-              <i class="fab fa-twitter" aria-hidden="true"></i>
-            </a>
-          </li>
         
       
 
@@ -845,29 +801,29 @@
   <div class="article-container">
 
     <div class="article-style">
-      <p>I am working on <code>RecSys</code> to generate product recommendations for ABI&rsquo;s B2B platform <code>BEEs</code>. Some of the challenges involved in the project include building <code>AutoML</code> for best hyper-parameter selection, distributed model training. feature store integration, building a python library for curated ML models with default configs, deployment of models in cloud native compute and many more. Super excited to work in this work stream with an amazing team.</p>
+      <p>I am working on <code>RecSys</code> to generate product recommendations for ABI&rsquo;s B2B platform, <code>BEEs</code>. Some of the challenges include building <code>AutoML</code> for hyperparameter selection, distributed model training, feature store integration, a Python library of curated ML models with default configurations, and deploying models in cloud-native compute environments. I am excited to work on this with an amazing team.</p>
 <h3 id="__algorithm-related-challenges__"><strong>Algorithm related challenges:</strong></h3>
 <ul>
-<li><strong>Cross validation:</strong> How to perform cross validation for <code>RecSys</code>. How to link statistical metrics with business KPIs. Determining weighage between model goodness of fit and business KPIs. How to create a scoring function which can compare between different models during cross validation. Managing splitting strategy to ensure that models are comparable.</li>
-<li><strong>Model selection:</strong> Single model or market-based model or hybrid model - combined of two or more models? Time/Sequence based models(<code>LSTM</code>/<code>GRU</code>)?</li>
-<li><strong>Hyper parameter tuning:</strong> What can be the preferable hyper-parameter tuning framework, which can support <code>GPU</code> (Wide and Deep), Spark (<code>ALS</code>) and CPU (<code>SAR</code> etc.).</li>
-<li><strong>KPIs:</strong> Evaluate existing KPIs such as <code>Map@K</code>, <code>NDCG@K</code> and improve if possible.</li>
-<li><strong>Hybrid model or mixture of model:</strong> Also, what type of hybrid - sequential, parallel or weighted? As of now, two use case (conceptually)</li>
-<li><strong>AutoML:</strong> Example of AutoML for multi-country setup (including hybrid model, hyper-parameter tuning) with recommended tech stack.</li>
-<li><strong>Model drift, data drift, retraining and model monitoring:</strong> How to build a framework which can be integrated with the python library to detect model drift, data drift, retraining requirements and monitor generated results in online and offline models.</li>
-<li><strong>Others:</strong> Backtesting, AB testing, linking online and offline evaluation.</li>
+<li><strong>Cross validation:</strong> How to perform cross-validation for <code>RecSys</code>, link statistical metrics with business KPIs, determine the balance between model fit and business KPIs, create a scoring function to compare models, and choose a data-splitting strategy that keeps models comparable.</li>
+<li><strong>Model selection:</strong> Should we use a single model, a market-based model, or a hybrid that combines multiple models? Should we use time- or sequence-based models such as <code>LSTM</code> or <code>GRU</code>?</li>
+<li><strong>Hyperparameter tuning:</strong> Which tuning framework can support GPUs (Wide and Deep), Spark (<code>ALS</code>), and CPUs (<code>SAR</code>, etc.)?</li>
+<li><strong>KPIs:</strong> How can we evaluate and improve existing KPIs such as <code>Map@K</code> and <code>NDCG@K</code>?</li>
+<li><strong>Hybrid model or mixture of models:</strong> What type of hybrid should we use: sequential, parallel, or weighted? Conceptually, there are two use cases.</li>
+<li><strong>AutoML:</strong> What technology stack should we use for a multi-country setup that includes hybrid models and hyperparameter tuning?</li>
+<li><strong>Model and data drift, retraining, and monitoring:</strong> How can we build a framework that integrates with the Python library to detect model and data drift, identify when retraining is needed, and monitor results for online and offline models?</li>
+<li><strong>Other challenges:</strong> Backtesting, A/B testing, and linking online and offline evaluation.</li>
 </ul>
 <h3 id="__programming--infra-related-challenges__"><strong>Programming &amp; Infra related challenges:</strong></h3>
 <ul>
-<li><strong>Code spaces:</strong> How a developer can use code space for CPU based workflow for day-to-day development. Managing multiple envs base of <code>Spark/GPU/CPU</code> dependencies using <code>devcontainer</code>. Can the same image be used in <code>AML/ADB</code>?</li>
-<li><strong><code>AML</code> + VS Code/Code Space Integration:</strong> Attaching <code>AML</code> compute to VS Code as terminal and <code>jupyter</code> kernel. Run experiments in AML without leaving <code>VS Code/Code spaces</code>. Triggering multiple concurrent jobs (not always same as distributed model training. Some of our models are classical models which we are running multiple times as embarrassingly parallel workload) in <code>AML</code> from <code>VS Code</code> which can scale in multiple nodes to run different models and return results in a fan out fan in pattern to a cloud storage. (One additional information here is we want to leverage all the cores within a node using <code>joblib</code>, hence the auto scaling we are expecting is at node level for a given threshold) <code>mlflow</code> integration with VS Code and AML.</li>
-<li><strong><code>ADB</code> + VS Code/Code Space Integration:</strong> Run experiment in ADB without leaving VS Code/Code spaces.</li>
-<li><strong>Debugging:</strong> Using VS Code visual debugger in a distributed workflow in <code>AML</code> &amp; <code>ADB</code>.</li>
-<li><strong>Observability:</strong> Monitoring aggregated logs from different nodes in <code>VS Code</code>.</li>
-<li><strong>Testing:</strong> How to run property based testing for ML models in distributed compute environments.</li>
-<li><strong>Library:</strong> Managing multiple dependencies such as <code>pyspark</code>, <code>GPU</code> and <code>CPU</code> level system dependencies. Usage of <code>JIT</code> within and across models taking execution infra into account. Making library infra agnostic.</li>
+<li><strong>Codespaces:</strong> How can a developer use a Codespace for a CPU-based day-to-day workflow? How can we manage multiple environments with <code>Spark/GPU/CPU</code> dependencies using a dev container? Can the same image be used in <code>AML/ADB</code>?</li>
+<li><strong><code>AML</code> + VS Code/Code Space Integration:</strong> Attach <code>AML</code> compute to VS Code as a terminal and Jupyter kernel. Run experiments in AML without leaving VS Code. Trigger multiple concurrent jobs in AML from VS Code and scale across nodes to run different models. Some of our classical models run multiple times as embarrassingly parallel workloads; results can be returned to cloud storage in a fan-out/fan-in pattern. We also want to use all cores on each node with <code>joblib</code>, so autoscaling should add nodes when a threshold is reached. Integrate <code>mlflow</code> with VS Code and AML.</li>
+<li><strong><code>ADB</code> + VS Code/Code Space Integration:</strong> Run experiments in ADB without leaving VS Code.</li>
+<li><strong>Debugging:</strong> How can we use the VS Code visual debugger in distributed workflows in <code>AML</code> and <code>ADB</code>?</li>
+<li><strong>Observability:</strong> How can we monitor aggregated logs from different nodes in <code>VS Code</code>?</li>
+<li><strong>Testing:</strong> How can we run property-based tests for ML models in distributed compute environments?</li>
+<li><strong>Library:</strong> How can we manage dependencies such as <code>pyspark</code> and system-level GPU and CPU requirements? How can we use <code>JIT</code> across models while accounting for the execution infrastructure? How can we make the library infrastructure-agnostic?</li>
 </ul>
-<p>If you are excited about solving above mentioned challenges feel free to reach out to me.</p>
+<p>If you are excited about solving the challenges mentioned above, feel free to reach out to me.</p>
 
     </div>
 
@@ -903,7 +859,7 @@
       
       
       <li>
-        <a href="https://twitter.com/intent/tweet?url=http://localhost:4321/project/internal-project/&amp;text=RecSys%20for%20B2B%20platform" target="_blank" rel="noopener" class="share-btn-twitter">
+        <a href="https://twitter.com/intent/tweet?url=http://localhost:1313/project/internal-project/&amp;text=RecSys%20for%20B2B%20platform" target="_blank" rel="noopener" class="share-btn-twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
@@ -916,7 +872,7 @@
       
       
       <li>
-        <a href="https://www.facebook.com/sharer.php?u=http://localhost:4321/project/internal-project/&amp;t=RecSys%20for%20B2B%20platform" target="_blank" rel="noopener" class="share-btn-facebook">
+        <a href="https://www.facebook.com/sharer.php?u=http://localhost:1313/project/internal-project/&amp;t=RecSys%20for%20B2B%20platform" target="_blank" rel="noopener" class="share-btn-facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
@@ -929,7 +885,7 @@
       
       
       <li>
-        <a href="mailto:?subject=RecSys%20for%20B2B%20platform&amp;body=http://localhost:4321/project/internal-project/" target="_blank" rel="noopener" class="share-btn-email">
+        <a href="mailto:?subject=RecSys%20for%20B2B%20platform&amp;body=http://localhost:1313/project/internal-project/" target="_blank" rel="noopener" class="share-btn-email">
           <i class="fas fa-envelope"></i>
         </a>
       </li>
@@ -942,7 +898,7 @@
       
       
       <li>
-        <a href="https://www.linkedin.com/shareArticle?url=http://localhost:4321/project/internal-project/&amp;title=RecSys%20for%20B2B%20platform" target="_blank" rel="noopener" class="share-btn-linkedin">
+        <a href="https://www.linkedin.com/shareArticle?url=http://localhost:1313/project/internal-project/&amp;title=RecSys%20for%20B2B%20platform" target="_blank" rel="noopener" class="share-btn-linkedin">
           <i class="fab fa-linkedin-in"></i>
         </a>
       </li>
@@ -955,7 +911,7 @@
       
       
       <li>
-        <a href="whatsapp://send?text=RecSys%20for%20B2B%20platform%20http://localhost:4321/project/internal-project/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+        <a href="whatsapp://send?text=RecSys%20for%20B2B%20platform%20http://localhost:1313/project/internal-project/" target="_blank" rel="noopener" class="share-btn-whatsapp">
           <i class="fab fa-whatsapp"></i>
         </a>
       </li>
@@ -968,7 +924,7 @@
       
       
       <li>
-        <a href="https://service.weibo.com/share/share.php?url=http://localhost:4321/project/internal-project/&amp;title=RecSys%20for%20B2B%20platform" target="_blank" rel="noopener" class="share-btn-weibo">
+        <a href="https://service.weibo.com/share/share.php?url=http://localhost:1313/project/internal-project/&amp;title=RecSys%20for%20B2B%20platform" target="_blank" rel="noopener" class="share-btn-weibo">
           <i class="fab fa-weibo"></i>
         </a>
       </li>
@@ -1001,11 +957,11 @@
   <div class="media author-card content-widget-hr">
     
       
-      <a href="http://localhost:4321/"><img class="avatar mr-3 avatar-circle" src="/author/aritra-biswas/avatar_hu1703490165162408657.jpeg" alt="Aritra Biswas"></a>
+      <a href="http://localhost:1313/"><img class="avatar mr-3 avatar-circle" src="/author/aritra-biswas/avatar_hu1703490165162408657.jpeg" alt="Aritra Biswas"></a>
     
 
     <div class="media-body">
-      <h5 class="card-title"><a href="http://localhost:4321/">Aritra Biswas</a></h5>
+      <h5 class="card-title"><a href="http://localhost:1313/">Aritra Biswas</a></h5>
       <h6 class="card-subtitle">Senior ML Engineer</h6>
       <p class="card-text">My research interests include computational statistics, causal inference, simulation and mathematical optimization.</p>
       <ul class="network-icon" aria-hidden="true">
@@ -1680,16 +1636,6 @@
   
 
   
-  <p class="powered-by">
-    
-      <a href="/privacy/">Privacy Policy</a>
-    
-    
-       &middot; 
-      <a href="/terms/">Terms</a>
-    
-  </p>
-  
 
   
 
@@ -1846,7 +1792,20 @@
     
     <script src="/en/js/wowchemy.min.js"></script>
 
-    
+    <svg aria-hidden="true" focusable="false" width="0" height="0" style="position: absolute; overflow: hidden;">
+  <filter id="remove-white-background" color-interpolation-filters="sRGB">
+    <feColorMatrix type="matrix" values="
+      1 0 0 0 0
+      0 1 0 0 0
+      0 0 1 0 0
+      -0.333333 -0.333333 -0.333333 0 1" result="keyed" />
+    <feComponentTransfer in="keyed">
+      <feFuncA type="linear" slope="20" intercept="-1" />
+    </feComponentTransfer>
+  </filter>
+</svg>
+
+
 
 
 

@@ -2,31 +2,28 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Aritra Biswas</title>
-    <link>http://localhost:4321/</link>
-      <atom:link href="http://localhost:4321/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:1313/</link>
+      <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <description>Aritra Biswas</description>
     <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sat, 01 Jun 2030 13:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:4321/media/icon_hu966111359855668688.png</url>
+      <url>http://localhost:1313/media/icon_hu966111359855668688.png</url>
       <title>Aritra Biswas</title>
-      <link>http://localhost:4321/</link>
+      <link>http://localhost:1313/</link>
     </image>
     
     <item>
       <title>Python basics</title>
-      <link>http://localhost:4321/courses/example/python/</link>
+      <link>http://localhost:1313/courses/example/python/</link>
       <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/courses/example/python/</guid>
+      <guid>http://localhost:1313/courses/example/python/</guid>
       <description>&lt;p&gt;Build a foundation in Python.&lt;/p&gt;
 &lt;p&gt;
   &lt;i class=&#34;fas fa-clock  pr-1 fa-fw&#34;&gt;&lt;/i&gt; 1-2 hours per week, for 8 weeks&lt;/p&gt;
 &lt;h2 id=&#34;learn&#34;&gt;Learn&lt;/h2&gt;
 
-
-    
     &lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
-      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#34; allowfullscreen=&#34;allowfullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/rfscVS0vtbw?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;
-      &gt;&lt;/iframe&gt;
+      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#34; allowfullscreen=&#34;allowfullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/rfscVS0vtbw?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;&gt;&lt;/iframe&gt;
     &lt;/div&gt;
 
 &lt;h2 id=&#34;quiz&#34;&gt;Quiz&lt;/h2&gt;
@@ -54,19 +51,16 @@
     
     <item>
       <title>Visualization</title>
-      <link>http://localhost:4321/courses/example/visualization/</link>
+      <link>http://localhost:1313/courses/example/visualization/</link>
       <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/courses/example/visualization/</guid>
+      <guid>http://localhost:1313/courses/example/visualization/</guid>
       <description>&lt;p&gt;Learn how to visualize data with Plotly.&lt;/p&gt;
 &lt;p&gt;
   &lt;i class=&#34;fas fa-clock  pr-1 fa-fw&#34;&gt;&lt;/i&gt; 1-2 hours per week, for 8 weeks&lt;/p&gt;
 &lt;h2 id=&#34;learn&#34;&gt;Learn&lt;/h2&gt;
 
-
-    
     &lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
-      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#34; allowfullscreen=&#34;allowfullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/hSPmj7mK6ng?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;
-      &gt;&lt;/iframe&gt;
+      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#34; allowfullscreen=&#34;allowfullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/hSPmj7mK6ng?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;&gt;&lt;/iframe&gt;
     &lt;/div&gt;
 
 &lt;h2 id=&#34;quiz&#34;&gt;Quiz&lt;/h2&gt;
@@ -87,9 +81,9 @@ fig.show()
     
     <item>
       <title>Statistics</title>
-      <link>http://localhost:4321/courses/example/stats/</link>
+      <link>http://localhost:1313/courses/example/stats/</link>
       <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/courses/example/stats/</guid>
+      <guid>http://localhost:1313/courses/example/stats/</guid>
       <description>&lt;p&gt;Introduction to statistics for data science.&lt;/p&gt;
 &lt;p&gt;
   &lt;i class=&#34;fas fa-clock  pr-1 fa-fw&#34;&gt;&lt;/i&gt; 1-2 hours per week, for 8 weeks&lt;/p&gt;
@@ -115,9 +109,9 @@ The variance of the distribution is $\sigma^{2}$.
     
     <item>
       <title>Example Talk</title>
-      <link>http://localhost:4321/talk/example-talk/</link>
+      <link>http://localhost:1313/talk/example-talk/</link>
       <pubDate>Sat, 01 Jun 2030 13:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/talk/example-talk/</guid>
+      <guid>http://localhost:1313/talk/example-talk/</guid>
       <description>&lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
     Click on the &lt;strong&gt;Slides&lt;/strong&gt; button above to view the built-in slides feature.
@@ -135,23 +129,23 @@ The variance of the distribution is $\sigma^{2}$.
     
     <item>
       <title>FastAPI Resiliency: Circuit Breakers, Rate Limiting, and External API Management</title>
-      <link>http://localhost:4321/post/fastapi-resiliency-circuit-breakers-rate-limiting-and-external-api-management/</link>
+      <link>http://localhost:1313/post/fastapi-resiliency-circuit-breakers-rate-limiting-and-external-api-management/</link>
       <pubDate>Tue, 11 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/post/fastapi-resiliency-circuit-breakers-rate-limiting-and-external-api-management/</guid>
-      <description>&lt;p&gt;Let&amp;rsquo;s assume that we are building a REST API services which depends on other 3rd party&amp;rsquo;s API services. To make things more realistic let&amp;rsquo;s assume that we are building a RAG using tavily (web search api) and LLMs. In this case our app will depend these two external services. This is a very common scenario where our services depends on some services where we have very little control. When we are building something like this this is important to ensure two major things,&lt;/p&gt;
+      <guid>http://localhost:1313/post/fastapi-resiliency-circuit-breakers-rate-limiting-and-external-api-management/</guid>
+      <description>&lt;p&gt;Let&amp;rsquo;s assume that we are building a REST API service that depends on third-party APIs. To make the example more realistic, let&amp;rsquo;s say we are building a RAG system that uses Tavily (a web search API) and LLMs. In this case, our app depends on these two external services. This is a common scenario in which our services rely on systems we have little control over. When building something like this, it is important to consider two things:&lt;/p&gt;
 &lt;h3 id=&#34;__what-will-be-the-traffic-our-apis-will-support__&#34;&gt;&lt;strong&gt;What will be the traffic our APIs will support:&lt;/strong&gt;&lt;/h3&gt;
-&lt;p&gt;This is essentially depends on the API services we will invoke during the execution. We should have a rate limit which is same or less than the minimum of rate limit of API services we will be using. Note this limit is at an overall level. We need to rate limit at a user level based on number of concurrent users our app will support. This point clearly has to do with rate limiting. What if one or any of the services has encountered 429 and can not serve more request within certain duration. In many cases we have observed for LLM if TPM or RPM has exhausted then we keep getting 429 until it is ready to take more requests. Lets break this point down,&lt;/p&gt;
+&lt;p&gt;This depends on the API services we will invoke during execution. We should set our rate limit at or below the lowest rate limit among those services. This is an overall limit; we also need to apply per-user rate limits based on the number of concurrent users our app will support. What happens if one of the services returns a 429 and cannot serve more requests for a while? In many cases, when an LLM&amp;rsquo;s TPM or RPM quota is exhausted, we continue to receive 429 responses until it can accept more requests. Let&amp;rsquo;s break this down:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Lets assume our app will supports 10 concurrent users&lt;/li&gt;
-&lt;li&gt;Let&amp;rsquo;s assume LLM we are using has RPM of 2700 and TPM 450k.&lt;/li&gt;
-&lt;li&gt;Let&amp;rsquo;s assume search API has RPM of 1000.&lt;/li&gt;
-&lt;li&gt;So maximum in a minute we can make 1000 calls to LLM and search API which will work. After this we will start getting 429 from search and after 2700 request we we start getting 429 from LLM.&lt;/li&gt;
-&lt;li&gt;Lets assume that our app can serve 1000 calls per minute.&lt;/li&gt;
-&lt;li&gt;So each user is allowed to make 1000/10 = 100 calls a minute.&lt;/li&gt;
-&lt;li&gt;Here we are assuming 1 user = 1 IP.&lt;/li&gt;
+&lt;li&gt;Let&amp;rsquo;s assume our app supports 10 concurrent users.&lt;/li&gt;
+&lt;li&gt;The LLM we are using has an RPM limit of 2,700 and a TPM limit of 450k.&lt;/li&gt;
+&lt;li&gt;The search API has an RPM limit of 1,000.&lt;/li&gt;
+&lt;li&gt;We can make at most 1,000 calls per minute to each API before exceeding the search API&amp;rsquo;s limit; after 2,700 requests, we would also exceed the LLM&amp;rsquo;s RPM limit.&lt;/li&gt;
+&lt;li&gt;Let&amp;rsquo;s assume our app can serve 1,000 calls per minute.&lt;/li&gt;
+&lt;li&gt;Each user is allowed to make 1,000 / 10 = 100 calls per minute.&lt;/li&gt;
+&lt;li&gt;Here, we assume one user per IP address.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;__what-will-happen-when-consecutive-failure-occurs-when-3rd-party-apis-are-failing-consecutively__&#34;&gt;&lt;strong&gt;What will happen when consecutive failure occurs when 3rd party APIs are failing consecutively:&lt;/strong&gt;&lt;/h3&gt;
-&lt;p&gt;Lets assume there is some down time or something has gone wrong in the 3rd party API side and when calling our services we are encountering consecutive error. In a scenario like this it is better to fail gracefully and have a cool down period. Let&amp;rsquo;s take this example, during the call if any of the service is down and throwing 500. Now, may be if we get 1000 or more 500 status from the API within 1 minute clearly something is wrong. In this case, it is better to have a cool down period of lets say 1 min and send a notification to support team that something has gone wrong with the service. This notification can happen from APIM or API gateway as well.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s assume there is downtime or another issue with a third-party API, causing consecutive errors when our service calls it. In this scenario, it is better to fail gracefully and have a cooldown period. For example, if a service is down and returning 500 responses, receiving 1,000 or more such responses within one minute clearly indicates a problem. In this case, it is better to have a cooldown period of, say, one minute and notify the support team. This notification can also come from APIM or an API gateway.&lt;/p&gt;
 &lt;h3 id=&#34;__here-is-a-minimalist-example-showing-this-scenario-with-fastapi--pybreaker--slowapi__&#34;&gt;&lt;strong&gt;Here is a minimalist example showing this scenario with &lt;code&gt;FastAPI&lt;/code&gt; + &lt;code&gt;pybreaker&lt;/code&gt; + &lt;code&gt;slowapi&lt;/code&gt;:&lt;/strong&gt;&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;A circuit breaker monitors the health of an external dependency, short-circuiting calls when failures exceed a threshold. Use a circuit breaker when you need to detect and isolate failures in external system calls, preventing cascading failures in your application. The circuit breaker is designed to detect and handle failures from external services. It prevents excessive effort on a failing external API by &amp;ldquo;opening&amp;rdquo; the circuit after a defined number of failures, thereby avoiding long wait times or cascading failures. You would use a circuit breaker to manage and handle issues when the third-party APIs start failing or become unreliable.&lt;/li&gt;
@@ -424,9 +418,9 @@ For any other unexpected errors or status codes, the application defaults to a 5
     
     <item>
       <title>On LLM reproducibility</title>
-      <link>http://localhost:4321/post/on-llm-reproducibility/</link>
+      <link>http://localhost:1313/post/on-llm-reproducibility/</link>
       <pubDate>Sun, 09 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/post/on-llm-reproducibility/</guid>
+      <guid>http://localhost:1313/post/on-llm-reproducibility/</guid>
       <description>&lt;p&gt;One of the major issue with LLM output is its consistency and reproducibility. Here is kind of a hacky work around to make output from a LLM consistent (kind of). Also, a few observation regarding the same. Here I am following a MSFT article linked in the reference. Need to use the a GPT 4o model with version &lt;code&gt;2024-05-13&lt;/code&gt; for this. Also note here using AOAI API version &lt;code&gt;2024-10-21&lt;/code&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;setting-up-two-instances-of-llm-with-different-configs&#34;&gt;Setting up two instances of LLM with different configs&lt;/h3&gt;
 &lt;pre&gt;&lt;code class=&#34;language-txt&#34;&gt;Deployment info
@@ -487,7 +481,7 @@ for idx in range(50):
 consistent_df = pd.DataFrame(consistent_arr_res, columns = [&#39;res&#39;])
 less_consistent_df = pd.DataFrame(less_consistent_arr_res, columns = [&#39;res&#39;])
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Observation in 50 generation with consistent LLM (with seed 42, max_token 50 and temperature 0) it has generated the below table.&lt;/p&gt;
+&lt;p&gt;The table below shows the results from 50 generations with the consistent LLM (using seed 42, &lt;code&gt;max_tokens&lt;/code&gt; 50, and temperature 0).&lt;/p&gt;
 &lt;h4 id=&#34;consistent-dataframe-1&#34;&gt;Consistent dataframe 1&lt;/h4&gt;
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;print(consistent_df.value_counts().to_frame().to_markdown())
 &lt;/code&gt;&lt;/pre&gt;
@@ -530,7 +524,7 @@ less_consistent_df = pd.DataFrame(less_consistent_arr_res, columns = [&#39;res&#
   &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h4 id=&#34;less-consistent-dataframe-1&#34;&gt;Less Consistent dataframe 1&lt;/h4&gt;
-&lt;p&gt;Observation in 50 generation with inconsistent LLM it has generated the below table.&lt;/p&gt;
+&lt;p&gt;The table below shows the results from 50 generations with the less consistent LLM.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;print(less_consistent_df.value_counts().to_frame().head(5).to_markdown())
 &lt;/code&gt;&lt;/pre&gt;
 &lt;table&gt;
@@ -563,7 +557,7 @@ less_consistent_df = pd.DataFrame(less_consistent_arr_res, columns = [&#39;res&#
       &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;Here showing just to 5 sample. But all 50 generation are unqiue.&lt;/p&gt;
+&lt;p&gt;Here, we are showing only five samples, but all 50 generations are unique.&lt;/p&gt;
 &lt;h3 id=&#34;generation-with-context&#34;&gt;Generation with context&lt;/h3&gt;
 &lt;p&gt;Now, we will ground generation using some context. Here is a short summary of short stories from wikipedia.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;text = &amp;quot;&amp;quot;&amp;quot;A short story is a piece of prose fiction. It can typically be read in a single sitting and focuses on a self-contained incident or series of linked incidents, with the intent of evoking a single effect or mood. The short story is one of the oldest types of literature and has existed in the form of legends, mythic tales, folk tales, fairy tales, tall tales, fables, and anecdotes in various ancient communities around the world. The modern short story developed in the early 19th century.[1]
@@ -596,7 +590,7 @@ for i in range(50):
     time.sleep(1)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h4 id=&#34;consistent-dataframe-2&#34;&gt;Consistent dataframe 2&lt;/h4&gt;
-&lt;p&gt;Observation in 50 generation with consistent LLM (with seed 42, max_token 50 and temperature 0) it has generated the below table. As you can see it is way more consistent. 46 time it has generated same output and 4 times the output is different but the main different in these two is of a single charecter.&lt;/p&gt;
+&lt;p&gt;In 50 generations with the consistent LLM (using seed 42, &lt;code&gt;max_tokens&lt;/code&gt; 50, and temperature 0), the results are shown in the table below. The output is much more consistent: 46 generations produced the same output, while the other four differed by only one character.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;print(consistent_df_summary.value_counts().to_frame().to_markdown())
 &lt;/code&gt;&lt;/pre&gt;
 &lt;table&gt;
@@ -618,7 +612,7 @@ for i in range(50):
   &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h4 id=&#34;less-consistent-dataframe-2&#34;&gt;Less Consistent dataframe 2&lt;/h4&gt;
-&lt;p&gt;Observation in 50 generation with inconsistent LLM it has generated the below table.&lt;/p&gt;
+&lt;p&gt;The table below shows the results from 50 generations with the less consistent LLM.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;print(less_consistent_df_summary.value_counts().head(5).to_frame().to_markdown())
 &lt;/code&gt;&lt;/pre&gt;
 &lt;table&gt;
@@ -651,7 +645,7 @@ for i in range(50):
       &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;Again this is a sample of head 5. But as you can see that all the 50 generations are unique and different from one another.&lt;/p&gt;
+&lt;p&gt;Again, this is a sample of the first five results. As you can see, all 50 generations are unique.&lt;/p&gt;
 &lt;h3 id=&#34;reference&#34;&gt;Reference&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/reproducible-output?tabs=pyton&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Learn how to use reproducible output&lt;/a&gt;&lt;/li&gt;
@@ -662,9 +656,9 @@ for i in range(50):
     
     <item>
       <title>About Me</title>
-      <link>http://localhost:4321/about/</link>
+      <link>http://localhost:1313/about/</link>
       <pubDate>Thu, 31 Oct 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/about/</guid>
+      <guid>http://localhost:1313/about/</guid>
       <description>&lt;h1 id=&#34;about-aritra-biswas&#34;&gt;About Aritra Biswas&lt;/h1&gt;
 &lt;p&gt;This is a brief biography about Aritra Biswas.&lt;/p&gt;
 </description>
@@ -672,9 +666,9 @@ for i in range(50):
     
     <item>
       <title>Exponential Smoothing using Scikit-Learn wrapper &amp; statsmodels</title>
-      <link>http://localhost:4321/post/exponential-smoothing-using-scikit-learn-wrapper-statsmodels/</link>
+      <link>http://localhost:1313/post/exponential-smoothing-using-scikit-learn-wrapper-statsmodels/</link>
       <pubDate>Tue, 20 Dec 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/post/exponential-smoothing-using-scikit-learn-wrapper-statsmodels/</guid>
+      <guid>http://localhost:1313/post/exponential-smoothing-using-scikit-learn-wrapper-statsmodels/</guid>
       <description>&lt;p&gt;As we discussed in previous post, in this series we will be working on different type of regression problem and will try to parse them as sklearn model objects. Here are we will be working with &lt;code&gt;ExponentialSmoothing&lt;/code&gt; from &lt;code&gt;statsmodels&lt;/code&gt; library. This is one of the most common time series model used in general. &lt;code&gt;statsmodels&lt;/code&gt; is heavily influence by R and its convention. If you take a deep dive into it&amp;rsquo;s functionality of or formula based approach in case of GLM, it is quite evident including the summary function.&lt;/p&gt;
 &lt;p&gt;Here in this post our objective will be to take this &lt;code&gt;ExponentialSmoothing&lt;/code&gt; from &lt;code&gt;statsmodels&lt;/code&gt; and build a model class which looks like sklearn model and the method signatures are same in nature so there is less learning curve involved when there is a context switch or in this case a user is trying to build different models.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from statsmodels.tsa.holtwinters import ExponentialSmoothing
@@ -773,9 +767,9 @@ model.score(X_test, y_test)
     
     <item>
       <title>LASSO using Scikit-Learn wrapper &amp; CVXPY</title>
-      <link>http://localhost:4321/post/lasso-using-scikit-learn-wrapper-and-cvxpy/</link>
+      <link>http://localhost:1313/post/lasso-using-scikit-learn-wrapper-and-cvxpy/</link>
       <pubDate>Sun, 18 Dec 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/post/lasso-using-scikit-learn-wrapper-and-cvxpy/</guid>
+      <guid>http://localhost:1313/post/lasso-using-scikit-learn-wrapper-and-cvxpy/</guid>
       <description>&lt;p&gt;Those who are working in ML space of sometime must be aware that there are multiple python libraries out there which support different algorithms/models. When you are trying to implement best model it is not possible to use just a single library or even a single language and compute infra. Also, note all the libraries are do not have the same method, signature and input and output. Hence if you are working on a library which is collection of multiple models from different library one good starting point can be to standardize you class, methods, signature and input and output. It helps us to avoid confusion, make things consistent and as result, when you are onboarding a new user, it takes them less time to learn things.&lt;/p&gt;
 &lt;p&gt;At high level, it may sound easy to create common API structure for all the models but it is not. Many models take input in form of &lt;code&gt;np.ndarray&lt;/code&gt;, &lt;code&gt;pd.Series&lt;/code&gt;, &lt;code&gt;pd.DataFrame&lt;/code&gt;, &lt;code&gt;xarray&lt;/code&gt; objects and some libraries implement their own data object. To handle this project my current go to approach is to parse the inner working of a model in a sklearn wrapper with common methods, signature and input and output. In this example, we will see how we can do this using &lt;code&gt;cvxpy&lt;/code&gt; as optimizer and &lt;code&gt;sklearn&lt;/code&gt; wrapper to generate a &lt;code&gt;sklearn&lt;/code&gt; model object. Same thing can be done for &lt;code&gt;statsmodels&lt;/code&gt;, &lt;code&gt;pytorch&lt;/code&gt;, &lt;code&gt;tensorflow&lt;/code&gt; or any other custom logic.&lt;/p&gt;
 &lt;p&gt;To start with we can create a &lt;code&gt;conda&lt;/code&gt; virtual env (assuming &lt;code&gt;conda&lt;/code&gt; is already installed. Otherwise install &lt;code&gt;conda&lt;/code&gt; python 3.8 first and then revisit this.). Run the following block to create a virtual env in &lt;code&gt;conda&lt;/code&gt; and install the required libraries,&lt;/p&gt;
@@ -862,7 +856,7 @@ def __init__(self, arg1, arg2, arg3, ..., argN):
         setattr(self, arg, val)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;ul&gt;
-&lt;li&gt;In this example, we are overwriting case &lt;code&gt;score&lt;/code&gt; function using &lt;code&gt;mean_absolute_percentage_error&lt;/code&gt;. Lets assume that for some reason we want to use &lt;code&gt;MAPE&lt;/code&gt; instate as default scoring method it can be useful. Other using &lt;code&gt;make_scorer&lt;/code&gt; can be used for any other custom score function or other sklearn score functions.&lt;/li&gt;
+&lt;li&gt;In this example, we are overriding the &lt;code&gt;score&lt;/code&gt; function to use &lt;code&gt;mean_absolute_percentage_error&lt;/code&gt;. If we want to use &lt;code&gt;MAPE&lt;/code&gt; as the default scoring method, this approach can be useful. Otherwise, &lt;code&gt;make_scorer&lt;/code&gt; can be used with any other custom scoring function or scikit-learn scoring function.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from sklearn.base import BaseEstimator, RegressorMixin
 from sklearn.utils.validation import check_X_y, check_array, check_is_fitted
@@ -925,40 +919,40 @@ class CVXSkLearnWrapper(BaseEstimator, RegressorMixin):
     
     <item>
       <title>RecSys for B2B platform</title>
-      <link>http://localhost:4321/project/internal-project/</link>
+      <link>http://localhost:1313/project/internal-project/</link>
       <pubDate>Sun, 18 Dec 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/project/internal-project/</guid>
-      <description>&lt;p&gt;I am working on &lt;code&gt;RecSys&lt;/code&gt; to generate product recommendations for ABI&amp;rsquo;s B2B platform &lt;code&gt;BEEs&lt;/code&gt;. Some of the challenges involved in the project include building &lt;code&gt;AutoML&lt;/code&gt; for best hyper-parameter selection, distributed model training. feature store integration, building a python library for curated ML models with default configs, deployment of models in cloud native compute and many more. Super excited to work in this work stream with an amazing team.&lt;/p&gt;
+      <guid>http://localhost:1313/project/internal-project/</guid>
+      <description>&lt;p&gt;I am working on &lt;code&gt;RecSys&lt;/code&gt; to generate product recommendations for ABI&amp;rsquo;s B2B platform, &lt;code&gt;BEEs&lt;/code&gt;. Some of the challenges include building &lt;code&gt;AutoML&lt;/code&gt; for hyperparameter selection, distributed model training, feature store integration, a Python library of curated ML models with default configurations, and deploying models in cloud-native compute environments. I am excited to work on this with an amazing team.&lt;/p&gt;
 &lt;h3 id=&#34;__algorithm-related-challenges__&#34;&gt;&lt;strong&gt;Algorithm related challenges:&lt;/strong&gt;&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Cross validation:&lt;/strong&gt; How to perform cross validation for &lt;code&gt;RecSys&lt;/code&gt;. How to link statistical metrics with business KPIs. Determining weighage between model goodness of fit and business KPIs. How to create a scoring function which can compare between different models during cross validation. Managing splitting strategy to ensure that models are comparable.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Model selection:&lt;/strong&gt; Single model or market-based model or hybrid model - combined of two or more models? Time/Sequence based models(&lt;code&gt;LSTM&lt;/code&gt;/&lt;code&gt;GRU&lt;/code&gt;)?&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Hyper parameter tuning:&lt;/strong&gt; What can be the preferable hyper-parameter tuning framework, which can support &lt;code&gt;GPU&lt;/code&gt; (Wide and Deep), Spark (&lt;code&gt;ALS&lt;/code&gt;) and CPU (&lt;code&gt;SAR&lt;/code&gt; etc.).&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;KPIs:&lt;/strong&gt; Evaluate existing KPIs such as &lt;code&gt;Map@K&lt;/code&gt;, &lt;code&gt;NDCG@K&lt;/code&gt; and improve if possible.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Hybrid model or mixture of model:&lt;/strong&gt; Also, what type of hybrid - sequential, parallel or weighted? As of now, two use case (conceptually)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;AutoML:&lt;/strong&gt; Example of AutoML for multi-country setup (including hybrid model, hyper-parameter tuning) with recommended tech stack.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Model drift, data drift, retraining and model monitoring:&lt;/strong&gt; How to build a framework which can be integrated with the python library to detect model drift, data drift, retraining requirements and monitor generated results in online and offline models.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Others:&lt;/strong&gt; Backtesting, AB testing, linking online and offline evaluation.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Cross validation:&lt;/strong&gt; How to perform cross-validation for &lt;code&gt;RecSys&lt;/code&gt;, link statistical metrics with business KPIs, determine the balance between model fit and business KPIs, create a scoring function to compare models, and choose a data-splitting strategy that keeps models comparable.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Model selection:&lt;/strong&gt; Should we use a single model, a market-based model, or a hybrid that combines multiple models? Should we use time- or sequence-based models such as &lt;code&gt;LSTM&lt;/code&gt; or &lt;code&gt;GRU&lt;/code&gt;?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Hyperparameter tuning:&lt;/strong&gt; Which tuning framework can support GPUs (Wide and Deep), Spark (&lt;code&gt;ALS&lt;/code&gt;), and CPUs (&lt;code&gt;SAR&lt;/code&gt;, etc.)?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;KPIs:&lt;/strong&gt; How can we evaluate and improve existing KPIs such as &lt;code&gt;Map@K&lt;/code&gt; and &lt;code&gt;NDCG@K&lt;/code&gt;?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Hybrid model or mixture of models:&lt;/strong&gt; What type of hybrid should we use: sequential, parallel, or weighted? Conceptually, there are two use cases.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AutoML:&lt;/strong&gt; What technology stack should we use for a multi-country setup that includes hybrid models and hyperparameter tuning?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Model and data drift, retraining, and monitoring:&lt;/strong&gt; How can we build a framework that integrates with the Python library to detect model and data drift, identify when retraining is needed, and monitor results for online and offline models?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Other challenges:&lt;/strong&gt; Backtesting, A/B testing, and linking online and offline evaluation.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;__programming--infra-related-challenges__&#34;&gt;&lt;strong&gt;Programming &amp;amp; Infra related challenges:&lt;/strong&gt;&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Code spaces:&lt;/strong&gt; How a developer can use code space for CPU based workflow for day-to-day development. Managing multiple envs base of &lt;code&gt;Spark/GPU/CPU&lt;/code&gt; dependencies using &lt;code&gt;devcontainer&lt;/code&gt;. Can the same image be used in &lt;code&gt;AML/ADB&lt;/code&gt;?&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;code&gt;AML&lt;/code&gt; + VS Code/Code Space Integration:&lt;/strong&gt; Attaching &lt;code&gt;AML&lt;/code&gt; compute to VS Code as terminal and &lt;code&gt;jupyter&lt;/code&gt; kernel. Run experiments in AML without leaving &lt;code&gt;VS Code/Code spaces&lt;/code&gt;. Triggering multiple concurrent jobs (not always same as distributed model training. Some of our models are classical models which we are running multiple times as embarrassingly parallel workload) in &lt;code&gt;AML&lt;/code&gt; from &lt;code&gt;VS Code&lt;/code&gt; which can scale in multiple nodes to run different models and return results in a fan out fan in pattern to a cloud storage. (One additional information here is we want to leverage all the cores within a node using &lt;code&gt;joblib&lt;/code&gt;, hence the auto scaling we are expecting is at node level for a given threshold) &lt;code&gt;mlflow&lt;/code&gt; integration with VS Code and AML.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;code&gt;ADB&lt;/code&gt; + VS Code/Code Space Integration:&lt;/strong&gt; Run experiment in ADB without leaving VS Code/Code spaces.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Debugging:&lt;/strong&gt; Using VS Code visual debugger in a distributed workflow in &lt;code&gt;AML&lt;/code&gt; &amp;amp; &lt;code&gt;ADB&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Observability:&lt;/strong&gt; Monitoring aggregated logs from different nodes in &lt;code&gt;VS Code&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Testing:&lt;/strong&gt; How to run property based testing for ML models in distributed compute environments.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Library:&lt;/strong&gt; Managing multiple dependencies such as &lt;code&gt;pyspark&lt;/code&gt;, &lt;code&gt;GPU&lt;/code&gt; and &lt;code&gt;CPU&lt;/code&gt; level system dependencies. Usage of &lt;code&gt;JIT&lt;/code&gt; within and across models taking execution infra into account. Making library infra agnostic.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Codespaces:&lt;/strong&gt; How can a developer use a Codespace for a CPU-based day-to-day workflow? How can we manage multiple environments with &lt;code&gt;Spark/GPU/CPU&lt;/code&gt; dependencies using a dev container? Can the same image be used in &lt;code&gt;AML/ADB&lt;/code&gt;?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;AML&lt;/code&gt; + VS Code/Code Space Integration:&lt;/strong&gt; Attach &lt;code&gt;AML&lt;/code&gt; compute to VS Code as a terminal and Jupyter kernel. Run experiments in AML without leaving VS Code. Trigger multiple concurrent jobs in AML from VS Code and scale across nodes to run different models. Some of our classical models run multiple times as embarrassingly parallel workloads; results can be returned to cloud storage in a fan-out/fan-in pattern. We also want to use all cores on each node with &lt;code&gt;joblib&lt;/code&gt;, so autoscaling should add nodes when a threshold is reached. Integrate &lt;code&gt;mlflow&lt;/code&gt; with VS Code and AML.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;ADB&lt;/code&gt; + VS Code/Code Space Integration:&lt;/strong&gt; Run experiments in ADB without leaving VS Code.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Debugging:&lt;/strong&gt; How can we use the VS Code visual debugger in distributed workflows in &lt;code&gt;AML&lt;/code&gt; and &lt;code&gt;ADB&lt;/code&gt;?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Observability:&lt;/strong&gt; How can we monitor aggregated logs from different nodes in &lt;code&gt;VS Code&lt;/code&gt;?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Testing:&lt;/strong&gt; How can we run property-based tests for ML models in distributed compute environments?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Library:&lt;/strong&gt; How can we manage dependencies such as &lt;code&gt;pyspark&lt;/code&gt; and system-level GPU and CPU requirements? How can we use &lt;code&gt;JIT&lt;/code&gt; across models while accounting for the execution infrastructure? How can we make the library infrastructure-agnostic?&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;If you are excited about solving above mentioned challenges feel free to reach out to me.&lt;/p&gt;
+&lt;p&gt;If you are excited about solving the challenges mentioned above, feel free to reach out to me.&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Avoid relative path import hell in python</title>
-      <link>http://localhost:4321/post/avoid-relative-path-import-hell-in-python/</link>
+      <link>http://localhost:1313/post/avoid-relative-path-import-hell-in-python/</link>
       <pubDate>Sat, 18 Dec 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/post/avoid-relative-path-import-hell-in-python/</guid>
+      <guid>http://localhost:1313/post/avoid-relative-path-import-hell-in-python/</guid>
       <description>&lt;h1 id=&#34;__exploring-poetry-for-dependency-management-in-python__&#34;&gt;&lt;strong&gt;Exploring &lt;code&gt;poetry&lt;/code&gt; for dependency management in python&lt;/strong&gt;&lt;/h1&gt;
 &lt;p&gt;In general &lt;code&gt;pip&lt;/code&gt; &amp;amp; &lt;code&gt;venv&lt;/code&gt; is a good combination of tool when you don&amp;rsquo;t have to manage multiple dependencies for your project. But imaging that in a project you need to management multiple dependency files to deploy code into multiple envs. It is possible to do this with &lt;code&gt;pip&lt;/code&gt;, but in that case you need to manage multiple requirements files. To solve this project I have checked a few alternative like  &lt;code&gt;pyenv&lt;/code&gt;, &lt;code&gt;pipx&lt;/code&gt;, &lt;code&gt;pipenv&lt;/code&gt;, &lt;code&gt;poetry&lt;/code&gt; etc. According to my experience, poetry is the simplest and most efficient one. I was checking some of the useful tutorials about this and here I am just taking a note of some of the useful points regarding this tool.&lt;/p&gt;
 &lt;h2 id=&#34;__some-useful-poetry-commands__&#34;&gt;&lt;strong&gt;Some useful &lt;code&gt;poetry&lt;/code&gt; commands&lt;/strong&gt;&lt;/h2&gt;
@@ -1011,30 +1005,30 @@ testpypi = {username = &amp;quot;myuser&amp;quot;, password = &amp;quot;topsecre
     
     <item>
       <title>SCM conventions &amp; ways of working</title>
-      <link>http://localhost:4321/post/scm-conventions-ways-of-working/</link>
+      <link>http://localhost:1313/post/scm-conventions-ways-of-working/</link>
       <pubDate>Sun, 31 Oct 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/post/scm-conventions-ways-of-working/</guid>
-      <description>&lt;p&gt;When we are working in an collaborative work environment, this is important to share a common set of convention which makes collaboration easier. Here are some of the common gitops best practice which has helped to collaborate better,&lt;/p&gt;
+      <guid>http://localhost:1313/post/scm-conventions-ways-of-working/</guid>
+      <description>&lt;p&gt;When working in a collaborative environment, it is important to share a common set of conventions that make collaboration easier. Here are some common GitOps best practices that help teams collaborate:&lt;/p&gt;
 &lt;h2 id=&#34;__repository-naming-convention__&#34;&gt;&lt;strong&gt;Repository naming convention&lt;/strong&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;{short product name}_{component}_{type of repository}&lt;/code&gt;&lt;/p&gt;
 &lt;h3 id=&#34;__short-product-name__&#34;&gt;&lt;strong&gt;Short product name:&lt;/strong&gt;&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;modeller:&lt;/strong&gt; modelling engine&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;modeller:&lt;/strong&gt; modeling engine&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;optimizer:&lt;/strong&gt; optimization engine&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;__component__&#34;&gt;&lt;strong&gt;Component:&lt;/strong&gt;&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;ui:&lt;/strong&gt; any code related to the user interface&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;ml:&lt;/strong&gt; anything to do with machine learning code base&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;de:&lt;/strong&gt; anything to do with data engineering code base&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;be:&lt;/strong&gt; anything to do with REST API endpoints for ml, de or in general application.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ui:&lt;/strong&gt; code related to the user interface&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ml:&lt;/strong&gt; code related to the machine-learning codebase&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;de:&lt;/strong&gt; code related to the data-engineering codebase&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;be:&lt;/strong&gt; code related to REST API endpoints for ML, data engineering, or the application in general&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;__type-of-repository__&#34;&gt;&lt;strong&gt;Type of repository:&lt;/strong&gt;&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;app:&lt;/strong&gt; mostly used for ui and cli standalone application.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;lib:&lt;/strong&gt; library code base of ml and de engines.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;job:&lt;/strong&gt; cli or script based jobs which will be executed in a batch process.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;api:&lt;/strong&gt; code base related to apis.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;app:&lt;/strong&gt; mostly used for standalone UI and CLI applications&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;lib:&lt;/strong&gt; library code for ML and data-engineering engines&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;job:&lt;/strong&gt; CLI- or script-based jobs executed in a batch process&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;api:&lt;/strong&gt; code related to APIs&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;__example__&#34;&gt;&lt;strong&gt;Example:&lt;/strong&gt;&lt;/h3&gt;
 &lt;ul&gt;
@@ -1046,49 +1040,49 @@ testpypi = {username = &amp;quot;myuser&amp;quot;, password = &amp;quot;topsecre
 &lt;/ul&gt;
 &lt;h2 id=&#34;__branch-naming-convention__&#34;&gt;&lt;strong&gt;Branch naming convention:&lt;/strong&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;__code-flow-branches-restricted-commit-branch__&#34;&gt;&lt;strong&gt;Code Flow Branches (restricted commit branch):&lt;/strong&gt;&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;develop:&lt;/strong&gt; developers can merge their branches here.
-&lt;strong&gt;staging:&lt;/strong&gt; any final tagging or testing has to happen here.
-&lt;strong&gt;master:&lt;/strong&gt; production branch, if all the validation is working in staging and tested code needs to be merged here.
-&lt;strong&gt;test:&lt;/strong&gt; other than unit testing regression, integration and end to end testing has to happen here.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;develop:&lt;/strong&gt; Developers can merge their branches here.
+&lt;strong&gt;staging:&lt;/strong&gt; Final tagging and testing happen here.
+&lt;strong&gt;master:&lt;/strong&gt; The production branch. Merge code here after it has passed validation and testing in staging.
+&lt;strong&gt;test:&lt;/strong&gt; Run regression, integration, and end-to-end tests here, in addition to unit tests.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Flow of code:&lt;/strong&gt; &lt;code&gt;develop &amp;gt; test &amp;gt; staging &amp;gt; production&lt;/code&gt;&lt;/p&gt;
 &lt;h3 id=&#34;__temporary-branches__&#34;&gt;&lt;strong&gt;Temporary Branches:&lt;/strong&gt;&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;feature:&lt;/strong&gt; anything which is a feature has to be developed in a feature branch and the branch name should be like : &lt;code&gt;feature/{name of the feature}&lt;/code&gt; [example: &lt;code&gt;feature/integrate-swagger&lt;/code&gt;]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;bug fix:&lt;/strong&gt; any bug fix has to be done in a bud fix branch. the structure remains as feature branch. structure of the branch name will be like &lt;code&gt;bugfix/{bug which is being fixed}&lt;/code&gt; [example: &lt;code&gt;bugfix/more-gray-shades-in-loader&lt;/code&gt;]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;hot fix:&lt;/strong&gt; any hotfix from master has to be made in this branch. also, note that these fixes has to be merged in other common branches that the master branch. [example: &lt;code&gt;hotfix/disable-endpoint-zero-day-exploit&lt;/code&gt;]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;experimental:&lt;/strong&gt; any experimental work has to be tagged this way while creating a branch. [example: &lt;code&gt;experimental/dark-theme-support&lt;/code&gt;]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;build:&lt;/strong&gt; any build branch should start with the build pre-fix. [example: &lt;code&gt;build/jacoco-metric&lt;/code&gt;]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;release:&lt;/strong&gt; any release branch has to be tagged by a release prefix. [example: &lt;code&gt;release/myapp-1.01.123&lt;/code&gt;]&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;merging:&lt;/strong&gt; any intermediate merge branch has to be tagged with merge prefix. [example: &lt;code&gt;merge/dev_lombok-refactoring&lt;/code&gt;]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;feature:&lt;/strong&gt; Develop features in a feature branch named &lt;code&gt;feature/{name of the feature}&lt;/code&gt; [example: &lt;code&gt;feature/integrate-swagger&lt;/code&gt;].&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;bug fix:&lt;/strong&gt; Any bug fix should be made in a bug-fix branch. Its structure is the same as a feature branch: &lt;code&gt;bugfix/{bug being fixed}&lt;/code&gt; [example: &lt;code&gt;bugfix/more-gray-shades-in-loader&lt;/code&gt;]&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;hot fix:&lt;/strong&gt; Make hotfixes from &lt;code&gt;master&lt;/code&gt; in a hotfix branch, then merge them into the other shared branches as well [example: &lt;code&gt;hotfix/disable-endpoint-zero-day-exploit&lt;/code&gt;].&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;experimental:&lt;/strong&gt; Use this prefix for experimental work [example: &lt;code&gt;experimental/dark-theme-support&lt;/code&gt;].&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;build:&lt;/strong&gt; Start build branch names with this prefix [example: &lt;code&gt;build/jacoco-metric&lt;/code&gt;].&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;release:&lt;/strong&gt; Use this prefix for release branches [example: &lt;code&gt;release/myapp-1.01.123&lt;/code&gt;].&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;merging:&lt;/strong&gt; Use this prefix for intermediate merge branches [example: &lt;code&gt;merge/dev_lombok-refactoring&lt;/code&gt;].&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;__commit-convention__&#34;&gt;&lt;strong&gt;Commit convention:&lt;/strong&gt;&lt;/h2&gt;
-&lt;p&gt;We are adding some keyword to the commit messages based on which a semantic versioning tag can be generated. A version tag will look like, &lt;code&gt;v{MAJOR}.{MINOR}.{PATCH}&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;Here, this is how commit tags are getting translated to semantic versioning numbers, &lt;code&gt;fix --&amp;gt; patch&lt;/code&gt;, &lt;code&gt;feat --&amp;gt; minor&lt;/code&gt; and &lt;code&gt;BREAKING CHANGE --&amp;gt; major&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;We add keywords to commit messages so that semantic-version tags can be generated. A version tag looks like &lt;code&gt;v{MAJOR}.{MINOR}.{PATCH}&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Commit tags map to semantic versioning increments as follows: &lt;code&gt;fix --&amp;gt; patch&lt;/code&gt;, &lt;code&gt;feat --&amp;gt; minor&lt;/code&gt;, and &lt;code&gt;BREAKING CHANGE --&amp;gt; major&lt;/code&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;__area-of-work__&#34;&gt;&lt;strong&gt;Area of work:&lt;/strong&gt;&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;fix:&lt;/strong&gt; if there is a small change which does not break any of the high level APIs and does not change overall behaviors of a feature that will be consider as fix. this corresponds to the &lt;code&gt;patch&lt;/code&gt; in the semantic versioning.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;feat:&lt;/strong&gt; if there is a feature level change then the commit should have feat tagged along with in. in terms of the semantic versioning this corresponds to the minor version change.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;BREAKING CHANGE:&lt;/strong&gt; this is a change where multiple modules and high level APIs are getting changed.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;build:&lt;/strong&gt; These are not linked with semver. any build level changes has to be tagged as build. for example, if we are changing some configuration in &lt;code&gt;setup.py&lt;/code&gt; that should be tagged as build commit.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;chore:&lt;/strong&gt; updating grunt tasks etc; no production code change&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;ci:&lt;/strong&gt; change in any of the github workflow or azure pipeline level changes has to be tagged as ci commit.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;docs:&lt;/strong&gt; any changes in wiki documentation or library docstring level changes has to be tagged as &lt;code&gt;docs&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;style:&lt;/strong&gt; if there is any changes in code due to formatting or linting those can be tagged as style change.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;refactor:&lt;/strong&gt; if some code is being refactored that has to be tagged as refactored commit.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;perf:&lt;/strong&gt; for profiling a code base use pref tag.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;test:&lt;/strong&gt; for any commit related to tests can be tagged as &lt;code&gt;test&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;fix:&lt;/strong&gt; A small change that does not break any high-level APIs or change a feature&amp;rsquo;s overall behavior is considered a fix. This corresponds to a &lt;code&gt;patch&lt;/code&gt; in semantic versioning.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;feat:&lt;/strong&gt; For a feature-level change, include &lt;code&gt;feat&lt;/code&gt; in the commit message. This corresponds to a &lt;code&gt;minor&lt;/code&gt; version change in semantic versioning.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;BREAKING CHANGE:&lt;/strong&gt; Use this for a change that affects multiple modules or high-level APIs.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;build:&lt;/strong&gt; Use this for build-related changes that are not tied to semantic versioning, such as changes to &lt;code&gt;setup.py&lt;/code&gt; configuration.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;chore:&lt;/strong&gt; Use this for maintenance tasks, such as updating Grunt tasks, that do not change production code.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ci:&lt;/strong&gt; Use this for changes to GitHub workflows or Azure Pipelines.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;docs:&lt;/strong&gt; Use this for changes to documentation or library docstrings.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;style:&lt;/strong&gt; Use this for formatting or linting changes.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;refactor:&lt;/strong&gt; Use this for code restructuring that does not change behavior.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;perf:&lt;/strong&gt; Use this tag for performance-related changes.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;test:&lt;/strong&gt; Use this for changes related to tests.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;__commit-structure__&#34;&gt;&lt;strong&gt;Commit structure:&lt;/strong&gt;&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;{area_of_work}: {ticket_id} {One line description of commit}&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;[optional] Detailed description of the commit&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;[optional]&lt;/code&gt; A detailed description of the commit&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;__in-general-things-related-to-scm__&#34;&gt;&lt;strong&gt;In general things related to SCM:&lt;/strong&gt;&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;Do not push large files in git.&lt;/li&gt;
-&lt;li&gt;Do not pass secrets in git.&lt;/li&gt;
-&lt;li&gt;Do not directly commit in no commit branches.&lt;/li&gt;
-&lt;li&gt;Generate .gitignore file from &lt;code&gt;gitignore.io&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Do not push large files to Git.&lt;/li&gt;
+&lt;li&gt;Do not commit secrets to Git.&lt;/li&gt;
+&lt;li&gt;Do not commit directly to protected branches.&lt;/li&gt;
+&lt;li&gt;Generate the &lt;code&gt;.gitignore&lt;/code&gt; file with &lt;code&gt;gitignore.io&lt;/code&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;__reference__&#34;&gt;&lt;strong&gt;Reference:&lt;/strong&gt;&lt;/h2&gt;
 &lt;ul&gt;
@@ -1101,9 +1095,9 @@ testpypi = {username = &amp;quot;myuser&amp;quot;, password = &amp;quot;topsecre
     
     <item>
       <title>Useful tools for docker container management</title>
-      <link>http://localhost:4321/post/useful-tools-for-docker-container-management/</link>
+      <link>http://localhost:1313/post/useful-tools-for-docker-container-management/</link>
       <pubDate>Sun, 31 Oct 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/post/useful-tools-for-docker-container-management/</guid>
+      <guid>http://localhost:1313/post/useful-tools-for-docker-container-management/</guid>
       <description>&lt;p&gt;In this post I&amp;rsquo;m going to discuss three docker tools which I find really useful in my day to day workflow. These tools are,&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/wagoodman/dive&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Dive&lt;/a&gt;&lt;/li&gt;
@@ -1217,9 +1211,9 @@ sudo apt install ./dive_0.9.2_linux_amd64.deb
     
     <item>
       <title>Python library version management with GitHub action &#43; commitizen &#43; pre-commit hook</title>
-      <link>http://localhost:4321/post/manage-python-library-versioning-using-commitizen-pre-commit-hook/</link>
+      <link>http://localhost:1313/post/manage-python-library-versioning-using-commitizen-pre-commit-hook/</link>
       <pubDate>Sun, 24 Oct 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/post/manage-python-library-versioning-using-commitizen-pre-commit-hook/</guid>
+      <guid>http://localhost:1313/post/manage-python-library-versioning-using-commitizen-pre-commit-hook/</guid>
       <description>&lt;h2 id=&#34;__list-of-tools-used-in-this-post__&#34;&gt;&lt;strong&gt;List of tools used in this post&lt;/strong&gt;&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://commitizen-tools.github.io/commitizen/#:~:text=Commitizen%20is%20a%20tool%20designed,and%20enforces%20writing%20descriptive%20commits.&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;commitizen&lt;/a&gt;&lt;/li&gt;
@@ -1229,9 +1223,9 @@ sudo apt install ./dive_0.9.2_linux_amd64.deb
 &lt;li&gt;&lt;a href=&#34;https://github.com/features/actions&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub Action&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://semver.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Semantic Versioning&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Here is a &lt;a href=&#34;https://github.com/pandalearnstocode/minimal_library_workflow&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;sample repository&lt;/a&gt; which show the implementation below.&lt;/p&gt;
+&lt;p&gt;Here is a &lt;a href=&#34;https://github.com/pandalearnstocode/minimal_library_workflow&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;sample repository&lt;/a&gt; that shows the implementation described below.&lt;/p&gt;
 &lt;h2 id=&#34;__context--overview__&#34;&gt;&lt;strong&gt;Context &amp;amp; overview&lt;/strong&gt;&lt;/h2&gt;
-&lt;p&gt;Lets assume that we are going to build a python library. Lets call it &lt;code&gt;minipackage&lt;/code&gt;. We need to manage the version of the library &amp;amp; need to generate the &lt;code&gt;CHANGELOGS.md&lt;/code&gt; whenever we release a version of the library. There are multiple ways to solve this problem. Here in the post we are going see how we can use semantic versioning to solve this problem.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s assume that we are going to build a Python library called &lt;code&gt;minipackage&lt;/code&gt;. We need to manage its version and generate a &lt;code&gt;CHANGELOG.md&lt;/code&gt; whenever we release a new version. There are multiple ways to solve this problem. In this post, we will see how semantic versioning can help.&lt;/p&gt;
 &lt;h2 id=&#34;__project-directory-structure__&#34;&gt;&lt;strong&gt;Project directory structure&lt;/strong&gt;&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;minipackage&lt;/code&gt;: All the source code for the python library will live here.
@@ -1269,10 +1263,10 @@ version_files = [
 tag_format = &amp;quot;v$version&amp;quot;
 bump_message = &amp;quot;bump: $current_version → $new_version [skip-ci]&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Note, here in our example here we using the variable &lt;code&gt;__version__&lt;/code&gt; in all place in the project to manage the version and the same file is mentioned in the pyproject file. Now, when we using &lt;code&gt;commitizen&lt;/code&gt; to bump version of the library it will change value of this variable depending on the commit message tags. Also, this will generate a &lt;code&gt;changelog.md&lt;/code&gt; file in the project root directory and create a release tag.&lt;/p&gt;
+&lt;p&gt;In this example, we use the &lt;code&gt;__version__&lt;/code&gt; variable throughout the project to manage the version, and the same file is listed in &lt;code&gt;pyproject.toml&lt;/code&gt;. When we use &lt;code&gt;commitizen&lt;/code&gt; to bump the library version, it changes this variable based on the commit message tags. It also generates a &lt;code&gt;CHANGELOG.md&lt;/code&gt; file in the project root directory and creates a release tag.&lt;/p&gt;
 &lt;h3 id=&#34;__setuppy-library-build-related-information__&#34;&gt;&lt;strong&gt;&lt;code&gt;setup.py&lt;/code&gt;: library build related information&lt;/strong&gt;&lt;/h3&gt;
-&lt;p&gt;In this section, notice that we using &lt;code&gt;__version__&lt;/code&gt; variable from &lt;code&gt;minipackage&lt;/code&gt; module here. We are passing this &lt;code&gt;__version__&lt;/code&gt; variable to in &lt;code&gt;version&lt;/code&gt; argument in setup function. This will ensure whenever we are building a library, the library gets tagged with this version.&lt;/p&gt;
-&lt;p&gt;Note, that whatever is being defined or imported in &lt;code&gt;minipackage/__init__py&lt;/code&gt; file will be present in in &lt;code&gt;minipackage&lt;/code&gt; module.&lt;/p&gt;
+&lt;p&gt;In this section, notice that we use the &lt;code&gt;__version__&lt;/code&gt; variable from the &lt;code&gt;minipackage&lt;/code&gt; module. We pass it to the &lt;code&gt;version&lt;/code&gt; argument in the &lt;code&gt;setup&lt;/code&gt; function. This ensures that the library is assigned this version when it is built.&lt;/p&gt;
+&lt;p&gt;Note that anything defined or imported in &lt;code&gt;minipackage/__init__.py&lt;/code&gt; will be available in the &lt;code&gt;minipackage&lt;/code&gt; module.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from setuptools import find_packages, setup
 from minipackage import __version__
 
@@ -1323,7 +1317,7 @@ from minipackage.main import hello_world, hello_mcu, hello_dc,
     - id: commitizen
       stages: [commit-msg]
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;One this pre-commit hook is install to a repository, whenever we are going to make commit this will check the commit tags are present in the commit message or not. To know more about this in depth go through this &lt;a href=&#34;https://www.conventionalcommits.org/en/v1.0.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;site&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Once this pre-commit hook is installed in a repository, it checks whether the commit message contains the required tags whenever we make a commit. To learn more, see the &lt;a href=&#34;https://www.conventionalcommits.org/en/v1.0.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Conventional Commits documentation&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;
 
 
@@ -1382,17 +1376,17 @@ jobs:
     
     <item>
       <title>Local development environment with Fast API &#43; SQLModel &#43; SQLite &#43; Alembic</title>
-      <link>http://localhost:4321/post/local-development-environment-with-fast-api-sqlmodel-sqlite-alembic-sync-async-version/</link>
+      <link>http://localhost:1313/post/local-development-environment-with-fast-api-sqlmodel-sqlite-alembic-sync-async-version/</link>
       <pubDate>Sat, 16 Oct 2021 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/post/local-development-environment-with-fast-api-sqlmodel-sqlite-alembic-sync-async-version/</guid>
-      <description>&lt;p&gt;This is important to have a working local development environment for quick prototyping and developing CRUD application using Fast API. Here in this post we are going to explore how we can quickly spin up and a local development environment. Here we are going to use the following tools to develop the REST API endpoints,&lt;/p&gt;
+      <guid>http://localhost:1313/post/local-development-environment-with-fast-api-sqlmodel-sqlite-alembic-sync-async-version/</guid>
+      <description>&lt;p&gt;It is important to have a working local development environment for quickly prototyping and developing CRUD applications with FastAPI. In this post, we will explore how to quickly set up a local development environment using the following tools to develop REST API endpoints:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://fastapi.tiangolo.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Fast API&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://sqlmodel.tiangolo.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;SQLModel&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://www.sqlite.org/index.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;SQLite&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://alembic.sqlalchemy.org/en/latest/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Alembic&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;prerequisite&#34;&gt;Prerequisite:&lt;/h3&gt;
+&lt;h3 id=&#34;prerequisites&#34;&gt;Prerequisites:&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://www.anaconda.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Anaconda&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://sqlitebrowser.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;DB browser for SQLite&lt;/a&gt;&lt;/li&gt;
@@ -1426,13 +1420,13 @@ jobs:
 └── database.db : This SQLite DB will be created and data will be stored here.
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h3 id=&#34;step-1-setup-development-environment&#34;&gt;Step 1: Setup development environment&lt;/h3&gt;
-&lt;p&gt;Create a local development conda environment to run the application from local. Here we are going to use python 3.8. After creating the environment install the required dependencies.&lt;/p&gt;
+&lt;p&gt;Create a local Conda environment to run the application. Here, we will use Python 3.8. After creating the environment, install the required dependencies.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;conda create --name fastapi_sqlmodel python=3.8
 conda activate fastapi_sqlmodel
 pip install fastapi[all] sqlmodel alembic aiosqlite
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h3 id=&#34;step-2-create-database-models-in-modelspy&#34;&gt;Step 2: Create database models in &lt;code&gt;models.py&lt;/code&gt;&lt;/h3&gt;
-&lt;p&gt;Here we are going to define a database model to store information related to &lt;code&gt;task name&lt;/code&gt;. Task table is the table which will be updated later with the &lt;code&gt;task description&lt;/code&gt; information and we will perform a migration to see how the changes are going to be maintained and reflected in the database.&lt;/p&gt;
+&lt;p&gt;Here, we will define a database model to store a &lt;code&gt;task name&lt;/code&gt;. The task table will later be updated to include a &lt;code&gt;task description&lt;/code&gt;, and we will perform a migration to see how these changes are maintained and reflected in the database.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from sqlmodel import SQLModel, Field
 
 class TaskBase(SQLModel):
@@ -1445,7 +1439,7 @@ class TaskCreate(TaskBase):
     pass
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h3 id=&#34;step-3-create-settings-related-to-db-in-dbpy&#34;&gt;Step 3: Create settings related to DB in &lt;code&gt;db.py&lt;/code&gt;&lt;/h3&gt;
-&lt;p&gt;Here for rapid prototype we are going to use sqlite local db. Which is kind of a standalone file. To view the record in the file we can we use the &lt;a href=&#34;https://sqlitebrowser.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;DB browser for SQLite&lt;/a&gt;. After we run the application a a file called &lt;code&gt;database.db&lt;/code&gt; will be created in the root directory of the project.&lt;/p&gt;
+&lt;p&gt;For rapid prototyping, we will use a local SQLite database, which is stored in a standalone file. To view its records, we can use the &lt;a href=&#34;https://sqlitebrowser.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;DB Browser for SQLite&lt;/a&gt;. When we run the application, a file called &lt;code&gt;database.db&lt;/code&gt; will be created in the project root directory.&lt;/p&gt;
 &lt;h4 id=&#34;sync-version&#34;&gt;Sync version:&lt;/h4&gt;
 &lt;p&gt;Here are going to create two functions which will create all the required tables when the FastAPI application starts and will generate a session using which I/O operations will be performed in a DB.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from sqlmodel import Session, SQLModel, create_engine
@@ -1463,7 +1457,7 @@ def get_session():
         yield session
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h4 id=&#34;async-version&#34;&gt;Async version:&lt;/h4&gt;
-&lt;p&gt;Asyn version of the above defined functions which will be used in &lt;code&gt;main.py&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;The async versions of the functions above will be used in &lt;code&gt;main.py&lt;/code&gt;.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from sqlmodel import SQLModel
 from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
 from sqlalchemy.orm import sessionmaker
@@ -1484,7 +1478,7 @@ async def get_session() -&amp;gt; AsyncSession:
         yield session
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h3 id=&#34;step-4-define-api-endpoints-in-mainpy&#34;&gt;Step 4: Define API endpoints in &lt;code&gt;main.py&lt;/code&gt;&lt;/h3&gt;
-&lt;p&gt;Here we are going to define a POST endpoint using which we can write some task related information in the database. As of now, the request model for this endpoint is &lt;code&gt;TaskCreate&lt;/code&gt; and in the response this endpoint will return an object of type &lt;code&gt;Task&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Here, we will define a POST endpoint that writes task-related information to the database. The endpoint uses &lt;code&gt;TaskCreate&lt;/code&gt; as its request model and returns an object of type &lt;code&gt;Task&lt;/code&gt;.&lt;/p&gt;
 &lt;h4 id=&#34;sync-version-1&#34;&gt;Sync version:&lt;/h4&gt;
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from fastapi import FastAPI, Depends
 from sqlmodel import Session
@@ -1534,18 +1528,18 @@ def create_task(task: TaskCreate, session: Session = Depends(get_session)):
     return db_task
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h3 id=&#34;step-5-test-api-endpoints&#34;&gt;Step 5: Test API endpoints&lt;/h3&gt;
-&lt;p&gt;Here we are going to test the API endpoints are working fine or not. If we get the expected result from the CURL and can validate the records are being updated in the DB we can expect that the APIs are working fine.&lt;/p&gt;
+&lt;p&gt;Here, we will test whether the API endpoints are working correctly. If the &lt;code&gt;curl&lt;/code&gt; request returns the expected result and we can verify that the database records were updated, we can consider the APIs to be working correctly.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;uvicorn app.main:app --reload
 curl -X POST http://127.0.0.1:8000/task/ -H &#39;accept: application/json&#39; -H &#39;Content-Type: application/json&#39; -d &#39;{&amp;quot;task_name&amp;quot;: &amp;quot;just added task&amp;quot;}&#39;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;a &lt;code&gt;database.db&lt;/code&gt; file will be create in project root directory.&lt;/li&gt;
-&lt;li&gt;after making the post call validate the db records are being updated using &lt;code&gt;DB browser for SQLite&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;A &lt;code&gt;database.db&lt;/code&gt; file will be created in the project root directory.&lt;/li&gt;
+&lt;li&gt;After making the POST request, verify that the database records were updated using &lt;code&gt;DB Browser for SQLite&lt;/code&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;step-6-setup-alembic&#34;&gt;Step 6: Setup alembic&lt;/h3&gt;
 &lt;h4 id=&#34;step-6a-generate-alembic-settings&#34;&gt;Step 6a: Generate alembic settings&lt;/h4&gt;
-&lt;p&gt;In this step we are going generate all the settings for alembic migration. This will generate some files and folders in the project root directory.&lt;/p&gt;
+&lt;p&gt;In this step, we will generate the settings for Alembic migrations. This will create files and folders in the project root directory.&lt;/p&gt;
 &lt;h5 id=&#34;sync-version-2&#34;&gt;Sync version:&lt;/h5&gt;
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;alembic init alembic
 &lt;/code&gt;&lt;/pre&gt;
@@ -1623,9 +1617,9 @@ curl -X POST http://127.0.0.1:8000/task/ -H &#39;accept: application/json&#39; -
     
     <item>
       <title>An example preprint / working paper</title>
-      <link>http://localhost:4321/publication/preprint/</link>
+      <link>http://localhost:1313/publication/preprint/</link>
       <pubDate>Sun, 07 Apr 2019 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/publication/preprint/</guid>
+      <guid>http://localhost:1313/publication/preprint/</guid>
       <description>&lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
     Create your slides in Markdown - click the &lt;em&gt;Slides&lt;/em&gt; button to check out the example.
@@ -1637,9 +1631,9 @@ curl -X POST http://127.0.0.1:8000/task/ -H &#39;accept: application/json&#39; -
     
     <item>
       <title>Slides</title>
-      <link>http://localhost:4321/slides/example/</link>
+      <link>http://localhost:1313/slides/example/</link>
       <pubDate>Tue, 05 Feb 2019 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/slides/example/</guid>
+      <guid>http://localhost:1313/slides/example/</guid>
       <description>&lt;h1 id=&#34;create-slides-in-markdown-with-wowchemy&#34;&gt;Create slides in Markdown with Wowchemy&lt;/h1&gt;
 &lt;p&gt;&lt;a href=&#34;https://wowchemy.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Wowchemy&lt;/a&gt; | &lt;a href=&#34;https://owchemy.com/docs/managing-content/#create-slides&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Documentation&lt;/a&gt;&lt;/p&gt;
 &lt;hr&gt;
@@ -1765,36 +1759,10 @@ $$&lt;/p&gt;
     </item>
     
     <item>
-      <title>Privacy Policy</title>
-      <link>http://localhost:4321/privacy/</link>
-      <pubDate>Thu, 28 Jun 2018 00:00:00 +0100</pubDate>
-      <guid>http://localhost:4321/privacy/</guid>
-      <description>&lt;p&gt;&amp;hellip;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Terms</title>
-      <link>http://localhost:4321/terms/</link>
-      <pubDate>Thu, 28 Jun 2018 00:00:00 +0100</pubDate>
-      <guid>http://localhost:4321/terms/</guid>
-      <description>&lt;p&gt;&amp;hellip;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>External Project</title>
-      <link>http://localhost:4321/project/external-project/</link>
-      <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/project/external-project/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>An example journal article</title>
-      <link>http://localhost:4321/publication/journal-article/</link>
+      <link>http://localhost:1313/publication/journal-article/</link>
       <pubDate>Tue, 01 Sep 2015 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/publication/journal-article/</guid>
+      <guid>http://localhost:1313/publication/journal-article/</guid>
       <description>&lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
     Click the &lt;em&gt;Cite&lt;/em&gt; button above to demo the feature to enable visitors to import publication metadata into their reference management software.
@@ -1811,9 +1779,9 @@ $$&lt;/p&gt;
     
     <item>
       <title>An example conference paper</title>
-      <link>http://localhost:4321/publication/conference-paper/</link>
+      <link>http://localhost:1313/publication/conference-paper/</link>
       <pubDate>Mon, 01 Jul 2013 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/publication/conference-paper/</guid>
+      <guid>http://localhost:1313/publication/conference-paper/</guid>
       <description>&lt;div class=&#34;alert alert-note&#34;&gt;
   &lt;div&gt;
     Click the &lt;em&gt;Cite&lt;/em&gt; button above to demo the feature to enable visitors to import publication metadata into their reference management software.
@@ -1830,9 +1798,9 @@ $$&lt;/p&gt;
     
     <item>
       <title></title>
-      <link>http://localhost:4321/admin/config.yml</link>
+      <link>http://localhost:1313/admin/config.yml</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/admin/config.yml</guid>
+      <guid>http://localhost:1313/admin/config.yml</guid>
       <description></description>
     </item>
     

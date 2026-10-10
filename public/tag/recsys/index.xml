@@ -2,44 +2,44 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>RecSys | Aritra Biswas</title>
-    <link>http://localhost:4321/tag/recsys/</link>
-      <atom:link href="http://localhost:4321/tag/recsys/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:1313/tag/recsys/</link>
+      <atom:link href="http://localhost:1313/tag/recsys/index.xml" rel="self" type="application/rss+xml" />
     <description>RecSys</description>
     <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Sun, 18 Dec 2022 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://localhost:4321/media/icon_hu966111359855668688.png</url>
+      <url>http://localhost:1313/media/icon_hu966111359855668688.png</url>
       <title>RecSys</title>
-      <link>http://localhost:4321/tag/recsys/</link>
+      <link>http://localhost:1313/tag/recsys/</link>
     </image>
     
     <item>
       <title>RecSys for B2B platform</title>
-      <link>http://localhost:4321/project/internal-project/</link>
+      <link>http://localhost:1313/project/internal-project/</link>
       <pubDate>Sun, 18 Dec 2022 00:00:00 +0000</pubDate>
-      <guid>http://localhost:4321/project/internal-project/</guid>
-      <description>&lt;p&gt;I am working on &lt;code&gt;RecSys&lt;/code&gt; to generate product recommendations for ABI&amp;rsquo;s B2B platform &lt;code&gt;BEEs&lt;/code&gt;. Some of the challenges involved in the project include building &lt;code&gt;AutoML&lt;/code&gt; for best hyper-parameter selection, distributed model training. feature store integration, building a python library for curated ML models with default configs, deployment of models in cloud native compute and many more. Super excited to work in this work stream with an amazing team.&lt;/p&gt;
+      <guid>http://localhost:1313/project/internal-project/</guid>
+      <description>&lt;p&gt;I am working on &lt;code&gt;RecSys&lt;/code&gt; to generate product recommendations for ABI&amp;rsquo;s B2B platform, &lt;code&gt;BEEs&lt;/code&gt;. Some of the challenges include building &lt;code&gt;AutoML&lt;/code&gt; for hyperparameter selection, distributed model training, feature store integration, a Python library of curated ML models with default configurations, and deploying models in cloud-native compute environments. I am excited to work on this with an amazing team.&lt;/p&gt;
 &lt;h3 id=&#34;__algorithm-related-challenges__&#34;&gt;&lt;strong&gt;Algorithm related challenges:&lt;/strong&gt;&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Cross validation:&lt;/strong&gt; How to perform cross validation for &lt;code&gt;RecSys&lt;/code&gt;. How to link statistical metrics with business KPIs. Determining weighage between model goodness of fit and business KPIs. How to create a scoring function which can compare between different models during cross validation. Managing splitting strategy to ensure that models are comparable.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Model selection:&lt;/strong&gt; Single model or market-based model or hybrid model - combined of two or more models? Time/Sequence based models(&lt;code&gt;LSTM&lt;/code&gt;/&lt;code&gt;GRU&lt;/code&gt;)?&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Hyper parameter tuning:&lt;/strong&gt; What can be the preferable hyper-parameter tuning framework, which can support &lt;code&gt;GPU&lt;/code&gt; (Wide and Deep), Spark (&lt;code&gt;ALS&lt;/code&gt;) and CPU (&lt;code&gt;SAR&lt;/code&gt; etc.).&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;KPIs:&lt;/strong&gt; Evaluate existing KPIs such as &lt;code&gt;Map@K&lt;/code&gt;, &lt;code&gt;NDCG@K&lt;/code&gt; and improve if possible.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Hybrid model or mixture of model:&lt;/strong&gt; Also, what type of hybrid - sequential, parallel or weighted? As of now, two use case (conceptually)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;AutoML:&lt;/strong&gt; Example of AutoML for multi-country setup (including hybrid model, hyper-parameter tuning) with recommended tech stack.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Model drift, data drift, retraining and model monitoring:&lt;/strong&gt; How to build a framework which can be integrated with the python library to detect model drift, data drift, retraining requirements and monitor generated results in online and offline models.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Others:&lt;/strong&gt; Backtesting, AB testing, linking online and offline evaluation.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Cross validation:&lt;/strong&gt; How to perform cross-validation for &lt;code&gt;RecSys&lt;/code&gt;, link statistical metrics with business KPIs, determine the balance between model fit and business KPIs, create a scoring function to compare models, and choose a data-splitting strategy that keeps models comparable.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Model selection:&lt;/strong&gt; Should we use a single model, a market-based model, or a hybrid that combines multiple models? Should we use time- or sequence-based models such as &lt;code&gt;LSTM&lt;/code&gt; or &lt;code&gt;GRU&lt;/code&gt;?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Hyperparameter tuning:&lt;/strong&gt; Which tuning framework can support GPUs (Wide and Deep), Spark (&lt;code&gt;ALS&lt;/code&gt;), and CPUs (&lt;code&gt;SAR&lt;/code&gt;, etc.)?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;KPIs:&lt;/strong&gt; How can we evaluate and improve existing KPIs such as &lt;code&gt;Map@K&lt;/code&gt; and &lt;code&gt;NDCG@K&lt;/code&gt;?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Hybrid model or mixture of models:&lt;/strong&gt; What type of hybrid should we use: sequential, parallel, or weighted? Conceptually, there are two use cases.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AutoML:&lt;/strong&gt; What technology stack should we use for a multi-country setup that includes hybrid models and hyperparameter tuning?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Model and data drift, retraining, and monitoring:&lt;/strong&gt; How can we build a framework that integrates with the Python library to detect model and data drift, identify when retraining is needed, and monitor results for online and offline models?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Other challenges:&lt;/strong&gt; Backtesting, A/B testing, and linking online and offline evaluation.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;__programming--infra-related-challenges__&#34;&gt;&lt;strong&gt;Programming &amp;amp; Infra related challenges:&lt;/strong&gt;&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Code spaces:&lt;/strong&gt; How a developer can use code space for CPU based workflow for day-to-day development. Managing multiple envs base of &lt;code&gt;Spark/GPU/CPU&lt;/code&gt; dependencies using &lt;code&gt;devcontainer&lt;/code&gt;. Can the same image be used in &lt;code&gt;AML/ADB&lt;/code&gt;?&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;code&gt;AML&lt;/code&gt; + VS Code/Code Space Integration:&lt;/strong&gt; Attaching &lt;code&gt;AML&lt;/code&gt; compute to VS Code as terminal and &lt;code&gt;jupyter&lt;/code&gt; kernel. Run experiments in AML without leaving &lt;code&gt;VS Code/Code spaces&lt;/code&gt;. Triggering multiple concurrent jobs (not always same as distributed model training. Some of our models are classical models which we are running multiple times as embarrassingly parallel workload) in &lt;code&gt;AML&lt;/code&gt; from &lt;code&gt;VS Code&lt;/code&gt; which can scale in multiple nodes to run different models and return results in a fan out fan in pattern to a cloud storage. (One additional information here is we want to leverage all the cores within a node using &lt;code&gt;joblib&lt;/code&gt;, hence the auto scaling we are expecting is at node level for a given threshold) &lt;code&gt;mlflow&lt;/code&gt; integration with VS Code and AML.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;code&gt;ADB&lt;/code&gt; + VS Code/Code Space Integration:&lt;/strong&gt; Run experiment in ADB without leaving VS Code/Code spaces.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Debugging:&lt;/strong&gt; Using VS Code visual debugger in a distributed workflow in &lt;code&gt;AML&lt;/code&gt; &amp;amp; &lt;code&gt;ADB&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Observability:&lt;/strong&gt; Monitoring aggregated logs from different nodes in &lt;code&gt;VS Code&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Testing:&lt;/strong&gt; How to run property based testing for ML models in distributed compute environments.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Library:&lt;/strong&gt; Managing multiple dependencies such as &lt;code&gt;pyspark&lt;/code&gt;, &lt;code&gt;GPU&lt;/code&gt; and &lt;code&gt;CPU&lt;/code&gt; level system dependencies. Usage of &lt;code&gt;JIT&lt;/code&gt; within and across models taking execution infra into account. Making library infra agnostic.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Codespaces:&lt;/strong&gt; How can a developer use a Codespace for a CPU-based day-to-day workflow? How can we manage multiple environments with &lt;code&gt;Spark/GPU/CPU&lt;/code&gt; dependencies using a dev container? Can the same image be used in &lt;code&gt;AML/ADB&lt;/code&gt;?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;AML&lt;/code&gt; + VS Code/Code Space Integration:&lt;/strong&gt; Attach &lt;code&gt;AML&lt;/code&gt; compute to VS Code as a terminal and Jupyter kernel. Run experiments in AML without leaving VS Code. Trigger multiple concurrent jobs in AML from VS Code and scale across nodes to run different models. Some of our classical models run multiple times as embarrassingly parallel workloads; results can be returned to cloud storage in a fan-out/fan-in pattern. We also want to use all cores on each node with &lt;code&gt;joblib&lt;/code&gt;, so autoscaling should add nodes when a threshold is reached. Integrate &lt;code&gt;mlflow&lt;/code&gt; with VS Code and AML.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;ADB&lt;/code&gt; + VS Code/Code Space Integration:&lt;/strong&gt; Run experiments in ADB without leaving VS Code.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Debugging:&lt;/strong&gt; How can we use the VS Code visual debugger in distributed workflows in &lt;code&gt;AML&lt;/code&gt; and &lt;code&gt;ADB&lt;/code&gt;?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Observability:&lt;/strong&gt; How can we monitor aggregated logs from different nodes in &lt;code&gt;VS Code&lt;/code&gt;?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Testing:&lt;/strong&gt; How can we run property-based tests for ML models in distributed compute environments?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Library:&lt;/strong&gt; How can we manage dependencies such as &lt;code&gt;pyspark&lt;/code&gt; and system-level GPU and CPU requirements? How can we use &lt;code&gt;JIT&lt;/code&gt; across models while accounting for the execution infrastructure? How can we make the library infrastructure-agnostic?&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;If you are excited about solving above mentioned challenges feel free to reach out to me.&lt;/p&gt;
+&lt;p&gt;If you are excited about solving the challenges mentioned above, feel free to reach out to me.&lt;/p&gt;
 </description>
     </item>
     

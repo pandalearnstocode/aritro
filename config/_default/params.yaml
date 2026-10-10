@@ -22,20 +22,10 @@ twitter: ''
 
 email: pandalearnstocode@gmail.com
 phone: +91-9051237918
-address:
-  street: 186, 18th B Main
-  city: Indiranagar, Bengaluru
-  region: Karnataka
-  postcode: '560038'
-  country: India
-  country_code: IN
 coordinates:
   latitude: ''
   longitude: ''
 directions: ""
-office_hours:
-  - 'Monday 10:00 AM to 19:00PM'
-  - 'Friday 10:00 AM to 19:00PM'
 appointment_url: ''
 contact_links:
 

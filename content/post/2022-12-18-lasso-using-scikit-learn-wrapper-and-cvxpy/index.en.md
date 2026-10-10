@@ -130,7 +130,7 @@ def __init__(self, arg1, arg2, arg3, ..., argN):
         setattr(self, arg, val)
 ```
 
-* In this example, we are overwriting case `score` function using `mean_absolute_percentage_error`. Lets assume that for some reason we want to use `MAPE` instate as default scoring method it can be useful. Other using `make_scorer` can be used for any other custom score function or other sklearn score functions.
+* In this example, we are overriding the `score` function to use `mean_absolute_percentage_error`. If we want to use `MAPE` as the default scoring method, this approach can be useful. Otherwise, `make_scorer` can be used with any other custom scoring function or scikit-learn scoring function.
 
 ```python
 from sklearn.base import BaseEstimator, RegressorMixin

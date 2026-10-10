@@ -92,7 +92,7 @@ consistent_df = pd.DataFrame(consistent_arr_res, columns = ['res'])
 less_consistent_df = pd.DataFrame(less_consistent_arr_res, columns = ['res'])
 ```
 
-Observation in 50 generation with consistent LLM (with seed 42, max_token 50 and temperature 0) it has generated the below table.
+The table below shows the results from 50 generations with the consistent LLM (using seed 42, `max_tokens` 50, and temperature 0).
 
 #### Consistent dataframe 1
 
@@ -112,7 +112,7 @@ print(consistent_df.value_counts().to_frame().to_markdown())
 
 #### Less Consistent dataframe 1
 
-Observation in 50 generation with inconsistent LLM it has generated the below table.
+The table below shows the results from 50 generations with the less consistent LLM.
 
 ```python
 print(less_consistent_df.value_counts().to_frame().head(5).to_markdown())
@@ -126,7 +126,7 @@ print(less_consistent_df.value_counts().to_frame().head(5).to_markdown())
 | ('In the beginning, a cosmic explosion birthed stars, planets, and galaxies, igniting infinite possibilities.',)        |       1 |
 | ('In the beginning, a massive explosion unleashed energy, forming stars, planets, and endless possibilities.',)         |       1 |
 
-Here showing just to 5 sample. But all 50 generation are unqiue.
+Here, we are showing only five samples, but all 50 generations are unique.
 
 ### Generation with context
 
@@ -168,7 +168,7 @@ for i in range(50):
 
 #### Consistent dataframe 2
 
-Observation in 50 generation with consistent LLM (with seed 42, max_token 50 and temperature 0) it has generated the below table. As you can see it is way more consistent. 46 time it has generated same output and 4 times the output is different but the main different in these two is of a single charecter. 
+In 50 generations with the consistent LLM (using seed 42, `max_tokens` 50, and temperature 0), the results are shown in the table below. The output is much more consistent: 46 generations produced the same output, while the other four differed by only one character.
 
 ```python
 print(consistent_df_summary.value_counts().to_frame().to_markdown())
@@ -181,7 +181,7 @@ print(consistent_df_summary.value_counts().to_frame().to_markdown())
 
 #### Less Consistent dataframe 2
 
-Observation in 50 generation with inconsistent LLM it has generated the below table.
+The table below shows the results from 50 generations with the less consistent LLM.
 
 ```python
 print(less_consistent_df_summary.value_counts().head(5).to_frame().to_markdown())
@@ -196,7 +196,7 @@ print(less_consistent_df_summary.value_counts().head(5).to_frame().to_markdown()
 | ('A short story is a brief, self-contained prose fiction read in one sitting, evoking a single effect.',)                     |       1 |
 
 
-Again this is a sample of head 5. But as you can see that all the 50 generations are unique and different from one another.
+Again, this is a sample of the first five results. As you can see, all 50 generations are unique.
 
 ### Reference
 

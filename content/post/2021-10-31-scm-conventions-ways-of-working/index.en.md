@@ -17,7 +17,7 @@ image:
 projects: []
 ---
 
-When we are working in an collaborative work environment, this is important to share a common set of convention which makes collaboration easier. Here are some of the common gitops best practice which has helped to collaborate better,
+When working in a collaborative environment, it is important to share a common set of conventions that make collaboration easier. Here are some common GitOps best practices that help teams collaborate:
 
 ## __Repository naming convention__
 
@@ -26,23 +26,23 @@ When we are working in an collaborative work environment, this is important to s
 
 ### __Short product name:__
 
-* __modeller:__ modelling engine
+* __modeller:__ modeling engine
 * __optimizer:__ optimization engine
 
 
 ### __Component:__
 
-* __ui:__ any code related to the user interface
-* __ml:__ anything to do with machine learning code base
-* __de:__ anything to do with data engineering code base
-* __be:__ anything to do with REST API endpoints for ml, de or in general application.
+* __ui:__ code related to the user interface
+* __ml:__ code related to the machine-learning codebase
+* __de:__ code related to the data-engineering codebase
+* __be:__ code related to REST API endpoints for ML, data engineering, or the application in general
 
 ### __Type of repository:__
 
-* __app:__ mostly used for ui and cli standalone application.
-* __lib:__ library code base of ml and de engines.
-* __job:__ cli or script based jobs which will be executed in a batch process.
-* __api:__ code base related to apis.
+* __app:__ mostly used for standalone UI and CLI applications
+* __lib:__ library code for ML and data-engineering engines
+* __job:__ CLI- or script-based jobs executed in a batch process
+* __api:__ code related to APIs
 
 ### __Example:__
 
@@ -56,55 +56,55 @@ When we are working in an collaborative work environment, this is important to s
 
 ### __Code Flow Branches (restricted commit branch):__
 
-__develop:__ developers can merge their branches here.
-__staging:__ any final tagging or testing has to happen here.
-__master:__ production branch, if all the validation is working in staging and tested code needs to be merged here.
-__test:__ other than unit testing regression, integration and end to end testing has to happen here.
+__develop:__ Developers can merge their branches here.
+__staging:__ Final tagging and testing happen here.
+__master:__ The production branch. Merge code here after it has passed validation and testing in staging.
+__test:__ Run regression, integration, and end-to-end tests here, in addition to unit tests.
 
 
 __Flow of code:__ `develop > test > staging > production`
 
 ### __Temporary Branches:__
 
-* __feature:__ anything which is a feature has to be developed in a feature branch and the branch name should be like : `feature/{name of the feature}` [example: `feature/integrate-swagger`]
-* __bug fix:__ any bug fix has to be done in a bud fix branch. the structure remains as feature branch. structure of the branch name will be like `bugfix/{bug which is being fixed}` [example: `bugfix/more-gray-shades-in-loader`]
-* __hot fix:__ any hotfix from master has to be made in this branch. also, note that these fixes has to be merged in other common branches that the master branch. [example: `hotfix/disable-endpoint-zero-day-exploit`]
-* __experimental:__ any experimental work has to be tagged this way while creating a branch. [example: `experimental/dark-theme-support`]
-* __build:__ any build branch should start with the build pre-fix. [example: `build/jacoco-metric`]
-* __release:__ any release branch has to be tagged by a release prefix. [example: `release/myapp-1.01.123`]
-* __merging:__ any intermediate merge branch has to be tagged with merge prefix. [example: `merge/dev_lombok-refactoring`]
+* __feature:__ Develop features in a feature branch named `feature/{name of the feature}` [example: `feature/integrate-swagger`].
+* __bug fix:__ Any bug fix should be made in a bug-fix branch. Its structure is the same as a feature branch: `bugfix/{bug being fixed}` [example: `bugfix/more-gray-shades-in-loader`]
+* __hot fix:__ Make hotfixes from `master` in a hotfix branch, then merge them into the other shared branches as well [example: `hotfix/disable-endpoint-zero-day-exploit`].
+* __experimental:__ Use this prefix for experimental work [example: `experimental/dark-theme-support`].
+* __build:__ Start build branch names with this prefix [example: `build/jacoco-metric`].
+* __release:__ Use this prefix for release branches [example: `release/myapp-1.01.123`].
+* __merging:__ Use this prefix for intermediate merge branches [example: `merge/dev_lombok-refactoring`].
 
 ## __Commit convention:__
 
-We are adding some keyword to the commit messages based on which a semantic versioning tag can be generated. A version tag will look like, `v{MAJOR}.{MINOR}.{PATCH}`
+We add keywords to commit messages so that semantic-version tags can be generated. A version tag looks like `v{MAJOR}.{MINOR}.{PATCH}`.
 
-Here, this is how commit tags are getting translated to semantic versioning numbers, `fix --> patch`, `feat --> minor` and `BREAKING CHANGE --> major`.
+Commit tags map to semantic versioning increments as follows: `fix --> patch`, `feat --> minor`, and `BREAKING CHANGE --> major`.
 
 ### __Area of work:__
 
-* __fix:__ if there is a small change which does not break any of the high level APIs and does not change overall behaviors of a feature that will be consider as fix. this corresponds to the `patch` in the semantic versioning. 
-* __feat:__ if there is a feature level change then the commit should have feat tagged along with in. in terms of the semantic versioning this corresponds to the minor version change.
-* __BREAKING CHANGE:__ this is a change where multiple modules and high level APIs are getting changed.
-* __build:__ These are not linked with semver. any build level changes has to be tagged as build. for example, if we are changing some configuration in `setup.py` that should be tagged as build commit.
-* __chore:__ updating grunt tasks etc; no production code change
-* __ci:__ change in any of the github workflow or azure pipeline level changes has to be tagged as ci commit.
-* __docs:__ any changes in wiki documentation or library docstring level changes has to be tagged as `docs`.
-* __style:__ if there is any changes in code due to formatting or linting those can be tagged as style change.
-* __refactor:__ if some code is being refactored that has to be tagged as refactored commit.
-* __perf:__ for profiling a code base use pref tag.
-* __test:__ for any commit related to tests can be tagged as `test`.
+* __fix:__ A small change that does not break any high-level APIs or change a feature's overall behavior is considered a fix. This corresponds to a `patch` in semantic versioning.
+* __feat:__ For a feature-level change, include `feat` in the commit message. This corresponds to a `minor` version change in semantic versioning.
+* __BREAKING CHANGE:__ Use this for a change that affects multiple modules or high-level APIs.
+* __build:__ Use this for build-related changes that are not tied to semantic versioning, such as changes to `setup.py` configuration.
+* __chore:__ Use this for maintenance tasks, such as updating Grunt tasks, that do not change production code.
+* __ci:__ Use this for changes to GitHub workflows or Azure Pipelines.
+* __docs:__ Use this for changes to documentation or library docstrings.
+* __style:__ Use this for formatting or linting changes.
+* __refactor:__ Use this for code restructuring that does not change behavior.
+* __perf:__ Use this tag for performance-related changes.
+* __test:__ Use this for changes related to tests.
 
 ### __Commit structure:__
 
 * `{area_of_work}: {ticket_id} {One line description of commit}`
-* `[optional] Detailed description of the commit`
+* `[optional]` A detailed description of the commit
 
 ## __In general things related to SCM:__
 
-* Do not push large files in git.
-* Do not pass secrets in git.
-* Do not directly commit in no commit branches.
-* Generate .gitignore file from `gitignore.io`.
+* Do not push large files to Git.
+* Do not commit secrets to Git.
+* Do not commit directly to protected branches.
+* Generate the `.gitignore` file with `gitignore.io`.
 
 ## __Reference:__
 

@@ -26,12 +26,12 @@ projects: []
 * [GitHub Action](https://github.com/features/actions)
 * [Semantic Versioning](https://semver.org/)
 
-Here is a [sample repository](https://github.com/pandalearnstocode/minimal_library_workflow) which show the implementation below.
+Here is a [sample repository](https://github.com/pandalearnstocode/minimal_library_workflow) that shows the implementation described below.
 
 
 ## __Context & overview__
 
-Lets assume that we are going to build a python library. Lets call it `minipackage`. We need to manage the version of the library & need to generate the `CHANGELOGS.md` whenever we release a version of the library. There are multiple ways to solve this problem. Here in the post we are going see how we can use semantic versioning to solve this problem. 
+Let's assume that we are going to build a Python library called `minipackage`. We need to manage its version and generate a `CHANGELOG.md` whenever we release a new version. There are multiple ways to solve this problem. In this post, we will see how semantic versioning can help.
 
 ## __Project directory structure__
 
@@ -77,13 +77,13 @@ tag_format = "v$version"
 bump_message = "bump: $current_version → $new_version [skip-ci]"
 ```
 
-Note, here in our example here we using the variable `__version__` in all place in the project to manage the version and the same file is mentioned in the pyproject file. Now, when we using `commitizen` to bump version of the library it will change value of this variable depending on the commit message tags. Also, this will generate a `changelog.md` file in the project root directory and create a release tag.
+In this example, we use the `__version__` variable throughout the project to manage the version, and the same file is listed in `pyproject.toml`. When we use `commitizen` to bump the library version, it changes this variable based on the commit message tags. It also generates a `CHANGELOG.md` file in the project root directory and creates a release tag.
 
 ### __`setup.py`: library build related information__
 
-In this section, notice that we using `__version__` variable from `minipackage` module here. We are passing this `__version__` variable to in `version` argument in setup function. This will ensure whenever we are building a library, the library gets tagged with this version.
+In this section, notice that we use the `__version__` variable from the `minipackage` module. We pass it to the `version` argument in the `setup` function. This ensures that the library is assigned this version when it is built.
 
-Note, that whatever is being defined or imported in `minipackage/__init__py` file will be present in in `minipackage` module.
+Note that anything defined or imported in `minipackage/__init__.py` will be available in the `minipackage` module.
 
 ```python
 from setuptools import find_packages, setup
@@ -129,7 +129,7 @@ repos:
       stages: [commit-msg]
 ```
 
-One this pre-commit hook is install to a repository, whenever we are going to make commit this will check the commit tags are present in the commit message or not. To know more about this in depth go through this [site](https://www.conventionalcommits.org/en/v1.0.0/).
+Once this pre-commit hook is installed in a repository, it checks whether the commit message contains the required tags whenever we make a commit. To learn more, see the [Conventional Commits documentation](https://www.conventionalcommits.org/en/v1.0.0/).
 
 
 ![SemVer](./featured.png)

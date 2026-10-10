@@ -18,14 +18,14 @@ image:
 projects: []
 ---
 
-This is important to have a working local development environment for quick prototyping and developing CRUD application using Fast API. Here in this post we are going to explore how we can quickly spin up and a local development environment. Here we are going to use the following tools to develop the REST API endpoints,
+It is important to have a working local development environment for quickly prototyping and developing CRUD applications with FastAPI. In this post, we will explore how to quickly set up a local development environment using the following tools to develop REST API endpoints:
 
 * [Fast API](https://fastapi.tiangolo.com/)
 * [SQLModel](https://sqlmodel.tiangolo.com/)
 * [SQLite](https://www.sqlite.org/index.html)
 * [Alembic](https://alembic.sqlalchemy.org/en/latest/)
 
-### Prerequisite:
+### Prerequisites:
 
 * [Anaconda](https://www.anaconda.com/)
 * [DB browser for SQLite](https://sqlitebrowser.org/)
@@ -66,7 +66,7 @@ This is important to have a working local development environment for quick prot
 
 ### Step 1: Setup development environment
 
-Create a local development conda environment to run the application from local. Here we are going to use python 3.8. After creating the environment install the required dependencies.
+Create a local Conda environment to run the application. Here, we will use Python 3.8. After creating the environment, install the required dependencies.
 
 ```bash
 conda create --name fastapi_sqlmodel python=3.8
@@ -76,7 +76,7 @@ pip install fastapi[all] sqlmodel alembic aiosqlite
 
 ### Step 2: Create database models in `models.py`
 
-Here we are going to define a database model to store information related to `task name`. Task table is the table which will be updated later with the `task description` information and we will perform a migration to see how the changes are going to be maintained and reflected in the database. 
+Here, we will define a database model to store a `task name`. The task table will later be updated to include a `task description`, and we will perform a migration to see how these changes are maintained and reflected in the database.
 
 ```python
 from sqlmodel import SQLModel, Field
@@ -93,7 +93,7 @@ class TaskCreate(TaskBase):
 
 ### Step 3: Create settings related to DB in `db.py`
 
-Here for rapid prototype we are going to use sqlite local db. Which is kind of a standalone file. To view the record in the file we can we use the [DB browser for SQLite](https://sqlitebrowser.org/). After we run the application a a file called `database.db` will be created in the root directory of the project.
+For rapid prototyping, we will use a local SQLite database, which is stored in a standalone file. To view its records, we can use the [DB Browser for SQLite](https://sqlitebrowser.org/). When we run the application, a file called `database.db` will be created in the project root directory.
 
 #### Sync version:
 
@@ -117,7 +117,7 @@ def get_session():
 
 #### Async version:
 
-Asyn version of the above defined functions which will be used in `main.py`.
+The async versions of the functions above will be used in `main.py`.
 
 ```python
 from sqlmodel import SQLModel
@@ -142,7 +142,7 @@ async def get_session() -> AsyncSession:
 
 ### Step 4: Define API endpoints in `main.py`
 
-Here we are going to define a POST endpoint using which we can write some task related information in the database. As of now, the request model for this endpoint is `TaskCreate` and in the response this endpoint will return an object of type `Task`.
+Here, we will define a POST endpoint that writes task-related information to the database. The endpoint uses `TaskCreate` as its request model and returns an object of type `Task`.
 
 #### Sync version:
 
@@ -200,7 +200,7 @@ def create_task(task: TaskCreate, session: Session = Depends(get_session)):
 
 ### Step 5: Test API endpoints
 
-Here we are going to test the API endpoints are working fine or not. If we get the expected result from the CURL and can validate the records are being updated in the DB we can expect that the APIs are working fine.
+Here, we will test whether the API endpoints are working correctly. If the `curl` request returns the expected result and we can verify that the database records were updated, we can consider the APIs to be working correctly.
 
 ```bash
 uvicorn app.main:app --reload
@@ -209,15 +209,15 @@ curl -X POST http://127.0.0.1:8000/task/ -H 'accept: application/json' -H 'Conte
 
 __Note:__
 
-* a `database.db` file will be create in project root directory.
-* after making the post call validate the db records are being updated using `DB browser for SQLite`
+* A `database.db` file will be created in the project root directory.
+* After making the POST request, verify that the database records were updated using `DB Browser for SQLite`.
 
 
 ### Step 6: Setup alembic
 
 #### Step 6a: Generate alembic settings
 
-In this step we are going generate all the settings for alembic migration. This will generate some files and folders in the project root directory.
+In this step, we will generate the settings for Alembic migrations. This will create files and folders in the project root directory.
 
 ##### Sync version:
 

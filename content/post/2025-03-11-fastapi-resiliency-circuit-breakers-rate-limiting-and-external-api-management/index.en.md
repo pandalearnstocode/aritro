@@ -21,23 +21,23 @@ image:
 projects: []
 ---
 
-Let's assume that we are building a REST API services which depends on other 3rd party's API services. To make things more realistic let's assume that we are building a RAG using tavily (web search api) and LLMs. In this case our app will depend these two external services. This is a very common scenario where our services depends on some services where we have very little control. When we are building something like this this is important to ensure two major things,
+Let's assume that we are building a REST API service that depends on third-party APIs. To make the example more realistic, let's say we are building a RAG system that uses Tavily (a web search API) and LLMs. In this case, our app depends on these two external services. This is a common scenario in which our services rely on systems we have little control over. When building something like this, it is important to consider two things:
 
 ### __What will be the traffic our APIs will support:__
 
-This is essentially depends on the API services we will invoke during the execution. We should have a rate limit which is same or less than the minimum of rate limit of API services we will be using. Note this limit is at an overall level. We need to rate limit at a user level based on number of concurrent users our app will support. This point clearly has to do with rate limiting. What if one or any of the services has encountered 429 and can not serve more request within certain duration. In many cases we have observed for LLM if TPM or RPM has exhausted then we keep getting 429 until it is ready to take more requests. Lets break this point down,
+This depends on the API services we will invoke during execution. We should set our rate limit at or below the lowest rate limit among those services. This is an overall limit; we also need to apply per-user rate limits based on the number of concurrent users our app will support. What happens if one of the services returns a 429 and cannot serve more requests for a while? In many cases, when an LLM's TPM or RPM quota is exhausted, we continue to receive 429 responses until it can accept more requests. Let's break this down:
 
-* Lets assume our app will supports 10 concurrent users
-* Let's assume LLM we are using has RPM of 2700 and TPM 450k.
-* Let's assume search API has RPM of 1000.
-* So maximum in a minute we can make 1000 calls to LLM and search API which will work. After this we will start getting 429 from search and after 2700 request we we start getting 429 from LLM.
-* Lets assume that our app can serve 1000 calls per minute.
-* So each user is allowed to make 1000/10 = 100 calls a minute.
-* Here we are assuming 1 user = 1 IP.
+* Let's assume our app supports 10 concurrent users.
+* The LLM we are using has an RPM limit of 2,700 and a TPM limit of 450k.
+* The search API has an RPM limit of 1,000.
+* We can make at most 1,000 calls per minute to each API before exceeding the search API's limit; after 2,700 requests, we would also exceed the LLM's RPM limit.
+* Let's assume our app can serve 1,000 calls per minute.
+* Each user is allowed to make 1,000 / 10 = 100 calls per minute.
+* Here, we assume one user per IP address.
 
 ### __What will happen when consecutive failure occurs when 3rd party APIs are failing consecutively:__
 
-Lets assume there is some down time or something has gone wrong in the 3rd party API side and when calling our services we are encountering consecutive error. In a scenario like this it is better to fail gracefully and have a cool down period. Let's take this example, during the call if any of the service is down and throwing 500. Now, may be if we get 1000 or more 500 status from the API within 1 minute clearly something is wrong. In this case, it is better to have a cool down period of lets say 1 min and send a notification to support team that something has gone wrong with the service. This notification can happen from APIM or API gateway as well.
+Let's assume there is downtime or another issue with a third-party API, causing consecutive errors when our service calls it. In this scenario, it is better to fail gracefully and have a cooldown period. For example, if a service is down and returning 500 responses, receiving 1,000 or more such responses within one minute clearly indicates a problem. In this case, it is better to have a cooldown period of, say, one minute and notify the support team. This notification can also come from APIM or an API gateway.
 
 
 ### __Here is a minimalist example showing this scenario with `FastAPI` + `pybreaker` + `slowapi`:__

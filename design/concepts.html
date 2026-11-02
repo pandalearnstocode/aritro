@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Site design concepts · Aritra Biswas</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #fff;
+      --ink: #242424;
+      --muted: #686868;
+      --line: #dededb;
+      --soft: #f5f5f2;
+      --accent: #3157c8;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      --sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 15px;
+      line-height: 1.55;
+    }
+    a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+    a:hover { text-decoration-thickness: 2px; }
+    a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { margin-bottom: 10px; font-size: clamp(2rem, 4vw, 3.15rem); line-height: 1.08; letter-spacing: -.045em; }
+    h2 { margin-bottom: 14px; font-size: 1.15rem; line-height: 1.3; letter-spacing: -.015em; }
+    h3 { margin-bottom: 8px; font-size: 1rem; }
+    .wrap { width: min(1080px, calc(100% - 56px)); margin-inline: auto; }
+    .site-header {
+      min-height: 68px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .brand { color: var(--ink); font-size: 15px; font-weight: 650; text-decoration: none; white-space: nowrap; }
+    .primary-nav, .header-tools { display: flex; align-items: center; gap: 20px; }
+    .primary-nav a, .header-tools a { color: var(--muted); font-size: 13px; text-decoration: none; white-space: nowrap; }
+    .primary-nav a[aria-current="page"] { color: var(--ink); text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 7px; }
+    .header-tools { gap: 12px; }
+    .header-tools a { border-left: 1px solid var(--line); padding-left: 12px; }
+    .mobile-menu { display: none; }
+    .page { display: none; }
+    body[data-screen="home"] .page-home,
+    body[data-screen="home-mobile"] .page-home-mobile,
+    body[data-screen="archive"] .page-archive,
+    body[data-screen="article"] .page-article,
+    body[data-screen="fieldnotes"] .page-fieldnotes,
+    body[data-screen="project"] .page-project { display: block; }
+    .eyebrow, .small-label { margin-bottom: 10px; color: var(--muted); font-family: var(--mono); font-size: 11px; letter-spacing: .09em; text-transform: uppercase; }
+    .muted { color: var(--muted); }
+    .mono, time { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+    .rule { border: 0; border-top: 1px solid var(--line); margin: 27px 0; }
+    .lead { max-width: 65ch; color: #444; font-size: 17px; }
+    .intro-grid { display: grid; grid-template-columns: minmax(0, 1fr) 260px; gap: 64px; align-items: start; padding: 46px 0 28px; }
+    .role { margin-bottom: 4px; font-size: 17px; }
+    .location { margin-bottom: 14px; color: var(--muted); }
+    .bio { max-width: 66ch; margin-bottom: 15px; color: #4b4b4b; }
+    .quick-links { display: flex; flex-wrap: wrap; gap: 16px; font-size: 14px; }
+    .focus { border-left: 1px solid var(--line); padding-left: 20px; margin-top: 22px; }
+    .focus h2 { font-size: 14px; font-weight: 600; }
+    .plain-list { margin: 0; padding: 0; list-style: none; }
+    .focus li { margin: 5px 0; color: var(--muted); font-size: 14px; }
+    .home-columns { display: grid; grid-template-columns: .95fr 1.05fr; gap: 58px; }
+    .experience-list li, .post-list li { border-top: 1px solid var(--line); padding: 9px 0; }
+    .experience-list li { display: grid; grid-template-columns: 140px 1fr; gap: 12px; align-items: baseline; }
+    .experience-list .title { font-size: 13px; }
+    .post-list li { display: grid; grid-template-columns: 100px 1fr; gap: 12px; align-items: baseline; }
+    .post-list a { font-size: 13px; color: var(--ink); text-decoration-color: #b5b5b2; }
+    .post-list a:hover { color: var(--accent); }
+    .section-link { margin: 10px 0 0; font-size: 13px; }
+    .home-bottom { display: grid; grid-template-columns: 1fr 1fr; gap: 58px; }
+    .field-preview p, .education p { margin-bottom: 4px; }
+    .contact-line { display: flex; flex-wrap: wrap; gap: 18px; margin: 0 0 12px; }
+    .social-list { display: flex; flex-wrap: wrap; gap: 10px 16px; margin: 0; padding: 0; list-style: none; font-size: 12px; }
+    .social-list a { color: var(--muted); }
+    .page-main { padding: 50px 0 55px; }
+    .page-intro { max-width: 700px; margin-bottom: 28px; }
+    .page-intro h1 { margin-bottom: 12px; }
+    .archive-tools { display: flex; align-items: center; justify-content: space-between; gap: 24px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 13px 0; margin: 24px 0 6px; }
+    .search-form { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: 13px; }
+    .search-form input { width: 260px; border: 0; border-bottom: 1px solid #aaa; border-radius: 0; padding: 6px 2px; background: transparent; color: var(--ink); font: inherit; }
+    .filter-line { display: flex; flex-wrap: wrap; gap: 10px 20px; padding: 11px 0; border-bottom: 1px solid var(--line); font-size: 12px; color: var(--muted); }
+    .filter-line strong { color: var(--ink); font-weight: 550; }
+    .archive-meta { display: flex; justify-content: space-between; align-items: center; margin: 18px 0 4px; color: var(--muted); font-size: 12px; }
+    .archive-list { margin: 0; padding: 0; list-style: none; }
+    .archive-list li { display: grid; grid-template-columns: 112px minmax(300px, 1fr) 290px; gap: 18px; align-items: baseline; padding: 11px 0; border-top: 1px solid var(--line); }
+    .archive-list li:last-child { border-bottom: 1px solid var(--line); }
+    .archive-list .title { color: var(--ink); font-size: 14px; text-decoration-color: #aaa; }
+    .taxonomy { color: var(--muted); font-size: 11px; text-align: right; }
+    .pagination { display: flex; justify-content: center; gap: 10px; padding-top: 18px; color: var(--muted); font-family: var(--mono); font-size: 12px; }
+    .archive-footer { display: flex; justify-content: space-between; margin-top: 24px; font-size: 13px; }
+    .article-head { max-width: 760px; padding: 42px 0 24px; }
+    .article-head h1 { font-size: 2.75rem; }
+    .article-meta { color: var(--muted); font-size: 13px; }
+    .article-layout { display: grid; grid-template-columns: minmax(0, 760px) 190px; gap: 70px; align-items: start; }
+    .article-body { max-width: 760px; }
+    .article-body p { max-width: 72ch; }
+    .article-body h2 { margin-top: 30px; }
+    .article-body h3 { margin-top: 23px; }
+    .toc { position: sticky; top: 20px; border-left: 1px solid var(--line); padding-left: 15px; color: var(--muted); font-size: 12px; }
+    .toc ul { margin: 7px 0 0; padding-left: 16px; }
+    .toc li { margin: 7px 0; }
+    .code-head { display: flex; justify-content: space-between; padding: 7px 12px; border-bottom: 1px solid var(--line); color: var(--muted); font-family: var(--mono); font-size: 11px; }
+    pre { margin: 0; overflow: auto; padding: 14px; background: var(--soft); color: #252525; font: 13px/1.55 var(--mono); }
+    .result-table { width: 100%; border-collapse: collapse; margin: 9px 0 18px; font-size: 13px; }
+    .result-table th, .result-table td { border-top: 1px solid var(--line); padding: 9px 12px; text-align: left; vertical-align: top; }
+    .result-table th { color: var(--muted); font-size: 11px; font-weight: 550; }
+    .reference-list, .related-list { padding-left: 18px; }
+    .reference-list li, .related-list li { margin: 5px 0; }
+    .share-line { border-top: 1px solid var(--line); margin-top: 26px; padding: 14px 0; color: var(--muted); font-size: 12px; }
+    .field-sections { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; margin: 42px 0 30px; }
+    .field-section { border-top: 1px solid var(--line); padding-top: 12px; }
+    .empty-state { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 20px 0; margin: 34px 0 22px; color: var(--muted); }
+    .project-intro { max-width: 720px; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 8px 16px; margin: 18px 0 24px; color: var(--muted); font-family: var(--mono); font-size: 12px; }
+    .project-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; margin-top: 32px; }
+    .project-columns ul { margin: 0; padding-left: 18px; }
+    .project-columns li { margin: 6px 0; }
+    .crumb { margin-bottom: 18px; color: var(--muted); font-size: 12px; }
+    .page-footer { border-top: 1px solid var(--line); padding: 17px 0 24px; color: var(--muted); font-size: 12px; }
+    .page-footer a { color: var(--muted); }
+
+    @media (max-width: 760px) {
+      .wrap { width: min(100% - 36px, 560px); }
+      .site-header { min-height: 58px; gap: 8px; }
+      .brand { font-size: 14px; }
+      .primary-nav { display: none; }
+      .header-tools { gap: 9px; margin-left: auto; }
+      .header-tools a { font-size: 12px; padding-left: 8px; }
+      .mobile-menu { display: block; position: relative; font-size: 12px; }
+      .mobile-menu summary { cursor: pointer; list-style: none; color: var(--muted); }
+      .mobile-menu summary::-webkit-details-marker { display: none; }
+      .mobile-menu nav { position: absolute; z-index: 2; right: 0; top: 25px; width: 190px; padding: 12px; border: 1px solid var(--line); background: var(--paper); }
+      .mobile-menu nav a { display: block; padding: 7px 3px; color: var(--ink); text-decoration: none; }
+      .intro-grid { grid-template-columns: 1fr; gap: 18px; padding: 30px 0 18px; }
+      h1 { font-size: 2.25rem; }
+      .lead { font-size: 16px; }
+      .focus { border-left: 0; border-top: 1px solid var(--line); padding: 12px 0 0; margin-top: 0; }
+      .focus ul { display: grid; grid-template-columns: 1fr 1fr; column-gap: 14px; }
+      .home-columns, .home-bottom, .field-sections, .project-columns { grid-template-columns: 1fr; gap: 26px; }
+      .experience-list li { grid-template-columns: 103px 1fr; gap: 8px; }
+      .post-list li { grid-template-columns: 88px 1fr; gap: 8px; }
+      .post-list a { font-size: 13px; }
+      .rule { margin: 21px 0; }
+      .page-main { padding: 32px 0 40px; }
+      .archive-tools { align-items: flex-start; flex-direction: column; gap: 9px; }
+      .search-form { width: 100%; }
+      .search-form input { flex: 1; min-width: 0; }
+      .archive-list li { grid-template-columns: 88px 1fr; gap: 6px 10px; padding: 12px 0; }
+      .archive-list .taxonomy { grid-column: 2; text-align: left; }
+      .article-head { padding: 28px 0 18px; }
+      .article-head h1 { font-size: 2.15rem; }
+      .article-layout { display: block; }
+      .toc { position: static; border-left: 0; border-top: 1px solid var(--line); padding: 12px 0 0; margin: 18px 0; }
+      .toc ul { display: flex; flex-wrap: wrap; gap: 0 18px; padding-left: 16px; }
+      .article-body h2 { margin-top: 24px; }
+      .result-table { font-size: 12px; }
+      .result-table th, .result-table td { padding: 7px 6px; }
+      .archive-footer { gap: 14px; flex-wrap: wrap; }
+    }
+    @media (max-width: 420px) {
+      .header-tools a:first-child { display: none; }
+      .header-tools a { font-size: 11px; }
+      .wrap { width: calc(100% - 28px); }
+      .experience-list li, .post-list li { grid-template-columns: 1fr; gap: 2px; }
+      .archive-list li { grid-template-columns: 1fr; }
+      .archive-list .taxonomy { grid-column: 1; }
+    }
+  </style>
+</head>
+<body data-screen="home">
+  <template id="site-header">
+    <header class="site-header wrap">
+      <a class="brand" href="?screen=home">Aritra Biswas</a>
+      <nav class="primary-nav" aria-label="Main navigation">
+        <a data-nav="about" href="?screen=home#about">About</a>
+        <a data-nav="experience" href="?screen=home#experience">Experience</a>
+        <a data-nav="writing" href="?screen=archive">Writing</a>
+        <a data-nav="fieldnotes" href="?screen=fieldnotes">Field Notes</a>
+        <a data-nav="projects" href="?screen=project">Projects</a>
+        <a data-nav="contact" href="?screen=home#contact">Contact</a>
+      </nav>
+      <nav class="header-tools" aria-label="Site tools">
+        <a href="?screen=archive">Search</a>
+        <a href="#theme">Theme: system</a>
+      </nav>
+      <details class="mobile-menu">
+        <summary>Menu</summary>
+        <nav aria-label="Mobile navigation">
+          <a href="?screen=home#about">About</a>
+          <a href="?screen=home#experience">Experience</a>
+          <a href="?screen=archive">Writing</a>
+          <a href="?screen=fieldnotes">Field Notes</a>
+          <a href="?screen=project">Projects</a>
+          <a href="?screen=home#contact">Contact</a>
+        </nav>
+      </details>
+    </header>
+  </template>
+
+  <div class="page page-home" data-view="home">
+    <div data-site-header></div>
+    <main class="wrap">
+      <div class="intro-grid" id="about">
+        <section>
+          <p class="eyebrow">About</p>
+          <h1>Aritra Biswas</h1>
+          <p class="role">Senior Manager Analytics <span class="muted">at</span> AB InBev</p>
+          <p class="location">Bengaluru, India</p>
+          <p class="bio">Independent researcher interested in mathematics, statistics, and computer science. Outside work: reading, cooking, exploring cuisines, and travel.</p>
+          <p class="quick-links"><a href="?screen=archive">Read latest writing</a><a href="../static/uploads/aritrabiswas_resume.pdf">Download résumé (PDF)</a></p>
+        </section>
+        <aside class="focus">
+          <h2>Areas of interest</h2>
+          <ul class="plain-list">
+            <li>Machine Learning Engineering</li>
+            <li>Architecture</li>
+            <li>MLOps &amp; Observability</li>
+            <li>Software Development</li>
+          </ul>
+        </aside>
+      </div>
+
+      <hr class="rule">
+      <div class="home-columns">
+        <section id="experience">
+          <h2>Experience</h2>
+          <ul class="plain-list experience-list">
+            <li><time>Oct 2023–present</time><span class="title">Senior Manager Analytics · AB InBev</span></li>
+            <li><time>Sep 2022–Sep 2023</time><span class="title">Senior Machine Learning Engineer · AB InBev</span></li>
+            <li><time>Sep 2021–Aug 2022</time><span class="title">Senior Data Scientist · AB InBev</span></li>
+            <li><time>May 2020–Aug 2021</time><span class="title">Data Scientist · AB InBev</span></li>
+            <li><time>Jul 2018–Apr 2020</time><span class="title">Data Scientist · The Nielsen Company</span></li>
+            <li><time>May 2017–Jun 2018</time><span class="title">Associate Data Scientist · The Nielsen Company</span></li>
+          </ul>
+        </section>
+        <section>
+          <h2>Recent writing <span class="muted">·</span> <a href="?screen=archive" class="small-link">All 9 posts</a></h2>
+          <ul class="plain-list post-list">
+            <li><time>Mar 11, 2025</time><a href="?screen=article">FastAPI Resiliency: Circuit Breakers, Rate Limiting, and External API Management</a></li>
+            <li><time>Mar 9, 2025</time><a href="?screen=article">On LLM reproducibility</a></li>
+            <li><time>Dec 20, 2022</time><a href="?screen=archive">Exponential Smoothing using Scikit-Learn wrapper &amp; statsmodels</a></li>
+            <li><time>Dec 18, 2022</time><a href="?screen=archive">LASSO using Scikit-Learn wrapper &amp; CVXPY</a></li>
+            <li><time>Dec 18, 2021</time><a href="?screen=archive">Avoid relative path import hell in python</a></li>
+          </ul>
+        </section>
+      </div>
+
+      <hr class="rule">
+      <div class="home-bottom">
+        <section class="field-preview">
+          <h2><a href="?screen=fieldnotes">Field Notes</a></h2>
+          <p>Travel <span class="muted">·</span> Conference reflections</p>
+          <p class="muted">No Field Notes published yet.</p>
+        </section>
+        <section class="education">
+          <h2>Education</h2>
+          <p>M.Sc. Statistics <span class="muted">· University of Delhi · 2017</span></p>
+          <p>B.Sc. Statistics <span class="muted">· Presidency College · 2015</span></p>
+        </section>
+      </div>
+      <hr class="rule">
+      <footer id="contact">
+        <h2>Contact</h2>
+        <p class="contact-line"><a href="mailto:pandalearnstocode@gmail.com">pandalearnstocode@gmail.com</a><a href="tel:+919051237918">+91-9051237918</a></p>
+        <ul class="social-list">
+          <li><a href="https://twitter.com/pdlearnstocode">Twitter</a></li><li><a href="https://www.youtube.com/channel/UCd3o4IJUJSmOFr6kHv6Y3vw">YouTube</a></li><li><a href="https://github.com/pandalearnstocode">GitHub</a></li><li><a href="https://www.linkedin.com/in/pandalearnstocode/">LinkedIn</a></li><li><a href="https://medium.com/@pandalearnstocode">Medium</a></li><li><a href="https://www.instagram.com/pdlearns2code">Instagram</a></li><li><a href="https://stackoverflow.com/users/9984132/pandalearnstocode">Stack Overflow</a></li>
+        </ul>
+      </footer>
+    </main>
+  </div>
+
+  <div class="page page-home-mobile" data-view="home-mobile">
+    <div data-site-header></div>
+    <main class="wrap">
+      <section class="intro-grid" id="about">
+        <div>
+          <p class="eyebrow">About</p>
+          <h1>Aritra Biswas</h1>
+          <p class="role">Senior Manager Analytics <span class="muted">at</span> AB InBev</p>
+          <p class="location">Bengaluru, India</p>
+          <p class="bio">Independent researcher interested in mathematics, statistics, and computer science. Outside work: reading, cooking, exploring cuisines, and travel.</p>
+          <p class="quick-links"><a href="?screen=archive">Read writing</a><a href="../static/uploads/aritrabiswas_resume.pdf">Download résumé</a></p>
+        </div>
+        <aside class="focus">
+          <h2>Areas of interest</h2>
+          <ul class="plain-list"><li>Machine Learning Engineering</li><li>Architecture</li><li>MLOps &amp; Observability</li><li>Software Development</li></ul>
+        </aside>
+      </section>
+      <hr class="rule">
+      <section id="experience">
+        <h2>Experience <span class="muted">· 6 roles</span></h2>
+        <ul class="plain-list experience-list">
+          <li><time>Oct 2023–present</time><span class="title">Senior Manager Analytics · AB InBev</span></li>
+          <li><time>Sep 2022–Sep 2023</time><span class="title">Senior Machine Learning Engineer · AB InBev</span></li>
+        </ul>
+        <p class="section-link"><a href="#experience">View all six roles</a></p>
+      </section>
+      <hr class="rule">
+      <section>
+        <h2>Recent writing</h2>
+        <ul class="plain-list post-list"><li><time>Mar 11, 2025</time><a href="?screen=article">FastAPI Resiliency: Circuit Breakers, Rate Limiting, and External API Management</a></li></ul>
+        <p class="section-link"><a href="?screen=archive">All 9 posts</a></p>
+      </section>
+      <hr class="rule">
+      <section class="field-preview">
+        <h2><a href="?screen=fieldnotes">Field Notes</a></h2>
+        <p>Travel <span class="muted">·</span> Conference reflections</p>
+        <p class="muted">No Field Notes published yet.</p>
+      </section>
+      <hr class="rule">
+      <footer id="contact">
+        <h2>Contact</h2>
+        <p><a href="mailto:pandalearnstocode@gmail.com">pandalearnstocode@gmail.com</a></p>
+        <p><a href="tel:+919051237918">+91-9051237918</a></p>
+        <ul class="social-list"><li><a href="https://twitter.com/pdlearnstocode">Twitter</a></li><li><a href="https://www.youtube.com/channel/UCd3o4IJUJSmOFr6kHv6Y3vw">YouTube</a></li><li><a href="https://github.com/pandalearnstocode">GitHub</a></li><li><a href="https://www.linkedin.com/in/pandalearnstocode/">LinkedIn</a></li><li><a href="https://medium.com/@pandalearnstocode">Medium</a></li><li><a href="https://www.instagram.com/pdlearns2code">Instagram</a></li><li><a href="https://stackoverflow.com/users/9984132/pandalearnstocode">Stack Overflow</a></li></ul>
+      </footer>
+    </main>
+  </div>
+
+  <div class="page page-archive" data-view="archive">
+    <div data-site-header></div>
+    <main class="wrap page-main">
+      <header class="page-intro">
+        <p class="eyebrow">Writing</p>
+        <h1>Technical writing</h1>
+        <p class="lead">Notes on analytics, machine learning, and software engineering.</p>
+      </header>
+      <div class="archive-tools">
+        <label class="search-form">Search <input type="search" aria-label="Search posts" placeholder="Search posts"></label>
+        <a href="#rss">RSS feed</a>
+      </div>
+      <div class="filter-line"><strong>Category</strong><span>All</span><span>programming</span><strong>Tags</strong><span>python</span><span>ML</span><span>LLM</span><span>GenAI</span></div>
+      <div class="archive-meta"><span>1–9 of 9 posts</span><span>Newest first</span></div>
+      <ol class="archive-list">
+        <li><time datetime="2025-03-11">Mar 11, 2025</time><a class="title" href="?screen=article">FastAPI Resiliency: Circuit Breakers, Rate Limiting, and External API Management</a><span class="taxonomy">programming · LLM · GenAI · python</span></li>
+        <li><time datetime="2025-03-09">Mar 9, 2025</time><a class="title" href="?screen=article">On LLM reproducibility</a><span class="taxonomy">programming · LLM · GenAI</span></li>
+        <li><time datetime="2022-12-20">Dec 20, 2022</time><a class="title" href="#post">Exponential Smoothing using Scikit-Learn wrapper &amp; statsmodels</a><span class="taxonomy">programming · ML · python</span></li>
+        <li><time datetime="2022-12-18">Dec 18, 2022</time><a class="title" href="#post">LASSO using Scikit-Learn wrapper &amp; CVXPY</a><span class="taxonomy">programming · ML · python</span></li>
+        <li><time datetime="2021-12-18">Dec 18, 2021</time><a class="title" href="#post">Avoid relative path import hell in python</a><span class="taxonomy">programming · python</span></li>
+        <li><time datetime="2021-10-31">Oct 31, 2021</time><a class="title" href="#post">Useful tools for docker container management</a><span class="taxonomy"></span></li>
+        <li><time datetime="2021-10-31">Oct 31, 2021</time><a class="title" href="#post">SCM conventions &amp; ways of working</a><span class="taxonomy"></span></li>
+        <li><time datetime="2021-10-24">Oct 24, 2021</time><a class="title" href="#post">Python library version management with GitHub action + commitizen + pre-commit hook</a><span class="taxonomy"></span></li>
+        <li><time datetime="2021-10-16">Oct 16, 2021</time><a class="title" href="#post">Local development environment with Fast API + SQLModel + SQLite + Alembic</a><span class="taxonomy"></span></li>
+      </ol>
+      <div class="pagination"><span>1</span></div>
+      <div class="archive-footer"><span>Browse by category and tag</span><a href="?screen=fieldnotes">Field Notes: Travel &amp; Conference reflections</a></div>
+    </main>
+  </div>
+
+  <div class="page page-article" data-view="article">
+    <div data-site-header></div>
+    <main class="wrap page-main">
+      <p class="crumb"><a href="?screen=archive">Writing</a> / programming</p>
+      <div class="article-head">
+        <h1>On LLM reproducibility</h1>
+        <p class="article-meta">Aritra Biswas · Mar 9, 2025 · 7 min read · LLM · GenAI</p>
+        <p class="lead">One of the major issue with LLM output is its consistency and reproducibility.</p>
+      </div>
+      <div class="article-layout">
+        <article class="article-body">
+          <h2 id="setup">Setting up two instances of LLM with different configs</h2>
+          <p>The reproducibility-oriented instance sets temperature to 0, seed to 42, and max tokens to 50. The second instance leaves these settings unset.</p>
+          <div class="code-head"><span>Python</span><span>Copy</span></div>
+          <pre><code>consistent_llm = AzureChatOpenAI(
+    temperature=0,
+    seed=42,
+    max_tokens=50
+)</code></pre>
+
+          <h2 id="without-context">Generation without any context</h2>
+          <p>Fifty outputs are generated with each configuration, without grounding context.</p>
+          <table class="result-table">
+            <thead><tr><th>Configuration</th><th>Result</th></tr></thead>
+            <tbody><tr><td>Consistent</td><td>Repeated outputs; the results table contains seven distinct outputs.</td></tr><tr><td>Less consistent</td><td>All 50 outputs were unique.</td></tr></tbody>
+          </table>
+
+          <h2 id="with-context">Generation with context</h2>
+          <p>With a short-story summary as context, 46 of 50 consistent outputs were identical; four differed by one character. All 50 less-consistent outputs were unique.</p>
+
+          <h2 id="reference">Reference</h2>
+          <ul class="reference-list">
+            <li><a href="https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/reproducible-output?tabs=pyton">Learn how to use reproducible output</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Short_story">Short story</a></li>
+          </ul>
+          <p class="share-line">Share · Twitter · LinkedIn · Copy link</p>
+          <h3>Related articles</h3>
+          <ul class="related-list"><li><a href="#fastapi">FastAPI Resiliency: Circuit Breakers, Rate Limiting, and External API Management</a></li><li><a href="#lasso">LASSO using Scikit-Learn wrapper &amp; CVXPY</a></li></ul>
+        </article>
+        <aside class="toc" aria-label="On this page">
+          <strong>On this page</strong>
+          <ul><li><a href="#setup">Setup</a></li><li><a href="#without-context">Without context</a></li><li><a href="#with-context">With context</a></li><li><a href="#reference">Reference</a></li></ul>
+        </aside>
+      </div>
+    </main>
+  </div>
+
+  <div class="page page-fieldnotes" data-view="fieldnotes">
+    <div data-site-header></div>
+    <main class="wrap page-main">
+      <header class="page-intro">
+        <p class="eyebrow">Writing</p>
+        <h1>Field Notes</h1>
+        <p class="lead">Travel experiences and conference reflections.</p>
+      </header>
+      <div class="field-sections">
+        <section class="field-section"><h2>Travel</h2><p class="muted">Places, food, itineraries, and lessons from the road.</p></section>
+        <section class="field-section"><h2>Conference reflections</h2><p class="muted">Sessions, ideas, and takeaways worth revisiting.</p></section>
+      </div>
+      <p class="empty-state">No Field Notes published yet.</p>
+      <p><a href="?screen=archive">Browse technical writing</a></p>
+    </main>
+  </div>
+
+  <div class="page page-project" data-view="project">
+    <div data-site-header></div>
+    <main class="wrap page-main">
+      <p class="crumb"><a href="#projects">Projects</a> / RecSys for B2B platform</p>
+      <header class="project-intro">
+        <p class="eyebrow">Project</p>
+        <h1>RecSys for B2B platform</h1>
+        <p class="lead">RecSys with AutoML.</p>
+        <p>I am working on RecSys to generate product recommendations for ABI's B2B platform, BEEs. The work includes AutoML for hyperparameter selection, distributed model training, feature store integration, and deployment in cloud-native compute environments.</p>
+        <p class="project-tags"><span>RecSys</span><span>Python</span><span>ML</span><span>AutoML</span></p>
+      </header>
+      <div class="project-columns">
+        <section><h2>Algorithm related challenges</h2><ul><li>Cross-validation and model comparison</li><li>Model selection and hybrid models</li><li>Hyperparameter tuning across compute types</li><li>KPIs, backtesting, and A/B testing</li><li>Model and data drift, retraining, and monitoring</li></ul></section>
+        <section><h2>Programming &amp; Infra related challenges</h2><ul><li>Codespaces and development environments</li><li>Distributed experiments in AML and ADB</li><li>Debugging and observability</li><li>Property-based testing for ML models</li><li>Portable library dependencies</li></ul></section>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    const allowed = new Set(["home", "home-mobile", "archive", "article", "fieldnotes", "project"]);
+    const requested = new URLSearchParams(location.search).get("screen");
+    const screen = allowed.has(requested) ? requested : "home";
+    document.body.dataset.screen = screen;
+    const active = { home: "about", "home-mobile": "about", archive: "writing", article: "writing", fieldnotes: "fieldnotes", project: "projects" }[screen];
+    const template = document.querySelector("#site-header");
+    document.querySelectorAll("[data-site-header]").forEach(slot => slot.replaceWith(template.content.cloneNode(true)));
+    document.querySelectorAll("[data-nav]").forEach(link => {
+      if (link.dataset.nav === active) link.setAttribute("aria-current", "page");
+    });
+    document.title = `${screen.replace("-", " ")} · Aritra Biswas`;
+  </script>
+</body>
+</html>

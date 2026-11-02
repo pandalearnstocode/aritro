@@ -8,7 +8,7 @@ categories:
 tags:
   - python
 subtitle: ''
-summary: ''
+summary: 'Notes on using Poetry to manage Python dependencies, project metadata, virtual environments, and package publishing.'
 authors: []
 lastmod: '2021-12-18'
 featured: no
@@ -20,7 +20,7 @@ projects: []
 ---
 
 
-# __Exploring `poetry` for dependency management in python__
+## Exploring `poetry` for dependency management in python
 
 In general `pip` & `venv` is a good combination of tool when you don't have to manage multiple dependencies for your project. But imaging that in a project you need to management multiple dependency files to deploy code into multiple envs. It is possible to do this with `pip`, but in that case you need to manage multiple requirements files. To solve this project I have checked a few alternative like  `pyenv`, `pipx`, `pipenv`, `poetry` etc. According to my experience, poetry is the simplest and most efficient one. I was checking some of the useful tutorials about this and here I am just taking a note of some of the useful points regarding this tool.
 

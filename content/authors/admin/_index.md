@@ -1,5 +1,5 @@
 ---
-bio: My research interests include computational statistics, causal inference, simulation and mathematical optimization.
+bio: I work at the intersection of analytics, machine learning, and software engineering, with research interests in computational statistics, causal inference, simulation, and mathematical optimization.
 education:
   courses:
   - course: M.Sc. in Statistics
@@ -18,7 +18,7 @@ interests:
 organizations:
 - name: AB InBev
   url: https://www.ab-inbev.com/
-role: Senior Manager Analytics
+role: Senior Manager, AI Engineering
 social:
 - display:
     header: true
@@ -48,11 +48,11 @@ superuser: true
 title: Aritra Biswas
 ---
 
-Hello and welcome! I am Aritra Biswas, a Senior Manager of Analytics at AB InBev and an independent researcher. Originally from the vibrant city of Calcutta, I now reside in the bustling tech hub of Bangalore. My interests span mathematics, statistics, and computer science, which fuel my drive for innovation in machine learning.
+I’m Aritra Biswas, a Senior Manager of Analytics at AB InBev and an independent researcher based in Bangalore. My work brings together statistics, machine learning, and software engineering, with a focus on turning sound methods into useful systems.
 
-As a proud millennial, outside of work, you can find me indulging in my hobbies of reading, cooking and exploring new cuisines. My love for travel has taken me to 🇵🇱, 🇫🇷, 🇹🇭, 🇲🇾, 🇸🇬, 🇳🇱, 🇧🇪, 🇧🇷, 🇦🇪 and 🇻🇳 — where I’ve probably eaten my weight in local delicacies.
+Outside work, I enjoy reading, cooking, and exploring new cuisines. Travel has taken me to 🇵🇱, 🇫🇷, 🇹🇭, 🇲🇾, 🇸🇬, 🇳🇱, 🇧🇪, 🇧🇷, 🇦🇪, and 🇻🇳, often with food as the highlight.
 
-I also love sharing my experiences through blogging. Join me as we dive into the exciting world of technology and data—it's going to be a deliciously fun ride!
+I write about practical lessons from data and technology, from statistical methods to the engineering choices that make systems dependable.
 
 
 {{< icon name="download" pack="fas" >}} Download my {{< staticref "uploads/aritrabiswas_resume.pdf" "newtab" >}}resumé{{< /staticref >}}.

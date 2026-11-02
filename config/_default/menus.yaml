@@ -8,7 +8,7 @@ main:
     url: '#about'
     weight: 10
   - name: About me
-    url: '/about-me/'
+    url: 'https://aritro.in/about-me/'
     weight: 15
   - name: Experience
     url: '#experience'

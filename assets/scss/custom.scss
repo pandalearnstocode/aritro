@@ -269,6 +269,35 @@ a:hover, a:focus-visible { color: var(--site-accent); }
 
 #experience .experience { margin-bottom: 0; }
 
+#experience .experience > .col-auto {
+  position: relative;
+  display: block !important;
+  width: 52px;
+  flex: 0 0 52px;
+  padding: 0;
+}
+
+#experience .experience > .col-auto .row { display: none; }
+
+#experience .experience > .col-auto .m-2 {
+  position: absolute;
+  top: 1.3rem;
+  left: 50%;
+  z-index: 1;
+  margin: 0 !important;
+  transform: translateX(-50%);
+}
+
+#experience .experience:not(:last-child) > .col-auto::after {
+  position: absolute;
+  top: 2.3rem;
+  bottom: -1.3rem;
+  left: 50%;
+  width: 1px;
+  background: var(--site-line);
+  content: "";
+}
+
 #experience .experience .card {
   background: transparent;
   border: 0;
@@ -332,6 +361,10 @@ a:hover, a:focus-visible { color: var(--site-accent); }
 @media (max-width: 767px) {
   .universal-wrapper { padding-right: 20px; padding-left: 20px; }
   .stream-item { padding: 1.5rem 0; }
+}
+
+@media (max-width: 575.98px) {
+  #experience .experience > .col-auto { display: none !important; }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -265,9 +265,67 @@ a:hover, a:focus-visible { color: var(--site-accent); }
   color: var(--site-muted);
 }
 
+#experience .col-lg-8 { max-width: 760px; }
+
+#experience .experience { margin-bottom: 0; }
+
+#experience .experience .card {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+#experience .experience .card-body {
+  min-height: 7rem;
+  padding: 1rem 0 1.25rem;
+}
+
+#experience .experience:first-of-type .card-body { padding-left: 52px; }
+
+#experience .experience img {
+  width: 42px;
+  height: 42px;
+}
+
+#experience .exp-title {
+  color: var(--site-ink) !important;
+  font-size: 1.08rem;
+  font-weight: 700;
+}
+
+#experience .exp-company {
+  color: var(--site-ink) !important;
+  font-size: 0.95rem;
+}
+
+#experience .exp-company a { color: inherit; }
+
+#experience .exp-meta {
+  margin-top: 0.2rem;
+  color: var(--site-accent) !important;
+  font-weight: 600;
+}
+
+#experience .m-2 .badge {
+  width: 1rem;
+  height: 1rem;
+  padding: 0;
+  background: var(--site-paper);
+  border: 2px solid var(--site-accent) !important;
+}
+
+#experience .m-2 .badge.exp-fill {
+  background: var(--site-amber) !important;
+  border-color: var(--site-amber) !important;
+}
+
+#experience .col.border-right { border-color: var(--site-line) !important; }
+
 @media (max-width: 767px) {
   .universal-wrapper { padding-right: 20px; padding-left: 20px; }
   .stream-item { padding: 1.5rem 0; }
+  #experience .experience:first-of-type .card-body { padding-left: 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {

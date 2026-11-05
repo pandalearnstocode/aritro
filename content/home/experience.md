@@ -16,10 +16,6 @@ date_format: '2006'
 #   Required fields are `title`, `company`, and `date_start`.
 #   Leave `date_end` empty if it's your current employer.
 experience:
-  - title: Statistics
-    company: Presidency College → University of Delhi
-    date_start: '2015-01-01'
-    date_end: '2017-12-31'
   - title: Data Scientist
     company: Nielsen
     company_url: 'https://www.nielsen.com/'

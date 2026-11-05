@@ -232,8 +232,10 @@ a:hover, a:focus-visible { color: var(--site-accent); }
 }
 
 .stream-item img {
-  border: 1px solid var(--site-line);
+  border: 0;
   border-radius: 0;
+  background: transparent;
+  box-shadow: none;
 }
 
 .article-container { max-width: 1080px; }

@@ -9,3 +9,14 @@
 .DS_Store
 Thumbs.db
 /resume/
+
+# About-me deck working files and superseded assets
+/design/about-me/
+/static/about-me/images/*-backup.*
+/static/about-me/images/*-original.*
+/static/about-me/images/technology-interests-background.png
+/static/about-me/images/technology-interests-background-v2.png
+/static/about-me/images/me/cartoon/long/*
+!/static/about-me/images/me/cartoon/long/aritro-portrait-loop.gif
+/static/about-me/images/me/cartoon/wide/*
+!/static/about-me/images/me/cartoon/wide/aritro-travel-loop.gif

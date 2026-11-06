@@ -50,7 +50,7 @@ title: Aritra Biswas
 
 I’m Aritra Biswas, a Senior Manager of Analytics at AB InBev and an independent researcher based in Bangalore. My work brings together statistics, machine learning, and software engineering, with a focus on turning sound methods into useful systems.
 
-Outside work, I enjoy reading, cooking, and exploring new cuisines. Travel has taken me to 🇵🇱, 🇫🇷, 🇹🇭, 🇲🇾, 🇸🇬, 🇳🇱, 🇧🇪, 🇧🇷, 🇦🇪, and 🇻🇳, often with food as the highlight.
+Outside work, I enjoy reading, cooking, and exploring new cuisines. Travel has taken me to 🇵🇱🇫🇷🇹🇭🇲🇾🇸🇬🇳🇱🇧🇪🇧🇷🇦🇪🇻🇳, often with food as the highlight.
 
 I write about practical lessons from data and technology, from statistical methods to the engineering choices that make systems dependable.
 

@@ -90,16 +90,21 @@ size: 16:9
 
 <!-- _class: technology-slide -->
 <div class="technology-interests-slide">
-  <img class="technology-art" src="images/technology-interests-background-v3.png" alt="">
   <div class="technology-copy">
     <h1>What I keep exploring</h1>
     <ul class="technology-list">
-      <li><strong>Applied AI</strong><span>Product fit, evaluation, agents</span></li>
-      <li><strong>Physical AI</strong><span>Sensing, robotics, edge systems</span></li>
+      <li>
+        <strong>Artificial Intelligence</strong>
+        <ul>
+          <li>Evaluation</li>
+          <li>Agentic Design Patterns</li>
+          <li>Robotics</li>
+        </ul>
+      </li>
       <li><strong>Programming</strong><span>Python, systems, developer tools</span></li>
       <li><strong>Statistics</strong><span>Uncertainty, experiments, causality</span></li>
       <li><strong>Design thinking</strong><span>Observation, prototypes, human machine interaction</span></li>
-      <li><strong>Platform Engineering</strong><span>Developer experience, reliable foundations</span></li>
+      <li><strong>Platform Engineering</strong><span>Distributed AI Systems, Developer Experience, Reliable Foundations</span></li>
     </ul>
   </div>
 </div>

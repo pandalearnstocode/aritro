@@ -10,30 +10,40 @@ title: Experience
 subtitle:
 # Date format for experience
 #   Refer to https://wowchemy.com/docs/customization/#date-format
-date_format: '2006'
+date_format: 'Jan 2006'
 # Experiences.
 #   Add/remove as many `experience` items below as you like.
 #   Required fields are `title`, `company`, and `date_start`.
 #   Leave `date_end` empty if it's your current employer.
 experience:
-  - title: Senior Manager · AI Engineering
+  - title: Senior Manager
     company: AB InBev
     company_url: 'https://www.ab-inbev.com/'
     company_logo: abi
-    date_start: '2023-01-01'
+    date_start: '2023-10-01'
     date_end: ''
-  - title: Data Scientist → Senior ML Engineer
+    location: Bengaluru
+  - title: Senior Machine Learning Engineer
     company: AB InBev
     company_url: 'https://www.ab-inbev.com/'
     company_logo: abi
-    date_start: '2020-01-01'
-    date_end: '2023-12-31'
+    date_start: '2021-09-01'
+    date_end: '2023-09-30'
+    location: Bengaluru
+  - title: Data Scientist
+    company: AB InBev
+    company_url: 'https://www.ab-inbev.com/'
+    company_logo: abi
+    date_start: '2020-05-01'
+    date_end: '2021-08-31'
+    location: Bengaluru
   - title: Data Scientist
     company: Nielsen
     company_url: 'https://www.nielsen.com/'
     company_logo: nielsen
-    date_start: '2017-01-01'
-    date_end: '2020-12-31'
+    date_start: '2017-03-01'
+    date_end: '2020-05-31'
+    location: Bengaluru
 design:
   columns: '2'
 ---

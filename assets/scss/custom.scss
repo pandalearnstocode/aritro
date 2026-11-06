@@ -333,6 +333,7 @@ a:hover, a:focus-visible { color: var(--site-accent); }
 }
 
 #experience .exp-company {
+  display: none;
   color: var(--site-ink) !important;
   font-size: 0.95rem;
 }

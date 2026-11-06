@@ -41,5 +41,5 @@ experience:
     date_start: '2017-03-01'
     date_end: '2020-05-31'
 design:
-  columns: '2'
+  columns: '1'
 ---

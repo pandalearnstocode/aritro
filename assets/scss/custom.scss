@@ -267,7 +267,7 @@ a:hover, a:focus-visible { color: var(--site-accent); }
   color: var(--site-muted);
 }
 
-#experience .col-lg-8 { max-width: 760px; }
+#experience .section-heading { text-align: left !important; }
 
 #experience .experience { margin-bottom: 0; }
 
@@ -308,8 +308,8 @@ a:hover, a:focus-visible { color: var(--site-accent); }
 }
 
 #experience .experience .card-body {
-  min-height: 4rem;
-  padding: 1rem 0 1.25rem;
+  min-height: 3rem;
+  padding: 0.5rem 0;
 }
 
 #experience .experience .card-body > .d-flex { align-items: center; }

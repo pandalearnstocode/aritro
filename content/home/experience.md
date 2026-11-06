@@ -22,28 +22,24 @@ experience:
     company_logo: abi
     date_start: '2023-10-01'
     date_end: ''
-    location: Bengaluru
   - title: Senior Machine Learning Engineer
     company: AB InBev
     company_url: 'https://www.ab-inbev.com/'
     company_logo: abi
     date_start: '2021-09-01'
     date_end: '2023-09-30'
-    location: Bengaluru
   - title: Data Scientist
     company: AB InBev
     company_url: 'https://www.ab-inbev.com/'
     company_logo: abi
     date_start: '2020-05-01'
     date_end: '2021-08-31'
-    location: Bengaluru
   - title: Data Scientist
     company: Nielsen
     company_url: 'https://www.nielsen.com/'
     company_logo: nielsen
     date_start: '2017-03-01'
     date_end: '2020-05-31'
-    location: Bengaluru
 design:
   columns: '2'
 ---

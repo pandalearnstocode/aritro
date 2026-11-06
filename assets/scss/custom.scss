@@ -312,9 +312,21 @@ a:hover, a:focus-visible { color: var(--site-accent); }
   padding: 1rem 0 1.25rem;
 }
 
+#experience .experience .card-body > .d-flex { align-items: center; }
+
+#experience .experience .card-body > .d-flex > div:last-child {
+  display: flex;
+  flex: 1;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  min-width: 0;
+}
+
 #experience .experience img {
-  width: 96px;
-  height: 40px;
+  width: auto;
+  max-width: 5rem;
+  height: 1.1em;
   object-fit: contain;
 }
 
@@ -341,9 +353,10 @@ a:hover, a:focus-visible { color: var(--site-accent); }
 #experience .exp-company a { color: inherit; }
 
 #experience .exp-meta {
-  margin-top: 0.2rem;
+  margin-top: 0;
   color: var(--site-accent) !important;
   font-weight: 600;
+  white-space: nowrap;
 }
 
 #experience .m-2 .badge {
@@ -364,6 +377,12 @@ a:hover, a:focus-visible { color: var(--site-accent); }
 @media (max-width: 767px) {
   .universal-wrapper { padding-right: 20px; padding-left: 20px; }
   .stream-item { padding: 1.5rem 0; }
+  #experience .experience .card-body > .d-flex > div:last-child {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0;
+  }
+  #experience .exp-meta { margin-top: 0.2rem; }
 }
 
 @media (max-width: 575.98px) {

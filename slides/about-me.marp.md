@@ -17,10 +17,6 @@ size: 16:9
     <p class="role">Engineering Manager, Bengaluru.</p>
     <p class="hook">Curious about people, technology, and how things work.</p>
   </div>
-  <picture>
-    <source media="(prefers-reduced-motion: reduce)" srcset="images/me/cartoon/long/aritro-portrait-poster.jpg">
-    <img class="profile-photo" src="images/me/cartoon/long/aritro-portrait-loop.gif" alt="Illustrated portrait of Aritra in travel and everyday scenes">
-  </picture>
 </div>
 
 ---
@@ -167,10 +163,3 @@ size: 16:9
 - [![](images/icons/github.svg) pandalearnstocode](https://github.com/pandalearnstocode/)
 - [![](images/icons/globe.svg) aritro.in](https://aritro.in/)
 
-<figure class="gif-panel">
-  <picture>
-    <source media="(prefers-reduced-motion: reduce)" srcset="images/me/cartoon/wide/aritro-travel-poster.jpg">
-    <img class="contact-gif" src="images/me/cartoon/wide/aritro-travel-loop.gif" alt="Illustrated travel loop featuring Aritra in several places">
-  </picture>
-  <figcaption>A few moments from India, Malaysia, Singapore, Vietnam, Thailand, Brazil, and the Netherlands.</figcaption>
-</figure>
